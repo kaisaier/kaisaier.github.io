@@ -611,6 +611,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
   <div class="comments" id="comments">
     
+      <div id="gitalk-container"></div>
+    
   </div>
 
 
@@ -708,6 +710,30 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
         <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/kaisaier" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="1285310959@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+          
           
           <!-- 网易云音乐 -->
             <!-- <div class="netease-cloud-music"> -->
@@ -730,11 +756,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             <ul class="links-of-blogroll-list">
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://119.23.17.57" title="ksun的博客" target="_blank">ksun的博客</a>
+                  <a href="https://laod.cn/" title="老爹助你一臂之力" target="_blank">老爹助你一臂之力</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="https://mp.weixin.qq.com/mp/homepage?__biz=MzU3MTUyNzg0NQ==&hid=1&sn=7a3ae61b7af714f75d68e7ae826a2d2c&scene=18#wechat_redirect" title="你有图么我有故事" target="_blank">你有图么我有故事</a>
+                  <a href="http://www.dayanzai.me/" title="大眼仔眼睛大" target="_blank">大眼仔眼睛大</a>
                 </li>
               
             </ul>
@@ -778,7 +804,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <div class="footer-inner">
         <div class="copyright">
   
-  &copy;  2013 - 
+  &copy;  2014 - 
   <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -905,6 +931,21 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
+    <link rel="stylesheet" href="/css/gitalk.css">
+    <script src="/js/src/gitalk.min.js"></script>
+    <script type="text/javascript">
+		var gitalk = new Gitalk({
+            clientID: '7b952c6a994fea0a45a9',
+            clientSecret: '662cf6468b397efa59bf95746b679c07399e7eed',
+            repo: 'kaisaier.github.io',
+            owner: 'kaisaier',
+            admin: ['kaisaier'], 
+            id: location.pathname,
+            distractionFreeMode: 'true'
+		})
+		gitalk.render('gitalk-container')           
+    </script>
 
   
 
