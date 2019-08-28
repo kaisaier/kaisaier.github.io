@@ -1,9 +1,9 @@
 ---
-title: 不受灯光颜色影响
-date: 2018-07-20 22:22:34
+title: UE4如何让物体不受光照的颜色影响
+date: 2018-03-13 23:59:59
 tags:
 - UE4
-- Zen
+- LightMass
 categories:
 - UE4
 password: 233
