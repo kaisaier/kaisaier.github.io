@@ -61,7 +61,7 @@
 
   
   
-  <link href="/blog/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
 
 
 
@@ -69,9 +69,9 @@
 
 
 
-<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="MySQL,">
@@ -83,7 +83,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.2">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
 
 
 
@@ -98,22 +98,22 @@
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="索引概要索引是帮助mysql获取数据的数据结构。最常见的索引是  Btree索引 Hash索引  不同的引擎对于索引有不同的支持：  Innodb和MyISAM默认的索引是Btree索引； Mermory默认的索引是Hash索引。  Hash索引Mermory默认的索引是Hash索引。 所谓Hash索引，当我们要给某张表某列增加索引时，将这张表的这一列进行哈希算法计算，得到哈希值， 排序在哈希数组">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index1.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index2.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index3.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index4.png">
+<meta property="og:image" content="https://kaisaier.github.io/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index1.png">
+<meta property="og:image" content="https://kaisaier.github.io/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index2.png">
+<meta property="og:image" content="https://kaisaier.github.io/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index3.png">
+<meta property="og:image" content="https://kaisaier.github.io/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index4.png">
 <meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hash索引btree索引聚簇索引非聚簇索引">
 <meta name="twitter:description" content="索引概要索引是帮助mysql获取数据的数据结构。最常见的索引是  Btree索引 Hash索引  不同的引擎对于索引有不同的支持：  Innodb和MyISAM默认的索引是Btree索引； Mermory默认的索引是Hash索引。  Hash索引Mermory默认的索引是Hash索引。 所谓Hash索引，当我们要给某张表某列增加索引时，将这张表的这一列进行哈希算法计算，得到哈希值， 排序在哈希数组">
-<meta name="twitter:image" content="https://kaisaier.github.io/blog/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index1.png">
+<meta name="twitter:image" content="https://kaisaier.github.io/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index1.png">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/blog/',
+    root: '/',
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
@@ -175,7 +175,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/blog/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
@@ -233,7 +233,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/blog/categories/" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
@@ -243,7 +243,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives/" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
@@ -253,7 +253,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags/" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
@@ -263,7 +263,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-about">
-          <a href="/blog/about/" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
@@ -308,12 +308,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -360,7 +360,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/DB/" itemprop="url" rel="index">
+                  <a href="/categories/DB/" itemprop="url" rel="index">
                     <span itemprop="name">DB</span>
                   </a>
                 </span>
@@ -374,7 +374,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="post-tags">
               
-                <a href="/blog/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
+                <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
               
             </div>
           
@@ -412,7 +412,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2015/08/31/gdb_multi_thread_and_multi_process/" rel="next" title="GDB多进程多线程调试实战">
+              <a href="/2015/08/31/gdb_multi_thread_and_multi_process/" rel="next" title="GDB多进程多线程调试实战">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
                   GDB多进程多线程调试实战
@@ -425,7 +425,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2015/09/13/unity_cpp_swig_csharp/" rel="prev" title="Unity中C#调用C++写的DLL之Swig篇">
+              <a href="/2015/09/13/unity_cpp_swig_csharp/" rel="prev" title="Unity中C#调用C++写的DLL之Swig篇">
               <p class="post-nav-pre-next-title">
                   Unity中C#调用C++写的DLL之Swig篇
               </p> 
@@ -470,19 +470,19 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 </ul>
 <h1 id="Btree索引"><a href="#Btree索引" class="headerlink" title="Btree索引"></a>Btree索引</h1><p>Innodb和MyISAM默认的索引是Btree索引；<br>至于Btree索引，它是以B+树为存储结构实现的。<br>但是Btree索引的存储结构在Innodb和MyISAM中有很大区别。</p>
 <h2 id="btree索引在MyISAM中的实现"><a href="#btree索引在MyISAM中的实现" class="headerlink" title="btree索引在MyISAM中的实现"></a>btree索引在MyISAM中的实现</h2><p>在MyISAM中，我们如果要对某张表的某列建立Btree索引的话，如图：</p>
-<img src="/blog/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index1.png">
+<img src="/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index1.png">
 
 <p>所以我们经常会说MyISAM中数据文件和索引文件是分开的。<br>因此MyISAM的索引方式也称为非聚集,<br>至于辅助索引，类似于主索引，唯一区别就是主索引上的值不能重复，而辅助索引可以重复。</p>
-<img src="/blog/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index2.png">
+<img src="/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index2.png">
 
 <p>因此当我们根据Btree索引去搜索的时候，若key存在，在data域找到其地址，然后根据地址去表中查找数据记录。</p>
 <h2 id="btree索引在Innodb中的实现"><a href="#btree索引在Innodb中的实现" class="headerlink" title="btree索引在Innodb中的实现"></a>btree索引在Innodb中的实现</h2><p>至于Innodb它跟上面又有很大不同，它的叶子节点存储的并不是表的地址，而是数据</p>
-<img src="/blog/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index3.png">
+<img src="/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index3.png">
 
 <p>我们可以看到这里并没有将地址放入叶子节点，而是直接放入了对应的数据，</p>
 <p>这也就是我们平常说到的，Innodb的索引文件就是数据文件，</p>
 <p>那么对于Innodb的辅助索引结构跟主索引也相差很多，如图：</p>
-<img src="/blog/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index4.png">
+<img src="/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/index4.png">
 
 <p>我们可以发现，这里叶子节点存储的是主键的信息，</p>
 <p>所以我们在利用辅助索引的时候，检索到主键信息，</p>
@@ -528,7 +528,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <div class="post-tags">
             
-              <a href="/blog/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
+              <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
             
           </div>
         
@@ -541,7 +541,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/blog/2015/08/31/gdb_multi_thread_and_multi_process/" rel="next" title="GDB多进程多线程调试实战">
+                <a href="/2015/08/31/gdb_multi_thread_and_multi_process/" rel="next" title="GDB多进程多线程调试实战">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
                     GDB多进程多线程调试实战
@@ -554,7 +554,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/blog/2015/09/13/unity_cpp_swig_csharp/" rel="prev" title="Unity中C#调用C++写的DLL之Swig篇">
+                <a href="/2015/09/13/unity_cpp_swig_csharp/" rel="prev" title="Unity中C#调用C++写的DLL之Swig篇">
                 <p class="post-nav-pre-next-title">
                     Unity中C#调用C++写的DLL之Swig篇
                 </p> 
@@ -644,7 +644,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/blog/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -658,7 +658,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             
             <div class="site-state-item site-state-categories">
-              <a href="/blog/categories/index.html">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -667,7 +667,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/blog/archives/">
+              <a href="/archives/">
                 <span class="site-state-item-count">183</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -678,7 +678,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             
             <div class="site-state-item site-state-tags">
-              <a href="/blog/tags/index.html">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -825,47 +825,47 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
   
-  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
-
-
-  
-
-
-
-
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 

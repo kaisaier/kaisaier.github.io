@@ -61,7 +61,7 @@
 
   
   
-  <link href="/blog/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
 
 
 
@@ -69,9 +69,9 @@
 
 
 
-<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="CPP,Sort,">
@@ -83,7 +83,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.2">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
 
 
 
@@ -98,24 +98,24 @@
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="此文用的是最大堆, 最大堆的堆排序之后的数组是升序, 最小堆反之.堆排序 HeapSort 由 以下两部分组成 :  堆化 MaxHeapify  建堆 BuildMaxHeap.  . . .">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2014/08/24/heap_sort/MaxHeapify.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2014/08/24/heap_sort/build_max_heap_1.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2014/08/24/heap_sort/build_max_heap_2.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2014/08/24/heap_sort/HeapSort3.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2014/08/24/heap_sort/HeapSort1.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2014/08/24/heap_sort/HeapSort2.png">
+<meta property="og:image" content="https://kaisaier.github.io/2014/08/24/heap_sort/MaxHeapify.png">
+<meta property="og:image" content="https://kaisaier.github.io/2014/08/24/heap_sort/build_max_heap_1.png">
+<meta property="og:image" content="https://kaisaier.github.io/2014/08/24/heap_sort/build_max_heap_2.png">
+<meta property="og:image" content="https://kaisaier.github.io/2014/08/24/heap_sort/HeapSort3.png">
+<meta property="og:image" content="https://kaisaier.github.io/2014/08/24/heap_sort/HeapSort1.png">
+<meta property="og:image" content="https://kaisaier.github.io/2014/08/24/heap_sort/HeapSort2.png">
 <meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法四之谈一谈堆排序">
 <meta name="twitter:description" content="此文用的是最大堆, 最大堆的堆排序之后的数组是升序, 最小堆反之.堆排序 HeapSort 由 以下两部分组成 :  堆化 MaxHeapify  建堆 BuildMaxHeap.  . . .">
-<meta name="twitter:image" content="https://kaisaier.github.io/blog/2014/08/24/heap_sort/MaxHeapify.png">
+<meta name="twitter:image" content="https://kaisaier.github.io/2014/08/24/heap_sort/MaxHeapify.png">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/blog/',
+    root: '/',
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
@@ -177,7 +177,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/blog/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
@@ -235,7 +235,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/blog/categories/" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
@@ -245,7 +245,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives/" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
@@ -255,7 +255,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags/" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
@@ -265,7 +265,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-about">
-          <a href="/blog/about/" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
@@ -310,12 +310,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2014/08/24/heap_sort/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2014/08/24/heap_sort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -362,7 +362,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/CPP/" itemprop="url" rel="index">
+                  <a href="/categories/CPP/" itemprop="url" rel="index">
                     <span itemprop="name">CPP</span>
                   </a>
                 </span>
@@ -376,9 +376,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="post-tags">
               
-                <a href="/blog/tags/CPP/" rel="tag"><i class="fa fa-tag"></i> CPP</a>
+                <a href="/tags/CPP/" rel="tag"><i class="fa fa-tag"></i> CPP</a>
               
-                <a href="/blog/tags/Sort/" rel="tag"><i class="fa fa-tag"></i> Sort</a>
+                <a href="/tags/Sort/" rel="tag"><i class="fa fa-tag"></i> Sort</a>
               
             </div>
           
@@ -416,7 +416,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2014/08/22/quick_sort_and_binary_search/" rel="next" title="排序算法三之谈一谈快排优化和二分查找">
+              <a href="/2014/08/22/quick_sort_and_binary_search/" rel="next" title="排序算法三之谈一谈快排优化和二分查找">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
                   排序算法三之谈一谈快排优化和二分查找
@@ -429,7 +429,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2014/09/09/cplusplus_confused_points_one/" rel="prev" title="C++很基础的易混淆点一">
+              <a href="/2014/09/09/cplusplus_confused_points_one/" rel="prev" title="C++很基础的易混淆点一">
               <p class="post-nav-pre-next-title">
                   C++很基础的易混淆点一
               </p> 
@@ -454,27 +454,27 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 </ul>
 <p><strong>. . .</strong><a id="more"></a></p>
 <h1 id="堆化MaxHeapify"><a href="#堆化MaxHeapify" class="headerlink" title="堆化MaxHeapify"></a>堆化MaxHeapify</h1><p>具体过程如下图 : </p>
-<img src="/blog/2014/08/24/heap_sort/MaxHeapify.png" title="MaxHeapify">
+<img src="/2014/08/24/heap_sort/MaxHeapify.png" title="MaxHeapify">
 
 <p><strong>注意</strong> :<br>在调用MaxHeapify的时候, 我们假定索引为index的元素的左子树和右子树都是最大堆, 不然你如果注意看的话, 你会发现上图中index为10的那个元素其实是没有计算到的, 因为我们假定以index=5为根节点的二叉树都是最大堆了, 所以无需计算他.<br>那为何要作如此假设呢?<br>因为要跟建堆 BuildMaxHeap 配合来完成堆排序, 而建堆 BuildMaxHeap是从下至上的.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MaxHeapify</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> index, <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!arr || index &lt; <span class="number">0</span> || length &lt;= <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"error"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> tempData = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> leftChildIndex = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> rightChildIndex = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> largestIndex = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		leftChildIndex = index * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">		rightChildIndex = index * <span class="number">2</span> + <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">		largestIndex = index;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (leftChildIndex &lt; length &amp;&amp; arr[largestIndex] &lt; arr[leftChildIndex])</span><br><span class="line">		&#123;</span><br><span class="line">			largestIndex = leftChildIndex;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (rightChildIndex &lt; length &amp;&amp; arr[largestIndex] &lt; arr[rightChildIndex])</span><br><span class="line">		&#123;</span><br><span class="line">			largestIndex = rightChildIndex;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (largestIndex != index)</span><br><span class="line">		&#123;</span><br><span class="line">			tempData = arr[index];</span><br><span class="line">			arr[index] = arr[largestIndex];</span><br><span class="line">			arr[largestIndex] = tempData;</span><br><span class="line"></span><br><span class="line">			index = largestIndex;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="建堆BuildMaxHeap"><a href="#建堆BuildMaxHeap" class="headerlink" title="建堆BuildMaxHeap"></a>建堆BuildMaxHeap</h1><p>伪代码如下图 : </p>
-<img src="/blog/2014/08/24/heap_sort/build_max_heap_1.png">
+<img src="/2014/08/24/heap_sort/build_max_heap_1.png">
 
 <p>具体过程如下图 : </p>
-<img src="/blog/2014/08/24/heap_sort/build_max_heap_2.png" title="BuildMaxHeap">
+<img src="/2014/08/24/heap_sort/build_max_heap_2.png" title="BuildMaxHeap">
 
 
 <p><strong>注意</strong> : 因为 c++ 数组的 index 是从0开始的(跟上图中有所不同, 图中的 index 是从1开始的),<br>所以根据算法导论中的结论我们可以知道 c++数组中 index 大于等于 length/2 的元素都是树的叶结点,<br>所以我们对每一个不是叶结点的元素(即为 index 小于等于 length/2 - 1 的元素 )自底向上调用一次 MaxHeapify 就可以把一个大小为 length 的数组转换为最大堆.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildMaxHeap</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!arr || length &lt;= <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"error"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> index = length / <span class="number">2</span> - <span class="number">1</span>; index &gt;= <span class="number">0</span>; --index)</span><br><span class="line">	&#123;</span><br><span class="line">		MaxHeapify(arr, index, length);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="堆排序HeapSort"><a href="#堆排序HeapSort" class="headerlink" title="堆排序HeapSort"></a>堆排序HeapSort</h1><p>伪代码如下图 : </p>
-<img src="/blog/2014/08/24/heap_sort/HeapSort3.png">
+<img src="/2014/08/24/heap_sort/HeapSort3.png">
 
 <p>具体过程如下图 : </p>
-<img src="/blog/2014/08/24/heap_sort/HeapSort1.png">
-<img src="/blog/2014/08/24/heap_sort/HeapSort2.png" title="HeapSort">
+<img src="/2014/08/24/heap_sort/HeapSort1.png">
+<img src="/2014/08/24/heap_sort/HeapSort2.png" title="HeapSort">
 
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HeapSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!arr || length &lt;= <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"error"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	BuildMaxHeap(arr, length);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> tempData = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> index = length - <span class="number">1</span>; index &gt;= <span class="number">1</span>; --index)</span><br><span class="line">	&#123;</span><br><span class="line">		tempData = arr[index];</span><br><span class="line">		arr[index] = arr[<span class="number">0</span>];</span><br><span class="line">		arr[<span class="number">0</span>] = tempData;</span><br><span class="line"></span><br><span class="line">		MaxHeapify(arr, <span class="number">0</span>, --length);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -500,9 +500,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <div class="post-tags">
             
-              <a href="/blog/tags/CPP/" rel="tag"><i class="fa fa-tag"></i> CPP</a>
+              <a href="/tags/CPP/" rel="tag"><i class="fa fa-tag"></i> CPP</a>
             
-              <a href="/blog/tags/Sort/" rel="tag"><i class="fa fa-tag"></i> Sort</a>
+              <a href="/tags/Sort/" rel="tag"><i class="fa fa-tag"></i> Sort</a>
             
           </div>
         
@@ -515,7 +515,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/blog/2014/08/22/quick_sort_and_binary_search/" rel="next" title="排序算法三之谈一谈快排优化和二分查找">
+                <a href="/2014/08/22/quick_sort_and_binary_search/" rel="next" title="排序算法三之谈一谈快排优化和二分查找">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
                     排序算法三之谈一谈快排优化和二分查找
@@ -528,7 +528,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/blog/2014/09/09/cplusplus_confused_points_one/" rel="prev" title="C++很基础的易混淆点一">
+                <a href="/2014/09/09/cplusplus_confused_points_one/" rel="prev" title="C++很基础的易混淆点一">
                 <p class="post-nav-pre-next-title">
                     C++很基础的易混淆点一
                 </p> 
@@ -618,7 +618,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/blog/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -632,7 +632,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             
             <div class="site-state-item site-state-categories">
-              <a href="/blog/categories/index.html">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -641,7 +641,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/blog/archives/">
+              <a href="/archives/">
                 <span class="site-state-item-count">183</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -652,7 +652,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             
             <div class="site-state-item site-state-tags">
-              <a href="/blog/tags/index.html">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -799,47 +799,47 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
   
-  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
-
-
-  
-
-
-
-
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 

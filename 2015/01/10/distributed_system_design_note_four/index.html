@@ -61,7 +61,7 @@
 
   
   
-  <link href="/blog/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
 
 
 
@@ -69,9 +69,9 @@
 
 
 
-<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="Distributed,">
@@ -83,7 +83,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.2">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
 
 
 
@@ -98,23 +98,23 @@
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="分布式系统设计实践基本的理论和策略简单介绍这么多，后面本人会从工程的角度，细化说一下”数据分布“、”副本控制”和”高可用协议” 在分布式系统中，无论是计算还是存储，处理的对象都是数据，数据不存在于一台机器或进程中， . . .">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2015/01/10/distributed_system_design_note_four/distribution41.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2015/01/10/distributed_system_design_note_four/distribution42.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2015/01/10/distributed_system_design_note_four/distribution43.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2015/01/10/distributed_system_design_note_four/distribution44.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2015/01/10/distributed_system_design_note_four/distribution45.png">
+<meta property="og:image" content="https://kaisaier.github.io/2015/01/10/distributed_system_design_note_four/distribution41.png">
+<meta property="og:image" content="https://kaisaier.github.io/2015/01/10/distributed_system_design_note_four/distribution42.png">
+<meta property="og:image" content="https://kaisaier.github.io/2015/01/10/distributed_system_design_note_four/distribution43.png">
+<meta property="og:image" content="https://kaisaier.github.io/2015/01/10/distributed_system_design_note_four/distribution44.png">
+<meta property="og:image" content="https://kaisaier.github.io/2015/01/10/distributed_system_design_note_four/distribution45.png">
 <meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式系统设计概要笔记-四">
 <meta name="twitter:description" content="分布式系统设计实践基本的理论和策略简单介绍这么多，后面本人会从工程的角度，细化说一下”数据分布“、”副本控制”和”高可用协议” 在分布式系统中，无论是计算还是存储，处理的对象都是数据，数据不存在于一台机器或进程中， . . .">
-<meta name="twitter:image" content="https://kaisaier.github.io/blog/2015/01/10/distributed_system_design_note_four/distribution41.png">
+<meta name="twitter:image" content="https://kaisaier.github.io/2015/01/10/distributed_system_design_note_four/distribution41.png">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/blog/',
+    root: '/',
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
@@ -176,7 +176,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/blog/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
@@ -234,7 +234,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/blog/categories/" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
@@ -244,7 +244,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives/" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
@@ -254,7 +254,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags/" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
@@ -264,7 +264,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-about">
-          <a href="/blog/about/" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
@@ -309,12 +309,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2015/01/10/distributed_system_design_note_four/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2015/01/10/distributed_system_design_note_four/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -361,7 +361,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/NP/" itemprop="url" rel="index">
+                  <a href="/categories/NP/" itemprop="url" rel="index">
                     <span itemprop="name">NP</span>
                   </a>
                 </span>
@@ -375,7 +375,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="post-tags">
               
-                <a href="/blog/tags/Distributed/" rel="tag"><i class="fa fa-tag"></i> Distributed</a>
+                <a href="/tags/Distributed/" rel="tag"><i class="fa fa-tag"></i> Distributed</a>
               
             </div>
           
@@ -413,7 +413,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2015/01/07/distributed_system_design_note_three/" rel="next" title="分布式系统设计概要笔记-三">
+              <a href="/2015/01/07/distributed_system_design_note_three/" rel="next" title="分布式系统设计概要笔记-三">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
                   分布式系统设计概要笔记-三
@@ -426,7 +426,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2015/01/22/new和delete详解/" rel="prev" title="new和delete详解">
+              <a href="/2015/01/22/new和delete详解/" rel="prev" title="new和delete详解">
               <p class="post-nav-pre-next-title">
                   new和delete详解
               </p> 
@@ -452,7 +452,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>通过Hash函数的计算求余。</p>
 <p>余数作为处理该数据的服务器索引编号处理。</p>
 <p>如图：</p>
-<img src="/blog/2015/01/10/distributed_system_design_note_four/distribution41.png">
+<img src="/2015/01/10/distributed_system_design_note_four/distribution41.png">
 
 
 <p>这样的好处是只需要通过计算就可以映射出数据和处理节点的关系，不需要存储映射。</p>
@@ -460,20 +460,20 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>并且当处理节点宕机时，这种”硬哈希“的方式会直接导致部分数据异常，还有扩容非常困难，原来的映射关系全部发生变更。</p>
 <p> 此处，如果是”无状态“型的节点，影响比较小，但遇到”有状态“的存储节点时，会发生大量数据位置需要变更，发生大量数据迁移的问题。</p>
 <p> 这个问题在实际生产中，可以通过按2的幂的机器数，成倍扩容的方式来缓解，如图：</p>
-<img src="/blog/2015/01/10/distributed_system_design_note_four/distribution42.png">
+<img src="/2015/01/10/distributed_system_design_note_four/distribution42.png">
 
 <p>不过扩容的数量和方式后收到很大限制。</p>
 <p>下面介绍一种”自适应“的方式解决扩容和容灾的问题。</p>
 <h2 id="一致性哈希："><a href="#一致性哈希：" class="headerlink" title="一致性哈希："></a>一致性哈希：</h2><p>一致性哈希 – Consistent Hash 是使用一个哈希函数计算数据或数据特征的哈希值，令该哈希函数的输出值域为一个封闭的环，最大值+1=最小值。</p>
 <p>将节点随机分布到这个环上，每个节点负责处理从自己开始顺<br>时针至下一个节点的全部哈希值域上的数据，如图：</p>
-<img src="/blog/2015/01/10/distributed_system_design_note_four/distribution43.png">
+<img src="/2015/01/10/distributed_system_design_note_four/distribution43.png">
 
 <p>一致性哈希的优点在于可以任意动态添加、删除节点，每次添加、删除一个节点仅影响一致性哈希环上相邻的节点。</p>
 <p> 为了尽可能均匀的分布节点和数据，一种常见的改进算法是引入虚节点的概念，系统会创建许多虚拟节点，个数远大于当前节点的个数，均匀分布到一致性哈希值域环上。</p>
 <p> 读写数据时，首先通过数据的哈希值在环上找到对应的虚节点，然后查找到对应的real节点。</p>
 <p> 这样在扩容和容错时，大量读写的压力会再次被其他部分节点分摊，主要解决了压力集中的问题。</p>
 <p>如图：</p>
-<img src="/blog/2015/01/10/distributed_system_design_note_four/distribution44.png">
+<img src="/2015/01/10/distributed_system_design_note_four/distribution44.png">
 
 
 
@@ -486,7 +486,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>由于与具体的数据内容无关，按数据量分布数据的方式一般没有数据倾斜的问题，数据总是被均匀切分并分布到集群中。</p>
 <p>当集群需要重新负载均衡时，只需通过迁移数据块即可完成。</p>
 <p>如图：</p>
-<img src="/blog/2015/01/10/distributed_system_design_note_four/distribution45.png">
+<img src="/2015/01/10/distributed_system_design_note_four/distribution45.png">
 
 
 
@@ -501,7 +501,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <div class="post-tags">
             
-              <a href="/blog/tags/Distributed/" rel="tag"><i class="fa fa-tag"></i> Distributed</a>
+              <a href="/tags/Distributed/" rel="tag"><i class="fa fa-tag"></i> Distributed</a>
             
           </div>
         
@@ -514,7 +514,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/blog/2015/01/07/distributed_system_design_note_three/" rel="next" title="分布式系统设计概要笔记-三">
+                <a href="/2015/01/07/distributed_system_design_note_three/" rel="next" title="分布式系统设计概要笔记-三">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
                     分布式系统设计概要笔记-三
@@ -527,7 +527,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/blog/2015/01/22/new和delete详解/" rel="prev" title="new和delete详解">
+                <a href="/2015/01/22/new和delete详解/" rel="prev" title="new和delete详解">
                 <p class="post-nav-pre-next-title">
                     new和delete详解
                 </p> 
@@ -617,7 +617,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/blog/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -631,7 +631,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             
             <div class="site-state-item site-state-categories">
-              <a href="/blog/categories/index.html">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -640,7 +640,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/blog/archives/">
+              <a href="/archives/">
                 <span class="site-state-item-count">183</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -651,7 +651,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             
             <div class="site-state-item site-state-tags">
-              <a href="/blog/tags/index.html">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -798,47 +798,47 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
   
-  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
-
-
-  
-
-
-
-
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 

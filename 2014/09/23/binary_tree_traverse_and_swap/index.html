@@ -61,7 +61,7 @@
 
   
   
-  <link href="/blog/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
 
 
 
@@ -69,9 +69,9 @@
 
 
 
-<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="CPP,DataStructure,noodle,">
@@ -83,7 +83,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.2">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
 
 
 
@@ -98,20 +98,20 @@
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="二叉树的二叉链式存储方案的代码表示： 123456typedef struct BinTreeNode&amp;#123;	BinTreeNode( char Data ) : data_( Data ), left_( nullptr ), right_( nullptr ) &amp;#123;&amp;#125;	char data_;	struct BinTreeNode *left_, *right_;&amp;#12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2014/09/23/binary_tree_traverse_and_swap/BreadthFirstTraverse1.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2014/09/23/binary_tree_traverse_and_swap/binary_tree_traverse_and_swap_1.png">
+<meta property="og:image" content="https://kaisaier.github.io/2014/09/23/binary_tree_traverse_and_swap/BreadthFirstTraverse1.png">
+<meta property="og:image" content="https://kaisaier.github.io/2014/09/23/binary_tree_traverse_and_swap/binary_tree_traverse_and_swap_1.png">
 <meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构二之二叉树的遍历和交换左右孩子">
 <meta name="twitter:description" content="二叉树的二叉链式存储方案的代码表示： 123456typedef struct BinTreeNode&amp;#123;	BinTreeNode( char Data ) : data_( Data ), left_( nullptr ), right_( nullptr ) &amp;#123;&amp;#125;	char data_;	struct BinTreeNode *left_, *right_;&amp;#12">
-<meta name="twitter:image" content="https://kaisaier.github.io/blog/2014/09/23/binary_tree_traverse_and_swap/BreadthFirstTraverse1.png">
+<meta name="twitter:image" content="https://kaisaier.github.io/2014/09/23/binary_tree_traverse_and_swap/BreadthFirstTraverse1.png">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/blog/',
+    root: '/',
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
@@ -173,7 +173,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/blog/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
@@ -231,7 +231,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/blog/categories/" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
@@ -241,7 +241,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives/" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
@@ -251,7 +251,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags/" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
@@ -261,7 +261,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-about">
-          <a href="/blog/about/" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
@@ -306,12 +306,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2014/09/23/binary_tree_traverse_and_swap/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2014/09/23/binary_tree_traverse_and_swap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -358,7 +358,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/CPP/" itemprop="url" rel="index">
+                  <a href="/categories/CPP/" itemprop="url" rel="index">
                     <span itemprop="name">CPP</span>
                   </a>
                 </span>
@@ -372,11 +372,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="post-tags">
               
-                <a href="/blog/tags/CPP/" rel="tag"><i class="fa fa-tag"></i> CPP</a>
+                <a href="/tags/CPP/" rel="tag"><i class="fa fa-tag"></i> CPP</a>
               
-                <a href="/blog/tags/DataStructure/" rel="tag"><i class="fa fa-tag"></i> DataStructure</a>
+                <a href="/tags/DataStructure/" rel="tag"><i class="fa fa-tag"></i> DataStructure</a>
               
-                <a href="/blog/tags/noodle/" rel="tag"><i class="fa fa-tag"></i> noodle</a>
+                <a href="/tags/noodle/" rel="tag"><i class="fa fa-tag"></i> noodle</a>
               
             </div>
           
@@ -414,7 +414,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2014/09/22/binary_tree_create_and_destroy/" rel="next" title="数据结构一之二叉树的创建和销毁">
+              <a href="/2014/09/22/binary_tree_create_and_destroy/" rel="next" title="数据结构一之二叉树的创建和销毁">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
                   数据结构一之二叉树的创建和销毁
@@ -427,7 +427,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2014/09/24/binary_search_tree_insert_delete_search/" rel="prev" title="数据结构三之二叉搜索树的增删查">
+              <a href="/2014/09/24/binary_search_tree_insert_delete_search/" rel="prev" title="数据结构三之二叉搜索树的增删查">
               <p class="post-nav-pre-next-title">
                   数据结构三之二叉搜索树的增删查
               </p> 
@@ -449,7 +449,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BinTreeNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	BinTreeNode( <span class="keyword">char</span> Data ) : data_( Data ), left_( <span class="literal">nullptr</span> ), right_( <span class="literal">nullptr</span> ) &#123;&#125;</span><br><span class="line">	<span class="keyword">char</span> data_;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BinTreeNode</span> *<span class="title">left_</span>, *<span class="title">right_</span>;</span></span><br><span class="line">&#125;btn, *btnp;</span><br></pre></td></tr></table></figure>
 
 <h1 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h1><p><strong>. . .</strong><a id="more"></a> </p>
-<h2 id="二叉树的广度优先遍历"><a href="#二叉树的广度优先遍历" class="headerlink" title="二叉树的广度优先遍历"></a>二叉树的广度优先遍历</h2><img src="/blog/2014/09/23/binary_tree_traverse_and_swap/BreadthFirstTraverse1.png" title="BreadthFirstTraverse">
+<h2 id="二叉树的广度优先遍历"><a href="#二叉树的广度优先遍历" class="headerlink" title="二叉树的广度优先遍历"></a>二叉树的广度优先遍历</h2><img src="/2014/09/23/binary_tree_traverse_and_swap/BreadthFirstTraverse1.png" title="BreadthFirstTraverse">
 
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BreadthFirstTraverse</span><span class="params">( btnp bTreeNode )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( !bTreeNode )</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">queue</span>&lt;btnp&gt; tempQueue;</span><br><span class="line">	tempQueue.push( bTreeNode );</span><br><span class="line">	<span class="keyword">while</span> ( !tempQueue.empty() )</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; tempQueue.front()-&gt;data_ &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">if</span> ( tempQueue.front()-&gt;left_ )</span><br><span class="line">		&#123;</span><br><span class="line">			tempQueue.push( tempQueue.front()-&gt;left_ );</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> ( tempQueue.front()-&gt;right_ )</span><br><span class="line">		&#123;</span><br><span class="line">			tempQueue.push( tempQueue.front()-&gt;right_ );</span><br><span class="line">		&#125;</span><br><span class="line">		tempQueue.pop();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -467,7 +467,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>*<em>所以我们代码中的思路就是 : *</em><br>把每个将要入栈的结点的 <code>isFirstTime_</code> 标志都置为 true , 当第一次遍历到结点p的时候, 不使p出栈, 但使p的 <code>isFirstTime_</code> 标志变为 false, 然后 “<code>bTreeNode</code> = 栈顶-&gt;右孩子” 开始遍历他的右子树. 当p的右子树都遍历完了之后(也就是p的右子树都依次出栈了之后)又会遍历到p自己, 不过这一次他的 <code>isFirstTime_</code> 标志已经为 false 了, 我们通过这个标志知道不是第一次遍历到p了, 所以这时我们使p出栈( 此时p的右子树都已经遍历完了, 所以不用像之前一样再 “<code>bTreeNode</code> = 栈顶-&gt;右孩子” 了 )</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PostOrderTraverseNonRecursion</span><span class="params">( btnp bTreeNode )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( !bTreeNode )</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">PostOrderBTreeNode</span></span></span><br><span class="line"><span class="class">	&#123;</span></span><br><span class="line">		PostOrderBTreeNode( btnp OriginBT, <span class="keyword">bool</span> IsFirstTime )</span><br><span class="line">			: bt_( OriginBT ), isFirstTime_( IsFirstTime ) &#123;&#125;</span><br><span class="line">		btnp bt_;</span><br><span class="line">		<span class="keyword">bool</span> isFirstTime_;</span><br><span class="line">	&#125;pobtn, *pobtnp;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">stack</span>&lt;pobtn&gt; tempStack;</span><br><span class="line">	<span class="keyword">while</span> ( !tempStack.empty() || bTreeNode )</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span> ( bTreeNode )</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="function">pobtn <span class="title">np</span><span class="params">( bTreeNode, <span class="literal">true</span> )</span></span>;</span><br><span class="line">			tempStack.push( np );</span><br><span class="line">			bTreeNode = bTreeNode-&gt;left_;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> ( !tempStack.empty() )</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> ( tempStack.top().isFirstTime_ )</span><br><span class="line">			&#123;</span><br><span class="line">				tempStack.top().isFirstTime_ = <span class="literal">false</span>;</span><br><span class="line">				bTreeNode = tempStack.top().bt_-&gt;right_;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; tempStack.top().bt_-&gt;data_ &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">				tempStack.pop();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="遍历测试代码"><a href="#遍历测试代码" class="headerlink" title="遍历测试代码"></a>遍历测试代码</h3><img src="/blog/2014/09/23/binary_tree_traverse_and_swap/binary_tree_traverse_and_swap_1.png">
+<h3 id="遍历测试代码"><a href="#遍历测试代码" class="headerlink" title="遍历测试代码"></a>遍历测试代码</h3><img src="/2014/09/23/binary_tree_traverse_and_swap/binary_tree_traverse_and_swap_1.png">
 
 <p>如上图得到的相应的三种<strong>深度优先遍历</strong>的序列分别为 ： </p>
 <ul>
@@ -510,11 +510,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <div class="post-tags">
             
-              <a href="/blog/tags/CPP/" rel="tag"><i class="fa fa-tag"></i> CPP</a>
+              <a href="/tags/CPP/" rel="tag"><i class="fa fa-tag"></i> CPP</a>
             
-              <a href="/blog/tags/DataStructure/" rel="tag"><i class="fa fa-tag"></i> DataStructure</a>
+              <a href="/tags/DataStructure/" rel="tag"><i class="fa fa-tag"></i> DataStructure</a>
             
-              <a href="/blog/tags/noodle/" rel="tag"><i class="fa fa-tag"></i> noodle</a>
+              <a href="/tags/noodle/" rel="tag"><i class="fa fa-tag"></i> noodle</a>
             
           </div>
         
@@ -527,7 +527,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/blog/2014/09/22/binary_tree_create_and_destroy/" rel="next" title="数据结构一之二叉树的创建和销毁">
+                <a href="/2014/09/22/binary_tree_create_and_destroy/" rel="next" title="数据结构一之二叉树的创建和销毁">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
                     数据结构一之二叉树的创建和销毁
@@ -540,7 +540,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/blog/2014/09/24/binary_search_tree_insert_delete_search/" rel="prev" title="数据结构三之二叉搜索树的增删查">
+                <a href="/2014/09/24/binary_search_tree_insert_delete_search/" rel="prev" title="数据结构三之二叉搜索树的增删查">
                 <p class="post-nav-pre-next-title">
                     数据结构三之二叉搜索树的增删查
                 </p> 
@@ -630,7 +630,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/blog/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -644,7 +644,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             
             <div class="site-state-item site-state-categories">
-              <a href="/blog/categories/index.html">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -653,7 +653,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/blog/archives/">
+              <a href="/archives/">
                 <span class="site-state-item-count">183</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -664,7 +664,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             
             <div class="site-state-item site-state-tags">
-              <a href="/blog/tags/index.html">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -811,47 +811,47 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
   
-  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
-
-
-  
-
-
-
-
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 

@@ -61,7 +61,7 @@
 
   
   
-  <link href="/blog/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
 
 
 
@@ -69,9 +69,9 @@
 
 
 
-<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="Hexo, NexT">
@@ -83,7 +83,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.2">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
 
 
 
@@ -106,7 +106,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/blog/',
+    root: '/',
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
@@ -170,7 +170,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/blog/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
@@ -228,7 +228,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/blog/categories/" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
@@ -238,7 +238,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives/" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
@@ -248,7 +248,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags/" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
@@ -258,7 +258,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-about">
-          <a href="/blog/about/" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
@@ -303,12 +303,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2014/08/22/quick_sort_and_binary_search/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2014/08/22/quick_sort_and_binary_search/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -322,7 +322,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2014/08/22/quick_sort_and_binary_search/" itemprop="url">排序算法三之谈一谈快排优化和二分查找</a></h1>
+                <a class="post-title-link" href="/2014/08/22/quick_sort_and_binary_search/" itemprop="url">排序算法三之谈一谈快排优化和二分查找</a></h1>
         
 
         <div class="post-meta">
@@ -357,7 +357,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/CPP/" itemprop="url" rel="index">
+                  <a href="/categories/CPP/" itemprop="url" rel="index">
                     <span itemprop="name">CPP</span>
                   </a>
                 </span>
@@ -415,7 +415,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>大的放右边那一摞A，小的放左边B。<br>接着再从左边这一摞B再随意取出一张牌pivot，其他的所有牌都跟这张pivot牌比较， </p>
 <p>大的放右边那一摞，小的放左边，递归下去。<br>A也重复上述步骤递归。</p>
 <p>递归结束之后， 左边的都比右边的小， 而且是有序的。</p>
-<h2 id="算法导论的快排C-实现版本"><a href="#算法导论的快排C-实现版本" class="headerlink" title="算法导论的快排C++实现版本"></a>算法导论的快排C++实现版本</h2><img src="/blog/2014/08/22/quick_sort_and_binary_search/quick_sort_1.png" title="quick_sort">
+<h2 id="算法导论的快排C-实现版本"><a href="#算法导论的快排C-实现版本" class="headerlink" title="算法导论的快排C++实现版本"></a>算法导论的快排C++实现版本</h2><img src="/2014/08/22/quick_sort_and_binary_search/quick_sort_1.png" title="quick_sort">
 
 <p><strong>. . .</strong>
           <!--noindex-->
@@ -473,12 +473,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2014/08/20/bubble_insert_merge_sort/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2014/08/20/bubble_insert_merge_sort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -492,7 +492,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2014/08/20/bubble_insert_merge_sort/" itemprop="url">排序算法二之谈一谈冒泡插入归并</a></h1>
+                <a class="post-title-link" href="/2014/08/20/bubble_insert_merge_sort/" itemprop="url">排序算法二之谈一谈冒泡插入归并</a></h1>
         
 
         <div class="post-meta">
@@ -527,7 +527,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/CPP/" itemprop="url" rel="index">
+                  <a href="/categories/CPP/" itemprop="url" rel="index">
                     <span itemprop="name">CPP</span>
                   </a>
                 </span>
@@ -581,7 +581,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <p><strong>注：以下所有代码皆可以直接运行， 都已经测试过。</strong></p>
 <h1 id="冒泡排序-可略过-不实用"><a href="#冒泡排序-可略过-不实用" class="headerlink" title="冒泡排序(可略过, 不实用)"></a><strong>冒泡排序(可略过, 不实用)</strong></h1><p>想象这里有很多泡泡，最大的泡泡每次循环之后浮到数组的最后面</p>
-<img src="/blog/2014/08/20/bubble_insert_merge_sort/sort_algo_3.png" title="bubble_sort">
+<img src="/2014/08/20/bubble_insert_merge_sort/sort_algo_3.png" title="bubble_sort">
 
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!arr || startIndex &lt; <span class="number">0</span> || endIndex &lt; <span class="number">0</span> || endIndex - startIndex &lt;= <span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> outerIndex = startIndex; outerIndex &lt;= endIndex; ++outerIndex)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> innerIndex = startIndex; innerIndex &lt;= endIndex - outerIndex - <span class="number">1</span>; ++innerIndex)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (arr[innerIndex] &gt; arr[innerIndex + <span class="number">1</span>] )</span><br><span class="line">			&#123;</span><br><span class="line">				temp = arr[innerIndex];</span><br><span class="line">				arr[innerIndex] = arr[innerIndex + <span class="number">1</span>];</span><br><span class="line">				arr[innerIndex + <span class="number">1</span>] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -641,12 +641,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2014/08/19/introduction_of_sort_algorithm_complexity_and_data_structure/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2014/08/19/introduction_of_sort_algorithm_complexity_and_data_structure/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -660,7 +660,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2014/08/19/introduction_of_sort_algorithm_complexity_and_data_structure/" itemprop="url">排序算法一之谈一谈各类算法的复杂度和常用数据结构</a></h1>
+                <a class="post-title-link" href="/2014/08/19/introduction_of_sort_algorithm_complexity_and_data_structure/" itemprop="url">排序算法一之谈一谈各类算法的复杂度和常用数据结构</a></h1>
         
 
         <div class="post-meta">
@@ -695,7 +695,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/CPP/" itemprop="url" rel="index">
+                  <a href="/categories/CPP/" itemprop="url" rel="index">
                     <span itemprop="name">CPP</span>
                   </a>
                 </span>
@@ -853,12 +853,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2014/05/09/三种编程命名规范/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2014/05/09/三种编程命名规范/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -872,7 +872,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2014/05/09/三种编程命名规范/" itemprop="url">三种编程命名规范</a></h1>
+                <a class="post-title-link" href="/2014/05/09/三种编程命名规范/" itemprop="url">三种编程命名规范</a></h1>
         
 
         <div class="post-meta">
@@ -907,7 +907,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/CPP/" itemprop="url" rel="index">
+                  <a href="/categories/CPP/" itemprop="url" rel="index">
                     <span itemprop="name">CPP</span>
                   </a>
                 </span>
@@ -1030,12 +1030,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2014/02/01/bash_enhance/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2014/02/01/bash_enhance/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1049,7 +1049,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2014/02/01/bash_enhance/" itemprop="url">Bash定制</a></h1>
+                <a class="post-title-link" href="/2014/02/01/bash_enhance/" itemprop="url">Bash定制</a></h1>
         
 
         <div class="post-meta">
@@ -1084,7 +1084,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Linux/" itemprop="url" rel="index">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
                     <span itemprop="name">Linux</span>
                   </a>
                 </span>
@@ -1201,7 +1201,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/blog/page/35/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/35/">35</a><span class="page-number current">36</span><a class="page-number" href="/blog/page/37/">37</a><a class="extend next" rel="next" href="/blog/page/37/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/35/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/">37</a><a class="extend next" rel="next" href="/page/37/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1243,7 +1243,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/blog/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -1257,7 +1257,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             
             <div class="site-state-item site-state-categories">
-              <a href="/blog/categories/index.html">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -1266,7 +1266,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/blog/archives/">
+              <a href="/archives/">
                 <span class="site-state-item-count">183</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -1277,7 +1277,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             
             <div class="site-state-item site-state-tags">
-              <a href="/blog/tags/index.html">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -1408,47 +1408,47 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
   
-  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
 
-
-  
-
-
-
-
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
-
-
-  
-  
-
-  
-    <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.2"></script>
-
-  
 
   
 
 
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+  
+  
+
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 

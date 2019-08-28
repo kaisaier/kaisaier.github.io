@@ -61,7 +61,7 @@
 
   
   
-  <link href="/blog/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
 
 
 
@@ -69,9 +69,9 @@
 
 
 
-<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="ObjectModel,">
@@ -83,7 +83,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.2">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
 
 
 
@@ -98,21 +98,21 @@
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="介绍因为c++只规定了 虚继承/ 虚函数/ 多继承/ 的行为, 但将实现方法留给编译器作者. 所以各个平台的实现并不相同, 得出的结果也不尽相同. 经测试, vs和gcc目前比较统一的情况只有2种 :  无继承+无虚函数 无继承+虚函数  故本文只讨论这2种, 以及了解虚函数和虚继承的含义. . . .">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2015/02/21/cpp_object_model_conclusion/virtual_table_0.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2015/02/21/cpp_object_model_conclusion/virtual_table_1.png">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2015/02/21/cpp_object_model_conclusion/cpp_object_model_conclusion_1.png">
+<meta property="og:image" content="https://kaisaier.github.io/2015/02/21/cpp_object_model_conclusion/virtual_table_0.png">
+<meta property="og:image" content="https://kaisaier.github.io/2015/02/21/cpp_object_model_conclusion/virtual_table_1.png">
+<meta property="og:image" content="https://kaisaier.github.io/2015/02/21/cpp_object_model_conclusion/cpp_object_model_conclusion_1.png">
 <meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++对象模型之虚函数实例讲解">
 <meta name="twitter:description" content="介绍因为c++只规定了 虚继承/ 虚函数/ 多继承/ 的行为, 但将实现方法留给编译器作者. 所以各个平台的实现并不相同, 得出的结果也不尽相同. 经测试, vs和gcc目前比较统一的情况只有2种 :  无继承+无虚函数 无继承+虚函数  故本文只讨论这2种, 以及了解虚函数和虚继承的含义. . . .">
-<meta name="twitter:image" content="https://kaisaier.github.io/blog/2015/02/21/cpp_object_model_conclusion/virtual_table_0.png">
+<meta name="twitter:image" content="https://kaisaier.github.io/2015/02/21/cpp_object_model_conclusion/virtual_table_0.png">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/blog/',
+    root: '/',
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
@@ -174,7 +174,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/blog/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
@@ -232,7 +232,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/blog/categories/" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
@@ -242,7 +242,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives/" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
@@ -252,7 +252,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags/" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
@@ -262,7 +262,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-about">
-          <a href="/blog/about/" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
@@ -307,12 +307,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2015/02/21/cpp_object_model_conclusion/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2015/02/21/cpp_object_model_conclusion/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -359,7 +359,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/CPP/" itemprop="url" rel="index">
+                  <a href="/categories/CPP/" itemprop="url" rel="index">
                     <span itemprop="name">CPP</span>
                   </a>
                 </span>
@@ -373,7 +373,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="post-tags">
               
-                <a href="/blog/tags/ObjectModel/" rel="tag"><i class="fa fa-tag"></i> ObjectModel</a>
+                <a href="/tags/ObjectModel/" rel="tag"><i class="fa fa-tag"></i> ObjectModel</a>
               
             </div>
           
@@ -411,7 +411,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2015/02/10/python中的__name__和__main()__/" rel="next" title="python中的__name__和__main()__">
+              <a href="/2015/02/10/python中的__name__和__main()__/" rel="next" title="python中的__name__和__main()__">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
                   python中的__name__和__main()__
@@ -424,7 +424,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2015/02/23/protobuf_tutorial/" rel="prev" title="ProtoBuf的安装与使用">
+              <a href="/2015/02/23/protobuf_tutorial/" rel="prev" title="ProtoBuf的安装与使用">
               <p class="post-nav-pre-next-title">
                   ProtoBuf的安装与使用
               </p> 
@@ -451,13 +451,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p><strong>故本文只讨论这2种, 以及了解虚函数和虚继承的含义.</strong></p>
 <p><strong>. . .</strong><a id="more"></a></p>
 <h2 id="关于虚函数"><a href="#关于虚函数" class="headerlink" title="关于虚函数"></a>关于虚函数</h2><p>当类中声明了虚函数（不管是1个还是多个），那么在实例化对象时，编译器会自动在对象里安插一个指针vPtr指向虚函数表VTable；</p>
-<img src="/blog/2015/02/21/cpp_object_model_conclusion/virtual_table_0.png" title="虚函数讲解(摘自cpp primer plus)">
-<img src="/blog/2015/02/21/cpp_object_model_conclusion/virtual_table_1.png" title="虚函数表图解(摘自cpp primer plus)">
+<img src="/2015/02/21/cpp_object_model_conclusion/virtual_table_0.png" title="虚函数讲解(摘自cpp primer plus)">
+<img src="/2015/02/21/cpp_object_model_conclusion/virtual_table_1.png" title="虚函数表图解(摘自cpp primer plus)">
 
 
 <h2 id="关于虚继承"><a href="#关于虚继承" class="headerlink" title="关于虚继承"></a>关于虚继承</h2><p>当涉及到虚继承，会增加vbPtr指针指向虚基表vbTable</p>
 <h2 id="单继承对象模型"><a href="#单继承对象模型" class="headerlink" title="单继承对象模型"></a>单继承对象模型</h2><p>类的继承关系为：<br>class Derived : public Base</p>
-<img src="/blog/2015/02/21/cpp_object_model_conclusion/cpp_object_model_conclusion_1.png">
+<img src="/2015/02/21/cpp_object_model_conclusion/cpp_object_model_conclusion_1.png">
 
 
 <h2 id="无继承但有虚函数示例"><a href="#无继承但有虚函数示例" class="headerlink" title="无继承但有虚函数示例"></a>无继承但有虚函数示例</h2><p>测试环境为Windows/VS, 32位.</p>
@@ -503,7 +503,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <div class="post-tags">
             
-              <a href="/blog/tags/ObjectModel/" rel="tag"><i class="fa fa-tag"></i> ObjectModel</a>
+              <a href="/tags/ObjectModel/" rel="tag"><i class="fa fa-tag"></i> ObjectModel</a>
             
           </div>
         
@@ -516,7 +516,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/blog/2015/02/10/python中的__name__和__main()__/" rel="next" title="python中的__name__和__main()__">
+                <a href="/2015/02/10/python中的__name__和__main()__/" rel="next" title="python中的__name__和__main()__">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
                     python中的__name__和__main()__
@@ -529,7 +529,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/blog/2015/02/23/protobuf_tutorial/" rel="prev" title="ProtoBuf的安装与使用">
+                <a href="/2015/02/23/protobuf_tutorial/" rel="prev" title="ProtoBuf的安装与使用">
                 <p class="post-nav-pre-next-title">
                     ProtoBuf的安装与使用
                 </p> 
@@ -619,7 +619,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/blog/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -633,7 +633,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             
             <div class="site-state-item site-state-categories">
-              <a href="/blog/categories/index.html">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -642,7 +642,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/blog/archives/">
+              <a href="/archives/">
                 <span class="site-state-item-count">183</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -653,7 +653,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             
             <div class="site-state-item site-state-tags">
-              <a href="/blog/tags/index.html">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -800,47 +800,47 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
   
-  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
-
-
-  
-
-
-
-
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 

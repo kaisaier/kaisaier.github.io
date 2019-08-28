@@ -61,7 +61,7 @@
 
   
   
-  <link href="/blog/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
 
 
 
@@ -69,9 +69,9 @@
 
 
 
-<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="TcpDump,">
@@ -83,7 +83,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.2">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
 
 
 
@@ -98,19 +98,19 @@
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="强大的抓包工具, 博大精深内容太多, 所以这篇博客整理得只说常用, 具体的参考tcpdump用户手册,tcpdump需要root权限, 所以记得加上sudo 常用参数 -nn选项：意思是说当tcpdump遇到协议号或端口号时，不要将这些号码转换成对应的协议名称或端口名称。比如，大家都知道80是http端口，tcpdump就不会将它显示成http了  -c选项：是Count的含义，这设置了我们希望t">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://kaisaier.github.io/blog/2015/11/03/Linux常用命令笔记整理之tcpdump/tcpdump1.png">
+<meta property="og:image" content="https://kaisaier.github.io/2015/11/03/Linux常用命令笔记整理之tcpdump/tcpdump1.png">
 <meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用命令笔记整理之tcpdump">
 <meta name="twitter:description" content="强大的抓包工具, 博大精深内容太多, 所以这篇博客整理得只说常用, 具体的参考tcpdump用户手册,tcpdump需要root权限, 所以记得加上sudo 常用参数 -nn选项：意思是说当tcpdump遇到协议号或端口号时，不要将这些号码转换成对应的协议名称或端口名称。比如，大家都知道80是http端口，tcpdump就不会将它显示成http了  -c选项：是Count的含义，这设置了我们希望t">
-<meta name="twitter:image" content="https://kaisaier.github.io/blog/2015/11/03/Linux常用命令笔记整理之tcpdump/tcpdump1.png">
+<meta name="twitter:image" content="https://kaisaier.github.io/2015/11/03/Linux常用命令笔记整理之tcpdump/tcpdump1.png">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/blog/',
+    root: '/',
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
@@ -172,7 +172,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/blog/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
@@ -230,7 +230,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/blog/categories/" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
@@ -240,7 +240,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives/" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
@@ -250,7 +250,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags/" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
@@ -260,7 +260,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-about">
-          <a href="/blog/about/" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
@@ -305,12 +305,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2015/11/03/Linux常用命令笔记整理之tcpdump/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2015/11/03/Linux常用命令笔记整理之tcpdump/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -357,7 +357,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Linux/" itemprop="url" rel="index">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
                     <span itemprop="name">Linux</span>
                   </a>
                 </span>
@@ -371,7 +371,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="post-tags">
               
-                <a href="/blog/tags/TcpDump/" rel="tag"><i class="fa fa-tag"></i> TcpDump</a>
+                <a href="/tags/TcpDump/" rel="tag"><i class="fa fa-tag"></i> TcpDump</a>
               
             </div>
           
@@ -409,7 +409,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2015/10/23/linux常用文本处理命令笔记整理之sed/" rel="next" title="linux常用文本处理命令笔记整理之sed">
+              <a href="/2015/10/23/linux常用文本处理命令笔记整理之sed/" rel="next" title="linux常用文本处理命令笔记整理之sed">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
                   linux常用文本处理命令笔记整理之sed
@@ -422,7 +422,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2015/11/08/lua_install_tutorial/" rel="prev" title="Lua的win和linux环境搭建">
+              <a href="/2015/11/08/lua_install_tutorial/" rel="prev" title="Lua的win和linux环境搭建">
               <p class="post-nav-pre-next-title">
                   Lua的win和linux环境搭建
               </p> 
@@ -492,7 +492,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">b@b-VirtualBox:~$ sudo tcpdump -i eth0 &apos;host baidu.com&apos;</span><br><span class="line">tcpdump: verbose output suppressed, use -v or -vv for full protocol decode</span><br><span class="line">listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes</span><br><span class="line">06:46:17.487920 IP 192.168.1.57.60110 &gt; 111.13.101.208.http: Flags [S], seq 546310089, win 29200, options [mss 1460,sackOK,TS val 1221546 ecr 0,nop,wscale 7], length 0</span><br><span class="line">06:46:17.530422 IP 111.13.101.208.http &gt; 192.168.1.57.60110: Flags [S.], seq 3245676077, ack 546310090, win 8192, options [mss 1440,sackOK,nop,nop,nop,nop,nop,nop,nop,nop,nop,nop,nop,wscale 5], length 0</span><br><span class="line">06:46:17.530458 IP 192.168.1.57.60110 &gt; 111.13.101.208.http: Flags [.], ack 1, win 229, length 0</span><br><span class="line">06:46:17.530982 IP 192.168.1.57.60110 &gt; 111.13.101.208.http: Flags [P.], seq 1:504, ack 1, win 229, length 503</span><br><span class="line">06:46:17.576476 IP 111.13.101.208.http &gt; 192.168.1.57.60110: Flags [.], ack 504, win 216, length 0</span><br><span class="line">06:46:17.577447 IP 111.13.101.208.http &gt; 192.168.1.57.60110: Flags [P.], seq 1:291, ack 504, win 216, length 290</span><br><span class="line">06:46:17.577459 IP 192.168.1.57.60110 &gt; 111.13.101.208.http: Flags [.], ack 291, win 237, length 0</span><br><span class="line">06:46:17.577482 IP 111.13.101.208.http &gt; 192.168.1.57.60110: Flags [P.], seq 291:452, ack 504, win 216, length 161</span><br><span class="line">06:46:17.577485 IP 192.168.1.57.60110 &gt; 111.13.101.208.http: Flags [.], ack 452, win 245, length 0</span><br><span class="line">06:46:17.866950 IP 111.13.101.208.http &gt; 192.168.1.57.60110: Flags [P.], seq 291:452, ack 504, win 216, length 161</span><br><span class="line">06:46:17.866966 IP 192.168.1.57.60110 &gt; 111.13.101.208.http: Flags [.], ack 452, win 245, options [nop,nop,sack 1 &#123;291:452&#125;], length 0</span><br><span class="line">06:46:27.865805 IP 192.168.1.57.60110 &gt; 111.13.101.208.http: Flags [.], ack 452, win 245, length 0</span><br><span class="line">06:46:27.909962 IP 111.13.101.208.http &gt; 192.168.1.57.60110: Flags [.], ack 504, win 216, length 0</span><br><span class="line">06:46:37.925624 IP 192.168.1.57.60110 &gt; 111.13.101.208.http: Flags [.], ack 452, win 245, length 0</span><br></pre></td></tr></table></figure>
 
 <p>可以参考tlpi的解释, 如下图 : </p>
-<img src="/blog/2015/11/03/Linux常用命令笔记整理之tcpdump/tcpdump1.png" title="tcpdump">
+<img src="/2015/11/03/Linux常用命令笔记整理之tcpdump/tcpdump1.png" title="tcpdump">
       
 
 
@@ -503,7 +503,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <div class="post-tags">
             
-              <a href="/blog/tags/TcpDump/" rel="tag"><i class="fa fa-tag"></i> TcpDump</a>
+              <a href="/tags/TcpDump/" rel="tag"><i class="fa fa-tag"></i> TcpDump</a>
             
           </div>
         
@@ -516,7 +516,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/blog/2015/10/23/linux常用文本处理命令笔记整理之sed/" rel="next" title="linux常用文本处理命令笔记整理之sed">
+                <a href="/2015/10/23/linux常用文本处理命令笔记整理之sed/" rel="next" title="linux常用文本处理命令笔记整理之sed">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
                     linux常用文本处理命令笔记整理之sed
@@ -529,7 +529,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/blog/2015/11/08/lua_install_tutorial/" rel="prev" title="Lua的win和linux环境搭建">
+                <a href="/2015/11/08/lua_install_tutorial/" rel="prev" title="Lua的win和linux环境搭建">
                 <p class="post-nav-pre-next-title">
                     Lua的win和linux环境搭建
                 </p> 
@@ -619,7 +619,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/blog/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -633,7 +633,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             
             <div class="site-state-item site-state-categories">
-              <a href="/blog/categories/index.html">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -642,7 +642,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/blog/archives/">
+              <a href="/archives/">
                 <span class="site-state-item-count">183</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -653,7 +653,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             
             <div class="site-state-item site-state-tags">
-              <a href="/blog/tags/index.html">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -800,47 +800,47 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
   
-  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
-
-
-  
-
-
-
-
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 

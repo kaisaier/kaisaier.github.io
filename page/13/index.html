@@ -61,7 +61,7 @@
 
   
   
-  <link href="/blog/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
 
 
 
@@ -69,9 +69,9 @@
 
 
 
-<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="Hexo, NexT">
@@ -83,7 +83,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.2">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
 
 
 
@@ -106,7 +106,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/blog/',
+    root: '/',
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
@@ -170,7 +170,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/blog/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
@@ -228,7 +228,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/blog/categories/" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
@@ -238,7 +238,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives/" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
@@ -248,7 +248,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags/" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
@@ -258,7 +258,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         
         <li class="menu-item menu-item-about">
-          <a href="/blog/about/" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
@@ -303,12 +303,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2017/01/26/state_synchronization/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2017/01/26/state_synchronization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -322,7 +322,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2017/01/26/state_synchronization/" itemprop="url">网络物理模拟六之状态同步</a></h1>
+                <a class="post-title-link" href="/2017/01/26/state_synchronization/" itemprop="url">网络物理模拟六之状态同步</a></h1>
         
 
         <div class="post-meta">
@@ -357,7 +357,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/GS/" itemprop="url" rel="index">
+                  <a href="/categories/GS/" itemprop="url" rel="index">
                     <span itemprop="name">GS</span>
                   </a>
                 </span>
@@ -422,7 +422,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <li><strong>应用状态更新</strong> : 一旦你的数据包从抖动缓冲器里面出来，你该在状态更新直接应用这些信息进行仿真。</li>
 </ul>
 </li>
-<li><strong>对两边都量化(这里的量化指的是&lt;&lt;<a href="/blog/2017/01/24/snapshot_compression/" title="网络物理模拟五之快照压缩">网络物理模拟五之快照压缩</a>&gt;&gt;说的量化压缩技术)</strong> : 如果只有接收端用了量化的数据, 那接收端模拟的结果很可能与发送端不同, 所以要对两边都量化来避免发送端和接收端模拟的差异</li>
+<li><strong>对两边都量化(这里的量化指的是&lt;&lt;<a href="/2017/01/24/snapshot_compression/" title="网络物理模拟五之快照压缩">网络物理模拟五之快照压缩</a>&gt;&gt;说的量化压缩技术)</strong> : 如果只有接收端用了量化的数据, 那接收端模拟的结果很可能与发送端不同, 所以要对两边都量化来避免发送端和接收端模拟的差异</li>
 <li><strong>长时间丢包的平滑处理</strong> : 对于不同的网络断开时间用不同的平滑因子, 来自适应误差</li>
 <li><strong>增量压缩</strong> : <ul>
 <li><strong>相对编码</strong> : 在数据包的包头里面发送最近确认的数据包的序列号（这个数据是从可靠的确认系统里面得到的）然后对每个物体编码相对这个基准帧的偏移量</li>
@@ -676,12 +676,12 @@ Your browser does not support the video tag.
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2017/01/24/snapshot_compression/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2017/01/24/snapshot_compression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -695,7 +695,7 @@ Your browser does not support the video tag.
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2017/01/24/snapshot_compression/" itemprop="url">网络物理模拟五之快照压缩</a></h1>
+                <a class="post-title-link" href="/2017/01/24/snapshot_compression/" itemprop="url">网络物理模拟五之快照压缩</a></h1>
         
 
         <div class="post-meta">
@@ -730,7 +730,7 @@ Your browser does not support the video tag.
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/GS/" itemprop="url" rel="index">
+                  <a href="/categories/GS/" itemprop="url" rel="index">
                     <span itemprop="name">GS</span>
                   </a>
                 </span>
@@ -844,12 +844,12 @@ Your browser does not support the video tag.
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2017/01/23/snapshot_interpolation/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2017/01/23/snapshot_interpolation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -863,7 +863,7 @@ Your browser does not support the video tag.
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2017/01/23/snapshot_interpolation/" itemprop="url">网络物理模拟四之快照插值</a></h1>
+                <a class="post-title-link" href="/2017/01/23/snapshot_interpolation/" itemprop="url">网络物理模拟四之快照插值</a></h1>
         
 
         <div class="post-meta">
@@ -898,7 +898,7 @@ Your browser does not support the video tag.
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/GS/" itemprop="url" rel="index">
+                  <a href="/categories/GS/" itemprop="url" rel="index">
                     <span itemprop="name">GS</span>
                   </a>
                 </span>
@@ -963,7 +963,7 @@ Your browser does not support the video tag.
 </ul>
 </li>
 <li><strong>降低延迟</strong> : 因为我们发送的快照的频率比较低，这样会带来的一个问题就是对快照进行插值的话会在网络延迟的基础上还要增加插值带来的延迟. 所以我们需要增加发送速率, 为了提高发送速度我们需要压缩快照数据技术的配合, 不然占用太多带宽了</li>
-<li><strong>减少宽带占用</strong> : 因为所有需要在快照中包含所有实体信息, 所以数据量相当大, 得用各种方法压缩快照数据(<a href="/blog/2017/01/24/snapshot_compression/" title="网络物理模拟五之快照压缩">网络物理模拟五之快照压缩</a>)</li>
+<li><strong>减少宽带占用</strong> : 因为所有需要在快照中包含所有实体信息, 所以数据量相当大, 得用各种方法压缩快照数据(<a href="/2017/01/24/snapshot_compression/" title="网络物理模拟五之快照压缩">网络物理模拟五之快照压缩</a>)</li>
 </ul>
 <p><strong>. . .</strong>
           <!--noindex-->
@@ -1021,12 +1021,12 @@ Your browser does not support the video tag.
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2017/01/22/deterministic_lockstep/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2017/01/22/deterministic_lockstep/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1040,7 +1040,7 @@ Your browser does not support the video tag.
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2017/01/22/deterministic_lockstep/" itemprop="url">网络物理模拟三之具有确定性的帧同步</a></h1>
+                <a class="post-title-link" href="/2017/01/22/deterministic_lockstep/" itemprop="url">网络物理模拟三之具有确定性的帧同步</a></h1>
         
 
         <div class="post-meta">
@@ -1075,7 +1075,7 @@ Your browser does not support the video tag.
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/GS/" itemprop="url" rel="index">
+                  <a href="/categories/GS/" itemprop="url" rel="index">
                     <span itemprop="name">GS</span>
                   </a>
                 </span>
@@ -1199,12 +1199,12 @@ Your browser does not support the video tag.
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2017/01/21/网络物理模拟二之网络物理部分的视频演示/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2017/01/21/网络物理模拟二之网络物理部分的视频演示/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1218,7 +1218,7 @@ Your browser does not support the video tag.
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2017/01/21/网络物理模拟二之网络物理部分的视频演示/" itemprop="url">网络物理模拟二之网络物理部分的视频演示</a></h1>
+                <a class="post-title-link" href="/2017/01/21/网络物理模拟二之网络物理部分的视频演示/" itemprop="url">网络物理模拟二之网络物理部分的视频演示</a></h1>
         
 
         <div class="post-meta">
@@ -1253,7 +1253,7 @@ Your browser does not support the video tag.
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/GS/" itemprop="url" rel="index">
+                  <a href="/categories/GS/" itemprop="url" rel="index">
                     <span itemprop="name">GS</span>
                   </a>
                 </span>
@@ -1388,7 +1388,7 @@ Your browser does not support the video tag.
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/blog/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/blog/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/37/">37</a><a class="extend next" rel="next" href="/blog/page/14/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/37/">37</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1430,7 +1430,7 @@ Your browser does not support the video tag.
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/blog/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -1444,7 +1444,7 @@ Your browser does not support the video tag.
             
             
             <div class="site-state-item site-state-categories">
-              <a href="/blog/categories/index.html">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -1453,7 +1453,7 @@ Your browser does not support the video tag.
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/blog/archives/">
+              <a href="/archives/">
                 <span class="site-state-item-count">183</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -1464,7 +1464,7 @@ Your browser does not support the video tag.
             
             
             <div class="site-state-item site-state-tags">
-              <a href="/blog/tags/index.html">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -1595,47 +1595,47 @@ Your browser does not support the video tag.
 
 
   
-  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
 
-
-  
-
-
-
-
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
-
-
-  
-  
-
-  
-    <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.2"></script>
-
-  
 
   
 
 
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+  
+  
+
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
