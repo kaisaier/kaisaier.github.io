@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+          alert('此文章并不公开, 输入文章密码方可阅读');
+          var password = prompt();
+          if (password !== ''){
+            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+            {
+              alert('Error!');
+            }
+            if (history.length > 1)
+            {
+              history.back();
+            }
+            else
+            {
+              window.location.href = "about:blank";
+            }
+          }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Python,GEvent,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content=". . .">
+<meta name="keywords" content="Python,GEvent">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gevent介绍">
+<meta property="og:url" content="https://kaisaier.github.io/2019/07/09/gevent_intro/index.html">
+<meta property="og:site_name" content="凯">
+<meta property="og:description" content=". . .">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gevent介绍">
+<meta name="twitter:description" content=". . .">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true},
+    local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"header":"slideUpBigIn","menu":"slideDownBigIn","logo":"bounceUpIn","post_block_else":"slideDownBigIn","post_header":"slideDownBigIn","post_body":"slideDownBigIn","coll_header":"slideDownBigIn","footer":"slideUpBigIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+
+
+
+
+  <title>gevent介绍 | 凯</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">凯</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ue4</p>
+      
+  </div>
+
+  <div class="menu-item sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="menu-item site-search">
+    
+  
+  <form class="site-search-form">
+    <span class="search-icon fa fa-search"></span>
+    <input type="text" id="local-search-input" class="st-search-input">
+    <i id="local-search-close">×</i>
+  </form>
+
+
+<script type="text/javascript" id="local.search.active">
+var inputArea       = document.querySelector("#local-search-input");
+inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script>
+
+
+
+  </div>
+  <div id="local-search-result-pc" class="local-search-result-cls"></div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+       
+    </ul>
+  
+
+  
+    
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <div id="local-search-result-mobile" class="local-search-result-cls"></div>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/blog/2019/07/09/gevent_intro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kaisaier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/blog/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="凯">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">gevent介绍</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-09T23:31:26-07:00">
+                2019-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Script/" itemprop="url" rel="index">
+                    <span itemprop="name">Script</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <div class="post-tags">
+              
+                <a href="/blog/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              
+                <a href="/blog/tags/GEvent/" rel="tag"><i class="fa fa-tag"></i> GEvent</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+      
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/07/08/python_reload_func_closure/" rel="next" title="python的reload对于func_closure的处理">
+                <i class="fa fa-chevron-left"></i> 
+                <p class="post-nav-pre-next-title">
+                  python的reload对于func_closure的处理
+                </p> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2019/07/10/etcd_api_note/" rel="prev" title="etcd的restful接口">
+              <p class="post-nav-pre-next-title">
+                  etcd的restful接口
+              </p> 
+              <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+
+      
+      
+
+      
+        <p><strong>. . .</strong><a id="more"></a></p>
+<div class="entry-content">
+        <p>gevent的协程是基于greenlet的，并基于libev实现快速事件循环（Linux上是epoll，FreeBSD上是kqueue，Mac OS X上是select）。有了gevent，协程的使用将无比简单，你根本无须像greenlet一样显式的切换，每当一个协程阻塞时，程序将自动调度，gevent处理了所有的底层细节。让我们看个例子来感受下吧。</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+<pre><code>&lt;div id=&quot;crayon-5d24ce1c01df9805388809&quot; class=&quot;crayon-syntax crayon-theme-eclipse crayon-font-monaco crayon-os-pc print-yes notranslate&quot; data-settings=&quot; minimize scroll-mouseover&quot; style=&quot; margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;&quot;&gt;
+
+    &lt;div class=&quot;crayon-plain-wrap&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;crayon-main&quot; style=&quot;&quot;&gt;
+        &lt;table class=&quot;crayon-table&quot;&gt;
+            &lt;tr class=&quot;crayon-row&quot;&gt;
+        &lt;td class=&quot;crayon-nums &quot; data-settings=&quot;show&quot;&gt;
+            &lt;div class=&quot;crayon-nums-content&quot; style=&quot;font-size: 12px !important; line-height: 15px !important;&quot;&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-1&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-2&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-3&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-4&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-5&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-6&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-7&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-8&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-9&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-10&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-11&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-12&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-13&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-14&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-15&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01df9805388809-16&quot;&gt;16&lt;/div&gt;&lt;/div&gt;
+        &lt;/td&gt;
+                &lt;td class=&quot;crayon-code&quot;&gt;&lt;div class=&quot;crayon-pre&quot; style=&quot;font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;&quot;&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-1&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;gevent&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-2&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-3&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;test1&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-4&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;12&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-5&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-6&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;34&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-7&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-8&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;test2&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-9&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;56&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-10&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-11&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;78&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-12&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-13&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;joinall&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;[&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-14&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;test1&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-15&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;test2&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01df9805388809-16&quot;&gt;&lt;span class=&quot;crayon-sy&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><!-- [Format Time: 0.0007 seconds] -->
+<p></p>
+<p>解释下，&#8221;gevent.spawn()&#8221;方法会创建一个新的greenlet协程对象，并运行它。&#8221;gevent.joinall()&#8221;方法会等待所有传入的greenlet协程运行结束后再退出，这个方法可以接受一个&#8221;timeout&#8221;参数来设置超时时间，单位是秒。运行上面的程序，执行顺序如下：</p>
+<ol style="margin-left:1em">
+<li>先进入协程test1，打印12</li>
+<li>遇到&#8221;gevent.sleep(0)&#8221;时，test1被阻塞，自动切换到协程test2，打印56</li>
+<li>之后test2被阻塞，这时test1阻塞已结束，自动切换回test1，打印34</li>
+<li>当test1运行完毕返回后，此时test2阻塞已结束，再自动切换回test2，打印78</li>
+<li>所有协程执行完毕，程序退出</li>
+</ol>
+<p>所以，程序运行下来的输出就是：</p>
+<pre>
+12
+56
+34
+78
+</pre>
+<p>注意，这里与<a href="/greenlet.html">上一篇greenlet</a>中第一个例子运行的结果不一样，greenlet一个协程运行完后，必须显式切换，不然会返回其父协程。而在gevent中，一个协程运行完后，它会自动调度那些未完成的协程。</p>
+<p>我们换一个更有意义的例子：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+<pre><code>&lt;div id=&quot;crayon-5d24ce1c01e05798046415&quot; class=&quot;crayon-syntax crayon-theme-eclipse crayon-font-monaco crayon-os-pc print-yes notranslate&quot; data-settings=&quot; minimize scroll-mouseover&quot; style=&quot; margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;&quot;&gt;
+
+    &lt;div class=&quot;crayon-plain-wrap&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;crayon-main&quot; style=&quot;&quot;&gt;
+        &lt;table class=&quot;crayon-table&quot;&gt;
+            &lt;tr class=&quot;crayon-row&quot;&gt;
+        &lt;td class=&quot;crayon-nums &quot; data-settings=&quot;show&quot;&gt;
+            &lt;div class=&quot;crayon-nums-content&quot; style=&quot;font-size: 12px !important; line-height: 15px !important;&quot;&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e05798046415-1&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e05798046415-2&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e05798046415-3&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e05798046415-4&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e05798046415-5&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e05798046415-6&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e05798046415-7&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e05798046415-8&quot;&gt;8&lt;/div&gt;&lt;/div&gt;
+        &lt;/td&gt;
+                &lt;td class=&quot;crayon-code&quot;&gt;&lt;div class=&quot;crayon-pre&quot; style=&quot;font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;&quot;&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e05798046415-1&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;gevent&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e05798046415-2&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;socket&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e05798046415-3&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e05798046415-4&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;urls&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;www.baidu.com&apos;&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;www.gevent.org&apos;&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;www.python.org&apos;&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;]&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e05798046415-5&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gethostbyname&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;url &lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;urls&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;]&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e05798046415-6&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;joinall&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e05798046415-7&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e05798046415-8&quot;&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;job&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;value &lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;job &lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;]&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><!-- [Format Time: 0.0007 seconds] -->
+<p></p>
+<p>我们通过协程分别获取三个网站的IP地址，由于打开远程地址会引起IO阻塞，所以gevent会自动调度不同的协程。另外，我们可以通过协程对象的&#8221;value&#8221;属性，来获取协程函数的返回值。</p>
+<h4>猴子补丁 Monkey patching</h4>
+<p>细心的朋友们在运行上面例子时会发现，其实程序运行的时间同不用协程是一样的，是三个网站打开时间的总和。可是理论上协程是非阻塞的，那运行时间应该等于最长的那个网站打开时间呀？其实这是因为Python标准库里的socket是阻塞式的，DNS解析无法并发，包括像urllib库也一样，所以这种情况下用协程完全没意义。那怎么办？</p>
+<p>一种方法是使用gevent下的socket模块，我们可以通过&#8221;from gevent import socket&#8221;来导入。不过更常用的方法是使用猴子布丁（Monkey patching）:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+<pre><code>&lt;div id=&quot;crayon-5d24ce1c01e07499796964&quot; class=&quot;crayon-syntax crayon-theme-eclipse crayon-font-monaco crayon-os-pc print-yes notranslate&quot; data-settings=&quot; minimize scroll-mouseover&quot; style=&quot; margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;&quot;&gt;
+
+    &lt;div class=&quot;crayon-plain-wrap&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;crayon-main&quot; style=&quot;&quot;&gt;
+        &lt;table class=&quot;crayon-table&quot;&gt;
+            &lt;tr class=&quot;crayon-row&quot;&gt;
+        &lt;td class=&quot;crayon-nums &quot; data-settings=&quot;show&quot;&gt;
+            &lt;div class=&quot;crayon-nums-content&quot; style=&quot;font-size: 12px !important; line-height: 15px !important;&quot;&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e07499796964-1&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e07499796964-2&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e07499796964-3&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e07499796964-4&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e07499796964-5&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e07499796964-6&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e07499796964-7&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e07499796964-8&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e07499796964-9&quot;&gt;9&lt;/div&gt;&lt;/div&gt;
+        &lt;/td&gt;
+                &lt;td class=&quot;crayon-code&quot;&gt;&lt;div class=&quot;crayon-pre&quot; style=&quot;font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;&quot;&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e07499796964-1&quot;&gt;&lt;span class=&quot;crayon-st&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;gevent &lt;/span&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;monkey&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;monkey&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;patch_socket&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e07499796964-2&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;gevent&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e07499796964-3&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;socket&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e07499796964-4&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e07499796964-5&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;urls&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;www.baidu.com&apos;&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;www.gevent.org&apos;&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;www.python.org&apos;&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;]&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e07499796964-6&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gethostbyname&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;url &lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;urls&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;]&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e07499796964-7&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;joinall&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e07499796964-8&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e07499796964-9&quot;&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;job&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;value &lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;job &lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;]&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><!-- [Format Time: 0.0006 seconds] -->
+<p></p>
+<p>上述代码的第一行就是对socket标准库打上猴子补丁，此后socket标准库中的类和方法都会被替换成非阻塞式的，所有其他的代码都不用修改，这样协程的效率就真正体现出来了。Python中其它标准库也存在阻塞的情况，gevent提供了&#8221;monkey.patch_all()&#8221;方法将所有标准库都替换。</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+<pre><code>&lt;div id=&quot;crayon-5d24ce1c01e08835494690&quot; class=&quot;crayon-syntax crayon-theme-eclipse crayon-font-monaco crayon-os-pc print-yes notranslate&quot; data-settings=&quot; minimize scroll-mouseover&quot; style=&quot; margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;&quot;&gt;
+
+    &lt;div class=&quot;crayon-plain-wrap&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;crayon-main&quot; style=&quot;&quot;&gt;
+        &lt;table class=&quot;crayon-table&quot;&gt;
+            &lt;tr class=&quot;crayon-row&quot;&gt;
+        &lt;td class=&quot;crayon-nums &quot; data-settings=&quot;show&quot;&gt;
+            &lt;div class=&quot;crayon-nums-content&quot; style=&quot;font-size: 12px !important; line-height: 15px !important;&quot;&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e08835494690-1&quot;&gt;1&lt;/div&gt;&lt;/div&gt;
+        &lt;/td&gt;
+                &lt;td class=&quot;crayon-code&quot;&gt;&lt;div class=&quot;crayon-pre&quot; style=&quot;font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;&quot;&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e08835494690-1&quot;&gt;&lt;span class=&quot;crayon-st&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;gevent &lt;/span&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;monkey&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;monkey&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;patch_all&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><!-- [Format Time: 0.0002 seconds] -->
+<p>使用猴子补丁褒贬不一，但是官网上还是建议使用&#8221;patch_all()&#8221;，而且在程序的第一行就执行。</p>
+<h4>获取协程状态</h4>
+<p>协程状态有已启动和已停止，分别可以用协程对象的&#8221;started&#8221;属性和&#8221;ready()&#8221;方法来判断。对于已停止的协程，可以用&#8221;successful()&#8221;方法来判断其是否成功运行且没抛异常。如果协程执行完有返回值，可以通过&#8221;value&#8221;属性来获取。另外，greenlet协程运行过程中发生的异常是不会被抛出到协程外的，因此需要用协程对象的&#8221;exception&#8221;属性来获取协程中的异常。下面的例子很好的演示了各种方法和属性的使用。</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+<pre><code>&lt;div id=&quot;crayon-5d24ce1c01e09760840873&quot; class=&quot;crayon-syntax crayon-theme-eclipse crayon-font-monaco crayon-os-pc print-yes notranslate&quot; data-settings=&quot; minimize scroll-mouseover&quot; style=&quot; margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;&quot;&gt;
+
+    &lt;div class=&quot;crayon-plain-wrap&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;crayon-main&quot; style=&quot;&quot;&gt;
+        &lt;table class=&quot;crayon-table&quot;&gt;
+            &lt;tr class=&quot;crayon-row&quot;&gt;
+        &lt;td class=&quot;crayon-nums &quot; data-settings=&quot;show&quot;&gt;
+            &lt;div class=&quot;crayon-nums-content&quot; style=&quot;font-size: 12px !important; line-height: 15px !important;&quot;&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-1&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-2&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-3&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-4&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-5&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-6&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-7&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-8&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-9&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-10&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-11&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-12&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-13&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-14&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-15&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-16&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-17&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-18&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-19&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-20&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-21&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-22&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-23&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-24&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-25&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-26&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-27&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-28&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-29&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-30&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-31&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-32&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-33&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-34&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e09760840873-35&quot;&gt;35&lt;/div&gt;&lt;/div&gt;
+        &lt;/td&gt;
+                &lt;td class=&quot;crayon-code&quot;&gt;&lt;div class=&quot;crayon-pre&quot; style=&quot;font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;&quot;&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-1&quot;&gt;&lt;span class=&quot;crayon-c&quot;&gt;#coding:utf8&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-2&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;gevent&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-3&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-4&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;win&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-5&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;You win!&apos;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-6&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-7&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;fail&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-8&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;raise&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;You failed!&apos;&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-9&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-10&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;winner&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;win&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-11&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;loser&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;fail&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-12&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-13&quot;&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;winner&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;started&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# True&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-14&quot;&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;loser&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;started&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# True&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-15&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-16&quot;&gt;&lt;span class=&quot;crayon-c&quot;&gt;# 在Greenlet中发生的异常，不会被抛到Greenlet外面。&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-17&quot;&gt;&lt;span class=&quot;crayon-c&quot;&gt;# 控制台会打出Stacktrace，但程序不会停止&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-18&quot;&gt;&lt;span class=&quot;crayon-st&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-19&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;joinall&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;winner&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;loser&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-20&quot;&gt;&lt;span class=&quot;crayon-st&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-21&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# 这段永远不会被执行&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-22&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;This will never be reached&apos;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-23&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-24&quot;&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;winner&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# True&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-25&quot;&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;loser&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# True&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-26&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-27&quot;&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;winner&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# &apos;You win!&apos;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-28&quot;&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;loser&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# None&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-29&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-30&quot;&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;winner&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;successful&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# True&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-31&quot;&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;loser&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;successful&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# False&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-32&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-33&quot;&gt;&lt;span class=&quot;crayon-c&quot;&gt;# 这里可以通过raise loser.exception 或 loser.get()&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-34&quot;&gt;&lt;span class=&quot;crayon-c&quot;&gt;# 来将协程中的异常抛出&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e09760840873-35&quot;&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;loser&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;exception&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><!-- [Format Time: 0.0012 seconds] -->
+<p></p>
+<h4>协程运行超时</h4>
+<p>之前我们讲过在&#8221;gevent.joinall()&#8221;方法中可以传入timeout参数来设置超时，我们也可以在全局范围内设置超时时间：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+<pre><code>&lt;div id=&quot;crayon-5d24ce1c01e0a365079033&quot; class=&quot;crayon-syntax crayon-theme-eclipse crayon-font-monaco crayon-os-pc print-yes notranslate&quot; data-settings=&quot; minimize scroll-mouseover&quot; style=&quot; margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;&quot;&gt;
+
+    &lt;div class=&quot;crayon-plain-wrap&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;crayon-main&quot; style=&quot;&quot;&gt;
+        &lt;table class=&quot;crayon-table&quot;&gt;
+            &lt;tr class=&quot;crayon-row&quot;&gt;
+        &lt;td class=&quot;crayon-nums &quot; data-settings=&quot;show&quot;&gt;
+            &lt;div class=&quot;crayon-nums-content&quot; style=&quot;font-size: 12px !important; line-height: 15px !important;&quot;&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0a365079033-1&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0a365079033-2&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0a365079033-3&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0a365079033-4&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0a365079033-5&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0a365079033-6&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0a365079033-7&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0a365079033-8&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0a365079033-9&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0a365079033-10&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0a365079033-11&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0a365079033-12&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0a365079033-13&quot;&gt;13&lt;/div&gt;&lt;/div&gt;
+        &lt;/td&gt;
+                &lt;td class=&quot;crayon-code&quot;&gt;&lt;div class=&quot;crayon-pre&quot; style=&quot;font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;&quot;&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0a365079033-1&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;gevent&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0a365079033-2&quot;&gt;&lt;span class=&quot;crayon-st&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;gevent &lt;/span&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;Timeout&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0a365079033-3&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0a365079033-4&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;Timeout&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# 2 seconds&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0a365079033-5&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0a365079033-6&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0a365079033-7&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0a365079033-8&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0a365079033-9&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0a365079033-10&quot;&gt;&lt;span class=&quot;crayon-st&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0a365079033-11&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0a365079033-12&quot;&gt;&lt;span class=&quot;crayon-st&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;Timeout&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0a365079033-13&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;Could not complete&apos;&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<p>上例中，我们将超时设为2秒，此后所有协程的运行，如果超过两秒就会抛出&#8221;Timeout&#8221;异常。我们也可以将超时设置在with语句内，这样该设置只在with语句块中有效：</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+<pre><code>&lt;div id=&quot;crayon-5d24ce1c01e0c355039458&quot; class=&quot;crayon-syntax crayon-theme-eclipse crayon-font-monaco crayon-os-pc print-yes notranslate&quot; data-settings=&quot; minimize scroll-mouseover&quot; style=&quot; margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;&quot;&gt;
+
+    &lt;div class=&quot;crayon-plain-wrap&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;crayon-main&quot; style=&quot;&quot;&gt;
+        &lt;table class=&quot;crayon-table&quot;&gt;
+            &lt;tr class=&quot;crayon-row&quot;&gt;
+        &lt;td class=&quot;crayon-nums &quot; data-settings=&quot;show&quot;&gt;
+            &lt;div class=&quot;crayon-nums-content&quot; style=&quot;font-size: 12px !important; line-height: 15px !important;&quot;&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0c355039458-1&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0c355039458-2&quot;&gt;2&lt;/div&gt;&lt;/div&gt;
+        &lt;/td&gt;
+                &lt;td class=&quot;crayon-code&quot;&gt;&lt;div class=&quot;crayon-pre&quot; style=&quot;font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;&quot;&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0c355039458-1&quot;&gt;&lt;span class=&quot;crayon-st&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;Timeout&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0c355039458-2&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><!-- [Format Time: 0.0001 seconds] -->
+<p></p>
+<p>此外，我们可以指定超时所抛出的异常，来替换默认的&#8221;Timeout&#8221;异常。比如下例中超时就会抛出我们自定义的&#8221;TooLong&#8221;异常。</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+<pre><code>&lt;div id=&quot;crayon-5d24ce1c01e0d244222216&quot; class=&quot;crayon-syntax crayon-theme-eclipse crayon-font-monaco crayon-os-pc print-yes notranslate&quot; data-settings=&quot; minimize scroll-mouseover&quot; style=&quot; margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;&quot;&gt;
+
+    &lt;div class=&quot;crayon-plain-wrap&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;crayon-main&quot; style=&quot;&quot;&gt;
+        &lt;table class=&quot;crayon-table&quot;&gt;
+            &lt;tr class=&quot;crayon-row&quot;&gt;
+        &lt;td class=&quot;crayon-nums &quot; data-settings=&quot;show&quot;&gt;
+            &lt;div class=&quot;crayon-nums-content&quot; style=&quot;font-size: 12px !important; line-height: 15px !important;&quot;&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0d244222216-1&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0d244222216-2&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0d244222216-3&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0d244222216-4&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0d244222216-5&quot;&gt;5&lt;/div&gt;&lt;/div&gt;
+        &lt;/td&gt;
+                &lt;td class=&quot;crayon-code&quot;&gt;&lt;div class=&quot;crayon-pre&quot; style=&quot;font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;&quot;&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0d244222216-1&quot;&gt;&lt;span class=&quot;crayon-t&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;TooLong&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0d244222216-2&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-r&quot;&gt;pass&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0d244222216-3&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0d244222216-4&quot;&gt;&lt;span class=&quot;crayon-st&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;Timeout&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;TooLong&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0d244222216-5&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><!-- [Format Time: 0.0001 seconds] -->
+<p></p>
+<h4>协程间通讯</h4>
+<p>greenlet协程间的异步通讯可以使用事件（Event）对象。该对象的&#8221;wait()&#8221;方法可以阻塞当前协程，而&#8221;set()&#8221;方法可以唤醒之前阻塞的协程。在下面的例子中，5个waiter协程都会等待事件evt，当setter协程在3秒后设置evt事件，所有的waiter协程即被唤醒。</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+<pre><code>&lt;div id=&quot;crayon-5d24ce1c01e0e766453087&quot; class=&quot;crayon-syntax crayon-theme-eclipse crayon-font-monaco crayon-os-pc print-yes notranslate&quot; data-settings=&quot; minimize scroll-mouseover&quot; style=&quot; margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;&quot;&gt;
+
+    &lt;div class=&quot;crayon-plain-wrap&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;crayon-main&quot; style=&quot;&quot;&gt;
+        &lt;table class=&quot;crayon-table&quot;&gt;
+            &lt;tr class=&quot;crayon-row&quot;&gt;
+        &lt;td class=&quot;crayon-nums &quot; data-settings=&quot;show&quot;&gt;
+            &lt;div class=&quot;crayon-nums-content&quot; style=&quot;font-size: 12px !important; line-height: 15px !important;&quot;&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-1&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-2&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-3&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-4&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-5&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-6&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-7&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-8&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-9&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-10&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-11&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-12&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-13&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-14&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-15&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-16&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-17&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-18&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-19&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-20&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-21&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-22&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-23&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-24&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0e766453087-25&quot;&gt;25&lt;/div&gt;&lt;/div&gt;
+        &lt;/td&gt;
+                &lt;td class=&quot;crayon-code&quot;&gt;&lt;div class=&quot;crayon-pre&quot; style=&quot;font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;&quot;&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-1&quot;&gt;&lt;span class=&quot;crayon-c&quot;&gt;#coding:utf8&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-2&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;gevent&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-3&quot;&gt;&lt;span class=&quot;crayon-st&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;event &lt;/span&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;Event&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-4&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-5&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;evt&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;Event&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-6&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-7&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;setter&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-8&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;Wait for me&apos;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-9&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# 3秒后唤醒所有在evt上等待的协程&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-10&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&quot;Ok, I&apos;m done&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-11&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;evt&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;set&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# 唤醒&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-12&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-13&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;waiter&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-14&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&quot;I&apos;ll wait for you&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-15&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;evt&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# 等待&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-16&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;Finish waiting&apos;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-17&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-18&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;joinall&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;[&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-19&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;setter&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-20&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;waiter&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-21&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;waiter&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-22&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;waiter&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-23&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;waiter&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-24&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;waiter&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0e766453087-25&quot;&gt;&lt;span class=&quot;crayon-sy&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><!-- [Format Time: 0.0005 seconds] -->
+<p></p>
+<p>除了Event事件外，gevent还提供了AsyncResult事件，它可以在唤醒时传递消息。让我们将上例中的setter和waiter作如下改动:</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+<pre><code>&lt;div id=&quot;crayon-5d24ce1c01e0f710879315&quot; class=&quot;crayon-syntax crayon-theme-eclipse crayon-font-monaco crayon-os-pc print-yes notranslate&quot; data-settings=&quot; minimize scroll-mouseover&quot; style=&quot; margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;&quot;&gt;
+
+    &lt;div class=&quot;crayon-plain-wrap&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;crayon-main&quot; style=&quot;&quot;&gt;
+        &lt;table class=&quot;crayon-table&quot;&gt;
+            &lt;tr class=&quot;crayon-row&quot;&gt;
+        &lt;td class=&quot;crayon-nums &quot; data-settings=&quot;show&quot;&gt;
+            &lt;div class=&quot;crayon-nums-content&quot; style=&quot;font-size: 12px !important; line-height: 15px !important;&quot;&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0f710879315-1&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0f710879315-2&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0f710879315-3&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0f710879315-4&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0f710879315-5&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0f710879315-6&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0f710879315-7&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0f710879315-8&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0f710879315-9&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0f710879315-10&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0f710879315-11&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e0f710879315-12&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e0f710879315-13&quot;&gt;13&lt;/div&gt;&lt;/div&gt;
+        &lt;/td&gt;
+                &lt;td class=&quot;crayon-code&quot;&gt;&lt;div class=&quot;crayon-pre&quot; style=&quot;font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;&quot;&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0f710879315-1&quot;&gt;&lt;span class=&quot;crayon-st&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;event &lt;/span&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;AsyncResult&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0f710879315-2&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;aevt&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;AsyncResult&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0f710879315-3&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0f710879315-4&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;setter&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0f710879315-5&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;Wait for me&apos;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0f710879315-6&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# 3秒后唤醒所有在evt上等待的协程&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0f710879315-7&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&quot;Ok, I&apos;m done&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0f710879315-8&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;aevt&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;set&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;Hello!&apos;&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# 唤醒，并传递消息&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0f710879315-9&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0f710879315-10&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;waiter&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0f710879315-11&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&quot;I&apos;ll wait for you&quot;&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e0f710879315-12&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;aevt&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-c&quot;&gt;# 等待，并在唤醒时获取消息&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e0f710879315-13&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;Got wake up message: %s&apos;&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;message&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><!-- [Format Time: 0.0005 seconds] -->
+<p></p>
+<h4>队列 Queue </h4>
+<p>队列Queue的概念相信大家都知道，我们可以用它的put和get方法来存取队列中的元素。gevent的队列对象可以让greenlet协程之间安全的访问。运行下面的程序，你会看到3个消费者会分别消费队列中的产品，且消费过的产品不会被另一个消费者再取到：</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+<pre><code>&lt;div id=&quot;crayon-5d24ce1c01e10976740165&quot; class=&quot;crayon-syntax crayon-theme-eclipse crayon-font-monaco crayon-os-pc print-yes notranslate&quot; data-settings=&quot; minimize scroll-mouseover&quot; style=&quot; margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;&quot;&gt;
+
+    &lt;div class=&quot;crayon-plain-wrap&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;crayon-main&quot; style=&quot;&quot;&gt;
+        &lt;table class=&quot;crayon-table&quot;&gt;
+            &lt;tr class=&quot;crayon-row&quot;&gt;
+        &lt;td class=&quot;crayon-nums &quot; data-settings=&quot;show&quot;&gt;
+            &lt;div class=&quot;crayon-nums-content&quot; style=&quot;font-size: 12px !important; line-height: 15px !important;&quot;&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-1&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-2&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-3&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-4&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-5&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-6&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-7&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-8&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-9&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-10&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-11&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-12&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-13&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-14&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-15&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-16&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-17&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-18&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-19&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-20&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-21&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e10976740165-22&quot;&gt;22&lt;/div&gt;&lt;/div&gt;
+        &lt;/td&gt;
+                &lt;td class=&quot;crayon-code&quot;&gt;&lt;div class=&quot;crayon-pre&quot; style=&quot;font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;&quot;&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-1&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;gevent&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-2&quot;&gt;&lt;span class=&quot;crayon-st&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;Queue&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-3&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-4&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;products&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;Queue&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-5&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-6&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;consumer&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-7&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;not&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;products&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-8&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;%s got product %s&apos;&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;products&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-9&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-10&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-11&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;%s Quit&apos;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-12&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-13&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;producer&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-14&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-i&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;xrange&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-15&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;products&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-16&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-17&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;joinall&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;[&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-18&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;producer&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-19&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;consumer&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;steve&apos;&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-20&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;consumer&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;john&apos;&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-21&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;consumer&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;nancy&apos;&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e10976740165-22&quot;&gt;&lt;span class=&quot;crayon-sy&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><!-- [Format Time: 0.0005 seconds] -->
+<p></p>
+<p>put和get方法都是阻塞式的，它们都有非阻塞的版本：put_nowait和get_nowait。如果调用get方法时队列为空，则抛出&#8221;gevent.queue.Empty&#8221;异常。</p>
+<h4>信号量</h4>
+<p>信号量可以用来限制协程并发的个数。它有两个方法，acquire和release。顾名思义，acquire就是获取信号量，而release就是释放。当所有信号量都已被获取，那剩余的协程就只能等待任一协程释放信号量后才能得以运行：</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+<pre><code>&lt;div id=&quot;crayon-5d24ce1c01e11837954961&quot; class=&quot;crayon-syntax crayon-theme-eclipse crayon-font-monaco crayon-os-pc print-yes notranslate&quot; data-settings=&quot; minimize scroll-mouseover&quot; style=&quot; margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;&quot;&gt;
+
+    &lt;div class=&quot;crayon-plain-wrap&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;crayon-main&quot; style=&quot;&quot;&gt;
+        &lt;table class=&quot;crayon-table&quot;&gt;
+            &lt;tr class=&quot;crayon-row&quot;&gt;
+        &lt;td class=&quot;crayon-nums &quot; data-settings=&quot;show&quot;&gt;
+            &lt;div class=&quot;crayon-nums-content&quot; style=&quot;font-size: 12px !important; line-height: 15px !important;&quot;&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e11837954961-1&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e11837954961-2&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e11837954961-3&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e11837954961-4&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e11837954961-5&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e11837954961-6&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e11837954961-7&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e11837954961-8&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e11837954961-9&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e11837954961-10&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e11837954961-11&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e11837954961-12&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e11837954961-13&quot;&gt;13&lt;/div&gt;&lt;/div&gt;
+        &lt;/td&gt;
+                &lt;td class=&quot;crayon-code&quot;&gt;&lt;div class=&quot;crayon-pre&quot; style=&quot;font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;&quot;&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e11837954961-1&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;gevent&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e11837954961-2&quot;&gt;&lt;span class=&quot;crayon-st&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;coros &lt;/span&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;BoundedSemaphore&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e11837954961-3&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e11837954961-4&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;BoundedSemaphore&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e11837954961-5&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e11837954961-6&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;worker&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e11837954961-7&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;acquire&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e11837954961-8&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;Worker %i acquired semaphore&apos;&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e11837954961-9&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e11837954961-10&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e11837954961-11&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;Worker %i released semaphore&apos;&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e11837954961-12&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e11837954961-13&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;joinall&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;worker&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-i&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;xrange&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<p>上面的例子中，我们初始化了&#8221;BoundedSemaphore&#8221;信号量，并将其个数定为2。所以同一个时间，只能有两个worker协程被调度。程序运行后的结果如下：</p>
+<pre>
+Worker 0 acquired semaphore
+Worker 1 acquired semaphore
+Worker 0 released semaphore
+Worker 1 released semaphore
+Worker 2 acquired semaphore
+Worker 3 acquired semaphore
+Worker 2 released semaphore
+Worker 3 released semaphore
+Worker 4 acquired semaphore
+Worker 4 released semaphore
+Worker 5 acquired semaphore
+Worker 5 released semaphore
+</pre>
+<p>如果信号量个数为1，那就等同于同步锁。</p>
+<h4>协程本地变量</h4>
+<p>同线程类似，协程也有本地变量，也就是只在当前协程内可被访问的变量：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+<pre><code>&lt;div id=&quot;crayon-5d24ce1c01e12559646902&quot; class=&quot;crayon-syntax crayon-theme-eclipse crayon-font-monaco crayon-os-pc print-yes notranslate&quot; data-settings=&quot; minimize scroll-mouseover&quot; style=&quot; margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;&quot;&gt;
+
+    &lt;div class=&quot;crayon-plain-wrap&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;crayon-main&quot; style=&quot;&quot;&gt;
+        &lt;table class=&quot;crayon-table&quot;&gt;
+            &lt;tr class=&quot;crayon-row&quot;&gt;
+        &lt;td class=&quot;crayon-nums &quot; data-settings=&quot;show&quot;&gt;
+            &lt;div class=&quot;crayon-nums-content&quot; style=&quot;font-size: 12px !important; line-height: 15px !important;&quot;&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-1&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-2&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-3&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-4&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-5&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-6&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-7&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-8&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-9&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-10&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-11&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-12&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-13&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-14&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-15&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-16&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-17&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;crayon-num crayon-striped-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-18&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;crayon-num&quot; data-line=&quot;crayon-5d24ce1c01e12559646902-19&quot;&gt;19&lt;/div&gt;&lt;/div&gt;
+        &lt;/td&gt;
+                &lt;td class=&quot;crayon-code&quot;&gt;&lt;div class=&quot;crayon-pre&quot; style=&quot;font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;&quot;&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-1&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;gevent&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-2&quot;&gt;&lt;span class=&quot;crayon-st&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;local &lt;/span&gt;&lt;span class=&quot;crayon-r&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;local&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-3&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-4&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-5&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-6&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;f1&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-7&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-cn&quot;&gt;1&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-8&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-i&quot;&gt;x&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-9&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-10&quot;&gt;&lt;span class=&quot;crayon-r&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;f2&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-11&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-12&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-i&quot;&gt;x&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-13&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-st&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;AttributeError&lt;/span&gt;&lt;span class=&quot;crayon-o&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-14&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-k &quot;&gt;print&lt;/span&gt;&lt;span class=&quot;crayon-h&quot;&gt; &lt;/span&gt;&lt;span class=&quot;crayon-s&quot;&gt;&apos;x is not visible&apos;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-15&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-16&quot;&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;joinall&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;[&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-17&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;f1&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line crayon-striped-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-18&quot;&gt;&lt;span class=&quot;crayon-h&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;gevent&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;crayon-e&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;crayon-v&quot;&gt;f2&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;crayon-line&quot; id=&quot;crayon-5d24ce1c01e12559646902-19&quot;&gt;&lt;span class=&quot;crayon-sy&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;crayon-sy&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><!-- [Format Time: 0.0004 seconds] -->
+<p>通过将变量存放在local对象中，即可将其的作用域限制在当前协程内，当其他协程要访问该变量时，就会抛出异常。不同协程间可以有重名的本地变量，而且互相不影响。因为协程本地变量的实现，就是将其存放在以的&#8221;greenlet.getcurrent()&#8221;的返回为键值的私有的命名空间内。</p>
+
+<h4>更多参考资料</h4>
+<p><a href="http://www.gevent.org/contents.html" target="_blank" rel="noopener">gevent的官方文档</a><br>
+<a href="http://sdiehl.github.io/gevent-tutorial/" target="_blank" rel="noopener">gevent社区提供的教程</a></p>
+<!-- <p>本文中的示例代码可以在<a href="/downloads/201611/gevent.tar.gz">这里下载</a>。</p> -->
+
+</div><!-- .entry-content -->
+
+<p>转自: <a href="http://www.bjhee.com/gevent.html" target="_blank" rel="noopener">http://www.bjhee.com/gevent.html</a></p>
+
+      
+
+
+      
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/blog/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+            
+              <a href="/blog/tags/GEvent/" rel="tag"><i class="fa fa-tag"></i> GEvent</a>
+            
+          </div>
+        
+
+        
+        
+        
+
+        
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/blog/2019/07/08/python_reload_func_closure/" rel="next" title="python的reload对于func_closure的处理">
+                  <i class="fa fa-chevron-left"></i> 
+                  <p class="post-nav-pre-next-title">
+                    python的reload对于func_closure的处理
+                  </p> 
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/blog/2019/07/10/etcd_api_note/" rel="prev" title="etcd的restful接口">
+                <p class="post-nav-pre-next-title">
+                    etcd的restful接口
+                </p> 
+                <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+
+        
+        
+      </footer>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  
+
+  <aside id="sidebar" class="sidebar">
+
+    
+      
+        <div id="sidebar-dimmer"></div>
+      
+    
+
+    <div class="sidebar-inner">
+    
+      <div class="sidebar-toggle-inside motion-element">
+        <div class="sidebar-toggle-line-wrap">
+          <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+          <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+          <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+        </div>
+      </div>
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="/" class="site-author-image" rel="start" style="border:none">
+            <img class="site-author-image" itemprop="image" src="/blog/uploads/avatar.png" alt="kaisaier">
+          </a>
+          <p class="site-author-name" itemprop="name">kaisaier</p>
+           
+              <p class="site-description motion-element" itemprop="description">欢迎订阅交流</p>
+          
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives/">
+                <span class="site-state-item-count">183</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags/index.html">
+                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+          <div class="site-state-item site-state-about">
+            <a href="/about/">
+              <span class="site-state-item-about fa fa-fw fa-user"></span>
+              <span class="site-state-item-name">关于</span>
+            </a>
+          </div>
+          
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+          
+          <!-- 网易云音乐 -->
+            <!-- <div class="netease-cloud-music"> -->
+              <!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=110 src="//music.163.com/outchain/player?type=0&id=992743594&auto=0&height=90"></iframe> -->
+            <!-- </div> -->
+          <!-- 网易云音乐 -->
+
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://119.23.17.57" title="ksun的博客" target="_blank">ksun的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mp.weixin.qq.com/mp/homepage?__biz=MzU3MTUyNzg0NQ==&hid=1&sn=7a3ae61b7af714f75d68e7ae826a2d2c&scene=18#wechat_redirect" title="你有图么我有故事" target="_blank">你有图么我有故事</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">猴子补丁 Monkey patching</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">获取协程状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">协程运行超时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">协程间通讯</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">队列 Queue </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">信号量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">协程本地变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">8.</span> <span class="nav-text">更多参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kaisaier</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <!--
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      
+        <span id="scrollpercent"><span>0</span>%</span>
+      
+    </div>
+    -->
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+
+
+  
+
+
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+
+    var searchFunc = function (path, search_id, content_id) {
+      // 0x00. environment initialization
+      'use strict';
+
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      var datas = [];
+      var is_load_xml_finished = 0;
+
+      /* loading css1 : Dot Css Loader*/
+      var DotLoader = "<div class='loader'>Loading...</div>";
+
+      /* loading css2 : Pure Css Loader - Square */
+      var SquareLoader = 
+        "<div class='loader'>" +
+          "<div class='square' ></div>" +
+          "<div class='square'></div>" +
+          "<div class='square last'></div>" +
+          "<div class='square clear'></div>" +
+          "<div class='square'></div>" +
+          "<div class='square last'></div>" +
+          "<div class='square clear'></div>" +
+          "<div class='square '></div>" +
+          "<div class='square last'></div>" +
+        "</div>";
+
+      var ProgressBar = 
+          "<div class='progress-bar'>" +
+            "<div class='progress-bar-charge'></div>" +
+          "</div>";
+
+      var str = "";
+      var keywords = [];
+      var temp_keyword = "";
+
+      // 是否为第一个字母被键入的标志位
+      var first_char_flag = 0;
+
+      // 因为在移动设备上, 点击搜索之后会 scroll 到页面顶部, 所以需要记录之前的页面y坐标值, 以便于搜索完点击 close 按钮之后 scroll 回原来的页面坐标值.
+      var last_page_y = 0;
+
+      var local_search_tips = 
+            "<span class='local-search-empty'>" + "玩命搜索中!! 研究表明, 人类能够忍受的最长等待时间为8秒..." + "</span>" +
+            "<span class='local-search-empty'>" + "但请相信我, 我绝对不可能那么旷日持久的..." + "</span>";
+
+      function CloseLocalSearch()
+      {
+        first_char_flag = 0;
+
+        $('#local-search-input').val('');
+        $('#local-search-close').hide();
+
+        // $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownOut', 200);
+
+        $('#' + content_id).attr("headroom_special_attr","true"); 
+        
+        if (isMobile())
+        {
+          $('body').scrollTop(last_page_y);
+          $('#' + content_id).hide();
+        }
+        else
+        {
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+        }
+
+        // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
+        //   // delay: isMobile() ? 50 : 0,
+        //   duration: isMobile() ? 500 : 200,
+        //   // begin: function() { 
+        //   //   if (isMobile())
+        //   //   {
+        //   //     $('body').scrollTop(last_page_y);
+        //   //   } 
+        //   // }
+        //   complete: function () {
+        //     if (isMobile())
+        //     {
+        //       if (last_page_y < 20000)
+        //       {
+        //         $('body').velocity('scroll', { offset: last_page_y+"px", duration: last_page_y < 10000 ? 1000 : 2000 });
+        //       }
+        //       else
+        //       {
+        //         $('body').scrollTop(last_page_y);
+        //       }
+        //       // $('body').velocity('scroll');
+
+        //       // $('html,body').animate({
+        //       //   scrollTop: last_page_y
+        //       // },400);
+        //       // $('body').velocity('transition.slideDownIn', 1000);
+        //       // $('body').velocity('scroll', { offset: last_page_y+"px", duration: document.body.scrollHeight < 20000 ? 1500 : 3000 });
+        //     }
+        //   }
+        // });
+      }
+
+      function handleSearch()
+      {
+        if (keywords.length <= 0) {
+          return;
+        }
+        $resultContent.innerHTML = "";
+
+        // 0x04. perform local searching
+        if (is_load_xml_finished == 0)
+        {
+          $resultContent.innerHTML = 
+            "<ul class='local-search-empty-ul'>" + 
+            local_search_tips +
+            ProgressBar;
+        }
+        else
+        {
+          datas.forEach(function (data) {
+            var isMatch = true;
+            var content_index = [];
+            if (!data.title || data.title.trim() === '') {
+              data.title = "Untitled";
+            }
+            var is_encrypted = data.encrypted.trim() == '1'
+            var is_sensitive = CONFIG.local_search.sensitive_word && data_content.indexOf(CONFIG.local_search.sensitive_word) >= 0
+            var orig_data_title = data.title.trim();
+            var data_title = orig_data_title.toLowerCase();
+            var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+            var data_content = orig_data_content.toLowerCase();
+            var data_url = decodeURIComponent(data.url);
+            var index_title = -1;
+            var index_content = -1;
+            var first_occur = -1;
+            // only match artiles with not empty contents
+            if (data_content !== '') {
+              keywords.forEach(function (keyword, i) {
+                index_title = data_title.indexOf(keyword);
+                index_content = (is_sensitive || is_encrypted) ? -1 : data_content.indexOf(keyword);
+
+                if (index_title < 0 && index_content < 0) {
+                  isMatch = false;
+                } else {
+                  if (index_content < 0) {
+                    index_content = 0;
+                  }
+                  if (i == 0) {
+                    first_occur = index_content;
+                  }
+                  // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                }
+              });
+            } else {
+              isMatch = false;
+            }
+            // 0x05. show search results
+            if (isMatch) {
+              var content = orig_data_content;
+              if (first_occur >= 0) {
+                var match_content = "";
+                if (!is_sensitive && !is_encrypted)
+                {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  match_content = content.substr(start, end);
+                }
+
+                // highlight all keywords
+                var regS = "";
+                if (match_content != "")
+                {
+                  keywords.forEach(function (keyword) {
+                    regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                    orig_data_title = orig_data_title.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                  });
+                }
+                else
+                {
+                  keywords.forEach(function (keyword) {
+                    regS = new RegExp(keyword, "gi");
+                    orig_data_title = orig_data_title.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                  });
+                }
+
+                
+                
+                str += "<li><a href='" + data_url + "' class='search-result-title' target='_blank'>" + orig_data_title + "</a>";
+
+                str += "<p class=\"search-result\">" + match_content + "...</p>"
+              }
+              str += "</li>";
+            }
+          });
+
+          str += "</ul>";
+          $('#local-search-close').show();
+          if (str.indexOf('<li>') === -1) {
+            return $resultContent.innerHTML = 
+              "<ul class='local-search-empty-ul'><span class='local-search-empty'>找不到, 换个搜索关键字试一哈.<span></ul>";
+          }
+          $resultContent.innerHTML = str;
+        }
+      }
+
+      $input.addEventListener('input', function () {
+        
+
+        // 0x03. parse query to keywords list
+        str = '<ul class=\"search-result-list\">';
+        temp_keyword = this.value.trim();
+        if (temp_keyword.length <= 0) {
+          CloseLocalSearch();
+          return;
+        }
+
+        keywords = temp_keyword.toLowerCase().split(/[\s\-]+/);
+        handleSearch();
+
+        // 当用户键入第一个字母的时候的动画处理逻辑 : 
+        // 当 first_char_flag 为 0 的时候, 
+        // 要播放一个动画
+        if (first_char_flag == 0)
+        {
+        
+          if (isMobile())
+          {
+            last_page_y = window.pageYOffset;
+            $('body').scrollTop(0);
+          }
+          first_char_flag = 1;
+          $('#' + content_id).removeAttr("headroom_special_attr");
+          
+          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+        }
+
+      });
+
+
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text(),
+              encrypted: $("encrypted", this).text(),
+            };
+          }).get();
+
+          // setTimeout(function(){
+          //   is_load_xml_finished = 1;
+
+          //   handleSearch();
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+          // }, 2000);
+          
+          is_load_xml_finished = 1;
+
+          handleSearch();
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+        }
+      });
+
+      $(document).on('click', '#local-search-close', function() {
+        CloseLocalSearch();
+      });
+
+      // $(document).on('blur', '#local-search-input', function(e) {
+      //   // console.log(document.activeElement.getAttribute('class'));
+        
+      //   if (isMobile() == false)
+      //   {
+      //     CloseLocalSearch();
+      //   }
+      // });
+      
+      
+    }
+
+    function isMobile() {
+      var userAgent = window.navigator.userAgent;
+
+      var isiPad = userAgent.match(/iPad/i) !== null;
+      var mobileUA = [
+        'iphone', 'android', 'phone', 'mobile',
+        'wap', 'netfront', 'x11', 'java', 'opera mobi',
+        'opera mini', 'ucweb', 'windows ce', 'symbian',
+        'symbianos', 'series', 'webos', 'sony',
+        'blackberry', 'dopod', 'nokia', 'samsung',
+        'palmsource', 'xda', 'pieplus', 'meizu',
+        'midp' ,'cldc' , 'motorola', 'foma',
+        'docomo', 'up.browser', 'up.link', 'blazer',
+        'helio', 'hosin', 'huawei', 'novarra',
+        'coolpad', 'webos', 'techfaith', 'palmsource',
+        'alcatel', 'amoi', 'ktouch', 'nexian',
+        'ericsson', 'philips', 'sagem', 'wellcom',
+        'bunjalloo', 'maui', 'smartphone', 'iemobile',
+        'spice', 'bird', 'zte-', 'longcos',
+        'pantech', 'gionee', 'portalmmm', 'jig browser',
+        'hiptop', 'benq', 'haier', '^lct',
+        '320x320', '240x320', '176x220'
+      ];
+      var pattern = new RegExp(mobileUA.join('|'), 'i');
+
+      return !isiPad && userAgent.match(pattern);
+    }
+
+    var getSearchFile = function(){
+      var path = "/search.xml";
+      var local_search_result_name = isMobile() ? "local-search-result-mobile" : "local-search-result-pc";
+      searchFunc(path, 'local-search-input', local_search_result_name);
+    }
+
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <!-- <script type="text/javascript" src="/lib/wobble_window/wobblewindow.js"> </script>
+<script type="text/javascript" src="/js/src/custom.js"></script>-->
+</body>
+</html>
+
+
+<!-- 页面点击小红心 -->
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+
+
+<script type="text/javascript" src="/js/src/headroom.js"></script> 
