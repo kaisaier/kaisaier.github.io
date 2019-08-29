@@ -1,19 +1,16 @@
 ---
-title:  Bash定制
-date: 2014-02-01 19:38:55
+title:  修改Linux的Bash设置
+date: 2014-03-02 23:59:59
 tags:
 - Bash
 categories:
 - Linux
 ---
 
-
 # profile和bashrc和bash_profile的区别
-
 
 - `/etc/profile`:此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行.并从 `/etc/profile.d` 目录的配置文件中搜集shell的设置.
 所以如果你有对`/etc/profile`有修改的话必须得重启你的修改才会生效，此修改对每个用户都生效。
-
 
 - `/etc/bashrc`:为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取.
 如果你想对所有的使用bash的用户修改某个配置并在以后打开的bash都生效的话可以修改这个文件，修改这个文件不用重启，重新打开一个bash即可生效。
@@ -25,7 +22,6 @@ categories:
 此文件类似于`/etc/bashrc`，不需要重启生效，重新打开一个bash即可生效，  `/etc/bashrc`对所有用户新打开的bash都生效，但`~/.bashrc`只对当前用户新打开的bash生效。
 
 - ~/.bash_logout:当每次退出系统(退出bash shell)时,执行该文件. 
-
 
 另外,`/etc/profile`中设定的变量(全局)的可以作用于任何用户,而`~/.bashrc`等中设定的变量(局部)只能继承`/etc/profile`中的变量,他们是"父子"关系.
 
@@ -183,7 +179,6 @@ ulimit -c unlimited
 - completion-ignore-case : 在自动补全时忽略大小写
 - history-search-* : 输入某个命令的一部分时，按上下箭头，会匹配关于这个这命令最近的使用历史。比如：输入 vim ，然后按”上“键，此时，可以显示上一次运行vim时的那条命令，非常的方便！
 
-
 # Bash中快速移动光标
 
 bash有两种输入模式vi模式和emacs模式，其中emacs是默认模式，而且操作起来也比vi模式要快捷。可以通过 set -o vi和set -o emacs来转换。 
@@ -218,7 +213,6 @@ bash有两种输入模式vi模式和emacs模式，其中emacs是默认模式，�
 PS : 其实如果使用了上述的[Bash定制](#Bash定制)中的 ` history-search-* ` 就不需要这个 ` ctrl + r ` 了
 
 使用 Ctrl+r， 这个键组合是反向增量查找消息历史。很好用。 比如你很久以前输入过某个命令如。 gcc -c -DKKT - Dnnn 等等，一长串， 用上下方向键来找比较困难，这时候可以Ctrl+r，然后输入gcc很快找到该命令，重复按Ctrl+r将查找更早的历史。
-
 
 # bash脚本基础
 

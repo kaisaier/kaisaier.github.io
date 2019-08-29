@@ -1,16 +1,17 @@
 ---
-title: 地图加载完毕后的回调
-date: 2018-07-20 22:24:34
+title: UE4地图加载完毕后的回调
+date: 2018-03-14 23:59:59
 tags:
 - UE4
-- Zen
+- Map
+- Map-loading
 categories:
 - UE4
 ---
 
-# 在地图加载完后的回调
+## 在地图加载完后的回调
 
-首先自定义一个 UObject，UObject 可以跨地图存在。
+首先定义一个 UObject，UObject可以跨地图存在。
 
 **. . .**<!-- more -->
 
@@ -20,6 +21,7 @@ Object 如果切换地图的时候如果没有对它有引用的话，会自动�
 ``` c++
 this->AddToRoot()
 ```
+
 地图加载完成后的回调：
 
 ``` c++
@@ -28,9 +30,10 @@ FCoreUObjectDelegates::PostLoadMap.AddUObject(this, &UMyObject::ExcuteFun);
 FCoreUObjectDelegates::PostLoadMapWithWorld.AddUObject(this, &UMyObject::ExcuteFun);
 ```
 
-上面的是老版本的用法，如 ` void UMyObject::ExcuteFun()){} `
+上面的是老版本的用法，如 `void UMyObject::ExcuteFun()){}`
 下面的是新版本的用法，需要在绑定函数的参数添加上 UWorld* 的参数，
 如
+
 ``` c++
 void UMyObject::ExcuteFun(UWorld* world)){}
 ```
@@ -40,4 +43,3 @@ void UMyObject::ExcuteFun(UWorld* world)){}
 ``` c++
 this->RemoveFromRoot()
 ```
-
