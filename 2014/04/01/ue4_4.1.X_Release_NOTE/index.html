@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+          alert('此文章并不公开, 输入文章密码方可阅读');
+          var password = prompt();
+          if (password !== ''){
+            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+            {
+              alert('Error!');
+            }
+            if (history.length > 1)
+            {
+              history.back();
+            }
+            else
+            {
+              window.location.href = "about:blank";
+            }
+          }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="UE4,UE4-Release,Release-Notes,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content=". . .">
+<meta name="keywords" content="UE4,UE4-Release,Release-Notes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UE4 4.1.X Release NOTE">
+<meta property="og:url" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/index.html">
+<meta property="og:site_name" content="凯">
+<meta property="og:description" content=". . .">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/xboxone_ps4.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/steamos_linux.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/Elemental.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/math_hall.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/flying_template.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/rolling_template.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/editor_tutorials.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/scene_outliner_folders.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/news_feed.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/DeleteAssetTool001.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/DragAndDrop.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/UndoHistory02.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/ViewportControls.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/debug_histogram.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/debug_histogram_nodes.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/TranslationEditor03.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/JumpToConnections.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/DynamicCasting.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/shooter_game.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/memory_game.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/effects_showcase.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/realistic_rendering.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/blueprints_demo.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/fbx.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/xboxone_ps4.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/steamos_linux.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/Elemental.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/math_hall.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/flying_template.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/rolling_template.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/editor_tutorials.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/scene_outliner_folders.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/news_feed.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/DeleteAssetTool001.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/DragAndDrop.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/UndoHistory02.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/ViewportControls.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/debug_histogram.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/debug_histogram_nodes.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/TranslationEditor03.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/JumpToConnections.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/DynamicCasting.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/shooter_game.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/memory_game.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/effects_showcase.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/realistic_rendering.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/blueprints_demo.jpg">
+<meta property="og:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/fbx.jpg">
+<meta property="og:updated_time" content="2019-08-29T02:53:03.352Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UE4 4.1.X Release NOTE">
+<meta name="twitter:description" content=". . .">
+<meta name="twitter:image" content="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/xboxone_ps4.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true},
+    local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"header":"slideUpBigIn","menu":"slideDownBigIn","logo":"bounceUpIn","post_block_else":"slideDownBigIn","post_header":"slideDownBigIn","post_body":"slideDownBigIn","coll_header":"slideDownBigIn","footer":"slideUpBigIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+
+
+
+
+  <title>UE4 4.1.X Release NOTE | 凯</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">凯</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ue4</p>
+      
+  </div>
+
+  <div class="menu-item sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="menu-item site-search">
+    
+  
+  <form class="site-search-form">
+    <span class="search-icon fa fa-search"></span>
+    <input type="text" id="local-search-input" class="st-search-input">
+    <i id="local-search-close">×</i>
+  </form>
+
+
+<script type="text/javascript" id="local.search.active">
+var inputArea       = document.querySelector("#local-search-input");
+inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script>
+
+
+
+  </div>
+  <div id="local-search-result-pc" class="local-search-result-cls"></div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+       
+    </ul>
+  
+
+  
+    
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <div id="local-search-result-mobile" class="local-search-result-cls"></div>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2014/04/01/ue4_4.1.X_Release_NOTE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kaisaier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="凯">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">UE4 4.1.X Release NOTE</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-04-01T23:59:59-07:00">
+                2014-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/UE4/" itemprop="url" rel="index">
+                    <span itemprop="name">UE4</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <div class="post-tags">
+              
+                <a href="/tags/UE4/" rel="tag"><i class="fa fa-tag"></i> UE4</a>
+              
+                <a href="/tags/UE4-Release/" rel="tag"><i class="fa fa-tag"></i> UE4-Release</a>
+              
+                <a href="/tags/Release-Notes/" rel="tag"><i class="fa fa-tag"></i> Release-Notes</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+      
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/03/19/ue4_4.0.X_Release_NOTE/" rel="next" title="UE4 4.0.X Release NOTE">
+                <i class="fa fa-chevron-left"></i> 
+                <p class="post-nav-pre-next-title">
+                  UE4 4.0.X Release NOTE
+                </p> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/04/15/三种编程命名规范/" rel="prev" title="三种编程命名规范">
+              <p class="post-nav-pre-next-title">
+                  三种编程命名规范
+              </p> 
+              <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+
+      
+      
+
+      
+        <p><strong>. . .</strong><a id="more"></a></p>
+<h2 id="原文"><a href="#原文" class="headerlink" title="原文"></a>原文</h2><p>Major New Features<br>Platforms<br>PlayStation 4 and Xbox One Support<br>Full support for PlayStation 4 and Xbox One!</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/xboxone_ps4.jpg">
+
+<p>Engine source for Playstation 4 and Xbox One is available to subscribers who are registered developers with Microsoft or Sony, respectively.</p>
+<p>For now, deploying projects to Playstation 4 or Xbox One requires compiling source from GitHub using a Windows computer</p>
+<p>SteamOS/Linux Support (Preview)<br>You can now package your games and deploy to SteamOS and Linux!</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/steamos_linux.jpg">
+
+<p>For now, deploying projects to Linux requires compiling source from GitHub using a Windows computer.</p>
+<p>Marketplace Content<br>Elemental Demo<br>Remember that cool Unreal Demo we showed running on PlayStation 4? Is a spectacular showcase of Unreal Engine 4’s high-end rendering capabilities, including dynamic lighting and shadowing real-time reflections, subsurface scattering and GPU powered particle effects.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/Elemental.jpg">
+
+<p>Math Hall, a new Content Example level<br>The Math Hall example provides an introduction to basic vector math and the concept behind various math functions.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/math_hall.jpg">
+
+<p>New Project Templates<br>Flying Template and Rolling Template<br>We’ve created two new project templates that demonstrate simple flying and rolling character movement.</p>
+<p>The Flying template (C++ and Blueprint) feature simple flying movement:</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/flying_template.jpg">
+
+<p>The Rolling template (C++ and Blueprint) feature a physics-based rolling ball as the player character:</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/rolling_template.jpg">
+
+<p>Editor and Tools<br>New Built-in Editor Tutorials<br>We’ve added new built-in in-editor tutorials. They’ll appear automatically the first time you encounter these features.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/editor_tutorials.jpg">
+
+<p>Cascade Particle Editor Tutorial walks you through the basic user interface and concepts used when creating Particle Systems and effects.</p>
+<p>Material Editor Tutorial explains the basics of creating Materials.</p>
+<p>Static Mesh Editor Tutorial covers the interface and tools available for setting up Static Meshes.</p>
+<p>Persona Animation Editor Tutorial walks you through the various user interface elements and concepts for the different asset types and modes.</p>
+<p>Scene Outliner Folder System<br>You can now organize your actors into folders in the Scene Outliner.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/scene_outliner_folders.jpg">
+
+<p>The create button will create you a new folder containing the currently selected Actors.</p>
+<p>Visibility toggling on folders affects all their contained Actors.</p>
+<p>Editor News Feed<br>The editor now has a built-in News Feed. You can access it using the new button in the top-right of the editor.</p>
+<p>The News Feed will tell you about new Marketplace content, video tutorials and blog posts.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/news_feed.jpg">
+
+<p>Asset Deletion Assistant<br>This feature makes it easy to delete assets by helping you interactively inspect and repair references.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/DeleteAssetTool001.jpg">
+
+<p>Allows graceful cleanup of assets still being referenced on disk or in memory</p>
+<p>You can click on any referenced asset to navigate to it and fix it up manually.</p>
+<p>You can Replace References, formally known as “Consolidate”.</p>
+<p>You can perform a Force Delete, or you can Cancel and go handle the references yourself.</p>
+<p>Allows for multiple simultaneous deletes.</p>
+<p>Even if an asset is referenced by other assets, as long as they are also being deleted, it won’t flag that as a problem.</p>
+<p>Reference Navigation</p>
+<p>Double Clicking on referenced assets will open their editor</p>
+<p>If an asset is being referenced in the open map, Double Clicking the map asset will take you to it in the open map.</p>
+<p>Drag and Drop Directory Importing<br>You can now select multiple folders with textures, meshes and animations, and drag them directly into the Content Browser to import everything inside those folders.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/DragAndDrop.jpg">
+
+<p>Undo History Window<br>The Editor now has a way to access the undo history.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/UndoHistory02.jpg">
+
+<p>You can access the Undo History window from the Windows menu (Windows &gt; Undo History).</p>
+<p>New: Remapping Viewport Controls<br>We now allow users to remap their WASD controls for the viewport.</p>
+<p>You can find these settings under Editor Preferences &gt; Keyboards Settings &gt; Viewport Navigation.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/ViewportControls.jpg">
+
+<p>New: Debug Histogram Visualization<br>You can now draw a histogram (graph) of float values in the world.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/debug_histogram.jpg">
+
+<p>You can record the value of a property or other aspect of the game over time and visualize that as a histogram at a specific location in the world.</p>
+<p>Values can be recorded and histograms can be drawn from both C++ code and Blueprints.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/debug_histogram_nodes.jpg">
+
+<p>Note: This feature is designed for debugging purposes. Debug drawing is not recommended during normal gameplay.</p>
+<p>Translation Editor (Preview)<br>The Translation Editor makes it easier to edit translations for strings in your game code and assets.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/TranslationEditor03.jpg">
+
+<p>Note: This tool is still an early work in progress. This tool can be enabled in your editor preferences under the Experimental section.</p>
+<p>Blueprints<br>Jump to Connection in Graph<br>You can now right click on pins and jump to connections.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/JumpToConnections.jpg">
+
+<p>Class Dynamic Casting<br>You can now safely convert between compatible types of objects in your Blueprints.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/DynamicCasting.jpg">
+
+<p>Improved Blueprint Components Editing<br>You can now drag-and-drop component nodes between Blueprint editor windows.</p>
+<p>This will create a new component variable in the new Blueprint that inherits its attributes from the original (except variable name, to avoid conflicts).</p>
+<p>You can now undo/redo component attachment and detachment operations.</p>
+<p>This works for the “Make New Scene Root” operation as well.</p>
+<p>Important Upgrade Notes<br>Upgrading Projects<br>Some steps may be required to get your 4.0 project working in 4.1.</p>
+<p>Upgrading Blueprint-only projects</p>
+<p>You can load your existing project in the new editor normally.</p>
+<p>Note: Some Blueprint APIs may have changed between versions, which could cause warnings in your content. Read the API Changes section for more information.</p>
+<p>Upgrading C++ code projects</p>
+<p>You’ll need to recompile the C++ project for the new version of Unreal Engine.</p>
+<p>Locate the .uproject file in your game’s folder, and right click on it. (on Mac, you can also Command + Click)</p>
+<p>Select Switch Unreal Engine Version -&gt; 4.1 (on Mac, this is in a Services menu)</p>
+<p>Right click to generate new C++ project files, then recompile your game normally.</p>
+<p>Note: Some C++ APIs may have changed between versions, which can cause compile errors. Read the API Changes section for more information.</p>
+<p>Sorry for the inconvenience! We’re working on simplifying the upgrade process for future versions.</p>
+<p>Known issues<br>Generating Visual Studio projects will fail for projects that have an underscore in the name if the Xbox One SDK is installed.</p>
+<p>Xbox One and Playstation 4 do not yet fully support projects with spaces in any of their parent directories.</p>
+<p>Steamworks is not yet supported on Mac - we’re working on it!</p>
+<p>ShooterGame requires using source from GitHub to be compiled as a dedicated server.</p>
+<p>Projects created from the First Person template may crash on Playstation 4.</p>
+<p>Elemental Demo crashes when deploying to Mac using the “Launch On” button in the editor.</p>
+<p>Tappy Chicken on iOS crashes at startup if you’re signed into Game Center.</p>
+<p>Special Thanks<br>We’d like to thank all of the amazing developers who contributed code in this release. We are humbled and amazed by what you are doing!</p>
+<p>Allar (Michael Allar)</p>
+<p>Added Shared Texture resource support for D3D11RHI</p>
+<p>AndrewScheidecker (Andrew Scheidecker)</p>
+<p>Fix Actor-&gt;Acor K2 redirect typo</p>
+<p>cdietschrun</p>
+<p>Fix “Actions taking a object” message</p>
+<p>clide</p>
+<p>Mac GL Fix</p>
+<p>dkjer (Donald Kjer)</p>
+<p>Fixes for case-sensitive filesystems</p>
+<p>DiCoJamesTan (James Tan)</p>
+<p>Fix attachment bug with ChildActorComponent</p>
+<p>fxtentacle (Hajo Nils Krabbenh.ft)</p>
+<p>Fix Azimuth &amp; Elevation calculation on Mac</p>
+<p>Kamayuq</p>
+<p>Mac UnrealBuildTool Fix</p>
+<p>Kyle Rocha (kylawl)</p>
+<p>Add plane interct function to KismetMathLibrary</p>
+<p>PostalDude (Frederic Lauzon)</p>
+<p>Fix invalid module linker output file path</p>
+<p>sbc100 (Sam Cleeg)</p>
+<p>Fix build warnings in UnrealBuildTool</p>
+<p>Fix linux compile warnings</p>
+<p>wshearn (Wesley Hearn)</p>
+<p>Fix HTML5 Shipping Client build</p>
+<p>Release Notes<br>Marketplace Content<br>ShooterGame: Now supports Xbox One and PlayStation 4 deployment.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/shooter_game.jpg">
+
+<p>Memory Game: A card-matching memory game created entirely in Blueprints. Optimized for mobile devices!</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/memory_game.jpg">
+
+<p>Effects Cave: Spelunking has never been this fun! See the pretty things you can make to add richness to your world by exploring the Effects Cave. Using the Cascade visual effects editor you can layer on countless details including GPU-powered particles, dynamically lit sparks, wispy puffs of smoke and more.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/effects_showcase.jpg">
+
+<p>Realistic Rendering: Easily build true-to-life environments or emulate architectural visualizations using UE4’s physically-based material system, the improved Lightmass global illumination system and photometric lighting. Supports Oculus Rift!</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/realistic_rendering.jpg">
+
+<p>Blueprint Office: Shows a wide variety of use cases for Blueprints ranging from level design tools to intelligent security systems to sophisticated AI behavior. Each example includes a brief in-game explanation.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/blueprints_demo.jpg">
+
+<p>Learning Resources<br>Video Tutorials</p>
+<p>New: Multiplayer Networking Video Tutorials (6 videos) by Billy Bramer.</p>
+<p>New: Blueprint Video Tutorials (7 new videos) by James Golding and Mike Beach.</p>
+<p>New: Third Person Blueprint Game Setup Tutorial (15 videos) by Zak Parrish.</p>
+<p>Written Tutorials</p>
+<p>New: Particle System Tutorials: VFX Lesson 1, Lesson 2 by Tim Elek.</p>
+<p>New: Matinee Tutorial by Greg Mitchell.</p>
+<p>Documentation</p>
+<p>Unreal Editor Manual</p>
+<p>New: Blueprint Cheat Sheet</p>
+<p>New: Light Propagation Volumes</p>
+<p>New: Preview Shadows</p>
+<p>New: Pivot Painter</p>
+<p>New: Mac Viewport Controls Quick Reference</p>
+<p>Programming Guide</p>
+<p>New: Code Block Highlighting</p>
+<p>Updated Landing Page Reorganization</p>
+<p>Updated Data Driven Gameplay</p>
+<p>Fixed Actor Spawning Info</p>
+<p>Fixed Components Array References</p>
+<p>End User License Agreement (EULA)<br>Licensees are now permitted to publicly distribute Example Code (code residing in the Samples and Templates folders). This is an exception to the rule prohibiting distribution of Source Code publicly.</p>
+<p>Added the following exceptions to licensees’ royalty obligation:</p>
+<p>Licensees are not required to pay royalties on the first $3,000 in gross revenue per Product per quarter.</p>
+<p>If Product revenue is less than $3,000 in a quarter, licensee is not required to report revenue for that Product.</p>
+<p>Financial winnings from awards are exempt from royalties.</p>
+<p>Licensees are now permitted to post Source Code snippets up to 30 lines in length on public forums for discussion purposes.</p>
+<p>Unreal Engine Launcher<br>New: Install multiple versions of Unreal Engine side-by-side.</p>
+<p>Use the Launcher’s new Version Selector drop-down to choose which version you want to install and run!</p>
+<p>New: You can now uninstall the engine versions right through the launcher using a new ‘Uninstall’ button on the main UI.</p>
+<p>New: Launcher Marketplace pages now show download size.</p>
+<p>New: The Marketplace now supports different versions of items.</p>
+<p>New: The EULA is now shown and accepted through the launcher.</p>
+<p>New: Project files can be associated with engine versions installed through the launcher.</p>
+<p>New: The Unreal Installer and Launcher are now localized for Korean and Japanese.</p>
+<p>For the launcher you can select a language in on the login screen.</p>
+<p>Fixed not being able to queue Marketplace items while the Engine is downloading.</p>
+<p>Fixed installer not warning users if they did not have Windows 7 SP1 installed.</p>
+<p>Fixed an issue preventing Unreal Engine shortcuts from being removed from the desktop on uninstall in some cases.</p>
+<p>Fixed rare issue with being stuck on “Syncing your account”.</p>
+<p>Fixed cancelled automatic downloads so they will not resume.</p>
+<p>Fixed self-update ignoring empty files.</p>
+<p>Fixed UI size information not displaying with decimal places.</p>
+<p>Fixed an issue causing a failed installation to start all over again rather than resuming from previously successful files.</p>
+<p>Fixed a rare issue where a failed data file download could cause the install to never finish.</p>
+<p>Fixed Mac Launcher crash on close.</p>
+<p>Fixed download size indicator to support showing the compressed download size rather than uncompressed size.</p>
+<p>Fixed some UI issues with progress percentage information.</p>
+<p>Editor and Tools<br>General Editor</p>
+<p>New: Improved the 3D viewport grid!</p>
+<p>Removed the grid dots for a cleaner view. The grid is now also scaled according to the grid snap settings.</p>
+<p>Perspective grid precision improved with thinner lines.</p>
+<p>Orthographic grid now has power of 10 major gridlines, soft fading transitions between levels, and colored axis lines.</p>
+<p>New: Added a Preview Meshes preference that allows customization of meshes displayed in viewports when holding the Backslash key.</p>
+<p>New: Icons for your project can now be assigned via Window/Project Settings.</p>
+<p>New: Startup Movies for your project can now be assigned via Window/Project Settings.</p>
+<p>New: Pressing the C key now creates comments in the Material and SoundCue editors.</p>
+<p>New: Added an option to invert middle mouse pan movement. Invert Middle Mouse Pan option in the Editor Preferences -&gt; Viewports.</p>
+<p>New: Added search support in the Placement Browser.</p>
+<p>New: Holding Ctrl now prevents Vertex Painting from de/re-selecting Actors.</p>
+<p>New: Added support for Ctrl + Backspace and Ctrl + Delete to editable text boxes.</p>
+<p>New: Added Enable Sound option to Play-In-Editor settings.</p>
+<p>New: Save window now displays “Save Map” or “Save Asset” depending on what’s being saved.</p>
+<p>New: Added ability to scale individual sub-curves to the curve editor.</p>
+<p>New: Content is now autosaved by default, and the notification shows you the number of packages that will be saved.</p>
+<p>New: Pressing F4 to view details will now potentially spawn a new Details panel if all the currently open ones are locked.</p>
+<p>New: Browse button in the Content Browser context menu now works on unloaded objects.</p>
+<p>New: The Reset Layout feature has been moved to the Window menu from Editor Preferences.</p>
+<p>New: Property names can be set to display as they are in code (English) on the Region &amp; Language editor preferences.</p>
+<p>New: You can now customize the selection colors in the Editor Preferences.</p>
+<p>New: You can now override the far view plane on a level editor viewport.</p>
+<p>New: Columns are now sortable in Save Content dialog.</p>
+<p>New: 3D marquee select has been re-added with the same original keybinding (Ctrl + Alt + Left Click Drag).</p>
+<p>New: Added a message log link to diagnose load errors in-editor.</p>
+<p>New: If there is an active camera safe frame, the High Resolution Screenshot UI allows you to set the capture region to that safe region.</p>
+<p>New: Added prompt to restart the editor after you’ve enabled or disabled a plugin in the Plugins Editor.</p>
+<p>New: Improved how the zoom slider in the Texture Editor interacts with the Fit to Viewport setting.</p>
+<p>Improved decal scaling performance in the editor.</p>
+<p>Improved Asset Discovery time in the editor.</p>
+<p>Improved Arrow Component readability at a distance.</p>
+<p>Updated Code View functionality to now exist in a plugin.</p>
+<p>Please enable the Code View plugin to reactivate this functionality (Window Menu -&gt; Plugins -&gt; Editor -&gt; Code View).</p>
+<p>Fixed Region &amp; Language editor preferences to be more user friendly. Changing them should be less confusing or awkward.</p>
+<p>Fixed High Resolution Screenshot facility.</p>
+<p>Screenshot capture is now limited to the viewport from which the High Res Screenshot action was selected.</p>
+<p>Fixed Editor Preferences not listing all available languages and regions.</p>
+<p>Fixed Select Actors using this Asset not selecting Actors in other streaming sub-levels.</p>
+<p>Fixed selection problems in orthographic viewports due to mouse tests not extending from beyond the origin plane.</p>
+<p>Fixed Actors not remaining selected after copying Actors from multiple levels into the clipboard.</p>
+<p>Fixed global shortcut keys not functioning in floating windows in some cases</p>
+<p>Fixed safe frames and aspect ratio bars not displaying when locking a camera in Matinee when no camera is selected.</p>
+<p>Fixed viewport settings not being saved into the layout preferences file instead of the editor preferences files.</p>
+<p>Fixed notifications not being anchored to their appropriate monitor work area.</p>
+<p>Fixed copying text from the Output Log not copying lines in the correct order.</p>
+<p>Fixed Output Log auto scrolling.</p>
+<p>Fixed level locking changes in the level browser not being able to be undone or redone.</p>
+<p>Fixed unintuitive project switching by displaying the name of the project in the splash screen.</p>
+<p>Fixed survey notification not fading away instantly after clicking Cancel to close it.</p>
+<p>Fixed Actors being selected when the viewport is hiding the layer they are in.</p>
+<p>Fixed Tutorial window to no longer play sounds.</p>
+<p>Fixed the white square artifact with the Virtual Joystick by adding a StartupDelay function.</p>
+<p>Fixed crash on save when FindObject is called.</p>
+<p>Fixed curve handle movement in Viewports to no longer be inverted.</p>
+<p>Fixed dropping assets onto Brush edges/verts, it now leaves them at the correct location.</p>
+<p>Fixed SVN binaries not being included with the editor when installed from the launcher.</p>
+<p>Fixed tooltips not appearing in the Window options on the main menu.</p>
+<p>Fixed Frame rate settings being allowed to go below zero.</p>
+<p>Fixed StaticMesh scaling via “ScaleMeshes” console command not taking into account the existing BuildScale into consideration before making any changes.</p>
+<p>Fixed home button not appearing in the tutorial window appears after viewing Blueprint tutorials.</p>
+<p>Removed unused splash screens.</p>
+<p>FBX</p>
+<p>New: Added an Import All button to the FBX import dialog. This will import all selected files with the same FBX settings without being asked more than once</p>
+<p>Changed FBX Import Options Window for clarity:</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/fbx.jpg">
+
+<p>Changed the default setting of Import Meshes in Bone Hierarchy, under the Skeletal Mesh import settings, to be enabled by default. This will result in any non-skinned meshes in the bone hierarchy being imported as actual meshes and not as bones.</p>
+<p>Fixed importing with Materials and Textures that are the same name as each other or a mesh. This will no longer cause a crash, instead unique names will be generated for each conflict.</p>
+<p>Fixed overlapping nodes on Materials imported from FBX.</p>
+<p>Content Browser</p>
+<p>New: You can now rename folders by right clicking on them and selecting Rename.</p>
+<p>New: Added new Content Browser view options:</p>
+<p>Show Only Assets in Selected Folders will only show assets in the currently selected folder when searching or filtering.</p>
+<p>With Real-Time Thumbnails enabled, any loaded asset will show material animation.</p>
+<p>New: Changes to Behavior Tree assets can now be displayed interactively while using the Diff Tool.</p>
+<p>Fixed the Developer Folder appearing in the Content Browsers breadcrumb trail if the Developer Folder option is disabled.</p>
+<p>Fixed Textures in thumbnails often drawing with blurry graphics by improving streaming for thumbnail Textures.</p>
+<p>Fixed not being able to type immediately into Content Browser search when window is summoned.</p>
+<p>Fixed move/copy to only prompt for asset load once per folder group move/copy.</p>
+<p>Matinee</p>
+<p>New: Matinee now supports rendering to PNG and JPEG formats (along with BMP and AVI).</p>
+<p>New: Safe frames and aspect ratio bars can now be displayed when locking a camera and in Matinee when a non-camera is selected.</p>
+<p>New: Notification now occurs when attempting to delete an Actor from the Viewport while Matinee is open.</p>
+<p>Optimized invalidation of curve editor viewport, which improves Matinee’s performance.</p>
+<p>Fixed inconsistencies with how Undo/Redo works in Matinee compared to other editors such as Cascade.</p>
+<p>Fixed not being able to interact with graph labels and buttons while in Zoom Mode.</p>
+<p>Fixed Slomo tracks not being able to slow the play rate down below 10%.</p>
+<p>Persona: Animation Editor</p>
+<p>New: You can now select and edit multiple bones at the same time in Persona.</p>
+<p>New: You can now save assets straight from Persona’s built-in Asset Browser.</p>
+<p>New: Animation Notifies can now be deleted by selecting them and pressing the Delete key.</p>
+<p>New: You can now open assets directly from Blueprint nodes that reference them.</p>
+<p>New: Added function to Persona to allow the user to remove unused bones from a skeleton.</p>
+<p>New: Added recently opened file history in the form of Forward and Back browser buttons in the Asset Browser in Persona.</p>
+<p>New: Added filters to Asset Browser in Persona.</p>
+<p>Changed the setting of the default preview mesh on skeletons to make sure they never start will a NULL mesh.</p>
+<p>Fixed not being able to undo and redo changes to bones.</p>
+<p>Fixed some Persona settings not being remembered between sessions.</p>
+<p>Fixed Persona mode widgets not indicating dirty state.</p>
+<p>Fixed a crash in Persona’s skeleton tree context menu.</p>
+<p>Fixed the preview viewports not drawing when dragging a slider in Persona.</p>
+<p>Source Control</p>
+<p>New: P4 plugin now supports P4HOST masquerading, password login and connection to stream depots.</p>
+<p>New: P4 can no longer connect to workspaces that do not map to your project (and similarly for SVN working copies)</p>
+<p>New: Added toast popup when successfully checking in.</p>
+<p>Fixed Perforce source control plugin not supporting Unicode workspace names and user names.</p>
+<p>Material Editor</p>
+<p>New: You can now zoom in and out by holding Left + Right Mouse Buttons and dragging.</p>
+<p>New: Material Attributes can now be connected to Feature Level and Quality switches.</p>
+<p>New: Added context sensitivity when dragging off pins in the Material Editor.</p>
+<p>New: Lighting-specific options in the Material Details are now grayed out when Unlit mode is active.</p>
+<p>New: Changed Material statistics to be displayed in their own tab.</p>
+<p>New: Added New Mobile Stats Icon for Material Editor.</p>
+<p>New: Added title coloring for Material Expression nodes.</p>
+<p>New: Added option to Panner Material Expression to use fractional component of the time calculation to improve accuracy.</p>
+<p>Exposed default material values that were missing and added tooltips to non-required inputs.</p>
+<p>Fixed Material asset name not being displayed in the Material Editor Title tab.</p>
+<p>Fixed propagating changes from material functions to any materials or functions using them.</p>
+<p>Geometry Editing</p>
+<p>New: Geometry brushes will now attempt to keep the material information even when their core parameters are altered.</p>
+<p>Changes where the number of polygons remain the same are completely supported.</p>
+<p>Changes where the number of polygons differ only support a single material across the whole mesh.</p>
+<p>Fixed dragging and dropping Geometry Brushes into the Scene Outliner not working correctly.</p>
+<p>Fixed not being able to scroll through the various Geometry Editing mode controls.</p>
+<p>Fixed legacy builder brush visible in the 3D scene while Geometry Editing mode is active.</p>
+<p>Fixed the Lathe tool to create a brush.</p>
+<p>Removed Volumetric and Sheet brush shapes as they were non-functional.</p>
+<p>Landscape and Foliage</p>
+<p>New: Landscape splines now have a Max Draw Distance setting for meshes on the spline.</p>
+<p>New: Added new Landscape LOD preview settings to viewports.</p>
+<p>New: New controls for collision settings were added to Foliage tool.</p>
+<p>New: Added Resample option for Change Component Size tool.</p>
+<p>New: The Landscape Spline sprite automatically scales with the width of the spline to prevent them from getting too big.</p>
+<p>New: The Landscape move-to-level tool will now operate on the component under the cursor when there is no component selection active.</p>
+<p>Updated the order of the Landscape Visualizers menu.</p>
+<p>Mesh Paint Tool</p>
+<p>New: Paint brush radius is now saved with your editor preferences.</p>
+<p>Updated the default paint brush radius to 128.</p>
+<p>Data Table Editor</p>
+<p>New: To aid in readability, even and odd rows now have different background colors.</p>
+<p>New: Search has been implemented in the Data Table Editor.</p>
+<p>Scene Outliner</p>
+<p>New: More options for managing Actors and folders in the Scene Outliner right click context menu.</p>
+<p>Fixed Undo/redo with folders in the Scene Outliner.</p>
+<p>World Browser</p>
+<p>New: Added option to handle cooking for worlds created by World Browser -map=PersistentMapName?worldcomposition.</p>
+<p>New: Added time threshold between tile distance streaming load/unload requests. Can be changed in configuration files: TilesStreamingTimeThreshold.</p>
+<p>New: Added position snapping for level tiles, use Ctrl+Left Click Drag.</p>
+<p>Replaced World Browser async loading of level tiles with a blocking load and added “long operation” message.</p>
+<p>Removed the Always Loaded level type.</p>
+<p>Device Profile Editor</p>
+<p>New: Device Profile Editor is now always available through the Window Menu -&gt; Device Profile Editor</p>
+<p>Updated the device profile editor UI with a layout which reflects its primary usage.</p>
+<p>Updated CVar addtion, removal, and parenting to be a lot more evident for a profile.</p>
+<p>Translation Editor</p>
+<p>New: Translation Editor now searches the Engine, Editor, and the currently loaded project’s directories for localization files to determine which projects/languages can be translated.</p>
+<p>New: Added event triggered by a property change to the translation data object to write the data to file, to prevent data loss due to user forgetting to save, or the editor crashing.</p>
+<p>Fixed Translation Editor to read local cached versions of old manifests when possible instead of syncing them from Source Control again.</p>
+<p>Blueprints<br>New: Added undo/redo support for component attach/detach operations in Components mode within the Blueprint editor.</p>
+<p>New: Added undo/redo support for repositioning graph nodes in a Blueprint graph.</p>
+<p>New: Added proper undo/redo support for duplicating components in Components mode within the Blueprint editor.</p>
+<p>New: Added support for dragging components between 2 different Blueprint editor windows in Components mode.</p>
+<p>New: Added support for drag-and-drop with multiple components selected in Components mode within the Blueprint editor.</p>
+<p>New: Added a graph node section in the details view of the Blueprint editor that provides the ability to rename nodes that the user can rename.</p>
+<p>New: Added ability for Blueprint cast nodes to cast from one interface to another.</p>
+<p>New: You can now multiply LinearColors by floats using a Float * (LinearColor) Blueprint node.</p>
+<p>New: Added a new ParseIntoArray function for easily splitting up strings.</p>
+<p>New: Variable Get/Set nodes can now display Rich Tooltips. To view them, mouse over a node and hold Ctrl+Alt.</p>
+<p>New: Alt + Right Click can now be used as an alternative to zoom Blueprint graphs.</p>
+<p>New: Added menu extensibility hooks for additional items in the Debug Object drop down.</p>
+<p>New: Graph nodes can now be renamed via the details panel when a node is selected</p>
+<p>New: Added support for searching Blueprint Interfaces.</p>
+<p>New: Renaming Blueprint Interface’s functions now properly renames the functions in implementing Blueprints.</p>
+<p>New: Added the Ability to set the PlayRate of a Montage from within Blueprint.</p>
+<p>New: Added Impact Velocity parameter to OnProjectileBounce, to allow blueprints to override bounce velocity vector.</p>
+<p>New: Added “value (clamp) range” exposure to numeric variables in Blueprints to go along with “slider UI range.”</p>
+<p>Updates allowing multiple pending latent actions at a particular call site from a Blueprint.</p>
+<p>Fixed Combo button menu scaling in the Blueprint Editor.</p>
+<p>Fixed Realtime rendering in the Blueprint Components mode Viewport. It is now disabled when Components mode is deactivated within the Blueprint editor.</p>
+<p>Fixed the Toggle Particle System Helpers option to work on Blueprint Actors that contain Particle System Helpers.</p>
+<p>Fixed Blueprints to be properly flagged as being modified when toggling between absolute and relative transform settings.</p>
+<p>Fixed not being able to undo/redo after moving nodes around on the graph.</p>
+<p>Fixed Grid Snap while translating components in Components Mode.</p>
+<p>Fixed Sprite Component visualizers switching to the default “Actor” icon in the Blueprint editor preview during Play in Editor or Simulate in Editor.</p>
+<p>Fixed renaming Blueprint Interface functions, they will now properly rename in implementing Blueprints.</p>
+<p>Rendering<br>General</p>
+<p>New: Added ability to disable parts of the DBuffer decals effect (Material Decal Response).</p>
+<p>You can mask color, normal, roughness.</p>
+<p>This can free up texture sampler units, improve performance, and gives more control.</p>
+<p>New: Added feature to choose graphics adapter (r.GraphicsAdapter) or let the system do this automatically</p>
+<p>By default, this favors non-integrated graphics card (at the moment we check for “Intel” in the adapter name).</p>
+<p>Improvements to Sky Lights:</p>
+<p>New: Movable objects receive sky shadowing from static shadow casters.</p>
+<p>Fixed TLM_Surface materials to render sky reflections properly.</p>
+<p>Improved glossy screen space reflections to reduce noise.</p>
+<p>Fixed situation that could cause incorrect viewport dimensions to be calculated when setting render target to lower mip levels with the D3D11 RHI.</p>
+<p>Fixed some possible incorrect casting of D3D texture objects.</p>
+<p>Android</p>
+<p>New: Reflection capture data is now stored in the map package.</p>
+<p>This allows cooking for ES2 to always have valid reflections for maps that have been resaved.</p>
+<p>Optimized motion blur, UIBlur, and screenspace ambient occlusion.</p>
+<p>Improved CPU performance by setting affinity mask for the gamethread, renderthread and eventthread.</p>
+<p>Improved GPU performance by turning on DisjointTimerQueries on Adreno 330-based devices with a driver later than version 53.0.</p>
+<p>Updated the CVar r.DisjointTimerQueries to enable GPU frametime measurement in STAT UNIT on device.</p>
+<p>Gameplay and Framework<br>New: In the Input section of the Project Settings you can now indicate that the mouse should simulate touch behavior.</p>
+<p>This means only one set of events needs to be mapped for simple touch games being played on PC.</p>
+<p>New: Added Audio Settings section of Project Settings in which the Default Sound Class and Default Base Sound Mix can be specified.</p>
+<p>New: Splitscreen options added to Maps &amp; Modes section of Project Settings.</p>
+<p>New: Added path simplification to path following component using visibility tests, to skip some irrelevant path points. It is disabled by default.</p>
+<p>New: Added landscape collision data cooking. Cooked landscapes will now create collision objects from a binary stream of cooked data, which improves level streaming performance.</p>
+<p>New: Text Render Actors now generate and cache static vertex and index buffers.</p>
+<p>Improved the way Morph Targets calculated their morphed normal.</p>
+<p>Fixed the lack of feedback if a module fails to load due to a lack of compatibility. An error message will now be displayed.</p>
+<p>Fixed editor-only sprites being loaded while cooking.</p>
+<p>Fixed movement components to correctly handle analog input.</p>
+<p>Fixed a crash in material indices and LOD mapping indices.</p>
+<p>Fixed Async package loading no longer allows objects to be post-loaded before they are pre-loaded.</p>
+<p>Fixed the example device profile selection plugin requirement to launch UE4.</p>
+<p>Fixed Always Loaded levels to be flagged as Should be Visible by default.</p>
+<p>Networking<br>General</p>
+<p>New: Character Movement Component movement mode is now replicated.</p>
+<p>New: Launch Character can now be simulated client side for non-locally controlled characters.</p>
+<p>New: The setting Only Relevant to Owner is now available to Blueprints.</p>
+<p>Improved character movement on moving platforms for remote network clients and for simulated proxies.</p>
+<p>PlayStation 4</p>
+<p>Socket subsystem support for UDPP2P sockets.</p>
+<p>Animation<br>New: Added support for reference pose scale.</p>
+<p>Fixed AnimMontages to no longer allow branch points to overlap.</p>
+<p>Physics<br>New: PhysX and APEX have been upgraded to 3.3.1 and 1.3.1.</p>
+<p>In some cases it may be necessary to recook physics data.</p>
+<p>This upgrade fixes some physics related bugs. See NVIDIA release notes for more info.</p>
+<p>New: Maximum angular velocity of a BodyInstance has been exposed in code and blueprints.</p>
+<p>New: Pawns will now collide with destructible mesh. Large and small chunks can be set to get different interaction with pawn.</p>
+<p>New: Breakable joints are now available for ragdolls and physics assets.</p>
+<p>New: Support for cloth on ragdolls and physics assets.</p>
+<p>Updated soft physics constraints to use body mass implicitly.</p>
+<p>Updated the Async physics scene to be disabled by default.</p>
+<p>This feature is somewhat advanced and uses more memory. As such, it has been turned off by default and can be changed in the Edit Menu -&gt; Project Settings -&gt; Physics -&gt; Simulation category.</p>
+<p>If Async scene is disabled, all Actors are placed in the regular scene regardless of the Enable Async flag on the Actor.</p>
+<p>Updated the player Pawn to no longer interact with the Async scene by default.</p>
+<p>Fixed overlap event related bugs. Correct behavior related to overlap flags may break old content relying on bad behavior.</p>
+<p>A collision between two objects can be set to Ignore, Overlap, or Blocking.</p>
+<p>An overlap event will occur if two objects Overlap and both have the Generate Overlap Events flag set to true.</p>
+<p>A bug in the code made it so that in certain situations an overlap would trigger even if one of the overlapping objects had the flag set to false.</p>
+<p>This means overlap events that were previously firing could now stop due to improper flagging.</p>
+<p>Fixed Overlap events to only fire when collision is marked as overlap.</p>
+<p>There was a bug where in some cases an overlap event would fire even if a collision was marked as Blocking.</p>
+<p>Fixed Hit Events now require both objects to opt in by enabling Simulation Generates Hit Events.</p>
+<p>Audio<br>New: Added Enable Sound option to PIE settings.</p>
+<p>New: Added Add Input button to appropriate Sound Nodes.</p>
+<p>Improved DialogueWaves so they can be played immediately after creation/modification.</p>
+<p>Limited the Random Sound node choices in Play in Editor if Preselect at Level Load setting is used.</p>
+<p>Core<br>New: UnrealBuildTool can now be configured using an XML configuration file!</p>
+<p>It looks for the BuildConfiguration.xml file in two possible locations (Engine/Saved/UnrealBuildTool and My Documnets/Unreal Engine/UnrealBuildTool). The first one should be used for branch/engine configurations, while the second one is for personal settings. Notice that environmental variables settings will be overridden by those values if set.</p>
+<p>The syntax is described in \Engine\Programs\UnrealBuildTool\BuildConfiguration.xml.</p>
+<p>New: Added support for cross-compiling Linux client.</p>
+<p>New: All platform memory and allocator memory statistics are now available through the stats system.</p>
+<p>New: Added metadata for threads and thread group for the stats system.</p>
+<p>New: Improved save format of the stats files (not fully utilized yet).</p>
+<p>New: [Windows] Shell integration now supports multiple engine versions side by side.</p>
+<p>To add an engine installation, or to set up shell extensions and file associations for the first time, run UnrealVersionSelector from each Engine\Binaries\Win64 directory.</p>
+<p>Each .uproject file can be configured to open with a different engine installation.</p>
+<p>New: The -UTF8Output command line argument can be passed to any program using the engine to force stdout into UTF-8 mode.</p>
+<p>Use this if you are getting question marks in your Unicode strings being logged.</p>
+<p>Improvements to the Visual Studio accessor (particularly for Express).</p>
+<p>Fixed InstallVisualizers.bat complaining about no version of Visual Studio installed, when only Visual studio 2010 is missing.</p>
+<p>Fixed UnrealBuildTool to raise an error early about attempting to build the Editor in a Win32 configuration.</p>
+<p>Fixed the size of the internationalization libraries.</p>
+<p>Internationalization now loads its data from a binary file rather than from a static library.</p>
+<p>Platforms<br>Android</p>
+<p>Improved Android device detection. It is now threaded and more efficient in general.</p>
+<p>Fixed Launch showing texture formats not supported by the connected Android devices. It will now only display texture formats that are supported by the connected Android devices.</p>
+<p>Mac</p>
+<p>New: Packaging on Mac now creates a self-contained app bundle.</p>
+<p>New: Mac UE4 now uses our crash reporter.</p>
+<p>New: Added ability to use Mono installed on Mac instead of the one bundled with the engine.</p>
+<p>New: Added support to UBT for generating dSYM debugging symbol bundles on Mac OS X.</p>
+<p>New: Implemented text input method system for Mac platform.</p>
+<p>This uses the native Cocoa InputMethod services on Mac OS X to support the different input methods.</p>
+<p>Simplified Xcode project and improved code indexing in Xcode.</p>
+<p>iOS</p>
+<p>New: Added a device enumeration for iPad mini with retina display.</p>
+<p>New: Added experimental support for showing the Game Center leaderboard in-app (EXPERIMENTAL_ShowGameCenterLeaderboard)</p>
+<p>New: Added -compress=best command line for Shipping iOS via Windows workflow builds</p>
+<p>Various improvements and bug fixes to iAd support.</p>
+<p>Fixed some threading issues with IOS gamecenter.</p>
+<p>PlayStation 4</p>
+<p>New: Added PlayGo Support.</p>
+<p>New: Implemented Achievements.</p>
+<p>New: Added support for shader scratch memory.</p>
+<p>Enable with r.ShaderScratchBuffers=1 in the ConsoleVariables.ini file.</p>
+<p>New: HZB occlusion culling now supported on PS4.</p>
+<p>Added detection of render target/shader mismatches at runtime.</p>
+<p>Updated render target output formats to be set through ModifyCompilationEnvironment rather than using the SLOT defines in the shader files.</p>
+<p>Xbox One</p>
+<p>New: Added 10:10:10 final color output on Xbox One. This allows us to remove quantization noise in tonemapper, which is faster.</p>
+<p>New: Screen safe area is now implemented.</p>
+<p>New: Implemented Achievements.</p>
+<p>Enabled optimizations for all pixel shaders.</p>
+<p>Improved XAudio2 implementation to be more feature complete.</p>
+<p>Fixed various GPU hangs.</p>
+<p>UnrealVS (Visual Studio Extension)<br>New: Command Line box now automatically adds the game project file for ‘Game’ projects in UE4.sln.</p>
+<p>New: Visual Studio’s Customize feature now supports UnrealVS’ tool bar commands.</p>
+<p>New: UnrealVS Quick Build menu now allows easy access to building in any configuration without changing the config in the IDE.</p>
+<p>New: Added logging to help debugging.</p>
+<p>Changed code projects for game-specific editor builds (e.g. MyGame “Debug Editor|Win64”) no longer need the project added to the command line in UnrealVS.</p>
+<p>Previously the UnrealVS command line args to debug the editor for the example above would have been “MyGame.uproject “</p>
+<p>The command line in UnrealVS for the example above is now just “”, UnrealVS adds the project name automatically when the project is run.</p>
+<p>The project name is still passed to the editor executable but UnrealVS now adds it automatically and does not display it.</p>
+<p>Existing command lines will work as before but will display differently.</p>
+<p>If no project name is supplied, UnrealVS should strip it from the displayed command line and popup a warning dialog.</p>
+<p>Fixed Startup Project selector and Batch Build to correctly recognize executable projects on non-Windows platforms.</p>
+<p>API Changes<br>Gameplay and Framework<br>Added bForceRescan parameter to IAssetRegistry::ScanPathsSynchronous. If true, path scanning not ignore paths that have already been scanned.</p>
+<p>Added GetDerivedClasses to IAssetRegistry. This is just a wrapper function for the pre-existing GetSubClasses.</p>
+<p>Added a flag to disable blue onscreen messages in DrawTransition in GameViewportClient.</p>
+<p>Added ability for Blueprints to use GetOverlapInfos.</p>
+<p>Added OnClosed delegate as a parameter to IOnlineExternalUI::ShowLoginUI.</p>
+<p>Added a flag to disable blue onscreen messages in DrawTransition in GameViewportClient.</p>
+<p>Added support for loading an ObjectLibrary from multiple paths, and a constructor for easily creating an ObjectLibrary in memory.</p>
+<p>Improved the support for Blueprints in an ObjectLibrary when calling UObject::CreateLibrary. If the bHasBlueprintClasses is true, it will check the type for you.</p>
+<p>Renamed FGameWorldContext to FLocalPlayerContext, as it binds to a player and not a world.</p>
+<p>Renamed GetWorldContextFrom functions returning a World Context reference to GetWorldContextFrom*Checked.</p>
+<p>GetWorldContextFrom now returns a pointer and returns NULL if no WorldContext exists for the supplied input. Removed FSimpleReticle from AHUD. You can add this to your subclass if desired.</p>
+<p>Removed unused lifecycle event OnEngineHasLoaded from AGameMode.</p>
+<p>Removed SGameWidget class as it is no longer necessary</p>
+<p>Removed PendingLevelPlayerControllerClassName from GameEngine and replaced it with PendingLevelPlayerControllerClass in LocalPlayer.</p>
+<p>This makes it work like the other PlayerController references, and avoids a confusing warning on every map join</p>
+<p>Changed AActor::CalcCamera to consider whether a component is activated when trying to find the camera component to use (allowing selection between multiple camera components by managing activation).</p>
+<p>Made SKismetLinearExpression more permissive in what it will show as a function (now tries to do something with any pure K2Node with one output).</p>
+<p>ADebugCameraController and ADebugCameraHUD can now be extended and accessed outside of the Engine module.</p>
+<p>Editor and Tools<br>Slate drag drop operations now use RTTI that is compatible with inheritance. This allows DragDrop::IsTypeMatch to work properly allowing for static casting to any level of the inheritance hierarchy.</p>
+<p>Please replace previous instances of GetTypeId in FDragDropOperation derivatives with DRAG_DROP_OPERATOR_TYPE.</p>
+<p>FSlateApplication::GetDragDropReflector() is now obsolete and has been removed.</p>
+<p>Removed unused Linked Obj Editor framework</p>
+<p>Platforms<br>Mac</p>
+<p>The minimum supported Mac OS X version is now 10.9.2.</p>
+<p>We no longer support OS X versions prior to 10.9.2 due to OpenGL driver bugs &amp; feature deficiencies that won’t be fixed in earlier versions.</p>
+<p>Mac build is now using OS X 10.9 SDK, code and compile settings were updated to be compatible with Xcode 5.1.</p>
+<p>Config files on were moved to ~/Library/Preferences, logs to ~/Library/Logs, all other files from Saved folders are now in ~/Library/Application Support/Epic.</p>
+<p>PlayStation 4</p>
+<p>Specification of TitleID, package PassCode, and other data should now be in a text file in your project directory under Build/PS4/PackagingDataPS4.txt. This replaces the old metadata system in UBT. Examples can be found in ShooterGame, and the base Engine/BuildPS4 directories.</p>
+<p>Xbox One</p>
+<p>Code updated to build against March 2014 XDK.</p>
+<p>Deprecated functions (D3DAllocateGraphicsMemory, etc) have been removed/replaced.</p>
+<p>Core<br>FPlatformString::Stricmp now converts to lower case to match std::stricmp.</p>
+<p>This may result in slightly different sorting orders if your strings only differ by underscores or any other character between the ASCII lower and upper case ranges.</p>
+<p>Warnings are now issued during bad string conversions (e.g. Unicode characters which can’t be represented as ASCII).</p>
+<p>You may notice extra debug text in the output log if this happens often in your code</p>
+<p>TArray::Append and TArray::Insert are now overloaded to allow the insertion of multiple elements at once.</p>
+<p>TSet is now accessed through operator [] instead of operator ().</p>
+<p>You can use now TObjectRange in the same way you use TobjectIterator for when you want to use C++11’s ranged-for syntax.</p>
+<p>Example: for (UClass* Cls : TObjectRange())</p>
+<p>Removed unused property flag CPF_AlwaysInit.</p>
+<p>Removed unused struct flag STRUCT_Transient.</p>
+<p>Added support for saving and loading FVector4 to config files using GConfig-&gt;SetVector4 and GConfig-&gt;GetVector4.</p>
+<p>Licensees using cultures (locales) other than the following languages will need to rebuild ICU’s data to include that locale data:</p>
+<p>German - de, English - en, Spanish - es, French - fr, Hindi - hi, Italian - it, Japanese - ja, Korean - ko, Polish - pl, Portuguese - pt, Russian - ru, Swedish - sv, Chinese - zh</p>
+<p>DrawDebugHelpers: added support for displaying a Histogram of float values. Use FDebugFloatHistory to record samples, and DrawDebugFloatHistory to draw in game. Also available in blueprints.</p>
+<p>Networking<br>Modified PreReplicatedRemove, PostReplicatedAdd, and PostReplicatedChange functions on FFastArraySerializerItem to also have a parameter representing the owning array serializer.</p>
+<p>Exposed bOnlyRelevantToOwner setting to blueprints.</p>
+<p>Animation<br>New: AnimInstance now has a CalculateDirection function for BlendSpaces.</p>
+<h2 id="翻译"><a href="#翻译" class="headerlink" title="翻译"></a>翻译</h2><p>主要新功能<br>平台<br>PlayStation 4和Xbox One支持<br>完全支持PlayStation 4和Xbox One！</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/xboxone_ps4.jpg">
+
+<p>Playstation 4和Xbox One的引擎源分别提供给微软或索尼的注册开发者。</p>
+<p>目前，将项目部署到Playstation 4或Xbox One需要使用Windows电脑从GitHub编译源码</p>
+<p>SteamOS/Linux支持（预览）<br>现在可以打包游戏并部署到SteamOS和Linux！</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/steamos_linux.jpg">
+
+<p>目前，将项目部署到Linux需要使用Windows计算机从GitHub编译源码。</p>
+<p>市场内容<br>元素演示<br>还记得我们在PlayStation 4上展示的那个很酷的虚幻演示吗？这是虚幻引擎4的高端渲染能力的壮观展示，包括动态照明和阴影实时反射、次表面散射和GPU支持的粒子效果。</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/Elemental.jpg">
+
+<p>数学大厅，新内容示例关卡<br>数学大厅示例介绍了基本矢量数学和各种数学函数背后的概念。</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/math_hall.jpg">
+
+<p>新项目模板<br>飞行模板和滚动模板<br>我们创建了两个新的项目模板，演示了简单的飞行和滚动角色移动。</p>
+<p>飞行模板（C++和蓝图）使用简单的飞行移动：</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/flying_template.jpg">
+
+<p>滚动模板（C++和蓝图）以基于物理的滚球作为玩家角色：</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/rolling_template.jpg">
+
+<p>编辑器和工具<br>新内置编辑器教程<br>我们添加了新的内置编辑器教程。当您第一次遇到这些功能时，这些教程将自动出现。</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/editor_tutorials.jpg">
+
+<p>级联粒子编辑器教程 介绍创建粒子系统和效果时使用的基本用户界面和概念。</p>
+<p>材质编辑器教程 介绍有关创建材质的基础知识。</p>
+<p>静态网格体编辑器教程 介绍用于设置静态网格体的界面和工具。</p>
+<p>Persona动画编辑器 教程介绍不同资源类型和模式的各种用户界面元素和概念。</p>
+<p>场景大纲视图文件夹系统<br>现在，您可以在场景大纲视图中将Actor组织到文件夹中。</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/scene_outliner_folders.jpg">
+
+<p>创建按钮将为您创建一个包含当前选定Actor的新文件夹。</p>
+<p>文件夹上的可见性切换会影响其包含的所有Actor。</p>
+<p>编辑器动态消息<br>编辑器现在有内置动态消息。您可以使用编辑器右上角的新按钮访问它。</p>
+<p>动态消息将告诉您新的市场内容、视频教程和博客文章。</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/news_feed.jpg">
+
+<p>资源删除助手<br>该功能通过帮助您交互式地检查和修复引用，使删除资源变得很容易。</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/DeleteAssetTool001.jpg">
+
+<p>允许对仍然在磁盘或内存中引用的资源进行优雅的清理</p>
+<p>您可以单击任何引用的资源来导航到它并手动修复它。</p>
+<p>您可以替换引用，正式的说法是“合并”。</p>
+<p>您可以执行强制删除，也可以取消并自己处理引用。</p>
+<p>允许多个同时删除。</p>
+<p>即使一个资源被其他资源引用，只要它们也被删除，它也不会将其标记为一个问题。</p>
+<p>引用导航</p>
+<p>双击引用资源将打开其编辑器</p>
+<p>如果一个资源在开放地图中被引用，双击地图资源将会将您带到该开放地图中。</p>
+<p>拖放目录导入<br>您现在可以选择多个具有纹理、网格体和动画的文件夹，并将它们直接拖放到内容浏览器中，以导入这些文件夹中的所有内容。</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/DragAndDrop.jpg">
+
+<p>取消操作历史记录窗口<br>编辑器现在有了访问取消操作历史记录的方法。</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/UndoHistory02.jpg">
+
+<p>您可以从Windows菜单（Windows &gt; 取消操作历史记录（Undo History））中访问取消操作历史记录（Undo History）窗口。</p>
+<p>新内容：重新映射视口功能按钮<br>现在我们允许用户重新映射视口的WASD功能按钮。</p>
+<p>您可以在 编辑器首选项（Editor Preferences）&gt;键盘设置（Keyboards Settings）&gt;视口导航（Viewport Navigation） 下找到这些设置。</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/ViewportControls.jpg">
+
+<p>新内容：调试直方图可视化<br>您现在可以绘制世界场景中浮点值的直方图（图表）。</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/debug_histogram.jpg">
+
+<p>您可以随着时间的流逝记录属性或游戏的其他方面的值，并将其可视化为世界场景中特定位置的直方图。</p>
+<p>值可以被记录，直方图可以从C++代码和蓝图中绘制。</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/debug_histogram_nodes.jpg">
+
+<p>注意：该功能是为调试目的而设计的。正常游戏过程中不推荐使用调试绘制。</p>
+<p>翻译编辑器（预览）<br>翻译编辑器使您更容易编辑游戏代码和资源中字符串的翻译。</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/TranslationEditor03.jpg">
+
+<p>注意：该工具仍处于早期开发阶段。可以在实验性部分的编辑器首选项中启用此工具。</p>
+<p>蓝图<br>跳转到图表中的连接<br>您现在可以右键单击引脚并跳转到连接。</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/JumpToConnections.jpg">
+
+<p>类动态投射<br>现在，您可以安全地在蓝图中兼容的对象类型之间进行转换。</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/DynamicCasting.jpg">
+
+<p>改进的蓝图组件编辑<br>现在可以在蓝图编辑器窗口之间拖放组件节点。</p>
+<p>这将在新蓝图中创建一个新的组件变量，该变量将从原始蓝图继承其属性（变量名除外，以避免冲突）。</p>
+<p>现在可以撤消/重做组件附件和分离操作。</p>
+<p>这也适用于“指定新的场景根组件（Make New Scene Root）”操作。</p>
+<p>重要升级说明<br>升级项目<br>在4.1中运行4.0项目可能需要一些步骤。</p>
+<p>升级纯蓝图项目</p>
+<p>您可以在新编辑器中正常加载现有项目。</p>
+<p>注意：一些蓝图API可能在不同版本之间发生了更改，这可能会在内容中引起警告。阅读 API更改 部分了解更多信息。</p>
+<p>升级C++代码项目</p>
+<p>您将需要为新版本的虚幻引擎重新编译C++项目。</p>
+<p>在游戏文件夹中找到.uproject文件，并右键单击它。（在Mac上，您还可以使用命令+单击）</p>
+<p>选择 切换虚幻引擎版本（Switch Unreal Engine Version）-&gt; 4.1（Mac上是在服务（Services）菜单中）</p>
+<p>右击可生成新的C++项目文件，然后正常重新编译游戏。</p>
+<p>注意：一些C++ API可能在不同版本之间发生了更改，这可能导致编译错误。阅读 API更改 部分了解更多信息。</p>
+<p>抱歉给您带来不便！我们正在努力简化未来版本的升级过程。</p>
+<p>已知问题<br>如果安装了Xbox One SDK，对于名称中有下划线的项目，生成Visual Studio项目将会失败。</p>
+<p>Xbox One和Playstation 4还没有完全支持在任何父目录中包含空格的项目。</p>
+<p>Steamworks目前还不支持Mac，我们正在开发它！</p>
+<p>射击游戏需要使用来自GitHub的源码作为专用服务器来编译。</p>
+<p>用第一人称模板创建的项目可能会在Playstation 4上崩溃。</p>
+<p>使用编辑器中的“启动（Launch On）”按钮部署到Mac，元素演示崩溃。</p>
+<p>如果登录了游戏中心，iOS上的Tappy Chicken在启动时就会崩溃。</p>
+<p>特别鸣谢<br>我们要感谢所有在这个版本中贡献代码的优秀开发人员。我们对你们所做的工作深表敬意和赞叹！</p>
+<p>Allar (Michael Allar)</p>
+<p>添加了对D3D11RHI的共享纹理资源支持</p>
+<p>AndrewScheidecker (Andrew Scheidecker)</p>
+<p>修复Actor-&gt;Acor K2重定向错误</p>
+<p>cdietschrun</p>
+<p>修复“获取对象的操作”消息</p>
+<p>clide</p>
+<p>Mac GL修复</p>
+<p>dkjer (Donald Kjer)</p>
+<p>修复区分大小写的文件系统</p>
+<p>DiCoJamesTan (James Tan)</p>
+<p>修复了ChildActorComponent的附件错误</p>
+<p>fxtentacle (Hajo Nils Krabbenh.ft)</p>
+<p>修复在Mac上方位角和仰角的计算</p>
+<p>Kamayuq</p>
+<p>Mac UnrealBuildTool修复</p>
+<p>Kyle Rocha (kylawl)</p>
+<p>向KismetMathLibrary添加平面相互作用函数</p>
+<p>PostalDude (Frederic Lauzon)</p>
+<p>修复无效的模块链接器输出文件路径</p>
+<p>sbc100 (Sam Cleeg)</p>
+<p>修复UnrealBuildTool中的构建警告</p>
+<p>修复linux编译警告</p>
+<p>wshearn (Wesley Hearn)</p>
+<p>修复HTML5发布客户端版本</p>
+<p>Release Notes<br>Marketplace Content<br>ShooterGame: Now supports Xbox One and PlayStation 4 deployment.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/shooter_game.jpg">
+
+<p>Memory Game: A card-matching memory game created entirely in Blueprints.Optimized for mobile devices!</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/memory_game.jpg">
+
+<p>Effects Cave: Spelunking has never been this fun! See the pretty things you can make to add richness to your world by exploring the Effects Cave.Using the Cascade visual effects editor you can layer on countless details including GPU-powered particles, dynamically lit sparks, wispy puffs of smoke and more.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/effects_showcase.jpg">
+
+<p>Realistic Rendering: Easily build true-to-life environments or emulate architectural visualizations using UE4’s physically-based material system, the improved Lightmass global illumination system and photometric lighting.Supports Oculus Rift!</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/realistic_rendering.jpg">
+
+<p>Blueprint Office: Shows a wide variety of use cases for Blueprints ranging from level design tools to intelligent security systems to sophisticated AI behavior.Each example includes a brief in-game explanation.</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/blueprints_demo.jpg">
+
+<p>Learning Resources<br>Video Tutorials</p>
+<p>New: Multiplayer Networking Video Tutorials (6 videos) by Billy Bramer.</p>
+<p>New: Blueprint Video Tutorials (7 new videos) by James Golding and Mike Beach.</p>
+<p>New: Third Person Blueprint Game Setup Tutorial (15 videos) by Zak Parrish.</p>
+<p>Written Tutorials</p>
+<p>New: Particle System Tutorials: VFX Lesson 1, Lesson 2 by Tim Elek.</p>
+<p>New: Matinee Tutorial by Greg Mitchell.</p>
+<p>Documentation</p>
+<p>Unreal Editor Manual</p>
+<p>New: Blueprint Cheat Sheet</p>
+<p>New: Light Propagation Volumes</p>
+<p>New: Preview Shadows</p>
+<p>New: Pivot Painter</p>
+<p>New: Mac Viewport Controls Quick Reference</p>
+<p>Programming Guide</p>
+<p>New: Code Block Highlighting</p>
+<p>Updated Landing Page Reorganization</p>
+<p>Updated Data Driven Gameplay</p>
+<p>Fixed Actor Spawning Info</p>
+<p>Fixed Components Array References</p>
+<p>End User License Agreement (EULA)<br>Licensees are now permitted to publicly distribute Example Code (code residing in the Samples and Templates folders).This is an exception to the rule prohibiting distribution of Source Code publicly.</p>
+<p>Added the following exceptions to licensees’ royalty obligation:</p>
+<p>Licensees are not required to pay royalties on the first $3,000 in gross revenue per Product per quarter.</p>
+<p>If Product revenue is less than $3,000 in a quarter, licensee is not required to report revenue for that Product.</p>
+<p>Financial winnings from awards are exempt from royalties.</p>
+<p>Licensees are now permitted to post Source Code snippets up to 30 lines in length on public forums for discussion purposes.</p>
+<p>Unreal Engine Launcher<br>New: Install multiple versions of Unreal Engine side-by-side.</p>
+<p>Use the Launcher’s new Version Selector drop-down to choose which version you want to install and run!</p>
+<p>New: You can now uninstall the engine versions right through the launcher using a new ‘Uninstall’ button on the main UI.</p>
+<p>New: Launcher Marketplace pages now show download size.</p>
+<p>New: The Marketplace now supports different versions of items.</p>
+<p>New: The EULA is now shown and accepted through the launcher.</p>
+<p>New: Project files can be associated with engine versions installed through the launcher.</p>
+<p>New: The Unreal Installer and Launcher are now localized for Korean and Japanese.</p>
+<p>For the launcher you can select a language in on the login screen.</p>
+<p>Fixed not being able to queue Marketplace items while the Engine is downloading.</p>
+<p>Fixed installer not warning users if they did not have Windows 7 SP1 installed.</p>
+<p>Fixed an issue preventing Unreal Engine shortcuts from being removed from the desktop on uninstall in some cases.</p>
+<p>Fixed rare issue with being stuck on “Syncing your account”.</p>
+<p>Fixed cancelled automatic downloads so they will not resume.</p>
+<p>Fixed self-update ignoring empty files.</p>
+<p>Fixed UI size information not displaying with decimal places.</p>
+<p>Fixed an issue causing a failed installation to start all over again rather than resuming from previously successful files.</p>
+<p>Fixed a rare issue where a failed data file download could cause the install to never finish.</p>
+<p>Fixed Mac Launcher crash on close.</p>
+<p>Fixed download size indicator to support showing the compressed download size rather than uncompressed size.</p>
+<p>Fixed some UI issues with progress percentage information.</p>
+<p>Editor and Tools<br>General Editor</p>
+<p>New: Improved the 3D viewport grid!</p>
+<p>Removed the grid dots for a cleaner view.The grid is now also scaled according to the grid snap settings.</p>
+<p>Perspective grid precision improved with thinner lines.</p>
+<p>Orthographic grid now has power of 10 major gridlines, soft fading transitions between levels, and colored axis lines.</p>
+<p>New: Added a Preview Meshes preference that allows customization of meshes displayed in viewports when holding the Backslash key.</p>
+<p>New: Icons for your project can now be assigned via Window/Project Settings.</p>
+<p>New: Startup Movies for your project can now be assigned via Window/Project Settings.</p>
+<p>New: Pressing the C key now creates comments in the Material and SoundCue editors.</p>
+<p>New: Added an option to invert middle mouse pan movement.Invert Middle Mouse Pan option in the Editor Preferences -&gt; Viewports.</p>
+<p>New: Added search support in the Placement Browser.</p>
+<p>New: Holding Ctrl now prevents Vertex Painting from de/re-selecting Actors.</p>
+<p>New: Added support for Ctrl + Backspace and Ctrl + Delete to editable text boxes.</p>
+<p>New: Added Enable Sound option to Play-In-Editor settings.</p>
+<p>New: Save window now displays “Save Map” or “Save Asset” depending on what’s being saved.</p>
+<p>New: Added ability to scale individual sub-curves to the curve editor.</p>
+<p>New: Content is now autosaved by default, and the notification shows you the number of packages that will be saved.</p>
+<p>New: Pressing F4 to view details will now potentially spawn a new Details panel if all the currently open ones are locked.</p>
+<p>New: Browse button in the Content Browser context menu now works on unloaded objects.</p>
+<p>New: The Reset Layout feature has been moved to the Window menu from Editor Preferences.</p>
+<p>New: Property names can be set to display as they are in code (English) on the Region &amp; Language editor preferences.</p>
+<p>New: You can now customize the selection colors in the Editor Preferences.</p>
+<p>New: You can now override the far view plane on a level editor viewport.</p>
+<p>New: Columns are now sortable in Save Content dialog.</p>
+<p>New: 3D marquee select has been re-added with the same original keybinding (Ctrl + Alt + Left Click Drag).</p>
+<p>New: Added a message log link to diagnose load errors in-editor.</p>
+<p>New: If there is an active camera safe frame, the High Resolution Screenshot UI allows you to set the capture region to that safe region.</p>
+<p>New: Added prompt to restart the editor after you’ve enabled or disabled a plugin in the Plugins Editor.</p>
+<p>New: Improved how the zoom slider in the Texture Editor interacts with the Fit to Viewport setting.</p>
+<p>Improved decal scaling performance in the editor.</p>
+<p>Improved Asset Discovery time in the editor.</p>
+<p>Improved Arrow Component readability at a distance.</p>
+<p>Updated Code View functionality to now exist in a plugin.</p>
+<p>Please enable the Code View plugin to reactivate this functionality (Window Menu -&gt; Plugins -&gt; Editor -&gt; Code View).</p>
+<p>Fixed Region &amp; Language editor preferences to be more user friendly.Changing them should be less confusing or awkward.</p>
+<p>Fixed High Resolution Screenshot facility.</p>
+<p>Screenshot capture is now limited to the viewport from which the High Res Screenshot action was selected.</p>
+<p>Fixed Editor Preferences not listing all available languages and regions.</p>
+<p>Fixed Select Actors using this Asset not selecting Actors in other streaming sub-levels.</p>
+<p>Fixed selection problems in orthographic viewports due to mouse tests not extending from beyond the origin plane.</p>
+<p>Fixed Actors not remaining selected after copying Actors from multiple levels into the clipboard.</p>
+<p>Fixed global shortcut keys not functioning in floating windows in some cases</p>
+<p>Fixed safe frames and aspect ratio bars not displaying when locking a camera in Matinee when no camera is selected.</p>
+<p>Fixed viewport settings not being saved into the layout preferences file instead of the editor preferences files.</p>
+<p>Fixed notifications not being anchored to their appropriate monitor work area.</p>
+<p>Fixed copying text from the Output Log not copying lines in the correct order.</p>
+<p>Fixed Output Log auto scrolling.</p>
+<p>Fixed level locking changes in the level browser not being able to be undone or redone.</p>
+<p>Fixed unintuitive project switching by displaying the name of the project in the splash screen.</p>
+<p>Fixed survey notification not fading away instantly after clicking Cancel to close it.</p>
+<p>Fixed Actors being selected when the viewport is hiding the layer they are in.</p>
+<p>Fixed Tutorial window to no longer play sounds.</p>
+<p>Fixed the white square artifact with the Virtual Joystick by adding a StartupDelay function.</p>
+<p>Fixed crash on save when FindObject is called.</p>
+<p>Fixed curve handle movement in Viewports to no longer be inverted.</p>
+<p>Fixed dropping assets onto Brush edges/verts, it now leaves them at the correct location.</p>
+<p>Fixed SVN binaries not being included with the editor when installed from the launcher.</p>
+<p>Fixed tooltips not appearing in the Window options on the main menu.</p>
+<p>Fixed Frame rate settings being allowed to go below zero.</p>
+<p>Fixed StaticMesh scaling via “ScaleMeshes” console command not taking into account the existing BuildScale into consideration before making any changes.</p>
+<p>Fixed home button not appearing in the tutorial window appears after viewing Blueprint tutorials.</p>
+<p>Removed unused splash screens.</p>
+<p>FBX</p>
+<p>New: Added an Import All button to the FBX import dialog.This will import all selected files with the same FBX settings without being asked more than once</p>
+<p>Changed FBX Import Options Window for clarity:</p>
+<p>fbx.png</p>
+<img src="/2014/04/01/ue4_4.1.X_Release_NOTE/fbx.jpg">
+
+<p>Changed the default setting of Import Meshes in Bone Hierarchy, under the Skeletal Mesh import settings, to be enabled by default.This will result in any non-skinned meshes in the bone hierarchy being imported as actual meshes and not as bones.</p>
+<p>Fixed importing with Materials and Textures that are the same name as each other or a mesh.This will no longer cause a crash, instead unique names will be generated for each conflict.</p>
+<p>Fixed overlapping nodes on Materials imported from FBX.</p>
+<p>Content Browser</p>
+<p>New: You can now rename folders by right clicking on them and selecting Rename.</p>
+<p>New: Added new Content Browser view options:</p>
+<p>Show Only Assets in Selected Folders will only show assets in the currently selected folder when searching or filtering.</p>
+<p>With Real-Time Thumbnails enabled, any loaded asset will show material animation.</p>
+<p>New: Changes to Behavior Tree assets can now be displayed interactively while using the Diff Tool.</p>
+<p>Fixed the Developer Folder appearing in the Content Browsers breadcrumb trail if the Developer Folder option is disabled.</p>
+<p>Fixed Textures in thumbnails often drawing with blurry graphics by improving streaming for thumbnail Textures.</p>
+<p>Fixed not being able to type immediately into Content Browser search when window is summoned.</p>
+<p>Fixed move/copy to only prompt for asset load once per folder group move/copy.</p>
+<p>Matinee</p>
+<p>New: Matinee now supports rendering to PNG and JPEG formats (along with BMP and AVI).</p>
+<p>New: Safe frames and aspect ratio bars can now be displayed when locking a camera and in Matinee when a non-camera is selected.</p>
+<p>New: Notification now occurs when attempting to delete an Actor from the Viewport while Matinee is open.</p>
+<p>Optimized invalidation of curve editor viewport, which improves Matinee’s performance.</p>
+<p>Fixed inconsistencies with how Undo/Redo works in Matinee compared to other editors such as Cascade.</p>
+<p>Fixed not being able to interact with graph labels and buttons while in Zoom Mode.</p>
+<p>Fixed Slomo tracks not being able to slow the play rate down below 10%.</p>
+<p>Persona: Animation Editor</p>
+<p>New: You can now select and edit multiple bones at the same time in Persona.</p>
+<p>New: You can now save assets straight from Persona’s built-in Asset Browser.</p>
+<p>New: Animation Notifies can now be deleted by selecting them and pressing the Delete key.</p>
+<p>New: You can now open assets directly from Blueprint nodes that reference them.</p>
+<p>New: Added function to Persona to allow the user to remove unused bones from a skeleton.</p>
+<p>New: Added recently opened file history in the form of Forward and Back browser buttons in the Asset Browser in Persona.</p>
+<p>New: Added filters to Asset Browser in Persona.</p>
+<p>Changed the setting of the default preview mesh on skeletons to make sure they never start will a NULL mesh.</p>
+<p>Fixed not being able to undo and redo changes to bones.</p>
+<p>Fixed some Persona settings not being remembered between sessions.</p>
+<p>Fixed Persona mode widgets not indicating dirty state.</p>
+<p>Fixed a crash in Persona’s skeleton tree context menu.</p>
+<p>Fixed the preview viewports not drawing when dragging a slider in Persona.</p>
+<p>Source Control</p>
+<p>New: P4 plugin now supports P4HOST masquerading, password login and connection to stream depots.</p>
+<p>New: P4 can no longer connect to workspaces that do not map to your project (and similarly for SVN working copies)</p>
+<p>New: Added toast popup when successfully checking in.</p>
+<p>Fixed Perforce source control plugin not supporting Unicode workspace names and user names.</p>
+<p>Material Editor</p>
+<p>New: You can now zoom in and out by holding Left + Right Mouse Buttons and dragging.</p>
+<p>New: Material Attributes can now be connected to Feature Level and Quality switches.</p>
+<p>New: Added context sensitivity when dragging off pins in the Material Editor.</p>
+<p>New: Lighting-specific options in the Material Details are now grayed out when Unlit mode is active.</p>
+<p>New: Changed Material statistics to be displayed in their own tab.</p>
+<p>New: Added New Mobile Stats Icon for Material Editor.</p>
+<p>New: Added title coloring for Material Expression nodes.</p>
+<p>New: Added option to Panner Material Expression to use fractional component of the time calculation to improve accuracy.</p>
+<p>Exposed default material values that were missing and added tooltips to non-required inputs.</p>
+<p>Fixed Material asset name not being displayed in the Material Editor Title tab.</p>
+<p>Fixed propagating changes from material functions to any materials or functions using them.</p>
+<p>Geometry Editing</p>
+<p>New: Geometry brushes will now attempt to keep the material information even when their core parameters are altered.</p>
+<p>Changes where the number of polygons remain the same are completely supported.</p>
+<p>Changes where the number of polygons differ only support a single material across the whole mesh.</p>
+<p>Fixed dragging and dropping Geometry Brushes into the Scene Outliner not working correctly.</p>
+<p>Fixed not being able to scroll through the various Geometry Editing mode controls.</p>
+<p>Fixed legacy builder brush visible in the 3D scene while Geometry Editing mode is active.</p>
+<p>Fixed the Lathe tool to create a brush.</p>
+<p>Removed Volumetric and Sheet brush shapes as they were non-functional.</p>
+<p>Landscape and Foliage</p>
+<p>New: Landscape splines now have a Max Draw Distance setting for meshes on the spline.</p>
+<p>New: Added new Landscape LOD preview settings to viewports.</p>
+<p>New: New controls for collision settings were added to Foliage tool.</p>
+<p>New: Added Resample option for Change Component Size tool.</p>
+<p>New: The Landscape Spline sprite automatically scales with the width of the spline to prevent them from getting too big.</p>
+<p>New: The Landscape move-to-level tool will now operate on the component under the cursor when there is no component selection active.</p>
+<p>Updated the order of the Landscape Visualizers menu.</p>
+<p>Mesh Paint Tool</p>
+<p>New: Paint brush radius is now saved with your editor preferences.</p>
+<p>Updated the default paint brush radius to 128.</p>
+<p>Data Table Editor</p>
+<p>New: To aid in readability, even and odd rows now have different background colors.</p>
+<p>New: Search has been implemented in the Data Table Editor.</p>
+<p>Scene Outliner</p>
+<p>New: More options for managing Actors and folders in the Scene Outliner right click context menu.</p>
+<p>Fixed Undo/redo with folders in the Scene Outliner.</p>
+<p>World Browser</p>
+<p>New: Added option to handle cooking for worlds created by World Browser -map=PersistentMapName?worldcomposition.</p>
+<p>New: Added time threshold between tile distance streaming load/unload requests.Can be changed in configuration files: TilesStreamingTimeThreshold.</p>
+<p>New: Added position snapping for level tiles, use Ctrl+Left Click Drag.</p>
+<p>Replaced World Browser async loading of level tiles with a blocking load and added “long operation” message.</p>
+<p>Removed the Always Loaded level type.</p>
+<p>Device Profile Editor</p>
+<p>New: Device Profile Editor is now always available through the Window Menu -&gt; Device Profile Editor</p>
+<p>Updated the device profile editor UI with a layout which reflects its primary usage.</p>
+<p>Updated CVar addtion, removal, and parenting to be a lot more evident for a profile.</p>
+<p>Translation Editor</p>
+<p>New: Translation Editor now searches the Engine, Editor, and the currently loaded project’s directories for localization files to determine which projects/languages can be translated.</p>
+<p>New: Added event triggered by a property change to the translation data object to write the data to file, to prevent data loss due to user forgetting to save, or the editor crashing.</p>
+<p>Fixed Translation Editor to read local cached versions of old manifests when possible instead of syncing them from Source Control again.</p>
+<p>Blueprints<br>New: Added undo/redo support for component attach/detach operations in Components mode within the Blueprint editor.</p>
+<p>New: Added undo/redo support for repositioning graph nodes in a Blueprint graph.</p>
+<p>New: Added proper undo/redo support for duplicating components in Components mode within the Blueprint editor.</p>
+<p>New: Added support for dragging components between 2 different Blueprint editor windows in Components mode.</p>
+<p>New: Added support for drag-and-drop with multiple components selected in Components mode within the Blueprint editor.</p>
+<p>New: Added a graph node section in the details view of the Blueprint editor that provides the ability to rename nodes that the user can rename.</p>
+<p>New: Added ability for Blueprint cast nodes to cast from one interface to another.</p>
+<p>New: You can now multiply LinearColors by floats using a Float * (LinearColor) Blueprint node.</p>
+<p>New: Added a new ParseIntoArray function for easily splitting up strings.</p>
+<p>New: Variable Get/Set nodes can now display Rich Tooltips.To view them, mouse over a node and hold Ctrl+Alt.</p>
+<p>New: Alt + Right Click can now be used as an alternative to zoom Blueprint graphs.</p>
+<p>New: Added menu extensibility hooks for additional items in the Debug Object drop down.</p>
+<p>New: Graph nodes can now be renamed via the details panel when a node is selected</p>
+<p>New: Added support for searching Blueprint Interfaces.</p>
+<p>New: Renaming Blueprint Interface’s functions now properly renames the functions in implementing Blueprints.</p>
+<p>New: Added the Ability to set the PlayRate of a Montage from within Blueprint.</p>
+<p>New: Added Impact Velocity parameter to OnProjectileBounce, to allow blueprints to override bounce velocity vector.</p>
+<p>New: Added “value (clamp) range” exposure to numeric variables in Blueprints to go along with “slider UI range.”</p>
+<p>Updates allowing multiple pending latent actions at a particular call site from a Blueprint.</p>
+<p>Fixed Combo button menu scaling in the Blueprint Editor.</p>
+<p>Fixed Realtime rendering in the Blueprint Components mode Viewport.It is now disabled when Components mode is deactivated within the Blueprint editor.</p>
+<p>Fixed the Toggle Particle System Helpers option to work on Blueprint Actors that contain Particle System Helpers.</p>
+<p>Fixed Blueprints to be properly flagged as being modified when toggling between absolute and relative transform settings.</p>
+<p>Fixed not being able to undo/redo after moving nodes around on the graph.</p>
+<p>Fixed Grid Snap while translating components in Components Mode.</p>
+<p>Fixed Sprite Component visualizers switching to the default “Actor” icon in the Blueprint editor preview during Play in Editor or Simulate in Editor.</p>
+<p>Fixed renaming Blueprint Interface functions, they will now properly rename in implementing Blueprints.</p>
+<p>Rendering<br>General</p>
+<p>New: Added ability to disable parts of the DBuffer decals effect (Material Decal Response).</p>
+<p>You can mask color, normal, roughness.</p>
+<p>This can free up texture sampler units, improve performance, and gives more control.</p>
+<p>New: Added feature to choose graphics adapter (r.GraphicsAdapter) or let the system do this automatically</p>
+<p>By default, this favors non-integrated graphics card (at the moment we check for “Intel” in the adapter name).</p>
+<p>Improvements to Sky Lights:</p>
+<p>New: Movable objects receive sky shadowing from static shadow casters.</p>
+<p>Fixed TLM_Surface materials to render sky reflections properly.</p>
+<p>Improved glossy screen space reflections to reduce noise.</p>
+<p>Fixed situation that could cause incorrect viewport dimensions to be calculated when setting render target to lower mip levels with the D3D11 RHI.</p>
+<p>Fixed some possible incorrect casting of D3D texture objects.</p>
+<p>Android</p>
+<p>New: Reflection capture data is now stored in the map package.</p>
+<p>This allows cooking for ES2 to always have valid reflections for maps that have been resaved.</p>
+<p>Optimized motion blur, UIBlur, and screenspace ambient occlusion.</p>
+<p>Improved CPU performance by setting affinity mask for the gamethread, renderthread and eventthread.</p>
+<p>Improved GPU performance by turning on DisjointTimerQueries on Adreno 330-based devices with a driver later than version 53.0.</p>
+<p>Updated the CVar r.DisjointTimerQueries to enable GPU frametime measurement in STAT UNIT on device.</p>
+<p>Gameplay and Framework<br>New: In the Input section of the Project Settings you can now indicate that the mouse should simulate touch behavior.</p>
+<p>This means only one set of events needs to be mapped for simple touch games being played on PC.</p>
+<p>New: Added Audio Settings section of Project Settings in which the Default Sound Class and Default Base Sound Mix can be specified.</p>
+<p>New: Splitscreen options added to Maps &amp; Modes section of Project Settings.</p>
+<p>New: Added path simplification to path following component using visibility tests, to skip some irrelevant path points.It is disabled by default.</p>
+<p>New: Added landscape collision data cooking.Cooked landscapes will now create collision objects from a binary stream of cooked data, which improves level streaming performance.</p>
+<p>New: Text Render Actors now generate and cache static vertex and index buffers.</p>
+<p>Improved the way Morph Targets calculated their morphed normal.</p>
+<p>Fixed the lack of feedback if a module fails to load due to a lack of compatibility.An error message will now be displayed.</p>
+<p>Fixed editor-only sprites being loaded while cooking.</p>
+<p>Fixed movement components to correctly handle analog input.</p>
+<p>Fixed a crash in material indices and LOD mapping indices.</p>
+<p>Fixed Async package loading no longer allows objects to be post-loaded before they are pre-loaded.</p>
+<p>Fixed the example device profile selection plugin requirement to launch UE4.</p>
+<p>Fixed Always Loaded levels to be flagged as Should be Visible by default.</p>
+<p>Networking<br>General</p>
+<p>New: Character Movement Component movement mode is now replicated.</p>
+<p>New: Launch Character can now be simulated client side for non-locally controlled characters.</p>
+<p>New: The setting Only Relevant to Owner is now available to Blueprints.</p>
+<p>Improved character movement on moving platforms for remote network clients and for simulated proxies.</p>
+<p>PlayStation 4</p>
+<p>Socket subsystem support for UDPP2P sockets.</p>
+<p>Animation<br>New: Added support for reference pose scale.</p>
+<p>Fixed AnimMontages to no longer allow branch points to overlap.</p>
+<p>Physics<br>New: PhysX and APEX have been upgraded to 3.3.1 and 1.3.1.</p>
+<p>In some cases it may be necessary to recook physics data.</p>
+<p>This upgrade fixes some physics related bugs.See NVIDIA release notes for more info.</p>
+<p>New: Maximum angular velocity of a BodyInstance has been exposed in code and blueprints.</p>
+<p>New: Pawns will now collide with destructible mesh.Large and small chunks can be set to get different interaction with pawn.</p>
+<p>New: Breakable joints are now available for ragdolls and physics assets.</p>
+<p>New: Support for cloth on ragdolls and physics assets.</p>
+<p>Updated soft physics constraints to use body mass implicitly.</p>
+<p>Updated the Async physics scene to be disabled by default.</p>
+<p>This feature is somewhat advanced and uses more memory.As such, it has been turned off by default and can be changed in the Edit Menu -&gt; Project Settings -&gt; Physics -&gt; Simulation category.</p>
+<p>If Async scene is disabled, all Actors are placed in the regular scene regardless of the Enable Async flag on the Actor.</p>
+<p>Updated the player Pawn to no longer interact with the Async scene by default.</p>
+<p>Fixed overlap event related bugs.Correct behavior related to overlap flags may break old content relying on bad behavior.</p>
+<p>A collision between two objects can be set to Ignore, Overlap, or Blocking.</p>
+<p>An overlap event will occur if two objects Overlap and both have the Generate Overlap Events flag set to true.</p>
+<p>A bug in the code made it so that in certain situations an overlap would trigger even if one of the overlapping objects had the flag set to false.</p>
+<p>This means overlap events that were previously firing could now stop due to improper flagging.</p>
+<p>Fixed Overlap events to only fire when collision is marked as overlap.</p>
+<p>There was a bug where in some cases an overlap event would fire even if a collision was marked as Blocking.</p>
+<p>Fixed Hit Events now require both objects to opt in by enabling Simulation Generates Hit Events.</p>
+<p>Audio<br>New: Added Enable Sound option to PIE settings.</p>
+<p>New: Added Add Input button to appropriate Sound Nodes.</p>
+<p>Improved DialogueWaves so they can be played immediately after creation/modification.</p>
+<p>Limited the Random Sound node choices in Play in Editor if Preselect at Level Load setting is used.</p>
+<p>Core<br>New: UnrealBuildTool can now be configured using an XML configuration file!</p>
+<p>It looks for the BuildConfiguration.xml file in two possible locations (Engine/Saved/UnrealBuildTool and My Documnets/Unreal Engine/UnrealBuildTool).The first one should be used for branch/engine configurations, while the second one is for personal settings.Notice that environmental variables settings will be overridden by those values if set.</p>
+<p>The syntax is described in \Engine\Programs\UnrealBuildTool\BuildConfiguration.xml.</p>
+<p>New: Added support for cross-compiling Linux client.</p>
+<p>New: All platform memory and allocator memory statistics are now available through the stats system.</p>
+<p>New: Added metadata for threads and thread group for the stats system.</p>
+<p>New: Improved save format of the stats files (not fully utilized yet).</p>
+<p>New: [Windows] Shell integration now supports multiple engine versions side by side.</p>
+<p>To add an engine installation, or to set up shell extensions and file associations for the first time, run UnrealVersionSelector from each Engine\Binaries\Win64 directory.</p>
+<p>Each .uproject file can be configured to open with a different engine installation.</p>
+<p>New: The -UTF8Output command line argument can be passed to any program using the engine to force stdout into UTF-8 mode.</p>
+<p>Use this if you are getting question marks in your Unicode strings being logged.</p>
+<p>Improvements to the Visual Studio accessor (particularly for Express).</p>
+<p>Fixed InstallVisualizers.bat complaining about no version of Visual Studio installed, when only Visual studio 2010 is missing.</p>
+<p>Fixed UnrealBuildTool to raise an error early about attempting to build the Editor in a Win32 configuration.</p>
+<p>Fixed the size of the internationalization libraries.</p>
+<p>Internationalization now loads its data from a binary file rather than from a static library.</p>
+<p>Platforms<br>Android</p>
+<p>Improved Android device detection.It is now threaded and more efficient in general.</p>
+<p>Fixed Launch showing texture formats not supported by the connected Android devices.It will now only display texture formats that are supported by the connected Android devices.</p>
+<p>Mac</p>
+<p>New: Packaging on Mac now creates a self-contained app bundle.</p>
+<p>New: Mac UE4 now uses our crash reporter.</p>
+<p>New: Added ability to use Mono installed on Mac instead of the one bundled with the engine.</p>
+<p>New: Added support to UBT for generating dSYM debugging symbol bundles on Mac OS X.</p>
+<p>New: Implemented text input method system for Mac platform.</p>
+<p>This uses the native Cocoa InputMethod services on Mac OS X to support the different input methods.</p>
+<p>Simplified Xcode project and improved code indexing in Xcode.</p>
+<p>iOS</p>
+<p>New: Added a device enumeration for iPad mini with retina display.</p>
+<p>New: Added experimental support for showing the Game Center leaderboard in-app (EXPERIMENTAL_ShowGameCenterLeaderboard)</p>
+<p>New: Added -compress=best command line for Shipping iOS via Windows workflow builds</p>
+<p>Various improvements and bug fixes to iAd support.</p>
+<p>Fixed some threading issues with IOS gamecenter.</p>
+<p>PlayStation 4</p>
+<p>New: Added PlayGo Support.</p>
+<p>New: Implemented Achievements.</p>
+<p>New: Added support for shader scratch memory.</p>
+<p>Enable with r.ShaderScratchBuffers=1 in the ConsoleVariables.ini file.</p>
+<p>New: HZB occlusion culling now supported on PS4.</p>
+<p>Added detection of render target/shader mismatches at runtime.</p>
+<p>Updated render target output formats to be set through ModifyCompilationEnvironment rather than using the SLOT defines in the shader files.</p>
+<p>Xbox One</p>
+<p>New: Added 10:10:10 final color output on Xbox One.This allows us to remove quantization noise in tonemapper, which is faster.</p>
+<p>New: Screen safe area is now implemented.</p>
+<p>New: Implemented Achievements.</p>
+<p>Enabled optimizations for all pixel shaders.</p>
+<p>Improved XAudio2 implementation to be more feature complete.</p>
+<p>Fixed various GPU hangs.</p>
+<p>UnrealVS (Visual Studio Extension)<br>New: Command Line box now automatically adds the game project file for ‘Game’ projects in UE4.sln.</p>
+<p>New: Visual Studio’s Customize feature now supports UnrealVS’ tool bar commands.</p>
+<p>New: UnrealVS Quick Build menu now allows easy access to building in any configuration without changing the config in the IDE.</p>
+<p>New: Added logging to help debugging.</p>
+<p>Changed code projects for game-specific editor builds (e.g. MyGame “Debug Editor|Win64”) no longer need the project added to the command line in UnrealVS.</p>
+<p>Previously the UnrealVS command line args to debug the editor for the example above would have been “MyGame.uproject “</p>
+<p>The command line in UnrealVS for the example above is now just “”, UnrealVS adds the project name automatically when the project is run.</p>
+<p>The project name is still passed to the editor executable but UnrealVS now adds it automatically and does not display it.</p>
+<p>Existing command lines will work as before but will display differently.</p>
+<p>If no project name is supplied, UnrealVS should strip it from the displayed command line and popup a warning dialog.</p>
+<p>Fixed Startup Project selector and Batch Build to correctly recognize executable projects on non-Windows platforms.</p>
+<p>API Changes<br>Gameplay and Framework<br>Added bForceRescan parameter to IAssetRegistry::ScanPathsSynchronous.If true, path scanning not ignore paths that have already been scanned.</p>
+<p>Added GetDerivedClasses to IAssetRegistry.This is just a wrapper function for the pre-existing GetSubClasses.</p>
+<p>Added a flag to disable blue onscreen messages in DrawTransition in GameViewportClient.</p>
+<p>Added ability for Blueprints to use GetOverlapInfos.</p>
+<p>Added OnClosed delegate as a parameter to IOnlineExternalUI::ShowLoginUI.</p>
+<p>Added a flag to disable blue onscreen messages in DrawTransition in GameViewportClient.</p>
+<p>Added support for loading an ObjectLibrary from multiple paths, and a constructor for easily creating an ObjectLibrary in memory.</p>
+<p>Improved the support for Blueprints in an ObjectLibrary when calling UObject::CreateLibrary.If the bHasBlueprintClasses is true, it will check the type for you.</p>
+<p>Renamed FGameWorldContext to FLocalPlayerContext, as it binds to a player and not a world.</p>
+<p>Renamed GetWorldContextFrom functions returning a World Context reference to GetWorldContextFrom*Checked.</p>
+<p>GetWorldContextFrom now returns a pointer and returns NULL if no WorldContext exists for the supplied input. Removed FSimpleReticle from AHUD.You can add this to your subclass if desired.</p>
+<p>Removed unused lifecycle event OnEngineHasLoaded from AGameMode.</p>
+<p>Removed SGameWidget class as it is no longer necessary</p>
+<p>Removed PendingLevelPlayerControllerClassName from GameEngine and replaced it with PendingLevelPlayerControllerClass in LocalPlayer.</p>
+<p>This makes it work like the other PlayerController references, and avoids a confusing warning on every map join</p>
+<p>Changed AActor::CalcCamera to consider whether a component is activated when trying to find the camera component to use (allowing selection between multiple camera components by managing activation).</p>
+<p>Made SKismetLinearExpression more permissive in what it will show as a function (now tries to do something with any pure K2Node with one output).</p>
+<p>ADebugCameraController and ADebugCameraHUD can now be extended and accessed outside of the Engine module.</p>
+<p>Editor and Tools<br>Slate drag drop operations now use RTTI that is compatible with inheritance.This allows DragDrop::IsTypeMatch to work properly allowing for static casting to any level of the inheritance hierarchy.</p>
+<p>Please replace previous instances of GetTypeId in FDragDropOperation derivatives with DRAG_DROP_OPERATOR_TYPE.</p>
+<p>FSlateApplication::GetDragDropReflector() is now obsolete and has been removed.</p>
+<p>Removed unused Linked Obj Editor framework</p>
+<p>Platforms<br>Mac</p>
+<p>The minimum supported Mac OS X version is now 10.9.2.</p>
+<p>We no longer support OS X versions prior to 10.9.2 due to OpenGL driver bugs &amp; feature deficiencies that won’t be fixed in earlier versions.</p>
+<p>Mac build is now using OS X 10.9 SDK, code and compile settings were updated to be compatible with Xcode 5.1.</p>
+<p>Config files on were moved to ~/Library/Preferences, logs to ~/Library/Logs, all other files from Saved folders are now in ~/Library/Application Support/Epic.</p>
+<p>PlayStation 4</p>
+<p>Specification of TitleID, package PassCode, and other data should now be in a text file in your project directory under Build/PS4/PackagingDataPS4.txt.This replaces the old metadata system in UBT.Examples can be found in ShooterGame, and the base Engine/BuildPS4 directories.</p>
+<p>Xbox One</p>
+<p>Code updated to build against March 2014 XDK.</p>
+<p>Deprecated functions (D3DAllocateGraphicsMemory, etc) have been removed/replaced.</p>
+<p>Core<br>FPlatformString::Stricmp now converts to lower case to match std::stricmp.</p>
+<p>This may result in slightly different sorting orders if your strings only differ by underscores or any other character between the ASCII lower and upper case ranges.</p>
+<p>Warnings are now issued during bad string conversions (e.g. Unicode characters which can’t be represented as ASCII).</p>
+<p>You may notice extra debug text in the output log if this happens often in your code</p>
+<p>TArray::Append and TArray::Insert are now overloaded to allow the insertion of multiple elements at once.</p>
+<p>TSet is now accessed through operator [] instead of operator ().</p>
+<p>You can use now TObjectRange in the same way you use TobjectIterator for when you want to use C++11’s ranged-for syntax.</p>
+<p>Example: for (UClass* Cls : TObjectRange())</p>
+<p>Removed unused property flag CPF_AlwaysInit.</p>
+<p>Removed unused struct flag STRUCT_Transient.</p>
+<p>Added support for saving and loading FVector4 to config files using GConfig-&gt;SetVector4 and GConfig-&gt;GetVector4.</p>
+<p>Licensees using cultures (locales) other than the following languages will need to rebuild ICU’s data to include that locale data:</p>
+<p>German - de, English - en, Spanish - es, French - fr, Hindi - hi, Italian - it, Japanese - ja, Korean - ko, Polish - pl, Portuguese - pt, Russian - ru, Swedish - sv, Chinese - zh</p>
+<p>DrawDebugHelpers: added support for displaying a Histogram of float values.Use FDebugFloatHistory to record samples, and DrawDebugFloatHistory to draw in game.Also available in blueprints.</p>
+<p>Networking<br>Modified PreReplicatedRemove, PostReplicatedAdd, and PostReplicatedChange functions on FFastArraySerializerItem to also have a parameter representing the owning array serializer.</p>
+<p>Exposed bOnlyRelevantToOwner setting to blueprints.</p>
+<p>Animation<br>New: AnimInstance now has a CalculateDirection function for BlendSpaces.</p>
+
+      
+
+
+      
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/UE4/" rel="tag"><i class="fa fa-tag"></i> UE4</a>
+            
+              <a href="/tags/UE4-Release/" rel="tag"><i class="fa fa-tag"></i> UE4-Release</a>
+            
+              <a href="/tags/Release-Notes/" rel="tag"><i class="fa fa-tag"></i> Release-Notes</a>
+            
+          </div>
+        
+
+        
+        
+        
+
+        
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2014/03/19/ue4_4.0.X_Release_NOTE/" rel="next" title="UE4 4.0.X Release NOTE">
+                  <i class="fa fa-chevron-left"></i> 
+                  <p class="post-nav-pre-next-title">
+                    UE4 4.0.X Release NOTE
+                  </p> 
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2014/04/15/三种编程命名规范/" rel="prev" title="三种编程命名规范">
+                <p class="post-nav-pre-next-title">
+                    三种编程命名规范
+                </p> 
+                <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+
+        
+        
+      </footer>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="gitalk-container"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  
+
+  <aside id="sidebar" class="sidebar">
+
+    
+      
+        <div id="sidebar-dimmer"></div>
+      
+    
+
+    <div class="sidebar-inner">
+    
+      <div class="sidebar-toggle-inside motion-element">
+        <div class="sidebar-toggle-line-wrap">
+          <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+          <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+          <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+        </div>
+      </div>
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="/" class="site-author-image" rel="start" style="border:none">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+          </a>
+          <p class="site-author-name" itemprop="name">kaisaier</p>
+           
+              <p class="site-description motion-element" itemprop="description">欢迎订阅交流</p>
+          
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+          <div class="site-state-item site-state-about">
+            <a href="/about/">
+              <span class="site-state-item-about fa fa-fw fa-user"></span>
+              <span class="site-state-item-name">关于</span>
+            </a>
+          </div>
+          
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/kaisaier" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="1285310959@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+          
+          
+          <!-- 网易云音乐 -->
+            <!-- <div class="netease-cloud-music"> -->
+              <!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=110 src="//music.163.com/outchain/player?type=0&id=992743594&auto=0&height=90"></iframe> -->
+            <!-- </div> -->
+          <!-- 网易云音乐 -->
+
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://laod.cn/" title="老爹助你一臂之力" target="_blank">老爹助你一臂之力</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.dayanzai.me/" title="大眼仔眼睛大" target="_blank">大眼仔眼睛大</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原文"><span class="nav-number">1.</span> <span class="nav-text">原文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#翻译"><span class="nav-number">2.</span> <span class="nav-text">翻译</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kaisaier</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <!--
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      
+        <span id="scrollpercent"><span>0</span>%</span>
+      
+    </div>
+    -->
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+
+
+  
+
+
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+    <link rel="stylesheet" href="/css/gitalk.css">
+    <script src="/js/src/gitalk.min.js"></script>
+    <script type="text/javascript">
+		var gitalk = new Gitalk({
+            clientID: '7b952c6a994fea0a45a9',
+            clientSecret: '662cf6468b397efa59bf95746b679c07399e7eed',
+            repo: 'kaisaier.github.io',
+            owner: 'kaisaier',
+            admin: ['kaisaier'], 
+            id: location.pathname,
+            distractionFreeMode: 'true'
+		})
+		gitalk.render('gitalk-container')           
+    </script>
+
+  
+
+  <script type="text/javascript">
+
+    var searchFunc = function (path, search_id, content_id) {
+      // 0x00. environment initialization
+      'use strict';
+
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      var datas = [];
+      var is_load_xml_finished = 0;
+
+      /* loading css1 : Dot Css Loader*/
+      var DotLoader = "<div class='loader'>Loading...</div>";
+
+      /* loading css2 : Pure Css Loader - Square */
+      var SquareLoader = 
+        "<div class='loader'>" +
+          "<div class='square' ></div>" +
+          "<div class='square'></div>" +
+          "<div class='square last'></div>" +
+          "<div class='square clear'></div>" +
+          "<div class='square'></div>" +
+          "<div class='square last'></div>" +
+          "<div class='square clear'></div>" +
+          "<div class='square '></div>" +
+          "<div class='square last'></div>" +
+        "</div>";
+
+      var ProgressBar = 
+          "<div class='progress-bar'>" +
+            "<div class='progress-bar-charge'></div>" +
+          "</div>";
+
+      var str = "";
+      var keywords = [];
+      var temp_keyword = "";
+
+      // 是否为第一个字母被键入的标志位
+      var first_char_flag = 0;
+
+      // 因为在移动设备上, 点击搜索之后会 scroll 到页面顶部, 所以需要记录之前的页面y坐标值, 以便于搜索完点击 close 按钮之后 scroll 回原来的页面坐标值.
+      var last_page_y = 0;
+
+      var local_search_tips = 
+            "<span class='local-search-empty'>" + "玩命搜索中!! 研究表明, 人类能够忍受的最长等待时间为8秒..." + "</span>" +
+            "<span class='local-search-empty'>" + "但请相信我, 我绝对不可能那么旷日持久的..." + "</span>";
+
+      function CloseLocalSearch()
+      {
+        first_char_flag = 0;
+
+        $('#local-search-input').val('');
+        $('#local-search-close').hide();
+
+        // $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownOut', 200);
+
+        $('#' + content_id).attr("headroom_special_attr","true"); 
+        
+        if (isMobile())
+        {
+          $('body').scrollTop(last_page_y);
+          $('#' + content_id).hide();
+        }
+        else
+        {
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+        }
+
+        // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
+        //   // delay: isMobile() ? 50 : 0,
+        //   duration: isMobile() ? 500 : 200,
+        //   // begin: function() { 
+        //   //   if (isMobile())
+        //   //   {
+        //   //     $('body').scrollTop(last_page_y);
+        //   //   } 
+        //   // }
+        //   complete: function () {
+        //     if (isMobile())
+        //     {
+        //       if (last_page_y < 20000)
+        //       {
+        //         $('body').velocity('scroll', { offset: last_page_y+"px", duration: last_page_y < 10000 ? 1000 : 2000 });
+        //       }
+        //       else
+        //       {
+        //         $('body').scrollTop(last_page_y);
+        //       }
+        //       // $('body').velocity('scroll');
+
+        //       // $('html,body').animate({
+        //       //   scrollTop: last_page_y
+        //       // },400);
+        //       // $('body').velocity('transition.slideDownIn', 1000);
+        //       // $('body').velocity('scroll', { offset: last_page_y+"px", duration: document.body.scrollHeight < 20000 ? 1500 : 3000 });
+        //     }
+        //   }
+        // });
+      }
+
+      function handleSearch()
+      {
+        if (keywords.length <= 0) {
+          return;
+        }
+        $resultContent.innerHTML = "";
+
+        // 0x04. perform local searching
+        if (is_load_xml_finished == 0)
+        {
+          $resultContent.innerHTML = 
+            "<ul class='local-search-empty-ul'>" + 
+            local_search_tips +
+            ProgressBar;
+        }
+        else
+        {
+          datas.forEach(function (data) {
+            var isMatch = true;
+            var content_index = [];
+            if (!data.title || data.title.trim() === '') {
+              data.title = "Untitled";
+            }
+            var is_encrypted = data.encrypted.trim() == '1'
+            var is_sensitive = CONFIG.local_search.sensitive_word && data_content.indexOf(CONFIG.local_search.sensitive_word) >= 0
+            var orig_data_title = data.title.trim();
+            var data_title = orig_data_title.toLowerCase();
+            var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+            var data_content = orig_data_content.toLowerCase();
+            var data_url = decodeURIComponent(data.url);
+            var index_title = -1;
+            var index_content = -1;
+            var first_occur = -1;
+            // only match artiles with not empty contents
+            if (data_content !== '') {
+              keywords.forEach(function (keyword, i) {
+                index_title = data_title.indexOf(keyword);
+                index_content = (is_sensitive || is_encrypted) ? -1 : data_content.indexOf(keyword);
+
+                if (index_title < 0 && index_content < 0) {
+                  isMatch = false;
+                } else {
+                  if (index_content < 0) {
+                    index_content = 0;
+                  }
+                  if (i == 0) {
+                    first_occur = index_content;
+                  }
+                  // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                }
+              });
+            } else {
+              isMatch = false;
+            }
+            // 0x05. show search results
+            if (isMatch) {
+              var content = orig_data_content;
+              if (first_occur >= 0) {
+                var match_content = "";
+                if (!is_sensitive && !is_encrypted)
+                {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  match_content = content.substr(start, end);
+                }
+
+                // highlight all keywords
+                var regS = "";
+                if (match_content != "")
+                {
+                  keywords.forEach(function (keyword) {
+                    regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                    orig_data_title = orig_data_title.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                  });
+                }
+                else
+                {
+                  keywords.forEach(function (keyword) {
+                    regS = new RegExp(keyword, "gi");
+                    orig_data_title = orig_data_title.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                  });
+                }
+
+                
+                
+                str += "<li><a href='" + data_url + "' class='search-result-title' target='_blank'>" + orig_data_title + "</a>";
+
+                str += "<p class=\"search-result\">" + match_content + "...</p>"
+              }
+              str += "</li>";
+            }
+          });
+
+          str += "</ul>";
+          $('#local-search-close').show();
+          if (str.indexOf('<li>') === -1) {
+            return $resultContent.innerHTML = 
+              "<ul class='local-search-empty-ul'><span class='local-search-empty'>找不到, 换个搜索关键字试一哈.<span></ul>";
+          }
+          $resultContent.innerHTML = str;
+        }
+      }
+
+      $input.addEventListener('input', function () {
+        
+
+        // 0x03. parse query to keywords list
+        str = '<ul class=\"search-result-list\">';
+        temp_keyword = this.value.trim();
+        if (temp_keyword.length <= 0) {
+          CloseLocalSearch();
+          return;
+        }
+
+        keywords = temp_keyword.toLowerCase().split(/[\s\-]+/);
+        handleSearch();
+
+        // 当用户键入第一个字母的时候的动画处理逻辑 : 
+        // 当 first_char_flag 为 0 的时候, 
+        // 要播放一个动画
+        if (first_char_flag == 0)
+        {
+        
+          if (isMobile())
+          {
+            last_page_y = window.pageYOffset;
+            $('body').scrollTop(0);
+          }
+          first_char_flag = 1;
+          $('#' + content_id).removeAttr("headroom_special_attr");
+          
+          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+        }
+
+      });
+
+
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text(),
+              encrypted: $("encrypted", this).text(),
+            };
+          }).get();
+
+          // setTimeout(function(){
+          //   is_load_xml_finished = 1;
+
+          //   handleSearch();
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+          // }, 2000);
+          
+          is_load_xml_finished = 1;
+
+          handleSearch();
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+        }
+      });
+
+      $(document).on('click', '#local-search-close', function() {
+        CloseLocalSearch();
+      });
+
+      // $(document).on('blur', '#local-search-input', function(e) {
+      //   // console.log(document.activeElement.getAttribute('class'));
+        
+      //   if (isMobile() == false)
+      //   {
+      //     CloseLocalSearch();
+      //   }
+      // });
+      
+      
+    }
+
+    function isMobile() {
+      var userAgent = window.navigator.userAgent;
+
+      var isiPad = userAgent.match(/iPad/i) !== null;
+      var mobileUA = [
+        'iphone', 'android', 'phone', 'mobile',
+        'wap', 'netfront', 'x11', 'java', 'opera mobi',
+        'opera mini', 'ucweb', 'windows ce', 'symbian',
+        'symbianos', 'series', 'webos', 'sony',
+        'blackberry', 'dopod', 'nokia', 'samsung',
+        'palmsource', 'xda', 'pieplus', 'meizu',
+        'midp' ,'cldc' , 'motorola', 'foma',
+        'docomo', 'up.browser', 'up.link', 'blazer',
+        'helio', 'hosin', 'huawei', 'novarra',
+        'coolpad', 'webos', 'techfaith', 'palmsource',
+        'alcatel', 'amoi', 'ktouch', 'nexian',
+        'ericsson', 'philips', 'sagem', 'wellcom',
+        'bunjalloo', 'maui', 'smartphone', 'iemobile',
+        'spice', 'bird', 'zte-', 'longcos',
+        'pantech', 'gionee', 'portalmmm', 'jig browser',
+        'hiptop', 'benq', 'haier', '^lct',
+        '320x320', '240x320', '176x220'
+      ];
+      var pattern = new RegExp(mobileUA.join('|'), 'i');
+
+      return !isiPad && userAgent.match(pattern);
+    }
+
+    var getSearchFile = function(){
+      var path = "/search.xml";
+      var local_search_result_name = isMobile() ? "local-search-result-mobile" : "local-search-result-pc";
+      searchFunc(path, 'local-search-input', local_search_result_name);
+    }
+
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <!-- <script type="text/javascript" src="/lib/wobble_window/wobblewindow.js"> </script>
+<script type="text/javascript" src="/js/src/custom.js"></script>-->
+</body>
+</html>
+
+
+<!-- 页面点击小红心 -->
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+
+
+<script type="text/javascript" src="/js/src/headroom.js"></script> 

@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+          alert('此文章并不公开, 输入文章密码方可阅读');
+          var password = prompt();
+          if (password !== ''){
+            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+            {
+              alert('Error!');
+            }
+            if (history.length > 1)
+            {
+              history.back();
+            }
+            else
+            {
+              window.location.href = "about:blank";
+            }
+          }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="UE4,UE4-Release,Release-Notes,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content=". . .">
+<meta name="keywords" content="UE4,UE4-Release,Release-Notes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UE4 4.0.X Release NOTE">
+<meta property="og:url" content="https://kaisaier.github.io/2014/03/19/ue4_4.0.X_Release_NOTE/index.html">
+<meta property="og:site_name" content="凯">
+<meta property="og:description" content=". . .">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-29T02:11:08.798Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UE4 4.0.X Release NOTE">
+<meta name="twitter:description" content=". . .">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true},
+    local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"header":"slideUpBigIn","menu":"slideDownBigIn","logo":"bounceUpIn","post_block_else":"slideDownBigIn","post_header":"slideDownBigIn","post_body":"slideDownBigIn","coll_header":"slideDownBigIn","footer":"slideUpBigIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+
+
+
+
+  <title>UE4 4.0.X Release NOTE | 凯</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">凯</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ue4</p>
+      
+  </div>
+
+  <div class="menu-item sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="menu-item site-search">
+    
+  
+  <form class="site-search-form">
+    <span class="search-icon fa fa-search"></span>
+    <input type="text" id="local-search-input" class="st-search-input">
+    <i id="local-search-close">×</i>
+  </form>
+
+
+<script type="text/javascript" id="local.search.active">
+var inputArea       = document.querySelector("#local-search-input");
+inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script>
+
+
+
+  </div>
+  <div id="local-search-result-pc" class="local-search-result-cls"></div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+       
+    </ul>
+  
+
+  
+    
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <div id="local-search-result-mobile" class="local-search-result-cls"></div>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2014/03/19/ue4_4.0.X_Release_NOTE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kaisaier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="凯">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">UE4 4.0.X Release NOTE</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-03-19T23:59:59-07:00">
+                2014-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/UE4/" itemprop="url" rel="index">
+                    <span itemprop="name">UE4</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <div class="post-tags">
+              
+                <a href="/tags/UE4/" rel="tag"><i class="fa fa-tag"></i> UE4</a>
+              
+                <a href="/tags/UE4-Release/" rel="tag"><i class="fa fa-tag"></i> UE4-Release</a>
+              
+                <a href="/tags/Release-Notes/" rel="tag"><i class="fa fa-tag"></i> Release-Notes</a>
+              
+            </div>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+      
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/03/02/修改Linux的Bash设置/" rel="next" title="修改Linux的Bash设置">
+                <i class="fa fa-chevron-left"></i> 
+                <p class="post-nav-pre-next-title">
+                  修改Linux的Bash设置
+                </p> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/04/01/ue4_4.1.X_Release_NOTE/" rel="prev" title="UE4 4.1.X Release NOTE">
+              <p class="post-nav-pre-next-title">
+                  UE4 4.1.X Release NOTE
+              </p> 
+              <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+
+      
+      
+
+      
+        <p><strong>. . .</strong><a id="more"></a></p>
+<h2 id="UE4-4-0-0-Release"><a href="#UE4-4-0-0-Release" class="headerlink" title="UE4_4.0.0 Release"></a>UE4_4.0.0 Release</h2><p>Unreal Engine 4 launches today. What we’re releasing is both simple and radical: everything.</p>
+<p>Epic’s goal is to put the engine within reach of everyone interested in building games and 3D content, from indies to large triple-A development teams, and Minecraft creators as well. For $19/month you can have access to everything, including the Unreal Editor in ready-to-run form, and the engine’s complete C++ source code hosted on GitHub for collaborative development.</p>
+<p>This is the complete technology we at Epic use when building our own games, forged by years of experience shipping games like Gears of War for Xbox and Infinity Blade for iOS, and now reinvented for a new generation. Having the full C++ source provides the ultimate flexibility and puts developers in control of their schedules and destinies: Whatever you require to build and ship your game, you can find it in UE4, source it in the GitHub community, or build it yourself – and then share it with others.</p>
+<p>Develop in the Unreal Ecosystem</p>
+<p>Beyond the tools and source, Unreal Engine 4 provides an entire ecosystem. Chat in the forums, add to the wiki, participate in the AnswerHub Q&amp;A, and join collaborative development projects via GitHub.</p>
+<p>To help you get started, we’re shipping lots of ready-made content, samples, and game templates.  You’ll find it in the Marketplace in the Unreal Editor. Right now, it simply hosts free stuff from Epic, but its resemblance to the App Store is no coincidence: It will grow into a complete ecosystem for sharing community-created content, paid and free, and open for everyone’s participation!</p>
+<p>Ship Games with Unreal</p>
+<p>We’re working to build a company that succeeds when UE4 developers succeed. Anyone can ship a commercial product with UE4 by paying 5% of gross revenue resulting from sales to users. If your game makes $1,000,000, then we make $50,000. We realize that’s a lot to ask, and that it would be a crazy proposition unless UE4 enables you to build way better games way more productively than otherwise!</p>
+<p>So, will this effort succeed? That’s up to you and your judgment of the engine’s value. Unreal Engine 4 has been built by a team of over 100 engineers, artists and designers around the world, and this launch represents all of our hopes and dreams of how major software can be developed and distributed in the future.</p>
+<p>We find this future very exciting. It’s no longer dominated by giant publishers and marketing campaigns, but by a simple and honest proposition: Gamers pay for great games, and anybody who can valuably contribute to building those games can succeed, from indie developers, to large triple-A teams, and to individual programmers and content creators, too.</p>
+<p>A New Beginning</p>
+<p>This first release of Unreal Engine 4 is just the beginning. In the C++ code, you can see many new initiatives underway, for example to support Oculus VR, Linux, Valve’s Steamworks and Steam Box efforts, and deployment of games to web browsers via HTML5.  It’s all right there, in plain view, on day one of many years of exciting and open development ahead!</p>
+<p>We have enjoyed building Unreal Engine 4 so far and hope you will join us on this journey as a contributor to the future of Unreal!</p>
+<p>Tim Sweeney<br>Founder, Epic Games</p>
+<h2 id="翻译"><a href="#翻译" class="headerlink" title="翻译"></a>翻译</h2><p>虚幻引擎4今天推出。我们发布的内容既简单又激进：一切。</p>
+<p>Epic的目标是将引擎置于所有对构建游戏和3D内容感兴趣的人的手中，从独立开发者到大型三A开发团队，以及Minecraft创建者。只需19美元/月，您就可以访问所有内容，包括可立即运行的虚幻编辑器，以及GitHub上托管的引擎完整的C ++源代码，用于协作开发。</p>
+<p>这是我们Epic在构建我们自己的游戏时所使用的完整技术，这些游戏是通过多年运营诸如适用于iOS的Xbox和Infinity Blade等战争机器游戏的经验而打造的，现在已经为新一代重新发明。拥有完整的C ++源代码可提供最大的灵活性，并使开发人员能够控制他们的日程安排和命运：无论您需要构建和发布游戏，您都可以在UE4中找到它，在GitHub社区中找到它，或者自己构建它 - 以及然后与他人分享。</p>
+<p>在虚幻生态系统中发展</p>
+<p>除了工具和源代码，虚幻引擎4提供了一个完整的生态系统。在论坛中聊天，添加到wiki，参与AnswerHub问答，并通过GitHub加入协作开发项目。</p>
+<p>为了帮助您入门，我们提供了大量现成的内容，示例和游戏模板。您可以在虚幻编辑器的Marketplace中找到它。现在，它只是托管Epic的免费内容，但它与App Store的相似之处并非巧合：它将成长为一个完整的生态系统，用于分享社区创建的内容，付费和免费，并为每个人的参与开放！</p>
+<p>用虚幻的船游戏</p>
+<p>我们正在努力建立一个在UE4开发者成功时取得成功的公司。任何人都可以通过支付销售给用户的总收入的5％来运送带有UE4的商业产品。如果你的游戏赚了1,000,000美元，那么我们赚了50,000美元。我们意识到要问的很多，而且这将是一个疯狂的命题，除非UE4能够让你以更高效的方式构建更好的游戏方式！</p>
+<p>那么，这项努力会成功吗？这取决于您和您对发动机价值的判断。虚幻引擎4由全球100多位工程师，艺术家和设计师组成的团队构建，这次发布代表了我们对未来主要软件如何开发和分发的所有希望和梦想。</p>
+<p>我们发现这个未来非常令人兴奋它不再由大型出版商和营销活动主导，而是通过一个简单而诚实的主张：游戏玩家为优秀游戏付费，任何能够为构建这些游戏做出有价值贡献的人都可以成功，从独立开发者到大型AAA团队，以及个人程序员和内容创建者也是如此。</p>
+<p>一个新的开始</p>
+<p>虚幻引擎4的第一个版本才刚刚开始。在C ++代码中，您可以看到许多正在进行的新计划，例如支持Oculus VR，Linux，Valve的Steamworks和Steam Box工作，以及通过HTML5将游戏部署到Web浏览器。很明显，在未来多年令人兴奋和开放的发展的第一天，它就可以了！</p>
+<p>到目前为止，我们非常喜欢构建虚幻引擎4，并希望您能加入我们这个旅程，作为Unreal未来的贡献者！</p>
+<p>蒂姆斯威尼<br>Epic Games的创始人</p>
+<h2 id="4-0-0-Release"><a href="#4-0-0-Release" class="headerlink" title="4.0.0 Release"></a>4.0.0 Release</h2><p>Released: 03/19/2014</p>
+<p>Announcement:</p>
+<p><a href="https://www.unrealengine.com/blog/welcome-to-unreal-engine-4" target="_blank" rel="noopener">https://www.unrealengine.com/blog/welcome-to-unreal-engine-4</a></p>
+<h2 id="4-0-1-Hotfix"><a href="#4-0-1-Hotfix" class="headerlink" title="4.0.1 Hotfix"></a>4.0.1 Hotfix</h2><p>Released: 03/19/2014</p>
+<p>Github: <a href="https://github.com/EpicGames/UnrealEngine/tree/4.0.1-release" target="_blank" rel="noopener">https://github.com/EpicGames/UnrealEngine/tree/4.0.1-release</a></p>
+<p>Fixes:</p>
+<p>Fixed critical launch issues</p>
+<h2 id="4-0-2-Hotfix"><a href="#4-0-2-Hotfix" class="headerlink" title="4.0.2 Hotfix"></a>4.0.2 Hotfix</h2><p>Released: 04/01/2014</p>
+<p>Github: <a href="https://github.com/EpicGames/UnrealEngine/tree/4.0.2-release" target="_blank" rel="noopener">https://github.com/EpicGames/UnrealEngine/tree/4.0.2-release</a></p>
+<p>Fixes:</p>
+<p>[Windows] Fixed DirectX 11 crash when launching on older GPUs</p>
+<p>[Windows] Fixed being unable to compile Android projects when launching from the editor</p>
+<p>[Windows] Fixed crash on startup for some AMD CPUs</p>
+<p>[Windows] Fixed broken shell extensions when running RegisterShellCommands.bat in GitHub builds using “Run as Administrator”</p>
+<p>[Windows] Added support files required for Subversion support (preview release)</p>
+<p>[Windows] Fixed issue where engine could fail to compile with multiple versions of Visual Studio installed</p>
+<p>[Mac] Fixed crash on startup caused by certain USB peripherals plugged in</p>
+<p>[Mac] Fixed logs being cut off after crash</p>
+<p>[Mac] Fixed crash on startup caused by non-standard maximum number of open files</p>
+<p>[Mac] Noticeably improved performance on non-Intel GPUs</p>
+<p>[Mac] Fixed crash on startup running ShooterGame as a standalone game</p>
+<p>QFE for the 4.0.2 Hotfix<br>If you are using the latest hotfix for this engine version and experience the issue described below, download and run this ‘quick fix’ to resolve the issue.</p>
+<p>Fixes Launcher failing to launch after install on Mac; and unable to read info about mouse. (report)</p>
+<p>Download 1: <a href="http://cdn.unrealengine.com/qfe/QFE-FromCL-2034640-Shelve-2048959.zip" target="_blank" rel="noopener">http://cdn.unrealengine.com/qfe/QFE-FromCL-2034640-Shelve-2048959.zip</a></p>
+<p>Download 2: <a href="http://cdn.unrealengine.com/qfe/UnrealEngine_QFE_2039063.dmg" target="_blank" rel="noopener">http://cdn.unrealengine.com/qfe/UnrealEngine_QFE_2039063.dmg</a></p>
+<p>Notes: When you get them, install Unreal Engine app from UnrealEngine_QFE_2039063.dmg to your /Applications folder, then open Terminal app and type:</p>
+<p>open /Applications/Unreal\ Engine.app –args -noselfupdate</p>
+<p>-noselfupdate argument is important because without it the app would update to official version that doesn’t work for you. After you download the engine using Unreal Engine app, unzip QFE-FromCL-2034640-Shelve-2048959.zip and run the patch installer it contains. After that you should be able to use the editor etc. You can start the editor by launching it directly: /Users/Shared/UnrealEngine/4.0/Engine/Binaries/MacUE4Editor.app.</p>
+<h2 id="4-0-0发布"><a href="#4-0-0发布" class="headerlink" title="4.0.0发布"></a>4.0.0发布</h2><p>发行日期：2014年3月19日</p>
+<p>公告：</p>
+<p><a href="https://www.unrealengine.com/blog/welcome-to-unreal-engine-4" target="_blank" rel="noopener">https://www.unrealengine.com/blog/welcome-to-unreal-engine-4</a></p>
+<h2 id="4-0-1修补程序"><a href="#4-0-1修补程序" class="headerlink" title="4.0.1修补程序"></a>4.0.1修补程序</h2><p>发行日期：2014年3月19日</p>
+<p>Github：<a href="https://github.com/EpicGames/UnrealEngine/tree/4.0.1-release" target="_blank" rel="noopener">https://github.com/EpicGames/UnrealEngine/tree/4.0.1-release</a></p>
+<p>修正：</p>
+<p>修复了关键的发布问题</p>
+<h2 id="4-0-2修补程序"><a href="#4-0-2修补程序" class="headerlink" title="4.0.2修补程序"></a>4.0.2修补程序</h2><p>发行日期：2014年4月1日</p>
+<p>Github：<a href="https://github.com/EpicGames/UnrealEngine/tree/4.0.2-release" target="_blank" rel="noopener">https://github.com/EpicGames/UnrealEngine/tree/4.0.2-release</a></p>
+<p>修正：</p>
+<p>[Windows]修复了在旧版GPU上启动时DirectX 11崩溃的问题</p>
+<p>[Windows]修复了从编辑器启动时无法编译Android项目的问题</p>
+<p>[Windows]修复了某些AMD CPU启动时崩溃的问题</p>
+<p>[Windows]使用“以管理员身份运行”在GitHub版本中运行RegisterShellCommands.bat时修复损坏的shell扩展</p>
+<p>[Windows]添加了Subversion支持所需的支持文件（预览版）</p>
+<p>[Windows]修复了在安装了多个Visual Studio版本的情况下引擎无法编译的问题</p>
+<p>[Mac]修复了某些USB外围设备插入导致启动时崩溃的问题</p>
+<p>[Mac]固定日志在崩溃后被切断</p>
+<p>[Mac]修复了非标准最大打开文件数导致启动时崩溃的问题</p>
+<p>[Mac]显着提高了非英特尔GPU的性能</p>
+<p>[Mac]修复了将ShooterGame作为独立游戏运行的启动时的崩溃问题</p>
+<p>QFE for 4.0.2 Hotfix<br>如果您使用此引擎版本的最新修补程序并遇到下述问题，请下载并运行此“快速修复”以解决此问题。</p>
+<p>修复Launcher在Mac上安装后无法启动;并且无法读取有关鼠标的信息。 （报告）</p>
+<p>下载1：<a href="http://cdn.unrealengine.com/qfe/QFE-FromCL-2034640-Shelve-2048959.zip" target="_blank" rel="noopener">http://cdn.unrealengine.com/qfe/QFE-FromCL-2034640-Shelve-2048959.zip</a></p>
+<p>下载2：<a href="http://cdn.unrealengine.com/qfe/UnrealEngine_QFE_2039063.dmg" target="_blank" rel="noopener">http://cdn.unrealengine.com/qfe/UnrealEngine_QFE_2039063.dmg</a></p>
+<p>注意：获取它们后，将UnrealEngine_QFE_2039063.dmg中的虚幻引擎应用程序安装到您的/ Applications文件夹，然后打开终端应用程序并键入：</p>
+<p>open /Applications/Unreal\ Engine.app –args -noselfupdate</p>
+<p>-noselfupdate参数很重要，因为没有它，应用程序将更新为不适合您的正式版本。使用虚幻引擎应用程序下载引擎后，解压缩QFE-FromCL-2034640-Shelve-2048959.zip并运行它包含的修补程序安装程序。之后你应该可以使用编辑器等。你可以通过直接启动它来启动编辑器：/Users/Shared/UnrealEngine/4.0/Engine/Binaries/MacUE4Editor.app。</p>
+
+      
+
+
+      
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/UE4/" rel="tag"><i class="fa fa-tag"></i> UE4</a>
+            
+              <a href="/tags/UE4-Release/" rel="tag"><i class="fa fa-tag"></i> UE4-Release</a>
+            
+              <a href="/tags/Release-Notes/" rel="tag"><i class="fa fa-tag"></i> Release-Notes</a>
+            
+          </div>
+        
+
+        
+        
+        
+
+        
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2014/03/02/修改Linux的Bash设置/" rel="next" title="修改Linux的Bash设置">
+                  <i class="fa fa-chevron-left"></i> 
+                  <p class="post-nav-pre-next-title">
+                    修改Linux的Bash设置
+                  </p> 
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2014/04/01/ue4_4.1.X_Release_NOTE/" rel="prev" title="UE4 4.1.X Release NOTE">
+                <p class="post-nav-pre-next-title">
+                    UE4 4.1.X Release NOTE
+                </p> 
+                <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+
+        
+        
+      </footer>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="gitalk-container"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  
+
+  <aside id="sidebar" class="sidebar">
+
+    
+      
+        <div id="sidebar-dimmer"></div>
+      
+    
+
+    <div class="sidebar-inner">
+    
+      <div class="sidebar-toggle-inside motion-element">
+        <div class="sidebar-toggle-line-wrap">
+          <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+          <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+          <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+        </div>
+      </div>
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="/" class="site-author-image" rel="start" style="border:none">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+          </a>
+          <p class="site-author-name" itemprop="name">kaisaier</p>
+           
+              <p class="site-description motion-element" itemprop="description">欢迎订阅交流</p>
+          
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+          <div class="site-state-item site-state-about">
+            <a href="/about/">
+              <span class="site-state-item-about fa fa-fw fa-user"></span>
+              <span class="site-state-item-name">关于</span>
+            </a>
+          </div>
+          
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/kaisaier" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="1285310959@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+          
+          
+          <!-- 网易云音乐 -->
+            <!-- <div class="netease-cloud-music"> -->
+              <!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=110 src="//music.163.com/outchain/player?type=0&id=992743594&auto=0&height=90"></iframe> -->
+            <!-- </div> -->
+          <!-- 网易云音乐 -->
+
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://laod.cn/" title="老爹助你一臂之力" target="_blank">老爹助你一臂之力</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.dayanzai.me/" title="大眼仔眼睛大" target="_blank">大眼仔眼睛大</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UE4-4-0-0-Release"><span class="nav-number">1.</span> <span class="nav-text">UE4_4.0.0 Release</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#翻译"><span class="nav-number">2.</span> <span class="nav-text">翻译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-0-0-Release"><span class="nav-number">3.</span> <span class="nav-text">4.0.0 Release</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-0-1-Hotfix"><span class="nav-number">4.</span> <span class="nav-text">4.0.1 Hotfix</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-0-2-Hotfix"><span class="nav-number">5.</span> <span class="nav-text">4.0.2 Hotfix</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-0-0发布"><span class="nav-number">6.</span> <span class="nav-text">4.0.0发布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-0-1修补程序"><span class="nav-number">7.</span> <span class="nav-text">4.0.1修补程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-0-2修补程序"><span class="nav-number">8.</span> <span class="nav-text">4.0.2修补程序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kaisaier</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <!--
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      
+        <span id="scrollpercent"><span>0</span>%</span>
+      
+    </div>
+    -->
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+
+
+  
+
+
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+    <link rel="stylesheet" href="/css/gitalk.css">
+    <script src="/js/src/gitalk.min.js"></script>
+    <script type="text/javascript">
+		var gitalk = new Gitalk({
+            clientID: '7b952c6a994fea0a45a9',
+            clientSecret: '662cf6468b397efa59bf95746b679c07399e7eed',
+            repo: 'kaisaier.github.io',
+            owner: 'kaisaier',
+            admin: ['kaisaier'], 
+            id: location.pathname,
+            distractionFreeMode: 'true'
+		})
+		gitalk.render('gitalk-container')           
+    </script>
+
+  
+
+  <script type="text/javascript">
+
+    var searchFunc = function (path, search_id, content_id) {
+      // 0x00. environment initialization
+      'use strict';
+
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      var datas = [];
+      var is_load_xml_finished = 0;
+
+      /* loading css1 : Dot Css Loader*/
+      var DotLoader = "<div class='loader'>Loading...</div>";
+
+      /* loading css2 : Pure Css Loader - Square */
+      var SquareLoader = 
+        "<div class='loader'>" +
+          "<div class='square' ></div>" +
+          "<div class='square'></div>" +
+          "<div class='square last'></div>" +
+          "<div class='square clear'></div>" +
+          "<div class='square'></div>" +
+          "<div class='square last'></div>" +
+          "<div class='square clear'></div>" +
+          "<div class='square '></div>" +
+          "<div class='square last'></div>" +
+        "</div>";
+
+      var ProgressBar = 
+          "<div class='progress-bar'>" +
+            "<div class='progress-bar-charge'></div>" +
+          "</div>";
+
+      var str = "";
+      var keywords = [];
+      var temp_keyword = "";
+
+      // 是否为第一个字母被键入的标志位
+      var first_char_flag = 0;
+
+      // 因为在移动设备上, 点击搜索之后会 scroll 到页面顶部, 所以需要记录之前的页面y坐标值, 以便于搜索完点击 close 按钮之后 scroll 回原来的页面坐标值.
+      var last_page_y = 0;
+
+      var local_search_tips = 
+            "<span class='local-search-empty'>" + "玩命搜索中!! 研究表明, 人类能够忍受的最长等待时间为8秒..." + "</span>" +
+            "<span class='local-search-empty'>" + "但请相信我, 我绝对不可能那么旷日持久的..." + "</span>";
+
+      function CloseLocalSearch()
+      {
+        first_char_flag = 0;
+
+        $('#local-search-input').val('');
+        $('#local-search-close').hide();
+
+        // $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownOut', 200);
+
+        $('#' + content_id).attr("headroom_special_attr","true"); 
+        
+        if (isMobile())
+        {
+          $('body').scrollTop(last_page_y);
+          $('#' + content_id).hide();
+        }
+        else
+        {
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+        }
+
+        // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
+        //   // delay: isMobile() ? 50 : 0,
+        //   duration: isMobile() ? 500 : 200,
+        //   // begin: function() { 
+        //   //   if (isMobile())
+        //   //   {
+        //   //     $('body').scrollTop(last_page_y);
+        //   //   } 
+        //   // }
+        //   complete: function () {
+        //     if (isMobile())
+        //     {
+        //       if (last_page_y < 20000)
+        //       {
+        //         $('body').velocity('scroll', { offset: last_page_y+"px", duration: last_page_y < 10000 ? 1000 : 2000 });
+        //       }
+        //       else
+        //       {
+        //         $('body').scrollTop(last_page_y);
+        //       }
+        //       // $('body').velocity('scroll');
+
+        //       // $('html,body').animate({
+        //       //   scrollTop: last_page_y
+        //       // },400);
+        //       // $('body').velocity('transition.slideDownIn', 1000);
+        //       // $('body').velocity('scroll', { offset: last_page_y+"px", duration: document.body.scrollHeight < 20000 ? 1500 : 3000 });
+        //     }
+        //   }
+        // });
+      }
+
+      function handleSearch()
+      {
+        if (keywords.length <= 0) {
+          return;
+        }
+        $resultContent.innerHTML = "";
+
+        // 0x04. perform local searching
+        if (is_load_xml_finished == 0)
+        {
+          $resultContent.innerHTML = 
+            "<ul class='local-search-empty-ul'>" + 
+            local_search_tips +
+            ProgressBar;
+        }
+        else
+        {
+          datas.forEach(function (data) {
+            var isMatch = true;
+            var content_index = [];
+            if (!data.title || data.title.trim() === '') {
+              data.title = "Untitled";
+            }
+            var is_encrypted = data.encrypted.trim() == '1'
+            var is_sensitive = CONFIG.local_search.sensitive_word && data_content.indexOf(CONFIG.local_search.sensitive_word) >= 0
+            var orig_data_title = data.title.trim();
+            var data_title = orig_data_title.toLowerCase();
+            var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+            var data_content = orig_data_content.toLowerCase();
+            var data_url = decodeURIComponent(data.url);
+            var index_title = -1;
+            var index_content = -1;
+            var first_occur = -1;
+            // only match artiles with not empty contents
+            if (data_content !== '') {
+              keywords.forEach(function (keyword, i) {
+                index_title = data_title.indexOf(keyword);
+                index_content = (is_sensitive || is_encrypted) ? -1 : data_content.indexOf(keyword);
+
+                if (index_title < 0 && index_content < 0) {
+                  isMatch = false;
+                } else {
+                  if (index_content < 0) {
+                    index_content = 0;
+                  }
+                  if (i == 0) {
+                    first_occur = index_content;
+                  }
+                  // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                }
+              });
+            } else {
+              isMatch = false;
+            }
+            // 0x05. show search results
+            if (isMatch) {
+              var content = orig_data_content;
+              if (first_occur >= 0) {
+                var match_content = "";
+                if (!is_sensitive && !is_encrypted)
+                {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  match_content = content.substr(start, end);
+                }
+
+                // highlight all keywords
+                var regS = "";
+                if (match_content != "")
+                {
+                  keywords.forEach(function (keyword) {
+                    regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                    orig_data_title = orig_data_title.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                  });
+                }
+                else
+                {
+                  keywords.forEach(function (keyword) {
+                    regS = new RegExp(keyword, "gi");
+                    orig_data_title = orig_data_title.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                  });
+                }
+
+                
+                
+                str += "<li><a href='" + data_url + "' class='search-result-title' target='_blank'>" + orig_data_title + "</a>";
+
+                str += "<p class=\"search-result\">" + match_content + "...</p>"
+              }
+              str += "</li>";
+            }
+          });
+
+          str += "</ul>";
+          $('#local-search-close').show();
+          if (str.indexOf('<li>') === -1) {
+            return $resultContent.innerHTML = 
+              "<ul class='local-search-empty-ul'><span class='local-search-empty'>找不到, 换个搜索关键字试一哈.<span></ul>";
+          }
+          $resultContent.innerHTML = str;
+        }
+      }
+
+      $input.addEventListener('input', function () {
+        
+
+        // 0x03. parse query to keywords list
+        str = '<ul class=\"search-result-list\">';
+        temp_keyword = this.value.trim();
+        if (temp_keyword.length <= 0) {
+          CloseLocalSearch();
+          return;
+        }
+
+        keywords = temp_keyword.toLowerCase().split(/[\s\-]+/);
+        handleSearch();
+
+        // 当用户键入第一个字母的时候的动画处理逻辑 : 
+        // 当 first_char_flag 为 0 的时候, 
+        // 要播放一个动画
+        if (first_char_flag == 0)
+        {
+        
+          if (isMobile())
+          {
+            last_page_y = window.pageYOffset;
+            $('body').scrollTop(0);
+          }
+          first_char_flag = 1;
+          $('#' + content_id).removeAttr("headroom_special_attr");
+          
+          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+        }
+
+      });
+
+
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text(),
+              encrypted: $("encrypted", this).text(),
+            };
+          }).get();
+
+          // setTimeout(function(){
+          //   is_load_xml_finished = 1;
+
+          //   handleSearch();
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+          // }, 2000);
+          
+          is_load_xml_finished = 1;
+
+          handleSearch();
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+        }
+      });
+
+      $(document).on('click', '#local-search-close', function() {
+        CloseLocalSearch();
+      });
+
+      // $(document).on('blur', '#local-search-input', function(e) {
+      //   // console.log(document.activeElement.getAttribute('class'));
+        
+      //   if (isMobile() == false)
+      //   {
+      //     CloseLocalSearch();
+      //   }
+      // });
+      
+      
+    }
+
+    function isMobile() {
+      var userAgent = window.navigator.userAgent;
+
+      var isiPad = userAgent.match(/iPad/i) !== null;
+      var mobileUA = [
+        'iphone', 'android', 'phone', 'mobile',
+        'wap', 'netfront', 'x11', 'java', 'opera mobi',
+        'opera mini', 'ucweb', 'windows ce', 'symbian',
+        'symbianos', 'series', 'webos', 'sony',
+        'blackberry', 'dopod', 'nokia', 'samsung',
+        'palmsource', 'xda', 'pieplus', 'meizu',
+        'midp' ,'cldc' , 'motorola', 'foma',
+        'docomo', 'up.browser', 'up.link', 'blazer',
+        'helio', 'hosin', 'huawei', 'novarra',
+        'coolpad', 'webos', 'techfaith', 'palmsource',
+        'alcatel', 'amoi', 'ktouch', 'nexian',
+        'ericsson', 'philips', 'sagem', 'wellcom',
+        'bunjalloo', 'maui', 'smartphone', 'iemobile',
+        'spice', 'bird', 'zte-', 'longcos',
+        'pantech', 'gionee', 'portalmmm', 'jig browser',
+        'hiptop', 'benq', 'haier', '^lct',
+        '320x320', '240x320', '176x220'
+      ];
+      var pattern = new RegExp(mobileUA.join('|'), 'i');
+
+      return !isiPad && userAgent.match(pattern);
+    }
+
+    var getSearchFile = function(){
+      var path = "/search.xml";
+      var local_search_result_name = isMobile() ? "local-search-result-mobile" : "local-search-result-pc";
+      searchFunc(path, 'local-search-input', local_search_result_name);
+    }
+
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <!-- <script type="text/javascript" src="/lib/wobble_window/wobblewindow.js"> </script>
+<script type="text/javascript" src="/js/src/custom.js"></script>-->
+</body>
+</html>
+
+
+<!-- 页面点击小红心 -->
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+
+
+<script type="text/javascript" src="/js/src/headroom.js"></script> 
