@@ -116,6 +116,6 @@ categories:
 
 # 源码下载
 
-因 Gaffer On Games 的源码原下载地址失效, 所以特地补上.
+因 GafferOnGames网站不省人事, 所以在此提供GafferOnGames的GitHub,自觉加粉.
 
-[请点击](https://github.com/no5ix/ReliableUDP)
+[请点击](https://github.com/gafferongames/gafferongames)
