@@ -18,7 +18,9 @@
     "hexo-renderer-ejs": "^0.3.0",
     "hexo-renderer-marked": "^2.0.0",
     "hexo-renderer-stylus": "^0.3.1",
-    "hexo-server": "^0.2.0"
+    "hexo-server": "^0.2.0",
+    "lodash": "^4.17.19",
+    "minimist": "^1.2.5"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
