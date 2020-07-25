@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,39 +69,38 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Bash,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="Bash," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
 
 
 
-<meta name="description" content="profile和bashrc和bash_profile的区别 /etc/profile:此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行.并从 /etc/profile.d 目录的配置文件中搜集shell的设置.所以如果你有对/etc/profile有修改的话必须得重启你的修改才会生效，此修改对每个用户都生效。  /etc/bashrc:为每一个运行bash shell的用户执">
-<meta name="keywords" content="Bash">
+<meta name="description" content="profile和bashrc和bash_profile的区别 &#x2F;etc&#x2F;profile:此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行.并从 &#x2F;etc&#x2F;profile.d 目录的配置文件中搜集shell的设置.所以如果你有对&#x2F;etc&#x2F;profile有修改的话必须得重启你的修改才会生效，此修改对每个用户都生效。  &#x2F;etc&#x2F;bashrc:为每一个运行bash shell的用户执">
 <meta property="og:type" content="article">
 <meta property="og:title" content="修改Linux的Bash设置">
-<meta property="og:url" content="https://kaisaier.github.io/2014/03/02/修改Linux的Bash设置/index.html">
+<meta property="og:url" content="https://kaisaier.github.io/2014/03/02/%E4%BF%AE%E6%94%B9Linux%E7%9A%84Bash%E8%AE%BE%E7%BD%AE/index.html">
 <meta property="og:site_name" content="凯">
-<meta property="og:description" content="profile和bashrc和bash_profile的区别 /etc/profile:此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行.并从 /etc/profile.d 目录的配置文件中搜集shell的设置.所以如果你有对/etc/profile有修改的话必须得重启你的修改才会生效，此修改对每个用户都生效。  /etc/bashrc:为每一个运行bash shell的用户执">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-29T03:08:35.765Z">
+<meta property="og:description" content="profile和bashrc和bash_profile的区别 &#x2F;etc&#x2F;profile:此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行.并从 &#x2F;etc&#x2F;profile.d 目录的配置文件中搜集shell的设置.所以如果你有对&#x2F;etc&#x2F;profile有修改的话必须得重启你的修改才会生效，此修改对每个用户都生效。  &#x2F;etc&#x2F;bashrc:为每一个运行bash shell的用户执">
+<meta property="article:published_time" content="2014-03-02T15:59:59.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="Bash">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="修改Linux的Bash设置">
-<meta name="twitter:description" content="profile和bashrc和bash_profile的区别 /etc/profile:此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行.并从 /etc/profile.d 目录的配置文件中搜集shell的设置.所以如果你有对/etc/profile有修改的话必须得重启你的修改才会生效，此修改对每个用户都生效。  /etc/bashrc:为每一个运行bash shell的用户执">
 
 
 
@@ -152,7 +151,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -170,14 +169,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -195,7 +194,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -230,7 +229,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -240,7 +239,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -250,7 +249,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -260,7 +259,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -303,11 +302,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2014/03/02/修改Linux的Bash设置/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2014/03/02/%E4%BF%AE%E6%94%B9Linux%E7%9A%84Bash%E8%AE%BE%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -332,7 +331,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-03-02T23:59:59-08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-03-02T23:59:59+08:00">
                 2014-03-02
               </time>
             
@@ -343,7 +342,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -486,7 +485,7 @@ set show-all-if-unmodified on
 &quot;\e[A&quot;: history-search-backward  
 &quot;\e[B&quot;: history-search-forward  </code></pre><p>解释 :</p>
 <ul>
-<li>show-all-if-ambiguous : 默认情况下，按下两次 <tab> 才会出现提示，现在只需要一次了。</tab></li>
+<li>show-all-if-ambiguous : 默认情况下，按下两次 <tab> 才会出现提示，现在只需要一次了。</li>
 <li>completion-ignore-case : 在自动补全时忽略大小写</li>
 <li>history-search-* : 输入某个命令的一部分时，按上下箭头，会匹配关于这个这命令最近的使用历史。比如：输入 vim ，然后按”上“键，此时，可以显示上一次运行vim时的那条命令，非常的方便！</li>
 </ul>
@@ -521,7 +520,6 @@ set show-all-if-unmodified on
 </ul>
 <p>一个例子 :</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">BUILD_DIR=../build</span><br><span class="line"></span><br><span class="line">if [ ! -d $&#123;BUILD_DIR&#125; ]; then</span><br><span class="line">    mkdir $&#123;BUILD_DIR&#125;</span><br><span class="line">else</span><br><span class="line">    echo "BUILD_DIR is already exist."</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">RTS_PATH=`cd .. &amp;&amp; pwd`</span><br><span class="line">RTS_SYMBOLIC_LINK=~/rts</span><br><span class="line"></span><br><span class="line">if [ ! -L "$RTS_SYMBOLIC_LINK" ]; then</span><br><span class="line">    ln -s $RTS_PATH $RTS_SYMBOLIC_LINK;</span><br><span class="line">else</span><br><span class="line">    echo "RTS_SYMBOLIC_LINK is already exist."</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>
-
 
       
 
@@ -632,7 +630,7 @@ set show-all-if-unmodified on
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -644,7 +642,10 @@ set show-all-if-unmodified on
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -659,7 +660,7 @@ set show-all-if-unmodified on
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -668,7 +669,7 @@ set show-all-if-unmodified on
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -679,7 +680,7 @@ set show-all-if-unmodified on
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -790,10 +791,10 @@ set show-all-if-unmodified on
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

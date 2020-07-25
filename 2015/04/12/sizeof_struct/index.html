@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,39 +69,38 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="ObjectModel,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="ObjectModel," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
 
 
 
-<meta name="description" content="本文不讨论类的虚函数, 请参考 C++对象模型之虚函数讲解 内存对齐规则首先我们明确内存对齐规则 我们设  A = #pragma pack()指定的数 B = 这个数据成员的自身长度 C = 结构(或联合)中最大数据成员长度在解释内存对齐的作用前，先来看下内存对齐的规则： 1.  对于结构的各个成员，第一个成员位于偏移为0的位置，以后每个数据成员的偏移量必须是 min( A，B ) 的倍数。 2">
-<meta name="keywords" content="ObjectModel">
+<meta name="description" content="本文不讨论类的虚函数, 请参考 C++对象模型之虚函数讲解 内存对齐规则首先我们明确内存对齐规则 我们设  A &#x3D; #pragma pack()指定的数 B &#x3D; 这个数据成员的自身长度 C &#x3D; 结构(或联合)中最大数据成员长度在解释内存对齐的作用前，先来看下内存对齐的规则： 1.  对于结构的各个成员，第一个成员位于偏移为0的位置，以后每个数据成员的偏移量必须是 min( A，B ) 的倍数。 2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对象模型之内存对齐基础">
 <meta property="og:url" content="https://kaisaier.github.io/2015/04/12/sizeof_struct/index.html">
 <meta property="og:site_name" content="凯">
-<meta property="og:description" content="本文不讨论类的虚函数, 请参考 C++对象模型之虚函数讲解 内存对齐规则首先我们明确内存对齐规则 我们设  A = #pragma pack()指定的数 B = 这个数据成员的自身长度 C = 结构(或联合)中最大数据成员长度在解释内存对齐的作用前，先来看下内存对齐的规则： 1.  对于结构的各个成员，第一个成员位于偏移为0的位置，以后每个数据成员的偏移量必须是 min( A，B ) 的倍数。 2">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="og:description" content="本文不讨论类的虚函数, 请参考 C++对象模型之虚函数讲解 内存对齐规则首先我们明确内存对齐规则 我们设  A &#x3D; #pragma pack()指定的数 B &#x3D; 这个数据成员的自身长度 C &#x3D; 结构(或联合)中最大数据成员长度在解释内存对齐的作用前，先来看下内存对齐的规则： 1.  对于结构的各个成员，第一个成员位于偏移为0的位置，以后每个数据成员的偏移量必须是 min( A，B ) 的倍数。 2">
+<meta property="article:published_time" content="2015-04-12T15:30:01.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="ObjectModel">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对象模型之内存对齐基础">
-<meta name="twitter:description" content="本文不讨论类的虚函数, 请参考 C++对象模型之虚函数讲解 内存对齐规则首先我们明确内存对齐规则 我们设  A = #pragma pack()指定的数 B = 这个数据成员的自身长度 C = 结构(或联合)中最大数据成员长度在解释内存对齐的作用前，先来看下内存对齐的规则： 1.  对于结构的各个成员，第一个成员位于偏移为0的位置，以后每个数据成员的偏移量必须是 min( A，B ) 的倍数。 2">
 
 
 
@@ -152,7 +151,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -170,14 +169,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -195,7 +194,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -230,7 +229,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -240,7 +239,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -250,7 +249,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -260,7 +259,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -307,7 +306,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -332,7 +331,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-04-12T23:30:01-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-04-12T23:30:01+08:00">
                 2015-04-12
               </time>
             
@@ -343,7 +342,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -420,7 +419,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/17/MySQL入门三之GroupBy/" rel="prev" title="MySQL入门三之GroupBy">
+              <a href="/2015/04/17/MySQL%E5%85%A5%E9%97%A8%E4%B8%89%E4%B9%8BGroupBy/" rel="prev" title="MySQL入门三之GroupBy">
               <p class="post-nav-pre-next-title">
                   MySQL入门三之GroupBy
               </p> 
@@ -468,16 +467,14 @@ C = 结构(或联合)中最大数据成员长度</code></pre><p>在解释内存�
 <p>由于枚举变量的赋值，一次只能存放枚举结构中的某个常数。</p>
 <p>所以枚举变量的大小，实质是常数所占内存空间的大小（常数为int类型，当前主流的编译器中一般是32位机器和64位机器中int型都是4个字节），枚举类型所占内存大小也是这样。</p>
 <h3 id="pragma-pack用法"><a href="#pragma-pack用法" class="headerlink" title="#pragma pack用法"></a>#pragma pack用法</h3><p><code>#pragma pack(a)</code>规定的对齐长度（a可选值为1，2，4，8，16），实际使用的规则是：<br>结构，联合，或者类的数据成员，第一个放在偏移为0的地方，以后每个数据成员的对齐，按照#pragma pack指定的数值和这个数据成员自身长度中，比较小的那个进行。<br>也就是说，当#pragma pack的值等于或超过所有数据成员长度的时候，这个值的大小将不产生任何效果。<br>而结构整体的对齐，则按照结构体中最大的数据成员 和 #pragma pack指定值 之间，较小的那个进行。<br>而 <code>#pragma pack()</code> 表示恢复默认的内存对齐（与<code>#pragma pack(a)</code>指令配对使用）</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(4)</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestB</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> aa; <span class="comment">//第一个成员，放在[0,3]偏移的位置，</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> a; <span class="comment">//第二个成员，自身长为1，#pragma pack(4),取小值，也就是1，所以这个成员按一字节对齐，放在偏移[4]的位置。</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">short</span> b; <span class="comment">//第三个成员，自身长2，#pragma pack(4)，取2，按2字节对齐，所以放在偏移[6,7]的位置。</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> c; <span class="comment">//第四个，自身长为1，放在[8]的位置。</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack()</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(4)</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestB</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> aa; <span class="comment">//第一个成员，放在[0,3]偏移的位置，</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> a; <span class="comment">//第二个成员，自身长为1，#pragma pack(4),取小值，也就是1，所以这个成员按一字节对齐，放在偏移[4]的位置。</span></span><br><span class="line"></span><br><span class="line">    short b; <span class="comment">//第三个成员，自身长2，#pragma pack(4)，取2，按2字节对齐，所以放在偏移[6,7]的位置。</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> c; <span class="comment">//第四个，自身长为1，放在[8]的位置。</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack()</span></span><br></pre></td></tr></table></figure>
 
 <p>这个类实际占据的内存空间是9字节<br>类之间的对齐，是按照类内部最大的成员的长度，和#pragma pack规定的值之中较小的一个对齐的。<br>所以这个例子中，类之间对齐的长度是min(sizeof(int),4)，也就是4。<br>9按照4字节圆整的结果是12，所以sizeof(TestB)是12。</p>
 <p>如果</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(2)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestB</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> aa; <span class="comment">//第一个成员，放在[0,3]偏移的位置，</span></span><br><span class="line">    <span class="keyword">char</span> a; <span class="comment">//第二个成员，自身长为1，#pragma pack(2),取小值，也就是1，所以这个成员按一字节对齐，放在偏移[4]的位置。</span></span><br><span class="line">    <span class="keyword">short</span> b; <span class="comment">//第三个成员，自身长2，#pragma pack(2)，取2，按2字节对齐，所以放在偏移[6,7]的位置。</span></span><br><span class="line">    <span class="keyword">char</span> c; <span class="comment">//第四个，自身长为1，放在[8]的位置。</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack()</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(2)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestB</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> aa; <span class="comment">//第一个成员，放在[0,3]偏移的位置，</span></span><br><span class="line">    <span class="keyword">char</span> a; <span class="comment">//第二个成员，自身长为1，#pragma pack(2),取小值，也就是1，所以这个成员按一字节对齐，放在偏移[4]的位置。</span></span><br><span class="line">    short b; <span class="comment">//第三个成员，自身长2，#pragma pack(2)，取2，按2字节对齐，所以放在偏移[6,7]的位置。</span></span><br><span class="line">    <span class="keyword">char</span> c; <span class="comment">//第四个，自身长为1，放在[8]的位置。</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack()</span></span><br></pre></td></tr></table></figure>
 <p>可以看出，上面的位置完全没有变化，只是类之间改为按2字节对齐，9按2圆整的结果是10。<br>所以 sizeof(TestB)是10。</p>
 <p>现在去掉第一个成员变量为如下代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(4)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestC</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">　　<span class="keyword">char</span> a;<span class="comment">//第一个成员，放在[0]偏移的位置，</span></span><br><span class="line">　　<span class="keyword">short</span> b;<span class="comment">//第二个成员，自身长2，#pragma pack(4)，取2，按2字节对齐，所以放在偏移[2,3]的位置。</span></span><br><span class="line">　　<span class="keyword">char</span> c;<span class="comment">//第三个，自身长为1，放在[4]的位置。</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack()</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(4)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestC</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">　　<span class="keyword">char</span> a;<span class="comment">//第一个成员，放在[0]偏移的位置，</span></span><br><span class="line">　　short b;<span class="comment">//第二个成员，自身长2，#pragma pack(4)，取2，按2字节对齐，所以放在偏移[2,3]的位置。</span></span><br><span class="line">　　<span class="keyword">char</span> c;<span class="comment">//第三个，自身长为1，放在[4]的位置。</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack()</span></span><br></pre></td></tr></table></figure>
 <p>整个类的大小是5字节，按照min(sizeof(short),4)字节对齐，也就是2字节对齐，结果是6<br>所以sizeof(TestC)是6。</p>
 <p>整个类的大小是5字节，按照min(sizeof(short),4)字节对齐，也就是2字节对齐，结果是6，所以sizeof(TestC)是6。</p>
 <h3 id="共用体-union-所占内存计算方法"><a href="#共用体-union-所占内存计算方法" class="headerlink" title="共用体(union)所占内存计算方法"></a>共用体(union)所占内存计算方法</h3><p>共用体又名”联合体”, 英文名为union.</p>
@@ -493,7 +490,6 @@ C = 结构(或联合)中最大数据成员长度</code></pre><p>在解释内存�
 <p>下面举例说明：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 union U</span><br><span class="line">2 &#123;</span><br><span class="line">3     char s[9];</span><br><span class="line">4     int n;</span><br><span class="line">5     double d;</span><br><span class="line">6 &#125;;</span><br></pre></td></tr></table></figure>
 
-
 <p>s占9字节，n占4字节，d占8字节，因此其至少需9字节的空间。然而其实际大小并不是9，用运算符sizeof测试其大小为16.这是因为这里存在字节对齐的问题，9既不能被4整除，也不能被8整除。</p>
 <p>因此补充字节到16，这样就符合所有成员的自身对齐了。从这里可以看出联合体所占的空间不仅取决于最宽成员，还跟所有成员有关系，即其大小必须满足两个条件：</p>
 <ul>
@@ -508,13 +504,12 @@ C = 结构(或联合)中最大数据成员长度</code></pre><p>在解释内存�
 </ul>
 <p>所以#pragma pack(4)的情况, sizeof(A)为4+16+4=24。</p>
 <h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><p>注意有陷阱, 32位环境下</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">pragma</span> pack(2)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test_class</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">float</span> i;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">union</span> test_union</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> bb;</span><br><span class="line">		<span class="keyword">char</span> aa[<span class="number">13</span>];</span><br><span class="line">		<span class="keyword">short</span> cc;</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">enum</span> test_enum</span><br><span class="line">	&#123;</span><br><span class="line">		monday,</span><br><span class="line">		tuesday,</span><br><span class="line">		sunday</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">testFunc</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">char</span> xmly;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">pragma</span> pack()</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(test_class) : "</span> &lt;&lt; <span class="keyword">sizeof</span>(test_class) &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">pragma</span> pack(2)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test_class</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">float</span> i;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">union</span> test_union</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> bb;</span><br><span class="line">		<span class="keyword">char</span> aa[<span class="number">13</span>];</span><br><span class="line">		short cc;</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">enum</span> test_enum</span><br><span class="line">	&#123;</span><br><span class="line">		monday,</span><br><span class="line">		tuesday,</span><br><span class="line">		sunday</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">testFunc</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">char</span> xmly;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">pragma</span> pack()</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(test_class) : "</span> &lt;&lt; <span class="keyword">sizeof</span>(test_class) &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>请问打印结果?</p>
 <p><code>sizeof(test_class) : 6</code></p>
 <p>为什么呢?<br>注意看共用体 test_union 和枚举 test_enum其实并没有声明变量, 如果写成</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">pragma</span> pack(2)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test_class</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">float</span> i;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">union</span> test_union</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> bb;</span><br><span class="line">		<span class="keyword">char</span> aa[<span class="number">13</span>];</span><br><span class="line">		<span class="keyword">short</span> cc;</span><br><span class="line">	&#125;uVar;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">enum</span> test_enum</span><br><span class="line">	&#123;</span><br><span class="line">		monday,</span><br><span class="line">		tuesday,</span><br><span class="line">		sunday</span><br><span class="line">	&#125;eVar;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">testFunc</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">char</span> xmly;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta"># <span class="meta-keyword">pragma</span> pack()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> enum_x </span><br><span class="line">&#123; </span><br><span class="line">	x1=<span class="number">5</span>, </span><br><span class="line">	x2, </span><br><span class="line">	x3, </span><br><span class="line">	x4, </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">enum</span> enum_x x=x3; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(test_class) : "</span> &lt;&lt; <span class="keyword">sizeof</span>(test_class) &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"x : "</span> &lt;&lt; x &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	test_class::test_enum i;</span><br><span class="line">	i = test_class::monday;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"i : "</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	test_class test_obj;</span><br><span class="line">	test_obj.eVar = test_class::sunday;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; test_obj.monday &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; test_class::sunday &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">pragma</span> pack(2)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test_class</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">float</span> i;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">union</span> test_union</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> bb;</span><br><span class="line">		<span class="keyword">char</span> aa[<span class="number">13</span>];</span><br><span class="line">		short cc;</span><br><span class="line">	&#125;uVar;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">enum</span> test_enum</span><br><span class="line">	&#123;</span><br><span class="line">		monday,</span><br><span class="line">		tuesday,</span><br><span class="line">		sunday</span><br><span class="line">	&#125;eVar;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">testFunc</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">char</span> xmly;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta"># <span class="meta-keyword">pragma</span> pack()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> enum_x </span><br><span class="line">&#123; </span><br><span class="line">	x1=<span class="number">5</span>, </span><br><span class="line">	x2, </span><br><span class="line">	x3, </span><br><span class="line">	x4, </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">enum</span> enum_x x=x3; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(test_class) : "</span> &lt;&lt; <span class="keyword">sizeof</span>(test_class) &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"x : "</span> &lt;&lt; x &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	test_class::test_enum i;</span><br><span class="line">	i = test_class::monday;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"i : "</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	test_class test_obj;</span><br><span class="line">	test_obj.eVar = test_class::sunday;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; test_obj.monday &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; test_class::sunday &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>打印结果就为 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sizeof(test_class) : 24</span><br><span class="line">x : 7</span><br><span class="line">i : 0</span><br><span class="line">0</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
       
@@ -553,7 +548,7 @@ C = 结构(或联合)中最大数据成员长度</code></pre><p>在解释内存�
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2015/04/17/MySQL入门三之GroupBy/" rel="prev" title="MySQL入门三之GroupBy">
+                <a href="/2015/04/17/MySQL%E5%85%A5%E9%97%A8%E4%B8%89%E4%B9%8BGroupBy/" rel="prev" title="MySQL入门三之GroupBy">
                 <p class="post-nav-pre-next-title">
                     MySQL入门三之GroupBy
                 </p> 
@@ -633,7 +628,7 @@ C = 结构(或联合)中最大数据成员长度</code></pre><p>在解释内存�
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -645,7 +640,10 @@ C = 结构(或联合)中最大数据成员长度</code></pre><p>在解释内存�
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -660,7 +658,7 @@ C = 结构(或联合)中最大数据成员长度</code></pre><p>在解释内存�
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -669,7 +667,7 @@ C = 结构(或联合)中最大数据成员长度</code></pre><p>在解释内存�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -680,7 +678,7 @@ C = 结构(或联合)中最大数据成员长度</code></pre><p>在解释内存�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -791,10 +789,10 @@ C = 结构(或联合)中最大数据成员长度</code></pre><p>在解释内存�
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

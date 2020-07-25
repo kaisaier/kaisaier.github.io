@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="TCP,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="TCP," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,17 +91,16 @@
 
 
 <meta name="description" content="快速重传算法概绍在收到一个失序的报文段时，  TCP立即需要产生一个ACK(一个重复的ACK)。这个重复的ACK不应该被迟延。该重复的ACK的曰的在于让对方知道收到一个失序的报文段，并告诉对方自己希望收到的序号。 由于我们不知道一个重复的ACK足由一个丢失的报文段引起的，还是由于仅仅出现了几个报文段的重新排序，因此我们等待少量重复的ACK到来。假如这只是一些报文段的重新排序，则在重新排序的报文段被">
-<meta name="keywords" content="TCP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="白话TCP快速重传">
-<meta property="og:url" content="https://kaisaier.github.io/2017/09/23/白话tcp快速重传/index.html">
+<meta property="og:url" content="https://kaisaier.github.io/2017/09/23/%E7%99%BD%E8%AF%9Dtcp%E5%BF%AB%E9%80%9F%E9%87%8D%E4%BC%A0/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="快速重传算法概绍在收到一个失序的报文段时，  TCP立即需要产生一个ACK(一个重复的ACK)。这个重复的ACK不应该被迟延。该重复的ACK的曰的在于让对方知道收到一个失序的报文段，并告诉对方自己希望收到的序号。 由于我们不知道一个重复的ACK足由一个丢失的报文段引起的，还是由于仅仅出现了几个报文段的重新排序，因此我们等待少量重复的ACK到来。假如这只是一些报文段的重新排序，则在重新排序的报文段被">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="article:published_time" content="2017-09-23T10:11:22.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="TCP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="白话TCP快速重传">
-<meta name="twitter:description" content="快速重传算法概绍在收到一个失序的报文段时，  TCP立即需要产生一个ACK(一个重复的ACK)。这个重复的ACK不应该被迟延。该重复的ACK的曰的在于让对方知道收到一个失序的报文段，并告诉对方自己希望收到的序号。 由于我们不知道一个重复的ACK足由一个丢失的报文段引起的，还是由于仅仅出现了几个报文段的重新排序，因此我们等待少量重复的ACK到来。假如这只是一些报文段的重新排序，则在重新排序的报文段被">
 
 
 
@@ -152,7 +151,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -170,14 +169,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -195,7 +194,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -230,7 +229,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -240,7 +239,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -250,7 +249,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -260,7 +259,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -303,11 +302,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2017/09/23/白话tcp快速重传/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2017/09/23/%E7%99%BD%E8%AF%9Dtcp%E5%BF%AB%E9%80%9F%E9%87%8D%E4%BC%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -332,7 +331,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-23T18:11:22-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-23T18:11:22+08:00">
                 2017-09-23
               </time>
             
@@ -343,7 +342,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -407,7 +406,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/21/基于hexo的next个性化配置小技巧/" rel="next" title="基于hexo的next个性化配置小技巧">
+              <a href="/2017/09/21/%E5%9F%BA%E4%BA%8Ehexo%E7%9A%84next%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="next" title="基于hexo的next个性化配置小技巧">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
                   基于hexo的next个性化配置小技巧
@@ -420,7 +419,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/10/多人快节奏游戏五之演示Demo/" rel="prev" title="多人快节奏游戏五之演示Demo">
+              <a href="/2017/10/10/%E5%A4%9A%E4%BA%BA%E5%BF%AB%E8%8A%82%E5%A5%8F%E6%B8%B8%E6%88%8F%E4%BA%94%E4%B9%8B%E6%BC%94%E7%A4%BADemo/" rel="prev" title="多人快节奏游戏五之演示Demo">
               <p class="post-nav-pre-next-title">
                   多人快节奏游戏五之演示Demo
               </p> 
@@ -439,10 +438,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         <h1 id="快速重传算法概绍"><a href="#快速重传算法概绍" class="headerlink" title="快速重传算法概绍"></a>快速重传算法概绍</h1><p>在收到一个失序的报文段时，  TCP立即需要产生一个ACK(一个重复的ACK)。这个重复的ACK不应该被迟延。该重复的ACK的曰的在于让对方知道收到一个失序的报文段，并告诉对方自己希望收到的序号。</p>
-<p>由于我们不知道一个重复的ACK足由一个丢失的报文段引起的，还是由于仅仅出现了几个报文段的重新排序，因此我们等待少量重复的ACK到来。假如这只是一些报文段的重新排序，则在重新排序的报文段被处理并产生一个新的ACK之前，只可能产生1～2个重复的ACK。<br>如果一连串收到3个或3个以上的重复ACK，就非常可能足一个报文段丢失了。于足我们就重传丢失的数据报文段，而无需等待超时定时器溢出。这就是<strong>快速重传算法</strong>。接下来执行的不是慢启动算法而是<a href="/2016/12/31/tcp拥塞控制之慢启动和拥塞避免/" title="拥塞避免算法">拥塞避免算法</a>。这就是<strong>快速恢复算法。</strong></p>
+<p>由于我们不知道一个重复的ACK足由一个丢失的报文段引起的，还是由于仅仅出现了几个报文段的重新排序，因此我们等待少量重复的ACK到来。假如这只是一些报文段的重新排序，则在重新排序的报文段被处理并产生一个新的ACK之前，只可能产生1～2个重复的ACK。<br>如果一连串收到3个或3个以上的重复ACK，就非常可能足一个报文段丢失了。于足我们就重传丢失的数据报文段，而无需等待超时定时器溢出。这就是<strong>快速重传算法</strong>。接下来执行的不是慢启动算法而是<a href="/2016/12/31/tcp%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E4%B9%8B%E6%85%A2%E5%90%AF%E5%8A%A8%E5%92%8C%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D/" title="拥塞避免算法">拥塞避免算法</a>。这就是<strong>快速恢复算法。</strong></p>
 <p>在这种情况下没有执行慢启动的原因是由于收到重复的ACK不仅仅告诉我们一个分组丢失了。由于接收方只有在收到另一个报文段耐才会产生重复的ACK，而该报文段已经离开了网络并进入了接收方的缓存。<br>也就是说，在收发两端之问仍然有流动的数据，而我们不想执行慢启动来突然减少数据流。</p>
 <p><strong>. . .</strong><a id="more"></a> </p>
-<h1 id="为什么是3个重复ACK之后就要重传"><a href="#为什么是3个重复ACK之后就要重传" class="headerlink" title="为什么是3个重复ACK之后就要重传?"></a>为什么是3个重复ACK之后就要重传?</h1><p><b>两次duplicated ACK肯定是乱序造成的！</b><br><b>丢包肯定会造成三次duplicated ACK!</b><br><br>假定通信双方如下，A发送4个TCP Segment 给B，编号如下，N-1成功到达，因为A收到B的ACK(N)，其它按照到达顺序，分别收到ACK(N)的数目：<br><br>                  A ———&gt; B<br><br><br><b>A方发送顺序</b>N-1，N，N+1，N+2<br><br><b>B方到达顺序</b><br><br>N-1，N，N+1，N+2 <br>A收到1个ACK (N)<br><br>N-1，N，N+2，N+1 <br>A收到1个ACK (N)<br><br>N-1，N+1，N，N+2 <br>A收到2个ACK (N)<br><br><b>N-1，N+1，N+2，N </b><br><b>A收到</b><b>3个ACK (N)<br></b><br>N-1，N+2，N，N+1  <br>A收到2个ACK (N)<br><br><b>N-1，N+2，N+1，N </b><br><b>A收到</b><b>3个ACK (N)</b><br><br><br><b>如果N丢了，没有到达B</b><br><br><b>N-1，N+1，N+2 </b><br><b>A收到3个ACK (N)<br><br>N-1，N+2，N+1 </b><br><b>A收到</b><b>3个ACK (N)</b><br><br><br>TCP segment 乱序 有2/5 = <b>40% 的概率</b>会造成A收到三次 duplicated ACK(N);<br><br>而如果N丢了，则会<b>100%概率</b>A会收到三次duplicated ACK(N);<br><br>基于以上的统计，当A接收到三次 duplicated ACK(N)启动 Fast Retransmit 算法是合理的，即立马retransmit N，可以起到Fast Recovery的功效，快速修复一个丢包对TCP管道的恶劣影响。<br><br>而如果A接收到二次 duplicated ACK(N)，则一定说明是乱序造成的，即然是乱序，说明 数据都到达了B，B的TCP负责重新排序而已，没有必要A再来启动Fast Retransmit算法。<br><br><br>补充阅读<br>——————————————–<br><b>TCP segment 乱序的由来</b><br><br>TCP segment 封装在IP包里，如果IP包乱序，则相应TCP也会乱序，乱序的原因一般如下：<br><br><b>1）ECMP 负载均衡</b><br><br>多路径的负载均衡，基于per-packet load balance，比如 packet 1，3，5…走路径1，packet 2，4，6…走路径2，很难保证packet 1 在 packet 2 之前到达目的地。<br><br>Per-session load balance 会基于TCP五元组来负载均衡，同一个TCP会话会走同一条路径，克服多路径造成的乱序。<br><br><b>2）路由器内部流量调度</b><br><br>有些路由器采用多个流量处理单元，比如packet 1，3，5…由处理单元1来处理，packet 2，4，6…由处理单元2来处理，也很难保证packet 1 在 packet 2 之前到达目的地。<br><br>TCP接收到乱序的segment，会放在自己的接收缓冲区，等所有乱序的segment 都顺利到达，TCP重新排序，并将数据提交给 application。<br><br>乱序的segment 会占用接收缓冲区，直接造成B advertised window size 变小，造成对方A发送window 一直在变小，影响A发送效率。<br><br>即使A不快速重传，最后也会由retransmit timer timeout 超时重传，但这个时候A的发送window 非常小，发送速率也从天上掉到了地下。<br><br>———-///——–<br>在没有fast retransmit / recovery 算法之前，重传依靠发送方的retransmit timeout，就是在timeout内如果没有接收到对方的ACK，默认包丢了，发送方就重传，包的丢失原因 1）包checksum 出错 2）网络拥塞 3）网络断，包括路由重收敛，但是发送方无法判断是哪一种情况，于是采用最笨的办法，就是将自己的发送速率减半，即CWND 减为1/2，这样的方法对2是有效的，可以缓解网络拥塞，3则无所谓，反正网络断了，无论发快发慢都会被丢；但对于1来说，丢包是因为偶尔的出错引起，一丢包就对半减速不合理。于是有了fast retransmit 算法，基于在反向还可以接收到ACK，可以认为网络并没有断，否则也接收不到ACK，如果在timeout 时间内没有接收到&gt; 2 的duplicated ACK，则概率大事件为乱序，乱序无需重传，接收方会进行排序工作；而如果接收到三个或三个以上的duplicated ACK，则大概率是丢包，可以逻辑推理，发送方可以接收ACK，则网络是通的，可能是1、2造成的，先不降速，重传一次，如果接收到正确的ACK，则一切OK，流速依然（包出错被丢）。而如果依然接收到duplicated ACK，则认为是网络拥塞造成的，此时降速则比较合理。</p>
+<h1 id="为什么是3个重复ACK之后就要重传"><a href="#为什么是3个重复ACK之后就要重传" class="headerlink" title="为什么是3个重复ACK之后就要重传?"></a>为什么是3个重复ACK之后就要重传?</h1><p><b>两次duplicated ACK肯定是乱序造成的！</b><br><b>丢包肯定会造成三次duplicated ACK!</b><br><br>假定通信双方如下，A发送4个TCP Segment 给B，编号如下，N-1成功到达，因为A收到B的ACK(N)，其它按照到达顺序，分别收到ACK(N)的数目：<br><br>                  A ———&gt; B<br><br><br><b>A方发送顺序</b>N-1，N，N+1，N+2<br><br><b>B方到达顺序</b><br><br>N-1，N，N+1，N+2 <br>A收到1个ACK (N)<br><br>N-1，N，N+2，N+1 <br>A收到1个ACK (N)<br><br>N-1，N+1，N，N+2 <br>A收到2个ACK (N)<br><br><b>N-1，N+1，N+2，N </b><br><b>A收到</b><b>3个ACK (N)<br></b><br>N-1，N+2，N，N+1  <br>A收到2个ACK (N)<br><br><b>N-1，N+2，N+1，N </b><br><b>A收到</b><b>3个ACK (N)</b><br><br><br><b>如果N丢了，没有到达B</b><br><br><b>N-1，N+1，N+2 </b><br><b>A收到3个ACK (N)<br><br>N-1，N+2，N+1 </b><br><b>A收到</b><b>3个ACK (N)</b><br><br><br>TCP segment 乱序 有2/5 = <b>40% 的概率</b>会造成A收到三次 duplicated ACK(N);<br><br>而如果N丢了，则会<b>100%概率</b>A会收到三次duplicated ACK(N);<br><br>基于以上的统计，当A接收到三次 duplicated ACK(N)启动 Fast Retransmit 算法是合理的，即立马retransmit N，可以起到Fast Recovery的功效，快速修复一个丢包对TCP管道的恶劣影响。<br><br>而如果A接收到二次 duplicated ACK(N)，则一定说明是乱序造成的，即然是乱序，说明 数据都到达了B，B的TCP负责重新排序而已，没有必要A再来启动Fast Retransmit算法。<br><br><br>补充阅读<br>——————————————–<br><b>TCP segment 乱序的由来</b><br><br>TCP segment 封装在IP包里，如果IP包乱序，则相应TCP也会乱序，乱序的原因一般如下：<br><br><b>1）ECMP 负载均衡</b><br><br>多路径的负载均衡，基于per-packet load balance，比如 packet 1，3，5…走路径1，packet 2，4，6…走路径2，很难保证packet 1 在 packet 2 之前到达目的地。<br><br>Per-session load balance 会基于TCP五元组来负载均衡，同一个TCP会话会走同一条路径，克服多路径造成的乱序。<br><br><b>2）路由器内部流量调度</b><br><br>有些路由器采用多个流量处理单元，比如packet 1，3，5…由处理单元1来处理，packet 2，4，6…由处理单元2来处理，也很难保证packet 1 在 packet 2 之前到达目的地。<br><br>TCP接收到乱序的segment，会放在自己的接收缓冲区，等所有乱序的segment 都顺利到达，TCP重新排序，并将数据提交给 application。<br><br>乱序的segment 会占用接收缓冲区，直接造成B advertised window size 变小，造成对方A发送window 一直在变小，影响A发送效率。<br><br>即使A不快速重传，最后也会由retransmit timer timeout 超时重传，但这个时候A的发送window 非常小，发送速率也从天上掉到了地下。<br><br>———-///——–<br>在没有fast retransmit / recovery 算法之前，重传依靠发送方的retransmit timeout，就是在timeout内如果没有接收到对方的ACK，默认包丢了，发送方就重传，包的丢失原因 1）包checksum 出错 2）网络拥塞 3）网络断，包括路由重收敛，但是发送方无法判断是哪一种情况，于是采用最笨的办法，就是将自己的发送速率减半，即CWND 减为1/2，这样的方法对2是有效的，可以缓解网络拥塞，3则无所谓，反正网络断了，无论发快发慢都会被丢；但对于1来说，丢包是因为偶尔的出错引起，一丢包就对半减速不合理。于是有了fast retransmit 算法，基于在反向还可以接收到ACK，可以认为网络并没有断，否则也接收不到ACK，如果在timeout 时间内没有接收到&gt; 2 的duplicated ACK，则概率大事件为乱序，乱序无需重传，接收方会进行排序工作；而如果接收到三个或三个以上的duplicated ACK，则大概率是丢包，可以逻辑推理，发送方可以接收ACK，则网络是通的，可能是1、2造成的，先不降速，重传一次，如果接收到正确的ACK，则一切OK，流速依然（包出错被丢）。而如果依然接收到duplicated ACK，则认为是网络拥塞造成的，此时降速则比较合理。</span></div></p>
 
       
 
@@ -467,7 +466,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2017/09/21/基于hexo的next个性化配置小技巧/" rel="next" title="基于hexo的next个性化配置小技巧">
+                <a href="/2017/09/21/%E5%9F%BA%E4%BA%8Ehexo%E7%9A%84next%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="next" title="基于hexo的next个性化配置小技巧">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
                     基于hexo的next个性化配置小技巧
@@ -480,7 +479,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2017/10/10/多人快节奏游戏五之演示Demo/" rel="prev" title="多人快节奏游戏五之演示Demo">
+                <a href="/2017/10/10/%E5%A4%9A%E4%BA%BA%E5%BF%AB%E8%8A%82%E5%A5%8F%E6%B8%B8%E6%88%8F%E4%BA%94%E4%B9%8B%E6%BC%94%E7%A4%BADemo/" rel="prev" title="多人快节奏游戏五之演示Demo">
                 <p class="post-nav-pre-next-title">
                     多人快节奏游戏五之演示Demo
                 </p> 
@@ -560,7 +559,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -572,7 +571,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -587,7 +589,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -596,7 +598,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -607,7 +609,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -718,10 +720,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

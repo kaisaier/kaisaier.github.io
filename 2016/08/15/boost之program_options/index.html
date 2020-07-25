@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Boost,CPP,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="Boost,CPP," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,17 +91,17 @@
 
 
 <meta name="description" content="介绍命令行接口是普遍,基础的人机交互接口，从命令行提取程序的运行时选项的方法有很多。 你可以自己编写相对应的完整的解析函数，或许你有丰富的C语言编程经验，熟知getopt()函数的用法，又或许使用Python的你已经在使用optparse库来简化这一工作。 大家在平时不断地谈及到“不要重复造轮子”，那就需要掌握一些顺手的库，这里介绍一种C++方式来解析命令行选项的方法，就是使用Boost.Prog">
-<meta name="keywords" content="Boost,CPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="boost之program_options">
-<meta property="og:url" content="https://kaisaier.github.io/2016/08/15/boost之program_options/index.html">
+<meta property="og:url" content="https://kaisaier.github.io/2016/08/15/boost%E4%B9%8Bprogram_options/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="介绍命令行接口是普遍,基础的人机交互接口，从命令行提取程序的运行时选项的方法有很多。 你可以自己编写相对应的完整的解析函数，或许你有丰富的C语言编程经验，熟知getopt()函数的用法，又或许使用Python的你已经在使用optparse库来简化这一工作。 大家在平时不断地谈及到“不要重复造轮子”，那就需要掌握一些顺手的库，这里介绍一种C++方式来解析命令行选项的方法，就是使用Boost.Prog">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="article:published_time" content="2016-08-15T07:11:26.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="Boost">
+<meta property="article:tag" content="CPP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="boost之program_options">
-<meta name="twitter:description" content="介绍命令行接口是普遍,基础的人机交互接口，从命令行提取程序的运行时选项的方法有很多。 你可以自己编写相对应的完整的解析函数，或许你有丰富的C语言编程经验，熟知getopt()函数的用法，又或许使用Python的你已经在使用optparse库来简化这一工作。 大家在平时不断地谈及到“不要重复造轮子”，那就需要掌握一些顺手的库，这里介绍一种C++方式来解析命令行选项的方法，就是使用Boost.Prog">
 
 
 
@@ -152,7 +152,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -170,14 +170,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -195,7 +195,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -230,7 +230,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -240,7 +240,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -250,7 +250,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -260,7 +260,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -303,11 +303,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2016/08/15/boost之program_options/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2016/08/15/boost%E4%B9%8Bprogram_options/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -332,7 +332,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-15T15:11:26-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-15T15:11:26+08:00">
                 2016-08-15
               </time>
             
@@ -343,7 +343,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -409,7 +409,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/11/关于UNP与APUE与TLPI三本大部头的阅读建议(着重讲UNP)/" rel="next" title="关于UNP与APUE与TLPI三本大部头的阅读建议(着重讲UNP)">
+              <a href="/2016/08/11/%E5%85%B3%E4%BA%8EUNP%E4%B8%8EAPUE%E4%B8%8ETLPI%E4%B8%89%E6%9C%AC%E5%A4%A7%E9%83%A8%E5%A4%B4%E7%9A%84%E9%98%85%E8%AF%BB%E5%BB%BA%E8%AE%AE(%E7%9D%80%E9%87%8D%E8%AE%B2UNP)/" rel="next" title="关于UNP与APUE与TLPI三本大部头的阅读建议(着重讲UNP)">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
                   关于UNP与APUE与TLPI三本大部头的阅读建议(着重讲UNP)
@@ -422,7 +422,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/01/PHP的魔术/" rel="prev" title="PHP的魔术">
+              <a href="/2016/09/01/PHP%E7%9A%84%E9%AD%94%E6%9C%AF/" rel="prev" title="PHP的魔术">
               <p class="post-nav-pre-next-title">
                   PHP的魔术
               </p> 
@@ -450,10 +450,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>最后，选项值不仅能从命令行获取，也能从配置文件，甚至于环境变量中提取，而这些选择不会增加明显的工作量。</p>
 <h1 id="示例说明"><a href="#示例说明" class="headerlink" title="示例说明"></a>示例说明</h1><p>以下面简单的hello程序进行说明，默认打印hello world,如果传入-p选项，就会打印出人的姓名，另外通过传入-h选项，可以打印出帮助选项。</p>
 <p>略微看一眼代码文件和相应的屏幕输入输出，然后我们再一起来看看这些是如何发生的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//hello.cpp </span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;boost/program_options.hpp&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">int main(int argc, char* argv[])</span><br><span class="line">&#123;</span><br><span class="line">    using namespace boost::program_options;</span><br><span class="line">    //声明需要的选项</span><br><span class="line">    options_description desc(&quot;Allowed options&quot;);</span><br><span class="line">    desc.add_options()</span><br><span class="line">        (&quot;help,h&quot;, &quot;produce help message&quot;)</span><br><span class="line">        (&quot;person,p&quot;, value&lt;string&gt;()-&gt;default_value(&quot;world&quot;), &quot;who&quot;)</span><br><span class="line">        ;</span><br><span class="line"></span><br><span class="line">    variables_map vm;        </span><br><span class="line">    store(parse_command_line(argc, argv, desc), vm);</span><br><span class="line">    notify(vm);    </span><br><span class="line"></span><br><span class="line">    if (vm.count(&quot;help&quot;)) &#123;</span><br><span class="line">        cout &lt;&lt; desc;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; &quot;Hello &quot; &lt;&lt; vm[&quot;person&quot;].as&lt;string&gt;() &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;hello.cpp </span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;boost&#x2F;program_options.hpp&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">int main(int argc, char* argv[])</span><br><span class="line">&#123;</span><br><span class="line">    using namespace boost::program_options;</span><br><span class="line">    &#x2F;&#x2F;声明需要的选项</span><br><span class="line">    options_description desc(&quot;Allowed options&quot;);</span><br><span class="line">    desc.add_options()</span><br><span class="line">        (&quot;help,h&quot;, &quot;produce help message&quot;)</span><br><span class="line">        (&quot;person,p&quot;, value&lt;string&gt;()-&gt;default_value(&quot;world&quot;), &quot;who&quot;)</span><br><span class="line">        ;</span><br><span class="line"></span><br><span class="line">    variables_map vm;        </span><br><span class="line">    store(parse_command_line(argc, argv, desc), vm);</span><br><span class="line">    notify(vm);    </span><br><span class="line"></span><br><span class="line">    if (vm.count(&quot;help&quot;)) &#123;</span><br><span class="line">        cout &lt;&lt; desc;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; &quot;Hello &quot; &lt;&lt; vm[&quot;person&quot;].as&lt;string&gt;() &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>下面是在Windows命令提示符窗口上的输入输出结果，其中”&gt;”表示提示符。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;hello </span><br><span class="line">Hello world</span><br><span class="line"></span><br><span class="line">&gt;hello -h</span><br><span class="line">Allowed options:</span><br><span class="line">  -h [ --help ]                produce help message</span><br><span class="line">  -p [ --person ] arg (=world) who</span><br><span class="line"></span><br><span class="line">&gt;hello --person len</span><br><span class="line">Hello len</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;hello </span><br><span class="line">Hello world</span><br><span class="line"></span><br><span class="line">&gt;hello -h</span><br><span class="line">Allowed options:</span><br><span class="line">  -h [ --help ]                produce help message</span><br><span class="line">  -p [ --person ] arg (&#x3D;world) who</span><br><span class="line"></span><br><span class="line">&gt;hello --person len</span><br><span class="line">Hello len</span><br></pre></td></tr></table></figure>
 
 <p>首先通过options_description类声明了需要的选项，add_options返回了定义了operator()的特殊的代理对象。</p>
 <p>这个调用看起来有点奇怪，其参数依次为选项名，选项值，以及选项的描述。</p>
@@ -508,7 +508,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2016/08/11/关于UNP与APUE与TLPI三本大部头的阅读建议(着重讲UNP)/" rel="next" title="关于UNP与APUE与TLPI三本大部头的阅读建议(着重讲UNP)">
+                <a href="/2016/08/11/%E5%85%B3%E4%BA%8EUNP%E4%B8%8EAPUE%E4%B8%8ETLPI%E4%B8%89%E6%9C%AC%E5%A4%A7%E9%83%A8%E5%A4%B4%E7%9A%84%E9%98%85%E8%AF%BB%E5%BB%BA%E8%AE%AE(%E7%9D%80%E9%87%8D%E8%AE%B2UNP)/" rel="next" title="关于UNP与APUE与TLPI三本大部头的阅读建议(着重讲UNP)">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
                     关于UNP与APUE与TLPI三本大部头的阅读建议(着重讲UNP)
@@ -521,7 +521,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2016/09/01/PHP的魔术/" rel="prev" title="PHP的魔术">
+                <a href="/2016/09/01/PHP%E7%9A%84%E9%AD%94%E6%9C%AF/" rel="prev" title="PHP的魔术">
                 <p class="post-nav-pre-next-title">
                     PHP的魔术
                 </p> 
@@ -601,7 +601,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -613,7 +613,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -628,7 +631,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -637,7 +640,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -648,7 +651,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -759,10 +762,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

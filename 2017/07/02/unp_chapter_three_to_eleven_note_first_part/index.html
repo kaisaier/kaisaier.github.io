@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="UNP,TLPI,APUE,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="UNP,TLPI,APUE," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,13 +91,11 @@
 
 
 <meta name="description" content="因为第二章之后基本都是纯Socket API的内容， 第三章到第十一章的笔记整理合并到一起。  第三章 3.4 ：字节排序函数，涉及到大小端，处理网络字节序和主机字节序的转换     如何判别是大端(Big-Endian)还是小端(Little-Endian):  1234567891011121314151617181920212223242526union TestBigOrLittle&amp;#">
-<meta name="keywords" content="UNP,TLPI,APUE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="重读UNIX网络编程第三章到第十一章笔记整理(一)">
 <meta property="og:url" content="https://kaisaier.github.io/2017/07/02/unp_chapter_three_to_eleven_note_first_part/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="因为第二章之后基本都是纯Socket API的内容， 第三章到第十一章的笔记整理合并到一起。  第三章 3.4 ：字节排序函数，涉及到大小端，处理网络字节序和主机字节序的转换     如何判别是大端(Big-Endian)还是小端(Little-Endian):  1234567891011121314151617181920212223242526union TestBigOrLittle&amp;#">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://kaisaier.github.io/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_1.jpg">
 <meta property="og:image" content="https://kaisaier.github.io/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_2.jpg">
 <meta property="og:image" content="https://kaisaier.github.io/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_4.jpg">
@@ -112,10 +110,13 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170729020828685?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbm9zaXg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170729021237265?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbm9zaXg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170729022856179?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbm9zaXg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="article:published_time" content="2017-07-02T11:01:21.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="UNP">
+<meta property="article:tag" content="TLPI">
+<meta property="article:tag" content="APUE">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="重读UNIX网络编程第三章到第十一章笔记整理(一)">
-<meta name="twitter:description" content="因为第二章之后基本都是纯Socket API的内容， 第三章到第十一章的笔记整理合并到一起。  第三章 3.4 ：字节排序函数，涉及到大小端，处理网络字节序和主机字节序的转换     如何判别是大端(Big-Endian)还是小端(Little-Endian):  1234567891011121314151617181920212223242526union TestBigOrLittle&amp;#">
 <meta name="twitter:image" content="https://kaisaier.github.io/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_1.jpg">
 
 
@@ -167,7 +168,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -185,14 +186,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -210,7 +211,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -245,7 +246,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -255,7 +256,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -265,7 +266,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -275,7 +276,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -322,7 +323,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -347,7 +348,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-02T19:01:21-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-02T19:01:21+08:00">
                 2017-07-02
               </time>
             
@@ -358,7 +359,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -462,30 +463,30 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 </blockquote>
 <h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a><strong>第三章</strong></h1><ul>
 <li><p>3.4 ：字节排序函数，涉及到大小端，处理网络字节序和主机字节序的转换</p>
- <img src="/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_1.jpg">
+ <img src="/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_1.jpg" class="">
 
 <p> 如何判别是大端(Big-Endian)还是小端(Little-Endian):</p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">union</span> TestBigOrLittle</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">short</span> var_short;</span><br><span class="line">	<span class="keyword">char</span> array_char[<span class="number">2</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	TestBigOrLittle unTestUnion;</span><br><span class="line">	unTestUnion.var_short = <span class="number">0x1234</span>;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">sizeof</span>(<span class="keyword">short</span>) == <span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (unTestUnion.array_char[<span class="number">0</span>] == <span class="number">0x12</span>)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"BigEndian\n"</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(unTestUnion.array_char[<span class="number">0</span>] == <span class="number">0x34</span>)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"LittleEndian\n"</span>);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"unkonw endian\n"</span>);</span><br><span class="line">	&#125;	</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"sizeof(short) : %d \n"</span>, <span class="keyword">sizeof</span>(<span class="keyword">short</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">union</span> TestBigOrLittle</span><br><span class="line">&#123;</span><br><span class="line">	short var_short;</span><br><span class="line">	<span class="keyword">char</span> array_char[<span class="number">2</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	TestBigOrLittle unTestUnion;</span><br><span class="line">	unTestUnion.var_short = <span class="number">0x1234</span>;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">sizeof</span>(short) == <span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (unTestUnion.array_char[<span class="number">0</span>] == <span class="number">0x12</span>)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"BigEndian\n"</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(unTestUnion.array_char[<span class="number">0</span>] == <span class="number">0x34</span>)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"LittleEndian\n"</span>);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"unkonw endian\n"</span>);</span><br><span class="line">	&#125;	</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"sizeof(short) : %d \n"</span>, <span class="keyword">sizeof</span>(short));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p> 网际协议使用<strong>大端字节序</strong>来传送这些多字节整数, 也就是说<strong>网络字节序</strong>就是大端字节序.</p>
- <img src="/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_2.jpg">
+ <img src="/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_2.jpg" class="">
 
 <p> 由图中我们可以知道, htons和ntohs是用于端口的字节序转换的, 而htonl和ntohl是用于32位IP地址的, 下图就是一个例子:</p>
- <img src="/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_4.jpg">
+ <img src="/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_4.jpg" class="">
 </li>
 <li><p>3.6 ： 地址转换函数，它们在ASCII字符串(这是人们偏爱使用的格式)与网络字节序的二进制值(这是存放在套接字地址结构中的值)之间转换网际地址</p>
- <img src="/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_3.jpg">
+ <img src="/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_3.jpg" class="">
 
 </li>
 </ul>
 <h1 id="第四章基本TCP套接字编程"><a href="#第四章基本TCP套接字编程" class="headerlink" title="第四章基本TCP套接字编程"></a><strong>第四章基本TCP套接字编程</strong></h1><ul>
-<li><img src="/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_5.jpg">
+<li><img src="/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_5.jpg" class="">
 </li>
 <li><p><img src="http://img.blog.csdn.net/20170729013634366?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbm9zaXg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 </li>
 <li><p>listen函数</p>
 <p> int listen(int sockfd, int backlog);</p>
- <img src="/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_6.jpg">
+ <img src="/2017/07/02/unp_chapter_three_to_eleven_note_first_part/unix3_11_6.jpg" class="">
 <p> 当来自客户的SYN到达时，TCP在未完成连接队列中创建个新项，然后响应以三路握手<br> 的第—个分节服务器的SYN响应，其中捎带对客户SYN的ACK（2.6节）。这一项．直保留在<br> 未完成连接队列中，直到三路握手的第二个分节（客户对服务器SYN的ACK）到达或者该项超<br> 时为止。（源白Berkeley的实现为这些末完成连接的项设置的超时值为75s。）如果3路握手正常<br> 完成，该项就从未完成连接队列移到已完成连接队列的队尾。当进程调用accept时（该函数在<br> 下一节讲解），己完成连接队列巾的队头项将返回给给进程，或者如果该队列为空，那么进程将被<br> 投入睡眠，直到TCP在该队列中放入一项才唤醒它。</p>
 </li>
 <li><p>4.6节: accept函数<br> accept函数用于从已完成连接队列对头返回下一个已完成连接<br> <code>int accept(int sockfd, struct sockaddr *cliaddr, socklent_t *addrlen);</code></p>
@@ -647,7 +648,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -659,7 +660,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -674,7 +678,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -683,7 +687,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -694,7 +698,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -805,10 +809,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

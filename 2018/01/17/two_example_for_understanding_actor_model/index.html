@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Actor,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="Actor," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,13 +91,11 @@
 
 
 <meta name="description" content="Actor模型介绍Actor模式是一种并发模型，与另一种模型共享内存完全相反，Actor模型share nothing。所有的线程(或进程)通过消息传递的方式进行合作，这些线程(或进程)称为Actor。共享内存更适合单机多核的并发编程，而且共享带来的问题很多，编程也困难。 随着多核时代和分布式系统的到来，共享模型已经不太适合并发编程，因此几十年前就已经出现的Actor模型又重新受到了人们的重视。M">
-<meta name="keywords" content="Actor">
 <meta property="og:type" content="article">
 <meta property="og:title" content="两个例子对比理解Actor模型">
 <meta property="og:url" content="https://kaisaier.github.io/2018/01/17/two_example_for_understanding_actor_model/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="Actor模型介绍Actor模式是一种并发模型，与另一种模型共享内存完全相反，Actor模型share nothing。所有的线程(或进程)通过消息传递的方式进行合作，这些线程(或进程)称为Actor。共享内存更适合单机多核的并发编程，而且共享带来的问题很多，编程也困难。 随着多核时代和分布式系统的到来，共享模型已经不太适合并发编程，因此几十年前就已经出现的Actor模型又重新受到了人们的重视。M">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://s3.51cto.com/wyfs02/M00/6E/FA/wKioL1WOK1TARuclAADkQl8bN5U550.jpg">
 <meta property="og:image" content="http://s3.51cto.com/wyfs02/M00/6E/FD/wKiom1WOKpHgGDoXAAFY8MuvOgA842.jpg">
 <meta property="og:image" content="http://s3.51cto.com/wyfs02/M00/6E/FD/wKiom1WOKyPBDRjpAAGSeStUphQ651.jpg">
@@ -108,10 +106,11 @@
 <meta property="og:image" content="http://s3.51cto.com/wyfs02/M02/6F/78/wKiom1WdJT6ToafUAAHzO5b-wbg835.jpg">
 <meta property="og:image" content="http://s3.51cto.com/wyfs02/M00/6F/75/wKioL1WdJ8aQb3cnAAH3zqiR_OY263.jpg">
 <meta property="og:image" content="http://s3.51cto.com/wyfs02/M00/6F/78/wKiom1WdJkDCESVPAAHn1a3-nqU963.jpg">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="article:published_time" content="2018-01-17T07:45:58.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="Actor">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="两个例子对比理解Actor模型">
-<meta name="twitter:description" content="Actor模型介绍Actor模式是一种并发模型，与另一种模型共享内存完全相反，Actor模型share nothing。所有的线程(或进程)通过消息传递的方式进行合作，这些线程(或进程)称为Actor。共享内存更适合单机多核的并发编程，而且共享带来的问题很多，编程也困难。 随着多核时代和分布式系统的到来，共享模型已经不太适合并发编程，因此几十年前就已经出现的Actor模型又重新受到了人们的重视。M">
 <meta name="twitter:image" content="http://s3.51cto.com/wyfs02/M00/6E/FA/wKioL1WOK1TARuclAADkQl8bN5U550.jpg">
 
 
@@ -163,7 +162,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,14 +180,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -206,7 +205,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -241,7 +240,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -251,7 +250,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -261,7 +260,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -271,7 +270,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -318,7 +317,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -343,7 +342,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-17T15:45:58-08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-17T15:45:58+08:00">
                 2018-01-17
               </time>
             
@@ -354,7 +353,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -431,7 +430,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/27/3分钟理解一致性hash/" rel="prev" title="3分钟理解一致性hash">
+              <a href="/2018/01/27/3%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%B8%80%E8%87%B4%E6%80%A7hash/" rel="prev" title="3分钟理解一致性hash">
               <p class="post-nav-pre-next-title">
                   3分钟理解一致性hash
               </p> 
@@ -467,21 +466,21 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 </ul>
 <h1 id="单线程编程">单线程编程</h1>
 
-<hr><p>单核单机时代一般都是单线程编程，如果把程序比作一个工厂，那么只有一个工人，这个工人负责所有的事情，所有的原料，工具产品等都放到一个地方，因为只有一个人，因此使用一套工具就行，取原料也不用排队等。<a href="http://s3.51cto.com/wyfs02/M00/6E/FA/wKioL1WOK1TARuclAADkQl8bN5U550.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M00/6E/FA/wKioL1WOK1TARuclAADkQl8bN5U550.jpg" style="width:555px;height:566px;" title="123.jpg" alt="wKioL1WOK1TARuclAADkQl8bN5U550.jpg" border="0" height="566" hspace="0" vspace="0" width="555"></a><br><span style="font-size:24px;"></span></p><p><br></p><p>
+<hr /><p>单核单机时代一般都是单线程编程，如果把程序比作一个工厂，那么只有一个工人，这个工人负责所有的事情，所有的原料，工具产品等都放到一个地方，因为只有一个人，因此使用一套工具就行，取原料也不用排队等。<a href="http://s3.51cto.com/wyfs02/M00/6E/FA/wKioL1WOK1TARuclAADkQl8bN5U550.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M00/6E/FA/wKioL1WOK1TARuclAADkQl8bN5U550.jpg" style="width:555px;height:566px;" title="123.jpg" alt="wKioL1WOK1TARuclAADkQl8bN5U550.jpg" border="0" height="566" hspace="0" vspace="0" width="555" /></a><br /><span style="font-size:24px;"></span></p><p><br /></p><p>
 
 
-</p><h1 id="多线程编程-共享内存">多线程编程-共享内存</h1>
+<h1 id="多线程编程-共享内存">多线程编程-共享内存</h1>
 
-<p></p><hr><p>到了多核时代，有多个工人，这些工人共同使用一个仓库和车间，干什么都要排队。比如我要从一块钢料切出一块来用，我得等别人先用完。有个扳手，另一个人在用，我得等他用完。两个人都要用一个切割机从一块钢材切一块钢铁下来用，但是一个人拿到了钢材，一个人拿到了切割机，他们互相都不退让，结果谁都干不了活。<br></p><p><a href="http://s3.51cto.com/wyfs02/M00/6E/FD/wKiom1WOKpHgGDoXAAFY8MuvOgA842.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M00/6E/FD/wKiom1WOKpHgGDoXAAFY8MuvOgA842.jpg" title="1234.jpg" alt="wKiom1WOKpHgGDoXAAFY8MuvOgA842.jpg" style="width:555px;height:555px;" border="0" height="555" hspace="0" vspace="0" width="555"></a></p><p>假如现在有一个任务，找100000以内的素数的个数，最多使用是个线程，如果用共享内存的方法，可以用下面的代码实现。可以看到，这些线程共享了currentNum和totalPrimeCount，对它们做操作时必须上锁。</p>
+</p><hr /><p>到了多核时代，有多个工人，这些工人共同使用一个仓库和车间，干什么都要排队。比如我要从一块钢料切出一块来用，我得等别人先用完。有个扳手，另一个人在用，我得等他用完。两个人都要用一个切割机从一块钢材切一块钢铁下来用，但是一个人拿到了钢材，一个人拿到了切割机，他们互相都不退让，结果谁都干不了活。<br /></p><p><a href="http://s3.51cto.com/wyfs02/M00/6E/FD/wKiom1WOKpHgGDoXAAFY8MuvOgA842.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M00/6E/FD/wKiom1WOKpHgGDoXAAFY8MuvOgA842.jpg" title="1234.jpg" alt="wKiom1WOKpHgGDoXAAFY8MuvOgA842.jpg" style="width:555px;height:555px;" border="0" height="555" hspace="0" vspace="0" width="555" /></a></p><p>假如现在有一个任务，找100000以内的素数的个数，最多使用是个线程，如果用共享内存的方法，可以用下面的代码实现。可以看到，这些线程共享了currentNum和totalPrimeCount，对它们做操作时必须上锁。</p>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeCount</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> currentNum = <span class="number">2</span>;  <span class="comment">//从2开始找</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> totalPrimeCount = <span class="number">0</span>; <span class="comment">//当前已经找到的</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">//取一个数，不能重复，最大到100000</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">incrCurrentNum</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;     <span class="comment">//如果不用锁，必然会出错。</span></span><br><span class="line">            <span class="keyword">if</span>(currentNum &gt; <span class="number">100000</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">int</span> result = currentNum;</span><br><span class="line">                currentNum++;</span><br><span class="line">                <span class="keyword">return</span> result;</span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">   <span class="comment">//把某个线程找到的素数个数加上</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">accPrimeCount</span><span class="params">(<span class="keyword">int</span> count)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">            totalPrimeCount += count;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">     <span class="comment">//一直取数并判断是否为素数，取不到了就把找到的个数累加</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">int</span> primeCount = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num;</span><br><span class="line">        <span class="keyword">while</span>((num=incrCurrentNum()) != -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(isPrime(num)) &#123;</span><br><span class="line">                primeCount++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        accPrimeCount(primeCount);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; num; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(num % i == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; </span><br><span class="line">     </span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"static-access"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        PrimeCount pc = <span class="keyword">new</span> PrimeCount();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(pc).start();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.currentThread().sleep(<span class="number">5000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(pc.getTotalPrimeCount());</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getTotalPrimeCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> totalPrimeCount;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><br></p><p>
+<p><br /></p><p>
 
 
-</p><h1 id="多线程/分布式编程-Actor模型">多线程/分布式编程-Actor模型</h1>
+<h1 id="多线程/分布式编程-Actor模型">多线程/分布式编程-Actor模型</h1>
 
-<p></p><hr><p>到了分布式系统时代，工厂已经用流水线了，每个人都有明确分工，这就是Actor模式。每个线程都是一个Actor，这些Actor不共享任何内存，所有的数据都是通过消息传递的方式进行的。<br></p><p><a href="http://s3.51cto.com/wyfs02/M00/6E/FD/wKiom1WOKyPBDRjpAAGSeStUphQ651.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M00/6E/FD/wKiom1WOKyPBDRjpAAGSeStUphQ651.jpg" title="12345.jpg" alt="wKiom1WOKyPBDRjpAAGSeStUphQ651.jpg" style="width:600px;height:317px;" border="0" height="317" hspace="0" vspace="0" width="600"></a></p><p><br></p><p>如果用Actor模型实现统计素数个数，那么我们需要1个actor做原料的分发，就是提供要处理的整数，然后10个actor加工，每次从分发actor那里拿一个整数进行加工，最终把加工出来的半成品发给组装actor，组装actor把10个加工actor的结果汇总输出。</p><p>用scala实现，下面是工程的结构：</p><p><a href="http://s3.51cto.com/wyfs02/M01/6F/74/wKioL1WdJcqjpAFzAAD5VFWMxWE737.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M01/6F/74/wKioL1WdJcqjpAFzAAD5VFWMxWE737.jpg" style="float:none;" title="选区_014.png" alt="wKioL1WdJcqjpAFzAAD5VFWMxWE737.jpg"></a></p><p>这是它们传递的消息，有一些指令，剩下的都是Int数据:</p><p><a href="http://s3.51cto.com/wyfs02/M02/6F/78/wKiom1WdJGejogeEAADFcGfvlHM213.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M02/6F/78/wKiom1WdJGejogeEAADFcGfvlHM213.jpg" title="选区_016.png" alt="wKiom1WdJGejogeEAADFcGfvlHM213.jpg"></a></p><p>一个Actor的代码结构一般是下面这种结构，不停的接受消息并处理，没有消息就等待：</p><p><a href="http://s3.51cto.com/wyfs02/M01/6F/74/wKioL1WdJniAb7CiAACCrB88e3w417.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M01/6F/74/wKioL1WdJniAb7CiAACCrB88e3w417.jpg" title="选区_015.png" alt="wKioL1WdJniAb7CiAACCrB88e3w417.jpg"></a></p><p>组装者代码：</p><p><a href="http://s3.51cto.com/wyfs02/M01/6F/78/wKiom1WdJQuC2KISAAD_TzvsHmU128.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M01/6F/78/wKiom1WdJQuC2KISAAD_TzvsHmU128.jpg" title="选区_017.png" alt="wKiom1WdJQuC2KISAAD_TzvsHmU128.jpg"></a></p><p>分发者代码：</p><p><a href="http://s3.51cto.com/wyfs02/M02/6F/78/wKiom1WdJT6ToafUAAHzO5b-wbg835.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M02/6F/78/wKiom1WdJT6ToafUAAHzO5b-wbg835.jpg" title="选区_018.png" alt="wKiom1WdJT6ToafUAAHzO5b-wbg835.jpg"></a></p><p>加工者代码：</p><p><a href="http://s3.51cto.com/wyfs02/M00/6F/75/wKioL1WdJ8aQb3cnAAH3zqiR_OY263.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M00/6F/75/wKioL1WdJ8aQb3cnAAH3zqiR_OY263.jpg" title="选区_019.png" alt="wKioL1WdJ8aQb3cnAAH3zqiR_OY263.jpg"></a></p><p>主线程代码：</p><p><a href="http://s3.51cto.com/wyfs02/M00/6F/78/wKiom1WdJkDCESVPAAHn1a3-nqU963.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M00/6F/78/wKiom1WdJkDCESVPAAHn1a3-nqU963.jpg" title="选区_020.png" alt="wKiom1WdJkDCESVPAAHn1a3-nqU963.jpg"></a></p><p>工程代码可以在附件中下载。这个代码实现的效果与前面用Java实现的是一样的，但是各个线程没有共享内存，也没有锁，这样开发起来容易，而且更适合分布式编程，因为分布式编程本身就不适合共享内存。Scala的Actor不能原生的支持分布式，但是Erlang可以，使用Erlang的Actor，分布式编程就和本地编程基本一样。但是Erlang的语法难懂，而且没有变量，几乎所有需要使用循环的地方都得用递归。<br></p>
+</p><hr /><p>到了分布式系统时代，工厂已经用流水线了，每个人都有明确分工，这就是Actor模式。每个线程都是一个Actor，这些Actor不共享任何内存，所有的数据都是通过消息传递的方式进行的。<br /></p><p><a href="http://s3.51cto.com/wyfs02/M00/6E/FD/wKiom1WOKyPBDRjpAAGSeStUphQ651.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M00/6E/FD/wKiom1WOKyPBDRjpAAGSeStUphQ651.jpg" title="12345.jpg" alt="wKiom1WOKyPBDRjpAAGSeStUphQ651.jpg" style="width:600px;height:317px;" border="0" height="317" hspace="0" vspace="0" width="600" /></a></p><p><br /></p><p>如果用Actor模型实现统计素数个数，那么我们需要1个actor做原料的分发，就是提供要处理的整数，然后10个actor加工，每次从分发actor那里拿一个整数进行加工，最终把加工出来的半成品发给组装actor，组装actor把10个加工actor的结果汇总输出。</p><p>用scala实现，下面是工程的结构：</p><p><a href="http://s3.51cto.com/wyfs02/M01/6F/74/wKioL1WdJcqjpAFzAAD5VFWMxWE737.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M01/6F/74/wKioL1WdJcqjpAFzAAD5VFWMxWE737.jpg" style="float:none;" title="选区_014.png" alt="wKioL1WdJcqjpAFzAAD5VFWMxWE737.jpg" /></a></p><p>这是它们传递的消息，有一些指令，剩下的都是Int数据:</p><p><a href="http://s3.51cto.com/wyfs02/M02/6F/78/wKiom1WdJGejogeEAADFcGfvlHM213.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M02/6F/78/wKiom1WdJGejogeEAADFcGfvlHM213.jpg" title="选区_016.png" alt="wKiom1WdJGejogeEAADFcGfvlHM213.jpg" /></a></p><p>一个Actor的代码结构一般是下面这种结构，不停的接受消息并处理，没有消息就等待：</p><p><a href="http://s3.51cto.com/wyfs02/M01/6F/74/wKioL1WdJniAb7CiAACCrB88e3w417.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M01/6F/74/wKioL1WdJniAb7CiAACCrB88e3w417.jpg" title="选区_015.png" alt="wKioL1WdJniAb7CiAACCrB88e3w417.jpg" /></a></p><p>组装者代码：</p><p><a href="http://s3.51cto.com/wyfs02/M01/6F/78/wKiom1WdJQuC2KISAAD_TzvsHmU128.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M01/6F/78/wKiom1WdJQuC2KISAAD_TzvsHmU128.jpg" title="选区_017.png" alt="wKiom1WdJQuC2KISAAD_TzvsHmU128.jpg" /></a></p><p>分发者代码：</p><p><a href="http://s3.51cto.com/wyfs02/M02/6F/78/wKiom1WdJT6ToafUAAHzO5b-wbg835.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M02/6F/78/wKiom1WdJT6ToafUAAHzO5b-wbg835.jpg" title="选区_018.png" alt="wKiom1WdJT6ToafUAAHzO5b-wbg835.jpg" /></a></p><p>加工者代码：</p><p><a href="http://s3.51cto.com/wyfs02/M00/6F/75/wKioL1WdJ8aQb3cnAAH3zqiR_OY263.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M00/6F/75/wKioL1WdJ8aQb3cnAAH3zqiR_OY263.jpg" title="选区_019.png" alt="wKioL1WdJ8aQb3cnAAH3zqiR_OY263.jpg" /></a></p><p>主线程代码：</p><p><a href="http://s3.51cto.com/wyfs02/M00/6F/78/wKiom1WdJkDCESVPAAHn1a3-nqU963.jpg" target="_blank"><img src="http://s3.51cto.com/wyfs02/M00/6F/78/wKiom1WdJkDCESVPAAHn1a3-nqU963.jpg" title="选区_020.png" alt="wKiom1WdJkDCESVPAAHn1a3-nqU963.jpg" /></a></p><p>工程代码可以在附件中下载。这个代码实现的效果与前面用Java实现的是一样的，但是各个线程没有共享内存，也没有锁，这样开发起来容易，而且更适合分布式编程，因为分布式编程本身就不适合共享内存。Scala的Actor不能原生的支持分布式，但是Erlang可以，使用Erlang的Actor，分布式编程就和本地编程基本一样。但是Erlang的语法难懂，而且没有变量，几乎所有需要使用循环的地方都得用递归。<br /></p></div>
 
 
 <p>参考 : </p>
@@ -526,7 +525,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2018/01/27/3分钟理解一致性hash/" rel="prev" title="3分钟理解一致性hash">
+                <a href="/2018/01/27/3%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%B8%80%E8%87%B4%E6%80%A7hash/" rel="prev" title="3分钟理解一致性hash">
                 <p class="post-nav-pre-next-title">
                     3分钟理解一致性hash
                 </p> 
@@ -606,7 +605,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -618,7 +617,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -633,7 +635,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -642,7 +644,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -653,7 +655,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -746,7 +748,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Actor模型介绍"><span class="nav-number">1.</span> <span class="nav-text">Actor模型介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Actor模型的好处"><span class="nav-number">2.</span> <span class="nav-text">使用Actor模型的好处</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单线程编程"><span class="nav-number">3.</span> <span class="nav-text">单线程编程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程编程-共享内存"><span class="nav-number">4.</span> <span class="nav-text">多线程编程-共享内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程/分布式编程-Actor模型"><span class="nav-number">5.</span> <span class="nav-text">多线程/分布式编程-Actor模型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Actor模型介绍"><span class="nav-number">1.</span> <span class="nav-text">Actor模型介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Actor模型的好处"><span class="nav-number">2.</span> <span class="nav-text">使用Actor模型的好处</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单线程编程"><span class="nav-number">3.</span> <span class="nav-text">单线程编程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程编程-共享内存"><span class="nav-number">4.</span> <span class="nav-text">多线程编程-共享内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程/分布式编程-Actor模型"><span class="nav-number">5.</span> <span class="nav-text">多线程&#x2F;分布式编程-Actor模型</span></a></li></ol></div>
             
 
           </div>
@@ -764,10 +766,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

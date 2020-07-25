@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="UNP,TLPI,APUE,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="UNP,TLPI,APUE," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,19 +91,20 @@
 
 
 <meta name="description" content="因为UNP第三部分（第三版13-31章）的内容结合APUE（UNIX环境高级编程）和TLPI（The Linux Programming Interface）来看才能比较清晰，所以笔记整理会穿插很多这两本书的内容 引申知识，作业控制以及相关命令  . . .">
-<meta name="keywords" content="UNP,TLPI,APUE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="重读UNP（UNIX网络编程）13章到31章笔记整理（结合TLPI和APUE两书的笔记整理）(一)">
 <meta property="og:url" content="https://kaisaier.github.io/2017/07/28/unp_chapter_thirdteen_to_thirty_one_note_first_part/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="因为UNP第三部分（第三版13-31章）的内容结合APUE（UNIX环境高级编程）和TLPI（The Linux Programming Interface）来看才能比较清晰，所以笔记整理会穿插很多这两本书的内容 引申知识，作业控制以及相关命令  . . .">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://kaisaier.github.io/img/unp_chapter_thirdteen_to_thirty_one_note_first_part/daemon_command.jpg">
 <meta property="og:image" content="https://kaisaier.github.io/img/unp_chapter_thirdteen_to_thirty_one_note_first_part/setid.jpg">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="article:published_time" content="2017-07-28T11:01:21.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="UNP">
+<meta property="article:tag" content="TLPI">
+<meta property="article:tag" content="APUE">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="重读UNP（UNIX网络编程）13章到31章笔记整理（结合TLPI和APUE两书的笔记整理）(一)">
-<meta name="twitter:description" content="因为UNP第三部分（第三版13-31章）的内容结合APUE（UNIX环境高级编程）和TLPI（The Linux Programming Interface）来看才能比较清晰，所以笔记整理会穿插很多这两本书的内容 引申知识，作业控制以及相关命令  . . .">
 <meta name="twitter:image" content="https://kaisaier.github.io/img/unp_chapter_thirdteen_to_thirty_one_note_first_part/daemon_command.jpg">
 
 
@@ -155,7 +156,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -173,14 +174,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -198,7 +199,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -233,7 +234,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -243,7 +244,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -253,7 +254,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -263,7 +264,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -310,7 +311,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -335,7 +336,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-28T19:01:21-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-28T19:01:21+08:00">
                 2017-07-28
               </time>
             
@@ -346,7 +347,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -414,7 +415,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/09/crontab笔记整理/" rel="next" title="crontab笔记整理">
+              <a href="/2017/07/09/crontab%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/" rel="next" title="crontab笔记整理">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
                   crontab笔记整理
@@ -511,7 +512,7 @@ S．修改进程的当前工作目录，通常会改为根日录(／)。这样�
 <p><code>newfd = dup(1);</code></p>
 <p>再假定在正常情况下, shell已经代表程序打开了文件描述符0, 1和2, 且没有其他描述符在用, dup()调用会创建文件描述符1的副本, 返回的文件描述符编号值为3.</p>
 <p>如果希望返回的文件描述符为2, 可以使用如下技术 :</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">close(<span class="number">2</span>);</span><br><span class="line">newfd = dup(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">close</span>(<span class="number">2</span>);</span><br><span class="line">newfd = dup(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
 <p>只有当描述符 0 已经打开时, 这段代码方可工作. </p>
 <h2 id="dup2介绍"><a href="#dup2介绍" class="headerlink" title="dup2介绍"></a>dup2介绍</h2><p>如果想进一步简化上述代码, 同时总是能获得所期望的文件描述符, 可以调用dup2().</p>
@@ -521,7 +522,7 @@ S．修改进程的当前工作目录，通常会改为根日录(／)。这样�
 <p>第一个参数）的复制品，换句话说，两个文件描述符现在都指向同一个文件，并且是函数第一</p>
 <p>个参数指向的文件。</p>
 <p>下面我们用一段代码加以说明：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> oldfd;   </span><br><span class="line">oldfd = open(<span class="string">"app_log"</span>, (O_RDWR | O_CREATE), <span class="number">0644</span> );    </span><br><span class="line">dup2( oldfd, <span class="number">1</span> );    </span><br><span class="line">close( oldfd );</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> oldfd;   </span><br><span class="line">oldfd = <span class="built_in">open</span>(<span class="string">"app_log"</span>, (O_RDWR | O_CREATE), <span class="number">0644</span> );    </span><br><span class="line">dup2( oldfd, <span class="number">1</span> );    </span><br><span class="line"><span class="built_in">close</span>( oldfd );</span><br></pre></td></tr></table></figure>
 
 <p>本例中，我们打开了一个新文件，称为“app_log”，并收到一个文件描述符，该描述符</p>
 <p>叫做fd1。我们调用dup2函数，参数为oldfd和1，这会导致用我们新打开的文件描述符替换掉</p>
@@ -539,7 +540,7 @@ S．修改进程的当前工作目录，通常会改为根日录(／)。这样�
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> BECOME_DAEMON_H             <span class="comment">/* Prevent double inclusion */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BECOME_DAEMON_H</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Bit-mask values for 'flags' argument of becomeDaemon() */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BD_NO_CHDIR           01    <span class="comment">/* Don't chdir("/") */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BD_NO_CLOSE_FILES     02    <span class="comment">/* Don't close all open files */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BD_NO_REOPEN_STD_FDS  04    <span class="comment">/* Don't reopen stdin, stdout, and</span></span></span><br><span class="line"><span class="meta"><span class="comment">                                       stderr to /dev/null */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BD_NO_UMASK0         010    <span class="comment">/* Don't do a umask(0) */</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BD_MAX_CLOSE  8192          <span class="comment">/* Maximum file descriptors to close if</span></span></span><br><span class="line"><span class="meta"><span class="comment">                                       sysconf(_SC_OPEN_MAX) is indeterminate */</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">becomeDaemon</span><span class="params">(<span class="keyword">int</span> flags)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
 
 <p>become_daemon.c</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"become_daemon.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"tlpi_hdr.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>                                     <span class="comment">/* Returns 0 on success, -1 on error */</span></span><br><span class="line">becomeDaemon(<span class="keyword">int</span> flags)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> maxfd, fd;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (fork()) &#123;                   <span class="comment">/* Become background process */</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">-1</span>: <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:  <span class="keyword">break</span>;                     <span class="comment">/* Child falls through... */</span></span><br><span class="line">    <span class="keyword">default</span>: _exit(EXIT_SUCCESS);       <span class="comment">/* while parent terminates */</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (setsid() == <span class="number">-1</span>)                 <span class="comment">/* Become leader of new session */</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (fork()) &#123;                   <span class="comment">/* Ensure we are not session leader */</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">-1</span>: <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:  <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: _exit(EXIT_SUCCESS);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(flags &amp; BD_NO_UMASK0))</span><br><span class="line">        umask(<span class="number">0</span>);                       <span class="comment">/* Clear file mode creation mask */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(flags &amp; BD_NO_CHDIR))</span><br><span class="line">        chdir(<span class="string">"/"</span>);                     <span class="comment">/* Change to root directory */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(flags &amp; BD_NO_CLOSE_FILES)) &#123; <span class="comment">/* Close all open files */</span></span><br><span class="line">        maxfd = sysconf(_SC_OPEN_MAX);</span><br><span class="line">        <span class="keyword">if</span> (maxfd == <span class="number">-1</span>)                <span class="comment">/* Limit is indeterminate... */</span></span><br><span class="line">            maxfd = BD_MAX_CLOSE;       <span class="comment">/* so take a guess */</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (fd = <span class="number">0</span>; fd &lt; maxfd; fd++)</span><br><span class="line">            close(fd);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(flags &amp; BD_NO_REOPEN_STD_FDS)) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// /* Standard file descriptors. */</span></span><br><span class="line">        <span class="comment">// #define STDIN_FILENO 0 /* Standard input. */</span></span><br><span class="line">        <span class="comment">// #define STDOUT_FILENO 1 /* Standard output. */</span></span><br><span class="line">        <span class="comment">// #define STDERR_FILENO 2 /* Standard error output. */</span></span><br><span class="line"></span><br><span class="line">        close(STDIN_FILENO);            <span class="comment">/* Reopen standard fd's to /dev/null */</span></span><br><span class="line"></span><br><span class="line">        fd = open(<span class="string">"/dev/null"</span>, O_RDWR); <span class="comment">// open 返回的文件描述符一定是最小的未被使用的描述符。</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (fd != STDIN_FILENO)         <span class="comment">/* 'fd' should be 0 */</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span> (dup2(STDIN_FILENO, STDOUT_FILENO) != STDOUT_FILENO)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span> (dup2(STDIN_FILENO, STDERR_FILENO) != STDERR_FILENO)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"become_daemon.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"tlpi_hdr.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>                                     <span class="comment">/* Returns 0 on success, -1 on error */</span></span><br><span class="line">becomeDaemon(<span class="keyword">int</span> flags)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> maxfd, fd;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (fork()) &#123;                   <span class="comment">/* Become background process */</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">-1</span>: <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:  <span class="keyword">break</span>;                     <span class="comment">/* Child falls through... */</span></span><br><span class="line">    <span class="keyword">default</span>: _exit(EXIT_SUCCESS);       <span class="comment">/* while parent terminates */</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (setsid() == <span class="number">-1</span>)                 <span class="comment">/* Become leader of new session */</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (fork()) &#123;                   <span class="comment">/* Ensure we are not session leader */</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">-1</span>: <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:  <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: _exit(EXIT_SUCCESS);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(flags &amp; BD_NO_UMASK0))</span><br><span class="line">        umask(<span class="number">0</span>);                       <span class="comment">/* Clear file mode creation mask */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(flags &amp; BD_NO_CHDIR))</span><br><span class="line">        chdir(<span class="string">"/"</span>);                     <span class="comment">/* Change to root directory */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(flags &amp; BD_NO_CLOSE_FILES)) &#123; <span class="comment">/* Close all open files */</span></span><br><span class="line">        maxfd = sysconf(_SC_OPEN_MAX);</span><br><span class="line">        <span class="keyword">if</span> (maxfd == <span class="number">-1</span>)                <span class="comment">/* Limit is indeterminate... */</span></span><br><span class="line">            maxfd = BD_MAX_CLOSE;       <span class="comment">/* so take a guess */</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (fd = <span class="number">0</span>; fd &lt; maxfd; fd++)</span><br><span class="line">            <span class="built_in">close</span>(fd);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(flags &amp; BD_NO_REOPEN_STD_FDS)) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// /* Standard file descriptors. */</span></span><br><span class="line">        <span class="comment">// #define STDIN_FILENO 0 /* Standard input. */</span></span><br><span class="line">        <span class="comment">// #define STDOUT_FILENO 1 /* Standard output. */</span></span><br><span class="line">        <span class="comment">// #define STDERR_FILENO 2 /* Standard error output. */</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">close</span>(STDIN_FILENO);            <span class="comment">/* Reopen standard fd's to /dev/null */</span></span><br><span class="line"></span><br><span class="line">        fd = <span class="built_in">open</span>(<span class="string">"/dev/null"</span>, O_RDWR); <span class="comment">// open 返回的文件描述符一定是最小的未被使用的描述符。</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (fd != STDIN_FILENO)         <span class="comment">/* 'fd' should be 0 */</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span> (dup2(STDIN_FILENO, STDOUT_FILENO) != STDOUT_FILENO)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span> (dup2(STDIN_FILENO, STDERR_FILENO) != STDERR_FILENO)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="nohup和setsid用法"><a href="#nohup和setsid用法" class="headerlink" title="nohup和setsid用法"></a>nohup和setsid用法</h1><p>如果我们要在退出shell的时候继续运行进程，则需要使用nohup忽略hangup信号，或者setsid将父进程设为init进程；</p>
 <p> <img src="/img/unp_chapter_thirdteen_to_thirty_one_note_first_part/setid.jpg" alt="setid"></p>
@@ -547,7 +548,6 @@ S．修改进程的当前工作目录，通常会改为根日录(／)。这样�
 
 <h1 id="disown用法"><a href="#disown用法" class="headerlink" title="disown用法"></a>disown用法</h1><p>那么对于已经在后台运行的进程，如果我们要在退出shell的时候继续运行进程, 该怎么办呢？可以使用disown命令</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">b@b-VirtualBox:~/my_temp_test$ ./o_multi_thread_process &amp;</span><br><span class="line">[1] 3523</span><br><span class="line">b@b-VirtualBox:~/my_temp_test$ ProcessA: 3523 step1</span><br><span class="line">ProcessA: 3523 thread 140501901821696 step2</span><br><span class="line">ProcessA: 3523 thread 140501901821696 step3</span><br><span class="line">ProcessB: 3524 step1</span><br><span class="line">ProcessB: 3524 step2</span><br><span class="line">ProcessB: 3524 step3</span><br><span class="line">^C</span><br><span class="line">b@b-VirtualBox:~/my_temp_test$ <span class="built_in">jobs</span> -l</span><br><span class="line">[1]+  3523 Running                 ./o_multi_thread_process &amp;</span><br><span class="line">b@b-VirtualBox:~/my_temp_test$ <span class="built_in">disown</span> -h %1</span><br><span class="line">b@b-VirtualBox:~/my_temp_test$ <span class="built_in">jobs</span></span><br><span class="line">[1]+  Running                 ./o_multi_thread_process &amp;</span><br></pre></td></tr></table></figure>
-
 
       
 
@@ -576,7 +576,7 @@ S．修改进程的当前工作目录，通常会改为根日录(／)。这样�
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2017/07/09/crontab笔记整理/" rel="next" title="crontab笔记整理">
+                <a href="/2017/07/09/crontab%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/" rel="next" title="crontab笔记整理">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
                     crontab笔记整理
@@ -669,7 +669,7 @@ S．修改进程的当前工作目录，通常会改为根日录(／)。这样�
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -681,7 +681,10 @@ S．修改进程的当前工作目录，通常会改为根日录(／)。这样�
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -696,7 +699,7 @@ S．修改进程的当前工作目录，通常会改为根日录(／)。这样�
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -705,7 +708,7 @@ S．修改进程的当前工作目录，通常会改为根日录(／)。这样�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -716,7 +719,7 @@ S．修改进程的当前工作目录，通常会改为根日录(／)。这样�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -827,10 +830,10 @@ S．修改进程的当前工作目录，通常会改为根日录(／)。这样�
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

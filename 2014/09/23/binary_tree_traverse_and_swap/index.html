@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="CPP,DataStructure,noodle,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="CPP,DataStructure,noodle," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,19 +91,20 @@
 
 
 <meta name="description" content="二叉树的二叉链式存储方案的代码表示： 123456typedef struct BinTreeNode&amp;#123;	BinTreeNode( char Data ) : data_( Data ), left_( nullptr ), right_( nullptr ) &amp;#123;&amp;#125;	char data_;	struct BinTreeNode *left_, *right_;&amp;#12">
-<meta name="keywords" content="CPP,DataStructure,noodle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构二之二叉树的遍历和交换左右孩子">
 <meta property="og:url" content="https://kaisaier.github.io/2014/09/23/binary_tree_traverse_and_swap/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="二叉树的二叉链式存储方案的代码表示： 123456typedef struct BinTreeNode&amp;#123;	BinTreeNode( char Data ) : data_( Data ), left_( nullptr ), right_( nullptr ) &amp;#123;&amp;#125;	char data_;	struct BinTreeNode *left_, *right_;&amp;#12">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://kaisaier.github.io/2014/09/23/binary_tree_traverse_and_swap/BreadthFirstTraverse1.png">
 <meta property="og:image" content="https://kaisaier.github.io/2014/09/23/binary_tree_traverse_and_swap/binary_tree_traverse_and_swap_1.png">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="article:published_time" content="2014-09-23T04:11:22.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="CPP">
+<meta property="article:tag" content="DataStructure">
+<meta property="article:tag" content="noodle">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据结构二之二叉树的遍历和交换左右孩子">
-<meta name="twitter:description" content="二叉树的二叉链式存储方案的代码表示： 123456typedef struct BinTreeNode&amp;#123;	BinTreeNode( char Data ) : data_( Data ), left_( nullptr ), right_( nullptr ) &amp;#123;&amp;#125;	char data_;	struct BinTreeNode *left_, *right_;&amp;#12">
 <meta name="twitter:image" content="https://kaisaier.github.io/2014/09/23/binary_tree_traverse_and_swap/BreadthFirstTraverse1.png">
 
 
@@ -155,7 +156,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -173,14 +174,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -198,7 +199,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -233,7 +234,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -243,7 +244,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -253,7 +254,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -263,7 +264,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -310,7 +311,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -335,7 +336,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-09-23T12:11:22-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-09-23T12:11:22+08:00">
                 2014-09-23
               </time>
             
@@ -346,7 +347,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -448,8 +449,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <p>二叉树的二叉链式存储方案的代码表示：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BinTreeNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	BinTreeNode( <span class="keyword">char</span> Data ) : data_( Data ), left_( <span class="literal">nullptr</span> ), right_( <span class="literal">nullptr</span> ) &#123;&#125;</span><br><span class="line">	<span class="keyword">char</span> data_;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BinTreeNode</span> *<span class="title">left_</span>, *<span class="title">right_</span>;</span></span><br><span class="line">&#125;btn, *btnp;</span><br></pre></td></tr></table></figure>
 
+
+
 <h1 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h1><p><strong>. . .</strong><a id="more"></a> </p>
-<h2 id="二叉树的广度优先遍历"><a href="#二叉树的广度优先遍历" class="headerlink" title="二叉树的广度优先遍历"></a>二叉树的广度优先遍历</h2><img src="/2014/09/23/binary_tree_traverse_and_swap/BreadthFirstTraverse1.png" title="BreadthFirstTraverse">
+<h2 id="二叉树的广度优先遍历"><a href="#二叉树的广度优先遍历" class="headerlink" title="二叉树的广度优先遍历"></a>二叉树的广度优先遍历</h2><img src="/2014/09/23/binary_tree_traverse_and_swap/BreadthFirstTraverse1.png" class="" title="BreadthFirstTraverse">
 
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BreadthFirstTraverse</span><span class="params">( btnp bTreeNode )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( !bTreeNode )</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">queue</span>&lt;btnp&gt; tempQueue;</span><br><span class="line">	tempQueue.push( bTreeNode );</span><br><span class="line">	<span class="keyword">while</span> ( !tempQueue.empty() )</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; tempQueue.front()-&gt;data_ &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">if</span> ( tempQueue.front()-&gt;left_ )</span><br><span class="line">		&#123;</span><br><span class="line">			tempQueue.push( tempQueue.front()-&gt;left_ );</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> ( tempQueue.front()-&gt;right_ )</span><br><span class="line">		&#123;</span><br><span class="line">			tempQueue.push( tempQueue.front()-&gt;right_ );</span><br><span class="line">		&#125;</span><br><span class="line">		tempQueue.pop();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -467,7 +470,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>*<em>所以我们代码中的思路就是 : *</em><br>把每个将要入栈的结点的 <code>isFirstTime_</code> 标志都置为 true , 当第一次遍历到结点p的时候, 不使p出栈, 但使p的 <code>isFirstTime_</code> 标志变为 false, 然后 “<code>bTreeNode</code> = 栈顶-&gt;右孩子” 开始遍历他的右子树. 当p的右子树都遍历完了之后(也就是p的右子树都依次出栈了之后)又会遍历到p自己, 不过这一次他的 <code>isFirstTime_</code> 标志已经为 false 了, 我们通过这个标志知道不是第一次遍历到p了, 所以这时我们使p出栈( 此时p的右子树都已经遍历完了, 所以不用像之前一样再 “<code>bTreeNode</code> = 栈顶-&gt;右孩子” 了 )</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PostOrderTraverseNonRecursion</span><span class="params">( btnp bTreeNode )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( !bTreeNode )</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">PostOrderBTreeNode</span></span></span><br><span class="line"><span class="class">	&#123;</span></span><br><span class="line">		PostOrderBTreeNode( btnp OriginBT, <span class="keyword">bool</span> IsFirstTime )</span><br><span class="line">			: bt_( OriginBT ), isFirstTime_( IsFirstTime ) &#123;&#125;</span><br><span class="line">		btnp bt_;</span><br><span class="line">		<span class="keyword">bool</span> isFirstTime_;</span><br><span class="line">	&#125;pobtn, *pobtnp;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">stack</span>&lt;pobtn&gt; tempStack;</span><br><span class="line">	<span class="keyword">while</span> ( !tempStack.empty() || bTreeNode )</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span> ( bTreeNode )</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="function">pobtn <span class="title">np</span><span class="params">( bTreeNode, <span class="literal">true</span> )</span></span>;</span><br><span class="line">			tempStack.push( np );</span><br><span class="line">			bTreeNode = bTreeNode-&gt;left_;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> ( !tempStack.empty() )</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> ( tempStack.top().isFirstTime_ )</span><br><span class="line">			&#123;</span><br><span class="line">				tempStack.top().isFirstTime_ = <span class="literal">false</span>;</span><br><span class="line">				bTreeNode = tempStack.top().bt_-&gt;right_;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; tempStack.top().bt_-&gt;data_ &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">				tempStack.pop();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="遍历测试代码"><a href="#遍历测试代码" class="headerlink" title="遍历测试代码"></a>遍历测试代码</h3><img src="/2014/09/23/binary_tree_traverse_and_swap/binary_tree_traverse_and_swap_1.png">
+<h3 id="遍历测试代码"><a href="#遍历测试代码" class="headerlink" title="遍历测试代码"></a>遍历测试代码</h3><img src="/2014/09/23/binary_tree_traverse_and_swap/binary_tree_traverse_and_swap_1.png" class="">
 
 <p>如上图得到的相应的三种<strong>深度优先遍历</strong>的序列分别为 ： </p>
 <ul>
@@ -498,7 +501,6 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 <h2 id="递归方式Swap"><a href="#递归方式Swap" class="headerlink" title="递归方式Swap"></a>递归方式Swap</h2><p>交换左右孩子用递归很容易做到</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SwapBinaryTree</span><span class="params">(BTNP btnp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (btnp)</span><br><span class="line">	&#123;</span><br><span class="line">		BTNP tempBTNP = btnp-&gt;LeftNode;</span><br><span class="line">		btnp-&gt;LeftNode = btnp-&gt;RightNode;</span><br><span class="line">		btnp-&gt;RightNode = tempBTNP;</span><br><span class="line"></span><br><span class="line">		SwapBinaryTree(btnp-&gt;LeftNode);</span><br><span class="line">		SwapBinaryTree(btnp-&gt;RightNode);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
       
 
@@ -620,7 +622,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -632,7 +634,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -647,7 +652,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -656,7 +661,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -667,7 +672,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -778,10 +783,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

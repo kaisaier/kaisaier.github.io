@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,42 +69,41 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Python,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="Python," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
 
 
 
-<meta name="description" content="struct, 这玩意c/c++也有, 顾名思义, 能联想到这玩意是啥了  模块的主要作用就是对python基本类型值与 用python字符串格式表示的C struct类型间 的转化（This module performs conversions between Python values and C structs represented as Python strings.） 基本用法12">
-<meta name="keywords" content="Python">
+<meta name="description" content="struct, 这玩意c&#x2F;c++也有, 顾名思义, 能联想到这玩意是啥了  模块的主要作用就是对python基本类型值与 用python字符串格式表示的C struct类型间 的转化（This module performs conversions between Python values and C structs represented as Python strings.） 基本用法12">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python的struct模块">
-<meta property="og:url" content="https://kaisaier.github.io/2015/03/02/python的struct模块/index.html">
+<meta property="og:url" content="https://kaisaier.github.io/2015/03/02/python%E7%9A%84struct%E6%A8%A1%E5%9D%97/index.html">
 <meta property="og:site_name" content="凯">
-<meta property="og:description" content="struct, 这玩意c/c++也有, 顾名思义, 能联想到这玩意是啥了  模块的主要作用就是对python基本类型值与 用python字符串格式表示的C struct类型间 的转化（This module performs conversions between Python values and C structs represented as Python strings.） 基本用法12">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://kaisaier.github.io/2015/03/02/python的struct模块/py_struct1.png">
-<meta property="og:image" content="https://kaisaier.github.io/2015/03/02/python的struct模块/py_struct2.png">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="og:description" content="struct, 这玩意c&#x2F;c++也有, 顾名思义, 能联想到这玩意是啥了  模块的主要作用就是对python基本类型值与 用python字符串格式表示的C struct类型间 的转化（This module performs conversions between Python values and C structs represented as Python strings.） 基本用法12">
+<meta property="og:image" content="https://kaisaier.github.io/2015/03/02/python%E7%9A%84struct%E6%A8%A1%E5%9D%97/py_struct1.png">
+<meta property="og:image" content="https://kaisaier.github.io/2015/03/02/python%E7%9A%84struct%E6%A8%A1%E5%9D%97/py_struct2.png">
+<meta property="article:published_time" content="2015-03-02T13:49:19.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python的struct模块">
-<meta name="twitter:description" content="struct, 这玩意c/c++也有, 顾名思义, 能联想到这玩意是啥了  模块的主要作用就是对python基本类型值与 用python字符串格式表示的C struct类型间 的转化（This module performs conversions between Python values and C structs represented as Python strings.） 基本用法12">
-<meta name="twitter:image" content="https://kaisaier.github.io/2015/03/02/python的struct模块/py_struct1.png">
+<meta name="twitter:image" content="https://kaisaier.github.io/2015/03/02/python%E7%9A%84struct%E6%A8%A1%E5%9D%97/py_struct1.png">
 
 
 
@@ -155,7 +154,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -173,14 +172,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -198,7 +197,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -233,7 +232,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -243,7 +242,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -253,7 +252,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -263,7 +262,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -306,11 +305,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2015/03/02/python的struct模块/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2015/03/02/python%E7%9A%84struct%E6%A8%A1%E5%9D%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -335,7 +334,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-02T21:49:19-08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-02T21:49:19+08:00">
                 2015-03-02
               </time>
             
@@ -346,7 +345,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -410,7 +409,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/02/MySQL入门二/" rel="next" title="MySQL入门二之一些小注意点">
+              <a href="/2015/03/02/MySQL%E5%85%A5%E9%97%A8%E4%BA%8C/" rel="next" title="MySQL入门二之一些小注意点">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
                   MySQL入门二之一些小注意点
@@ -450,7 +449,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line">values = (<span class="number">1</span>, <span class="string">'abc'</span>, <span class="number">2.7</span>)</span><br><span class="line">s = struct.Struct(<span class="string">'I3sf'</span>)</span><br><span class="line">packed_data = s.pack(*values)</span><br><span class="line">unpacked_data = s.unpack(packed_data)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">print</span> <span class="string">'Original values:'</span>, values</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Format string :'</span>, s.format</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Uses :'</span>, s.size, <span class="string">'bytes'</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">'Packed Value :'</span>, binascii.hexlify(packed_data)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Unpacked Type :'</span>, type(unpacked_data), <span class="string">' Value:'</span>, unpacked_data</span><br></pre></td></tr></table></figure>
 
 <p>输出为: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Original values: (1, &apos;abc&apos;, 2.7) </span><br><span class="line">Format string : I3sf </span><br><span class="line">Uses : 12 bytes </span><br><span class="line">Packed Value : 0100000061626300cdcc2c40 </span><br><span class="line">Unpacked Type : &lt;type &apos;tuple&apos;&gt;  Value: (1, &apos;abc&apos;, 2.700000047683716)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Original values: (1, &#39;abc&#39;, 2.7) </span><br><span class="line">Format string : I3sf </span><br><span class="line">Uses : 12 bytes </span><br><span class="line">Packed Value : 0100000061626300cdcc2c40 </span><br><span class="line">Unpacked Type : &lt;type &#39;tuple&#39;&gt;  Value: (1, &#39;abc&#39;, 2.700000047683716)</span><br></pre></td></tr></table></figure>
 
 <p>代码中，</p>
 <p>首先定义了一个元组数据，</p>
@@ -469,7 +468,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>而unpack可以把该字节串再转换回一个元组，</p>
 <p>但是值得注意的是对于float的精度发生了改变，</p>
 <p>这是由一些比如操作系统等客观因素所决定的。打包之后的数据所占用的字节数与C语言中的struct十分相似。定义format可以参照官方api提供的对照表：</p>
-<img src="/2015/03/02/python的struct模块/py_struct1.png">
+<img src="/2015/03/02/python%E7%9A%84struct%E6%A8%A1%E5%9D%97/py_struct1.png" class="">
 
 
 <h2 id="字节序设置"><a href="#字节序设置" class="headerlink" title="字节序设置"></a>字节序设置</h2><p>另一方面，打包的后的字节顺序默认上是由操作系统的决定的，</p>
@@ -478,7 +477,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>对于底层通信的字节顺序是十分重要的，</p>
 <p>不同的字节顺序和存储方式也会导致字节大小的不同。在format字符串前面加上特定的符号即可以表示不同的字节顺序存储方式，</p>
 <p>例如采用小端存储 s = struct.Struct(‘&lt;I3sf’)就可以了。官方api library 也提供了相应的对照列表：</p>
-<img src="/2015/03/02/python的struct模块/py_struct2.png">
+<img src="/2015/03/02/python%E7%9A%84struct%E6%A8%A1%E5%9D%97/py_struct2.png" class="">
       
 
 
@@ -502,7 +501,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2015/03/02/MySQL入门二/" rel="next" title="MySQL入门二之一些小注意点">
+                <a href="/2015/03/02/MySQL%E5%85%A5%E9%97%A8%E4%BA%8C/" rel="next" title="MySQL入门二之一些小注意点">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
                     MySQL入门二之一些小注意点
@@ -595,7 +594,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -607,7 +606,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -622,7 +624,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -631,7 +633,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -642,7 +644,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -753,10 +755,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

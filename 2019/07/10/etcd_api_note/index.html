@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Etcd,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="Etcd," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,17 +91,16 @@
 
 
 <meta name="description" content=". . .">
-<meta name="keywords" content="Etcd">
 <meta property="og:type" content="article">
 <meta property="og:title" content="etcd的restful接口">
 <meta property="og:url" content="https://kaisaier.github.io/2019/07/10/etcd_api_note/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content=". . .">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="article:published_time" content="2019-07-10T15:11:26.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="Etcd">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="etcd的restful接口">
-<meta name="twitter:description" content=". . .">
 
 
 
@@ -152,7 +151,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -170,14 +169,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -195,7 +194,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -230,7 +229,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -240,7 +239,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -250,7 +249,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -260,7 +259,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -307,7 +306,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -332,7 +331,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-10T23:11:26-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-10T23:11:26+08:00">
                 2019-07-10
               </time>
             
@@ -343,7 +342,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -920,7 +919,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 </div>
 <p>&nbsp;</p>
 <p><strong>16. PUT 设置刷新目录超时时间 &nbsp;&nbsp;</strong>开始创建时，没有设置ttl， 或刷新已设置ttl的目录的ttl的值。</p>
-<p><strong>　　-d ttl=xxx　　　　　 设置或刷新的ttl值。 ttl为空是，取消ttl。<br></strong></p>
+<p><strong>　　-d ttl=xxx　　　　　 设置或刷新的ttl值。 ttl为空是，取消ttl。<br /></strong></p>
 <p><strong>　　-d prevExist=true &nbsp; &nbsp;必选参数，否者报错102错误码</strong></p>
 <p>　　会触发watcher事件。</p>
 <div class="cnblogs_code">
@@ -1160,7 +1159,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p><span style="background-color: #ffff00;">　　</span></p>
 <p>&nbsp;</p>
 <p><strong>3. Delete a member</strong></p>
-<p>　　从集群中删除一个memeber。 member ID 必须是一个64位整数的16位编码的字符串。成功时，返回 204 状态码和没有内容。失败时，返回404状态码和字符描述的失败情况。<strong><br></strong></p>
+<p>　　从集群中删除一个memeber。 member ID 必须是一个64位整数的16位编码的字符串。成功时，返回 204 状态码和没有内容。失败时，返回404状态码和字符描述的失败情况。<strong><br /></strong></p>
 <p>　　从集群中删除一个不存在的member，返回500错误。集群处理失败请求，包括超时，返回一个500错误码。即使请求可能后面会处理。</p>
 <div class="cnblogs_code">
 <pre><span style="color: #008080;">1</span> [root@localhost testectd]# curl http:<span style="color: #008000;">//</span><span style="color: #008000;">192.168.10.150:2379/v2/members/2ae1ee131894262b -XDELETE | python -m json.tool</span>
@@ -1181,13 +1180,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>　　　　　　　　　　　　　　　出现：&nbsp;{"etcdserver":"3.0.15","etcdcluster":"2.3.0"} &nbsp;在集群系统中出现不同版本的member</p>
 <p>　　　以上删除重新加入的操作，高版本的可以，单低版本的不支持，报&nbsp; <span style="background-color: #ffcc00;"><strong>failed to find member 3c828782a67e0043 in cluster 34b660d543ad1445 无法发现其他member</strong></span></p>
 <p>&nbsp;</p>
-<p><span style="background-color: #ffcc00;"><strong><span style="background-color: #ffffff;">&nbsp;　　</span><br></strong></span></p>
+<p><span style="background-color: #ffcc00;"><strong><span style="background-color: #ffffff;">&nbsp;　　</span><br /></strong></span></p>
 <p>　 &nbsp;</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; 即 在集群中，成员的版本不同。<strong>低版本</strong>的成员失败退出，重启启动可以重新加入集群。<span style="color: #ff0000; background-color: #ffff00;"><strong>通过接口，被动从集群中移除，再次加入，只能停止所有的成员，删除其中磁盘数据，重新构建。导致数据的丢失，如何恢复？&nbsp;</strong></span><strong>高版本的成员没有此问题。</strong></p>
-<p><strong>&nbsp; 　　即 在集群中，成员的版本不同。集群版本降低为 低版本 如：{"etcdserver":"3.0.15","etcdcluster":"2.3.0"}， 低版本的成员退出后，集群版本升级为高版本：{"etcdserver":"3.0.15","etcdcluster":"3.0.0"}&nbsp;&nbsp;　　　　　　　　　　　　　　<br></strong></p>
+<p><strong>&nbsp; 　　即 在集群中，成员的版本不同。集群版本降低为 低版本 如：{"etcdserver":"3.0.15","etcdcluster":"2.3.0"}， 低版本的成员退出后，集群版本升级为高版本：{"etcdserver":"3.0.15","etcdcluster":"3.0.0"}&nbsp;&nbsp;　　　　　　　　　　　　　　<br /></strong></p>
 <p>&nbsp;</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; 其版本的首先启动时，使用--initial-cluster-state new； &nbsp;高版本的在启动时&nbsp;--initial-cluster-state&nbsp;<strong>existing 会报 集群版本不兼容。需要使用&nbsp;--initial-cluster-state new。 再次启动高版本的可以使用&nbsp;<strong>existing 。</strong></strong></p>
-<p><strong><strong>　　 &nbsp;构建集群时，采用就低版本，在高版本加入时，需要使用&nbsp;--initial-cluster-state new 或 不设置， 使用existing ，报集群不兼容。<br></strong></strong></p>
+<p><strong><strong>　　 &nbsp;构建集群时，采用就低版本，在高版本加入时，需要使用&nbsp;--initial-cluster-state new 或 不设置， 使用existing ，报集群不兼容。<br /></strong></strong></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <div class="cnblogs_code">
@@ -1239,7 +1238,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong><em>一个节点断开后，成为candicate，向其他member发起vote，重新选准 master/leader。</em></strong></p>
-<p>2016-12-29 19:43:15.767905 I | raft: b26f1b9a6c735437 became candidate at term 146<br>2016-12-29 19:43:15.767932 I | raft: b26f1b9a6c735437 received vote from b26f1b9a6c735437 at term 146<br>2016-12-29 19:43:15.767961 I | raft: b26f1b9a6c735437 [logterm: 101, index: 688] sent vote request to 45b967575ff25cb2 at term 146<br>2016-12-29 19:43:17.266905 I | raft: b26f1b9a6c735437 is starting a new election at term 146</p>
+<p>2016-12-29 19:43:15.767905 I | raft: b26f1b9a6c735437 became candidate at term 146<br />2016-12-29 19:43:15.767932 I | raft: b26f1b9a6c735437 received vote from b26f1b9a6c735437 at term 146<br />2016-12-29 19:43:15.767961 I | raft: b26f1b9a6c735437 [logterm: 101, index: 688] sent vote request to 45b967575ff25cb2 at term 146<br />2016-12-29 19:43:17.266905 I | raft: b26f1b9a6c735437 is starting a new election at term 146</p>
 <p>&nbsp;</p>
 <p><strong>将一个memeber加入两个集群时，出现 cluster id 匹配问题。以下是静态创建cluster。</strong></p>
 <div class="cnblogs_code">
@@ -1262,16 +1261,16 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong>如下建立集群后，--debug 提示：150上的iptables防火墙导致。</strong></p>
-<p>2016-12-30 12:07:19.479241 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br>2016-12-30 12:07:19.914614 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 12:07:20.781345 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 12:07:21.216792 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 12:07:21.885187 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br>2016-12-30 12:07:22.518689 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 12:07:22.620358 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br>2016-12-30 12:07:23.187832 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 12:07:23.925031 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 12:07:24.490547 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 12:07:24.592188 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br>2016-12-30 12:07:25.226673 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 12:07:25.696521 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br>2016-12-30 12:07:26.528616 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 12:07:26.630548 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br>2016-12-30 12:07:27.000087 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 12:07:27.932728 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 12:07:28.302774 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 12:07:28.404591 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: getsockopt: no r</p>
+<p>2016-12-30 12:07:19.479241 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br />2016-12-30 12:07:19.914614 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 12:07:20.781345 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 12:07:21.216792 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 12:07:21.885187 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br />2016-12-30 12:07:22.518689 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 12:07:22.620358 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br />2016-12-30 12:07:23.187832 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 12:07:23.925031 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 12:07:24.490547 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 12:07:24.592188 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br />2016-12-30 12:07:25.226673 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 12:07:25.696521 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br />2016-12-30 12:07:26.528616 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 12:07:26.630548 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br />2016-12-30 12:07:27.000087 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 12:07:27.932728 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 12:07:28.302774 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 12:07:28.404591 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: getsockopt: no r</p>
 <p><strong>如下调试信息是在leader 上的。 由于iptables防火墙的原因导致。</strong></p>
-<p>2016-12-30 14:03:10.838829 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 14:03:11.353601 W | etcdserver: failed to reach the peerURL(http://192.168.10.150:2380) of member 45b967575ff25cb2 (Get http://192.168.10.150:2380/version: dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br>2016-12-30 14:03:11.353640 W | etcdserver: cannot get the version of member 45b967575ff25cb2 (Get http://192.168.10.150:2380/version: dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br>2016-12-30 14:03:11.672262 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 14:03:12.140697 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 14:03:12.974912 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 14:03:13.445167 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 14:03:13.547340 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br>2016-12-30 14:03:14.278497 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 14:03:14.380259 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br>2016-12-30 14:03:14.850132 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br>2016-12-30 14:03:15.358565 W | etcdserver: failed to reach the peerURL(http://192.168.10.150:2380) of member 45b967575ff25cb2 (Get http://192.168.10.150:2380/version: dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br>2016-12-30 14:03:15.358613 W | etcdserver: cannot get the version of member 45b967575ff25cb2 (Get http://192.168.10.150:2380/version: dial tcp 192.168.10.150:2380: getsockopt: no route to host)</p>
+<p>2016-12-30 14:03:10.838829 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 14:03:11.353601 W | etcdserver: failed to reach the peerURL(http://192.168.10.150:2380) of member 45b967575ff25cb2 (Get http://192.168.10.150:2380/version: dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br />2016-12-30 14:03:11.353640 W | etcdserver: cannot get the version of member 45b967575ff25cb2 (Get http://192.168.10.150:2380/version: dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br />2016-12-30 14:03:11.672262 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 14:03:12.140697 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 14:03:12.974912 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 14:03:13.445167 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 14:03:13.547340 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br />2016-12-30 14:03:14.278497 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 14:03:14.380259 D | rafthttp: failed to dial 45b967575ff25cb2 on stream MsgApp v2 (dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br />2016-12-30 14:03:14.850132 D | rafthttp: failed to dial 45b967575ff25cb2 on stream Message (dial tcp 192.168.10.150:2380: i/o timeout)<br />2016-12-30 14:03:15.358565 W | etcdserver: failed to reach the peerURL(http://192.168.10.150:2380) of member 45b967575ff25cb2 (Get http://192.168.10.150:2380/version: dial tcp 192.168.10.150:2380: getsockopt: no route to host)<br />2016-12-30 14:03:15.358613 W | etcdserver: cannot get the version of member 45b967575ff25cb2 (Get http://192.168.10.150:2380/version: dial tcp 192.168.10.150:2380: getsockopt: no route to host)</p>
 <p><strong style="line-height: 1.5;">如下调试信息，是由于 192.168.10.231:2380 无法访问，&nbsp;b26f1b9a6c735437 为member id。</strong></p>
-<p>2016-12-30 21:38:43.130791 D | rafthttp: failed to dial b26f1b9a6c735437 on stream Message (dial tcp 192.168.10.231:2380: getsockopt: connection refused)<br>2016-12-30 21:38:43.191227 D | rafthttp: failed to dial b26f1b9a6c735437 on stream MsgApp v2 (dial tcp 192.168.10.231:2380: getsockopt: connection refused)<br>2016-12-30 21:38:43.232280 D | rafthttp: failed to dial b26f1b9a6c735437 on stream Message (dial tcp 192.168.10.231:2380: getsockopt: connection refused)<br>2016-12-30 21:38:43.292289 D | rafthttp: failed to dial b26f1b9a6c735437 on stream MsgApp v2 (dial tcp 192.168.10.231:2380: getsockopt: connection refused)<br>2016-12-30 21:38:43.334129 D | rafthttp: failed to dial b26f1b9a6c735437 on stream Message (dial tcp 192.168.10.231:2380: getsockopt: connection refused)<br>2016-12-30 21:38:43.393576 D | rafthttp: failed to dial b26f1b9a6c735437 on stream MsgApp v2 (dial tcp 192.168.10.231:2380: getsockopt: connection refused)</p>
+<p>2016-12-30 21:38:43.130791 D | rafthttp: failed to dial b26f1b9a6c735437 on stream Message (dial tcp 192.168.10.231:2380: getsockopt: connection refused)<br />2016-12-30 21:38:43.191227 D | rafthttp: failed to dial b26f1b9a6c735437 on stream MsgApp v2 (dial tcp 192.168.10.231:2380: getsockopt: connection refused)<br />2016-12-30 21:38:43.232280 D | rafthttp: failed to dial b26f1b9a6c735437 on stream Message (dial tcp 192.168.10.231:2380: getsockopt: connection refused)<br />2016-12-30 21:38:43.292289 D | rafthttp: failed to dial b26f1b9a6c735437 on stream MsgApp v2 (dial tcp 192.168.10.231:2380: getsockopt: connection refused)<br />2016-12-30 21:38:43.334129 D | rafthttp: failed to dial b26f1b9a6c735437 on stream Message (dial tcp 192.168.10.231:2380: getsockopt: connection refused)<br />2016-12-30 21:38:43.393576 D | rafthttp: failed to dial b26f1b9a6c735437 on stream MsgApp v2 (dial tcp 192.168.10.231:2380: getsockopt: connection refused)</p>
 <p>&nbsp;</p>
-<p>2016-12-30 14:18:36.328628 W | rafthttp: the clock difference against peer 3c828782a67e0043 is too high [2.00405135s &gt; 1s]<br>2016-12-30 14:19:06.329559 W | rafthttp: the clock difference against peer 3c828782a67e0043 is too high [2.003973758s &gt; 1s]<br>2016-12-30 14:19:36.331189 W | rafthttp: the clock difference against peer 3c828782a67e0043 is too high [2.004098356s &gt; 1s]</p>
+<p>2016-12-30 14:18:36.328628 W | rafthttp: the clock difference against peer 3c828782a67e0043 is too high [2.00405135s &gt; 1s]<br />2016-12-30 14:19:06.329559 W | rafthttp: the clock difference against peer 3c828782a67e0043 is too high [2.003973758s &gt; 1s]<br />2016-12-30 14:19:36.331189 W | rafthttp: the clock difference against peer 3c828782a67e0043 is too high [2.004098356s &gt; 1s]</p>
 <p>&nbsp;</p>
 <p><span style="line-height: 1.5;">2016-12-30 21:38:22.857546 W | rafthttp: the clock difference against peer 3c828782a67e0043 is too high [7h59m58.924003117s &gt; 1s]</span></p>
-<p>2016-12-30 21:38:22.892541 W | rafthttp: health check for peer b26f1b9a6c735437 failed<br>2016-12-30 21:38:22.892848 W | rafthttp: the clock difference against peer b26f1b9a6c735437 is too high [7h59m56.920465483s &gt; 1s]</p>
+<p>2016-12-30 21:38:22.892541 W | rafthttp: health check for peer b26f1b9a6c735437 failed<br />2016-12-30 21:38:22.892848 W | rafthttp: the clock difference against peer b26f1b9a6c735437 is too high [7h59m56.920465483s &gt; 1s]</p>
 <p>&nbsp;</p></div><div id="MySignature"></div>
 <div class="clear"></div>
 <div id="blog_post_info_block">
@@ -1402,7 +1401,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -1414,7 +1413,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -1429,7 +1431,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1438,7 +1440,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1449,7 +1451,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1542,7 +1544,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cnblogs_post_body"><span class="nav-number">1.</span> <span class="nav-text">etcd api接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cnblogs_post_body"><span class="nav-number">2.</span> <span class="nav-text">运行单机etcd服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cnblogs_post_body"><span class="nav-number">2.1.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cnblogs_post_body"><span class="nav-number">2.2.</span> <span class="nav-text">Statistics  统计接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cnblogs_post_body"><span class="nav-number">2.2.1.</span> <span class="nav-text">Leader Statistics 领导点统计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cnblogs_post_body"><span class="nav-number">2.3.</span> <span class="nav-text">Memeber API</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cnblogs_post_body"><span class="nav-number">1.</span> <span class="nav-text">etcd api接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cnblogs_post_body"><span class="nav-number">2.</span> <span class="nav-text">运行单机etcd服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cnblogs_post_body"><span class="nav-number">2.1.</span> <span class="nav-text">&amp;nbsp;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cnblogs_post_body"><span class="nav-number">2.2.</span> <span class="nav-text">Statistics &amp;nbsp;统计接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cnblogs_post_body"><span class="nav-number">2.2.1.</span> <span class="nav-text">Leader Statistics 领导点统计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cnblogs_post_body"><span class="nav-number">2.3.</span> <span class="nav-text">Memeber API</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1560,10 +1562,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

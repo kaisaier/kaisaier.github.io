@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Distributed,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="Distributed," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,20 +91,19 @@
 
 
 <meta name="description" content="分布式系统中的概念最简单的分布式系统分布式可繁也可以简，最简单的分布式就是大家最常用的， 在负载均衡服务器后加一堆web服务器，然后在上面搞一个缓存服务器来保存临时状态， 后面共享一个数据库，其实很多号称分布式专家的人也就停留于此， 大致结构如下图所示：   这种环境下真正进行分布式的只是web server而已， 并且web server之间没有任何联系，所以结构和实现都非常简单。 最完备的分布">
-<meta name="keywords" content="Distributed">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式系统设计概要笔记-一">
 <meta property="og:url" content="https://kaisaier.github.io/2015/01/04/distributed_system_design_note_one/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="分布式系统中的概念最简单的分布式系统分布式可繁也可以简，最简单的分布式就是大家最常用的， 在负载均衡服务器后加一堆web服务器，然后在上面搞一个缓存服务器来保存临时状态， 后面共享一个数据库，其实很多号称分布式专家的人也就停留于此， 大致结构如下图所示：   这种环境下真正进行分布式的只是web server而已， 并且web server之间没有任何联系，所以结构和实现都非常简单。 最完备的分布">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://kaisaier.github.io/2015/01/04/distributed_system_design_note_one/distribution13.png">
 <meta property="og:image" content="https://kaisaier.github.io/2015/01/04/distributed_system_design_note_one/distribution11.png">
 <meta property="og:image" content="https://kaisaier.github.io/2015/01/04/distributed_system_design_note_one/distribution12.png">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="article:published_time" content="2015-01-03T17:28:42.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="Distributed">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分布式系统设计概要笔记-一">
-<meta name="twitter:description" content="分布式系统中的概念最简单的分布式系统分布式可繁也可以简，最简单的分布式就是大家最常用的， 在负载均衡服务器后加一堆web服务器，然后在上面搞一个缓存服务器来保存临时状态， 后面共享一个数据库，其实很多号称分布式专家的人也就停留于此， 大致结构如下图所示：   这种环境下真正进行分布式的只是web server而已， 并且web server之间没有任何联系，所以结构和实现都非常简单。 最完备的分布">
 <meta name="twitter:image" content="https://kaisaier.github.io/2015/01/04/distributed_system_design_note_one/distribution13.png">
 
 
@@ -156,7 +155,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -174,14 +173,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -199,7 +198,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -234,7 +233,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -244,7 +243,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -254,7 +253,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -264,7 +263,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -311,7 +310,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -336,7 +335,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-04T01:28:42-08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-04T01:28:42+08:00">
                 2015-01-04
               </time>
             
@@ -347,7 +346,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -446,7 +445,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>在负载均衡服务器后加一堆web服务器，然后在上面搞一个缓存服务器来保存临时状态，</p>
 <p>后面共享一个数据库，其实很多号称分布式专家的人也就停留于此，</p>
 <p>大致结构如下图所示：</p>
-<img src="/2015/01/04/distributed_system_design_note_one/distribution13.png">
+<img src="/2015/01/04/distributed_system_design_note_one/distribution13.png" class="">
 
 <p>这种环境下真正进行分布式的只是web server而已，</p>
 <p>并且web server之间没有任何联系，所以结构和实现都非常简单。</p>
@@ -494,7 +493,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <ul>
 <li>3、存储 – 系统中持久化数据的数据库或者文件存储。</li>
 </ul>
-<img src="/2015/01/04/distributed_system_design_note_one/distribution11.png">
+<img src="/2015/01/04/distributed_system_design_note_one/distribution11.png" class="">
 
 <h2 id="状态特性"><a href="#状态特性" class="headerlink" title="状态特性"></a>状态特性</h2><p>各个节点的状态可以是“无状态”或者“有状态的”, </p>
 <p>一般认为，节点是偏计算和通信的模块，一般是无状态的。</p>
@@ -547,7 +546,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 【这种情况也会比较前面的问题较难处理】</code></pre></li>
 </ul>
-<img src="/2015/01/04/distributed_system_design_note_one/distribution12.png">
+<img src="/2015/01/04/distributed_system_design_note_one/distribution12.png" class="">
 
 
       
@@ -666,7 +665,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -678,7 +677,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -693,7 +695,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -702,7 +704,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -713,7 +715,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -806,7 +808,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式系统中的概念"><span class="nav-number">1.</span> <span class="nav-text">分布式系统中的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的分布式系统"><span class="nav-number">1.1.</span> <span class="nav-text">最简单的分布式系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最完备的分布式体系的模块组成"><span class="nav-number">1.2.</span> <span class="nav-text">最完备的分布式体系的模块组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三元组"><span class="nav-number">1.3.</span> <span class="nav-text">三元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态特性"><span class="nav-number">1.4.</span> <span class="nav-text">状态特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统异常"><span class="nav-number">1.5.</span> <span class="nav-text">系统异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式系统与单节点的不同"><span class="nav-number">2.</span> <span class="nav-text">分布式系统与单节点的不同</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从linux-write-系统调用说起"><span class="nav-number">2.1.</span> <span class="nav-text">从linux write()系统调用说起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP协议是“不可靠”的"><span class="nav-number">2.2.</span> <span class="nav-text">TCP/IP协议是“不可靠”的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不可控的状态"><span class="nav-number">2.3.</span> <span class="nav-text">不可控的状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视异常为正常"><span class="nav-number">2.4.</span> <span class="nav-text">视异常为正常</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式系统中的概念"><span class="nav-number">1.</span> <span class="nav-text">分布式系统中的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的分布式系统"><span class="nav-number">1.1.</span> <span class="nav-text">最简单的分布式系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最完备的分布式体系的模块组成"><span class="nav-number">1.2.</span> <span class="nav-text">最完备的分布式体系的模块组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三元组"><span class="nav-number">1.3.</span> <span class="nav-text">三元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态特性"><span class="nav-number">1.4.</span> <span class="nav-text">状态特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统异常"><span class="nav-number">1.5.</span> <span class="nav-text">系统异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式系统与单节点的不同"><span class="nav-number">2.</span> <span class="nav-text">分布式系统与单节点的不同</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从linux-write-系统调用说起"><span class="nav-number">2.1.</span> <span class="nav-text">从linux write()系统调用说起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP协议是“不可靠”的"><span class="nav-number">2.2.</span> <span class="nav-text">TCP&#x2F;IP协议是“不可靠”的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不可控的状态"><span class="nav-number">2.3.</span> <span class="nav-text">不可控的状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视异常为正常"><span class="nav-number">2.4.</span> <span class="nav-text">视异常为正常</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -824,10 +826,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

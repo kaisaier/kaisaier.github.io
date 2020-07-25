@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="TCP,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="TCP," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,19 +91,18 @@
 
 
 <meta name="description" content="TCP拥塞控制概览TCP的拥塞控制算法被设计用来防止快速的发送者压垮整个网络。如果一个发送TCP发送包的速度要快于一个中间路由器转发的速度，那么该路由器就会开始丢弃包。这将会导致较高的包丢失率，其结果是如果TCP保持以相同的速度发送这些被丢弃的分段的话就会极大地降低性能。TCP的拥塞控制算法在下列两个场景中是比较重要的。  在连接建立之后：此时（或当传输在一个已经空闲了一段时间的连接上恢复时），发">
-<meta name="keywords" content="TCP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tcp拥塞控制之慢启动和拥塞避免">
-<meta property="og:url" content="https://kaisaier.github.io/2016/12/31/tcp拥塞控制之慢启动和拥塞避免/index.html">
+<meta property="og:url" content="https://kaisaier.github.io/2016/12/31/tcp%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E4%B9%8B%E6%85%A2%E5%90%AF%E5%8A%A8%E5%92%8C%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="TCP拥塞控制概览TCP的拥塞控制算法被设计用来防止快速的发送者压垮整个网络。如果一个发送TCP发送包的速度要快于一个中间路由器转发的速度，那么该路由器就会开始丢弃包。这将会导致较高的包丢失率，其结果是如果TCP保持以相同的速度发送这些被丢弃的分段的话就会极大地降低性能。TCP的拥塞控制算法在下列两个场景中是比较重要的。  在连接建立之后：此时（或当传输在一个已经空闲了一段时间的连接上恢复时），发">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://kaisaier.github.io/2016/12/31/tcp拥塞控制之慢启动和拥塞避免/慢启动和拥塞避免的可视化描述.png">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="og:image" content="https://kaisaier.github.io/2016/12/31/tcp%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E4%B9%8B%E6%85%A2%E5%90%AF%E5%8A%A8%E5%92%8C%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D/%E6%85%A2%E5%90%AF%E5%8A%A8%E5%92%8C%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%8F%E8%BF%B0.png">
+<meta property="article:published_time" content="2016-12-30T17:45:12.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="TCP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tcp拥塞控制之慢启动和拥塞避免">
-<meta name="twitter:description" content="TCP拥塞控制概览TCP的拥塞控制算法被设计用来防止快速的发送者压垮整个网络。如果一个发送TCP发送包的速度要快于一个中间路由器转发的速度，那么该路由器就会开始丢弃包。这将会导致较高的包丢失率，其结果是如果TCP保持以相同的速度发送这些被丢弃的分段的话就会极大地降低性能。TCP的拥塞控制算法在下列两个场景中是比较重要的。  在连接建立之后：此时（或当传输在一个已经空闲了一段时间的连接上恢复时），发">
-<meta name="twitter:image" content="https://kaisaier.github.io/2016/12/31/tcp拥塞控制之慢启动和拥塞避免/慢启动和拥塞避免的可视化描述.png">
+<meta name="twitter:image" content="https://kaisaier.github.io/2016/12/31/tcp%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E4%B9%8B%E6%85%A2%E5%90%AF%E5%8A%A8%E5%92%8C%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D/%E6%85%A2%E5%90%AF%E5%8A%A8%E5%92%8C%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%8F%E8%BF%B0.png">
 
 
 
@@ -154,7 +153,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -172,14 +171,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -197,7 +196,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -232,7 +231,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -242,7 +241,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -252,7 +251,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -262,7 +261,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -305,11 +304,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2016/12/31/tcp拥塞控制之慢启动和拥塞避免/">
+    <link itemprop="mainEntityOfPage" href="https://kaisaier.github.io/2016/12/31/tcp%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E4%B9%8B%E6%85%A2%E5%90%AF%E5%8A%A8%E5%92%8C%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -334,7 +333,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-31T01:45:12-08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-31T01:45:12+08:00">
                 2016-12-31
               </time>
             
@@ -345,7 +344,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -409,10 +408,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/18/游戏网络开发五之每个游戏开发者都需要知道的游戏网络知识/" rel="next" title="游戏网络开发五之每个游戏开发者都需要知道的游戏网络知识">
+              <a href="/2016/11/16/virtual_connection_over_udp/" rel="next" title="游戏网络开发三之基于UDP的虚拟连接">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
-                  游戏网络开发五之每个游戏开发者都需要知道的游戏网络知识
+                  游戏网络开发三之基于UDP的虚拟连接
                 </p> 
               </a>
             
@@ -422,7 +421,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/10/分布式具体实现重要组件之RPC/" rel="prev" title="分布式具体实现重要组件之RPC">
+              <a href="/2017/01/10/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%E9%87%8D%E8%A6%81%E7%BB%84%E4%BB%B6%E4%B9%8BRPC/" rel="prev" title="分布式具体实现重要组件之RPC">
               <p class="post-nav-pre-next-title">
                   分布式具体实现重要组件之RPC
               </p> 
@@ -453,7 +452,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>慢启动算法会使发送TCP在开始的时候以低速传输分段，但同时允许它以指数级的速<br>度提高其速率，只要这些分段都得到接收TCP的确认。慢启动能够防血一个快速的TCP发送<br>者压垮整个网络。但如果不加限制的话，慢启动在传输速率上的指数级增长意味着发送者在<br>短时间内就会压垮整个网络。TCP的拥塞避免算法用来防止这种情况的发生，它为速率的增<br>长安排了一个管理实体。</p>
 <p>有了拥塞避免之后，在连接刚建立时，发送TCP会使用一个较小的拥塞窗口，它会限制<br>所能传输的未确认的数据数量。当发送者从对等TCP处接收到确认时，拥塞窗口在一开始时<br>会呈现指数级增长。但一旦拥塞窗口增长到一个被认为是接近网络传输容量的阈值时，其增长<br>速度就会变成线性，而不是指数级的。（对刚络容量的估算是根据检测到拥塞时的传输速率来<br>计算得出的或者在一开始建立连接时设定为一个固定值。）在任何时刻，发送TCP传输的数据<br>数量还会受到接收TCP的通告窗口和本地的TCP发送缓冲器的大小的限制。</p>
 <p>慢启动和拥塞避免算法组合起来使得发送者可以快速地将传输速度提升至网络的可用容<br>量，并且不会超出该容量。这些算法的作用是允许数据传输快速地到达一个平衡状态，即发<br>送者传输包的速率与它从接收者处接收确认的速率一致。</p>
-<img src="/2016/12/31/tcp拥塞控制之慢启动和拥塞避免/慢启动和拥塞避免的可视化描述.png" title="慢启动与拥塞避免的可视化描述">
+<img src="/2016/12/31/tcp%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E4%B9%8B%E6%85%A2%E5%90%AF%E5%8A%A8%E5%92%8C%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D/%E6%85%A2%E5%90%AF%E5%8A%A8%E5%92%8C%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%8F%E8%BF%B0.png" class="" title="慢启动与拥塞避免的可视化描述">
 
 <p>在该图中，假定当cwnd为32个报文段时就会发生拥塞。于是设置ssthresh为16个报文段，<br>而cwnd为1个报文段。在时刻0发送了一个报文段，并假定在时刻1接收到它的ACK，此时<br>cwnd增加为2。接着发送了2个报文段，并假定在时刻2接收到它们的ACK，于是cwnd增加为4<br>（对每个ACK增加1次）。这种指数增加算法一直进行到在时刻3和4之间收到8个ACK后cwnd等<br>于ssthresh时才停止，从该时刻起，cwnd以线性方式增加，在每个往返时间内最多增加1个报<br>文段。</p>
 <h1 id="慢启动"><a href="#慢启动" class="headerlink" title="慢启动"></a>慢启动</h1><p>当一个新的TCP连接建立或检测到由重传超时(RTO)导致的丢包时,需要执行慢启<br>动o TCP发送端长时间处于空闲状态也可能调用慢启动算法。慢启动的目的是,使TCP在<br>用拥塞避免探寻更多可用带宽之前得到cwnd值,以及帮助TCP建立ACK时钟。通常,<br>TCP在建立新连接时执行慢启动,直至有丢包时,执行拥塞避免算法(参见16.2.2节)进人<br>稳定状态。下文引自[RFC5681]:</p>
@@ -504,10 +503,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2016/11/18/游戏网络开发五之每个游戏开发者都需要知道的游戏网络知识/" rel="next" title="游戏网络开发五之每个游戏开发者都需要知道的游戏网络知识">
+                <a href="/2016/11/16/virtual_connection_over_udp/" rel="next" title="游戏网络开发三之基于UDP的虚拟连接">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
-                    游戏网络开发五之每个游戏开发者都需要知道的游戏网络知识
+                    游戏网络开发三之基于UDP的虚拟连接
                   </p> 
                 </a>
               
@@ -517,7 +516,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2017/01/10/分布式具体实现重要组件之RPC/" rel="prev" title="分布式具体实现重要组件之RPC">
+                <a href="/2017/01/10/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%E9%87%8D%E8%A6%81%E7%BB%84%E4%BB%B6%E4%B9%8BRPC/" rel="prev" title="分布式具体实现重要组件之RPC">
                 <p class="post-nav-pre-next-title">
                     分布式具体实现重要组件之RPC
                 </p> 
@@ -597,7 +596,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -609,7 +608,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -624,7 +626,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -633,7 +635,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -644,7 +646,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -755,10 +757,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

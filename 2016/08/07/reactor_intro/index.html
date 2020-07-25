@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="DesignPattern,NP,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="NP,DesignPattern," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,13 +91,11 @@
 
 
 <meta name="description" content="关于服务器模型总结请转 此文, 文中也有Reactor的讲解. 对于 IO 来说，我们听得比较多的是:  BIO: 阻塞 IO NIO: 非阻塞 IO 同步 IO 异步 IO  以及其组合:  同步阻塞 IO 同步非阻塞 IO 异步阻塞 IO 异步非阻塞 IO  . . .">
-<meta name="keywords" content="DesignPattern,NP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Reactor模式讲解">
 <meta property="og:url" content="https://kaisaier.github.io/2016/08/07/reactor_intro/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="关于服务器模型总结请转 此文, 文中也有Reactor的讲解. 对于 IO 来说，我们听得比较多的是:  BIO: 阻塞 IO NIO: 非阻塞 IO 同步 IO 异步 IO  以及其组合:  同步阻塞 IO 同步非阻塞 IO 异步阻塞 IO 异步非阻塞 IO  . . .">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://kaisaier.github.io/img/reactor_intro/1100082-66c781ba3d47fa40.png">
 <meta property="og:image" content="https://kaisaier.github.io/img/reactor_intro/1100082-8d8ec4d8b63f6d72.png">
 <meta property="og:image" content="https://kaisaier.github.io/img/reactor_intro/1100082-bf61aee347d92676.png">
@@ -112,10 +110,12 @@
 <meta property="og:image" content="https://kaisaier.github.io/img/reactor_intro/1100082-794d7f69b6e2409a.png">
 <meta property="og:image" content="https://kaisaier.github.io/img/reactor_intro/using_multiple_reactors_with_thread_pool.jpg">
 <meta property="og:image" content="https://kaisaier.github.io/img/server_model_summary/11.jpg">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="article:published_time" content="2016-08-07T15:01:00.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="NP">
+<meta property="article:tag" content="DesignPattern">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Reactor模式讲解">
-<meta name="twitter:description" content="关于服务器模型总结请转 此文, 文中也有Reactor的讲解. 对于 IO 来说，我们听得比较多的是:  BIO: 阻塞 IO NIO: 非阻塞 IO 同步 IO 异步 IO  以及其组合:  同步阻塞 IO 同步非阻塞 IO 异步阻塞 IO 异步非阻塞 IO  . . .">
 <meta name="twitter:image" content="https://kaisaier.github.io/img/reactor_intro/1100082-66c781ba3d47fa40.png">
 
 
@@ -167,7 +167,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -185,14 +185,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -210,7 +210,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -245,7 +245,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -255,7 +255,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -265,7 +265,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -275,7 +275,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -322,7 +322,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -347,7 +347,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-07T23:01:00-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-07T23:01:00+08:00">
                 2016-08-07
               </time>
             
@@ -358,7 +358,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -384,9 +384,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="post-tags">
               
-                <a href="/tags/DesignPattern/" rel="tag"><i class="fa fa-tag"></i> DesignPattern</a>
-              
                 <a href="/tags/NP/" rel="tag"><i class="fa fa-tag"></i> NP</a>
+              
+                <a href="/tags/DesignPattern/" rel="tag"><i class="fa fa-tag"></i> DesignPattern</a>
               
             </div>
           
@@ -424,7 +424,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/02/重新看unix网络编程的一些心得/" rel="next" title="重新看unix网络编程的一些心得">
+              <a href="/2016/08/02/%E9%87%8D%E6%96%B0%E7%9C%8Bunix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97/" rel="next" title="重新看unix网络编程的一些心得">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
                   重新看unix网络编程的一些心得
@@ -490,7 +490,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>本文只讨论 BIO 和 NIO,AIO 使用度没有前两者普及，暂不讨论！</p>
 <p>下面从代码层面看看 BIO 与 NIO 的流程!</p>
 <h1 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h1><p>模型图如下所示：</p>
-<p><img src="/img/reactor_intro/1100082-66c781ba3d47fa40.png" alt></p>
+<p><img src="/img/reactor_intro/1100082-66c781ba3d47fa40.png" alt=""></p>
 <h2 id="BIO-优缺点"><a href="#BIO-优缺点" class="headerlink" title="BIO 优缺点"></a>BIO 优缺点</h2><ul>
 <li>优点<ul>
 <li>模型简单</li>
@@ -505,7 +505,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>优缺点很明显。这里主要说下缺点：主要瓶颈在线程上。每个连接都会建立一个线程。虽然线程消耗比进程小，但是一台机器实际上能建立的有效线程有限，以 Java 来说，1.5 以后，一个线程大致消耗 1M 内存！且随着线程数量的增加，CPU 切换线程上下文的消耗也随之增加，在高过某个阀值后，继续增加线程，性能不增反降！而同样因为一个连接就新建一个线程，所以编码模型很简单！</p>
 <p>就性能瓶颈这一点，就确定了 BIO 并不适合进行高性能服务器的开发！像 Tomcat 这样的 Web 服务器，从 7 开始就从 BIO 改成了 NIO，来提高服务器性能！</p>
 <h1 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h1><p>NIO 模型示例如下：</p>
-<p><img src="/img/reactor_intro/1100082-8d8ec4d8b63f6d72.png" alt></p>
+<p><img src="/img/reactor_intro/1100082-8d8ec4d8b63f6d72.png" alt=""></p>
 <ul>
 <li>Acceptor 注册 Selector，监听 accept 事件</li>
 <li>当客户端连接后，触发 accept 事件</li>
@@ -526,13 +526,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 </ul>
 <p>NIO 的优缺点和 BIO 就完全相反了! 性能高，不用一个连接就建一个线程，可以一个线程处理所有的连接！相应的，编码就复杂很多，从上面的代码就可以明显体会到了。还有一个问题，由于是非阻塞的，应用无法知道什么时候消息读完了，就存在了半包问题！</p>
 <h3 id="半包问题"><a href="#半包问题" class="headerlink" title="半包问题"></a>半包问题</h3><p>简单看一下下面的图就能理解半包问题了！</p>
-<p><img src="/img/reactor_intro/1100082-bf61aee347d92676.png" alt> <img src="/img/reactor_intro/1100082-4da274ccb55084d9.png" alt></p>
+<p><img src="/img/reactor_intro/1100082-bf61aee347d92676.png" alt=""> <img src="/img/reactor_intro/1100082-4da274ccb55084d9.png" alt=""></p>
 <p>我们知道 TCP/IP 在发送消息的时候，可能会拆包 (如上图 1)！这就导致接收端无法知道什么时候收到的数据是一个完整的数据。例如: 发送端分别发送了 ABC,DEF,GHI 三条信息，发送时被拆成了 AB,CDRFG,H,I 这四个包进行发送，接受端如何将其进行还原呢？在 BIO 模型中，当读不到数据后会阻塞，而 NIO 中不会! 所以需要自行进行处理! 例如，以换行符作为判断依据，或者定长消息发生，或者自定义协议！</p>
 <p>NIO 虽然性能高，但是编码复杂，且需要处理半包问题！为了方便的进行 NIO 开发，就有了 Reactor 模型!</p>
 <h1 id="Reactor-模型"><a href="#Reactor-模型" class="headerlink" title="Reactor 模型"></a>Reactor 模型</h1><ul>
 <li>AWT Events</li>
 </ul>
-<p><img src="/img/reactor_intro/1100082-e108abfcd9382eef.jpg" alt></p>
+<p><img src="/img/reactor_intro/1100082-e108abfcd9382eef.jpg" alt=""></p>
 <p>Reactor 模型和 AWT 事件模型很像，就是将消息放到了一个队列中，通过异步线程池对其进行消费！</p>
 <h2 id="Reactor-中的组件"><a href="#Reactor-中的组件" class="headerlink" title="Reactor 中的组件"></a>Reactor 中的组件</h2><ul>
 <li>Reactor:Reactor 是 IO 事件的派发者。</li>
@@ -546,25 +546,25 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <li>Handler：消息读写处理等操作类</li>
 </ul>
 <p>Reactor 从线程池和 Reactor 的选择上可以细分为如下几种：</p>
-<h2 id="Reactor-单线程模型"><a href="#Reactor-单线程模型" class="headerlink" title="Reactor 单线程模型"></a>Reactor 单线程模型</h2><p><img src="/img/reactor_intro/1100082-931396ffc90437ef.png" alt></p>
+<h2 id="Reactor-单线程模型"><a href="#Reactor-单线程模型" class="headerlink" title="Reactor 单线程模型"></a>Reactor 单线程模型</h2><p><img src="/img/reactor_intro/1100082-931396ffc90437ef.png" alt=""></p>
 <p>如果上图表达得不够明白, 还可以看看下图</p>
-<p><img src="/img/reactor_intro/basic_reactor_design.jpg" alt></p>
+<p><img src="/img/reactor_intro/basic_reactor_design.jpg" alt=""></p>
 <p>如果上图还是表达得不够明白, 还可以看看下图</p>
-<p><img src="/img/reactor_intro/5.jpg" alt></p>
+<p><img src="/img/reactor_intro/5.jpg" alt=""></p>
 <p>这个模型和上面的 NIO 流程很类似，只是将消息相关处理独立到了 Handler 中去了！</p>
 <p>虽然上面说到 NIO 一个线程就可以支持所有的 IO 处理。但是瓶颈也是显而易见的！我们看一个客户端的情况，如果这个客户端多次进行请求，如果在 Handler 中的处理速度较慢，那么后续的客户端请求都会被积压，导致响应变慢！所以引入了 Reactor 多线程模型!</p>
-<h2 id="Reactor-多线程模型"><a href="#Reactor-多线程模型" class="headerlink" title="Reactor 多线程模型"></a>Reactor 多线程模型</h2><p><img src="/img/reactor_intro/1100082-b21e4c2555478155.png" alt></p>
+<h2 id="Reactor-多线程模型"><a href="#Reactor-多线程模型" class="headerlink" title="Reactor 多线程模型"></a>Reactor 多线程模型</h2><p><img src="/img/reactor_intro/1100082-b21e4c2555478155.png" alt=""></p>
 <p>如果上图表达得不够明白, 还可以看看下图</p>
-<p><img src="/img/reactor_intro/worker_thread_pools.jpg" alt></p>
+<p><img src="/img/reactor_intro/worker_thread_pools.jpg" alt=""></p>
 <p>如果上图还是表达得不够明白, 还可以看看下图</p>
-<p><img src="/img/reactor_intro/8.jpg" alt></p>
+<p><img src="/img/reactor_intro/8.jpg" alt=""></p>
 <p>Reactor 多线程模型就是将 Handler 中的 IO 操作和非 IO 操作分开，操作 IO 的线程称为 IO 线程，非 IO 操作的线程称为工作线程! 这样的话，客户端的请求会直接被丢到线程池中，客户端发送请求就不会堵塞！</p>
 <p>但是当用户进一步增加的时候，Reactor 会出现瓶颈！因为 Reactor 既要处理 IO 操作请求，又要响应连接请求！为了分担 Reactor 的负担，所以引入了主从 Reactor 模型!</p>
-<h2 id="主从-Reactor-模型"><a href="#主从-Reactor-模型" class="headerlink" title="主从 Reactor 模型"></a>主从 Reactor 模型</h2><p><img src="/img/reactor_intro/1100082-794d7f69b6e2409a.png" alt></p>
+<h2 id="主从-Reactor-模型"><a href="#主从-Reactor-模型" class="headerlink" title="主从 Reactor 模型"></a>主从 Reactor 模型</h2><p><img src="/img/reactor_intro/1100082-794d7f69b6e2409a.png" alt=""></p>
 <p>如果上图表达得不够明白, 还可以看看下图</p>
-<p><img src="/img/reactor_intro/using_multiple_reactors_with_thread_pool.jpg" alt></p>
+<p><img src="/img/reactor_intro/using_multiple_reactors_with_thread_pool.jpg" alt=""></p>
 <p>如果上图还是表达得不够明白, 还可以看看下图</p>
-<p><img src="/img/server_model_summary/11.jpg" alt></p>
+<p><img src="/img/server_model_summary/11.jpg" alt=""></p>
 <p>主 Reactor 用于响应连接请求，从 Reactor 用于处理 IO 操作请求！</p>
 
       
@@ -577,9 +577,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <div class="post-tags">
             
-              <a href="/tags/DesignPattern/" rel="tag"><i class="fa fa-tag"></i> DesignPattern</a>
-            
               <a href="/tags/NP/" rel="tag"><i class="fa fa-tag"></i> NP</a>
+            
+              <a href="/tags/DesignPattern/" rel="tag"><i class="fa fa-tag"></i> DesignPattern</a>
             
           </div>
         
@@ -592,7 +592,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2016/08/02/重新看unix网络编程的一些心得/" rel="next" title="重新看unix网络编程的一些心得">
+                <a href="/2016/08/02/%E9%87%8D%E6%96%B0%E7%9C%8Bunix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97/" rel="next" title="重新看unix网络编程的一些心得">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
                     重新看unix网络编程的一些心得
@@ -685,7 +685,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -697,7 +697,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -712,7 +715,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -721,7 +724,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -732,7 +735,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -843,10 +846,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

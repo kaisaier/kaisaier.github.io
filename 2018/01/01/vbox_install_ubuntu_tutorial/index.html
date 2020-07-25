@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="VBox,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="VBox," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,22 +91,21 @@
 
 
 <meta name="description" content="最近因某些原因重装了Win10, 虚拟机也需要重装, 记录一下过程, 供以后查阅, 以免走更多弯路 需准备的工具和材料 虚拟机软件 Ubuntu : 我用的是16.04版本的ubuntu的server版本(不是desktop桌面版)  建议给虚拟机分配20G硬盘空间 建议给虚拟机分配4G内存  . . .">
-<meta name="keywords" content="VBox">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VirtualBox安装Ubuntu教程">
 <meta property="og:url" content="https://kaisaier.github.io/2018/01/01/vbox_install_ubuntu_tutorial/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="最近因某些原因重装了Win10, 虚拟机也需要重装, 记录一下过程, 供以后查阅, 以免走更多弯路 需准备的工具和材料 虚拟机软件 Ubuntu : 我用的是16.04版本的ubuntu的server版本(不是desktop桌面版)  建议给虚拟机分配20G硬盘空间 建议给虚拟机分配4G内存  . . .">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://kaisaier.github.io/img/vbox_install_ubuntu_tutorial/20150116222056924.jpg">
 <meta property="og:image" content="https://kaisaier.github.io/img/vbox_install_ubuntu_tutorial/20150116222128125.jpg">
 <meta property="og:image" content="https://kaisaier.github.io/img/vbox_install_ubuntu_tutorial/20150116222246498.jpg">
 <meta property="og:image" content="https://kaisaier.github.io/img/vbox_install_ubuntu_tutorial/20150116222308759.jpg">
 <meta property="og:image" content="https://kaisaier.github.io/img/vbox_install_ubuntu_tutorial/20150116222336153.jpg">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="article:published_time" content="2018-01-01T15:00:31.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="VBox">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VirtualBox安装Ubuntu教程">
-<meta name="twitter:description" content="最近因某些原因重装了Win10, 虚拟机也需要重装, 记录一下过程, 供以后查阅, 以免走更多弯路 需准备的工具和材料 虚拟机软件 Ubuntu : 我用的是16.04版本的ubuntu的server版本(不是desktop桌面版)  建议给虚拟机分配20G硬盘空间 建议给虚拟机分配4G内存  . . .">
 <meta name="twitter:image" content="https://kaisaier.github.io/img/vbox_install_ubuntu_tutorial/20150116222056924.jpg">
 
 
@@ -158,7 +157,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -176,14 +175,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -201,7 +200,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -236,7 +235,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -246,7 +245,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -256,7 +255,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -266,7 +265,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -313,7 +312,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -338,7 +337,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-01T23:00:31-08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-01T23:00:31+08:00">
                 2018-01-01
               </time>
             
@@ -349,7 +348,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -486,21 +485,23 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
 <p>装完gdb之后添加一个pstack脚本方便查看运行时的程序堆栈(用法 : pstack pid) : </p>
 <p><code>sudo vi /usr/bin/pstack</code><br><code>sudo chmod +x /usr/bin/pstack</code></p>
 <p>pstack脚本的内容如下 :</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">if test $# -ne 1; then</span><br><span class="line">    echo &quot;Usage: `basename $0 .sh` &lt;process-id&gt;&quot; 1&gt;&amp;2</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if test ! -r /proc/$1; then</span><br><span class="line">    echo &quot;Process $1 not found.&quot; 1&gt;&amp;2</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># GDB doesn&apos;t allow &quot;thread apply all bt&quot; when the process isn&apos;t</span><br><span class="line"># threaded; need to peek at the process to determine if that or the</span><br><span class="line"># simpler &quot;bt&quot; should be used.</span><br><span class="line"></span><br><span class="line">backtrace=&quot;bt&quot;</span><br><span class="line">if test -d /proc/$1/task ; then</span><br><span class="line">    # Newer kernel; has a task/ directory.</span><br><span class="line">    if test `/bin/ls /proc/$1/task | /usr/bin/wc -l` -gt 1 2&gt;/dev/null ;                                                                                                      then</span><br><span class="line">        backtrace=&quot;thread apply all bt&quot;</span><br><span class="line">    fi</span><br><span class="line">elif test -f /proc/$1/maps ; then</span><br><span class="line">    # Older kernel; go by it loading libpthread.</span><br><span class="line">    if /bin/grep -e libpthread /proc/$1/maps &gt; /dev/null 2&gt;&amp;1 ; then</span><br><span class="line">        backtrace=&quot;thread apply all bt&quot;</span><br><span class="line">    fi</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">GDB=$&#123;GDB:-/usr/bin/gdb&#125;</span><br><span class="line"></span><br><span class="line">if $GDB -nx --quiet --batch --readnever &gt; /dev/null 2&gt;&amp;1; then</span><br><span class="line">    readnever=--readnever</span><br><span class="line">else</span><br><span class="line">    readnever=</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># Run GDB, strip out unwanted noise.</span><br><span class="line">$GDB --quiet $readnever -nx /proc/$1/exe $1 &lt;&lt;EOF 2&gt;&amp;1 |</span><br><span class="line">set width 0</span><br><span class="line">set height 0</span><br><span class="line">set pagination no</span><br><span class="line">$backtrace</span><br><span class="line">EOF</span><br><span class="line">/bin/sed -n \</span><br><span class="line">    -e &apos;s/^\((gdb) \)*//&apos; \</span><br><span class="line">    -e &apos;/^#/p&apos; \</span><br><span class="line">    -e &apos;/^Thread/p&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line"></span><br><span class="line">if test $# -ne 1; then</span><br><span class="line">    echo &quot;Usage: &#96;basename $0 .sh&#96; &lt;process-id&gt;&quot; 1&gt;&amp;2</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if test ! -r &#x2F;proc&#x2F;$1; then</span><br><span class="line">    echo &quot;Process $1 not found.&quot; 1&gt;&amp;2</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># GDB doesn&#39;t allow &quot;thread apply all bt&quot; when the process isn&#39;t</span><br><span class="line"># threaded; need to peek at the process to determine if that or the</span><br><span class="line"># simpler &quot;bt&quot; should be used.</span><br><span class="line"></span><br><span class="line">backtrace&#x3D;&quot;bt&quot;</span><br><span class="line">if test -d &#x2F;proc&#x2F;$1&#x2F;task ; then</span><br><span class="line">    # Newer kernel; has a task&#x2F; directory.</span><br><span class="line">    if test &#96;&#x2F;bin&#x2F;ls &#x2F;proc&#x2F;$1&#x2F;task | &#x2F;usr&#x2F;bin&#x2F;wc -l&#96; -gt 1 2&gt;&#x2F;dev&#x2F;null ;                                                                                                      then</span><br><span class="line">        backtrace&#x3D;&quot;thread apply all bt&quot;</span><br><span class="line">    fi</span><br><span class="line">elif test -f &#x2F;proc&#x2F;$1&#x2F;maps ; then</span><br><span class="line">    # Older kernel; go by it loading libpthread.</span><br><span class="line">    if &#x2F;bin&#x2F;grep -e libpthread &#x2F;proc&#x2F;$1&#x2F;maps &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1 ; then</span><br><span class="line">        backtrace&#x3D;&quot;thread apply all bt&quot;</span><br><span class="line">    fi</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">GDB&#x3D;$&#123;GDB:-&#x2F;usr&#x2F;bin&#x2F;gdb&#125;</span><br><span class="line"></span><br><span class="line">if $GDB -nx --quiet --batch --readnever &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1; then</span><br><span class="line">    readnever&#x3D;--readnever</span><br><span class="line">else</span><br><span class="line">    readnever&#x3D;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># Run GDB, strip out unwanted noise.</span><br><span class="line">$GDB --quiet $readnever -nx &#x2F;proc&#x2F;$1&#x2F;exe $1 &lt;&lt;EOF 2&gt;&amp;1 |</span><br><span class="line">set width 0</span><br><span class="line">set height 0</span><br><span class="line">set pagination no</span><br><span class="line">$backtrace</span><br><span class="line">EOF</span><br><span class="line">&#x2F;bin&#x2F;sed -n \</span><br><span class="line">    -e &#39;s&#x2F;^\((gdb) \)*&#x2F;&#x2F;&#39; \</span><br><span class="line">    -e &#39;&#x2F;^#&#x2F;p&#39; \</span><br><span class="line">    -e &#39;&#x2F;^Thread&#x2F;p&#39;</span><br></pre></td></tr></table></figure>
+
+
 
 <p>若是ubuntu桌面版的话可以安装一下增强功能</p>
 <h1 id="桌面版ubuntu安装增强功能">桌面版ubuntu安装增强功能</h1>
 
 <p><strong>注 : 如果在侧边找到如下图加载的虚拟光驱，就需要先右击，点击弹出，然后才可正常安装增强功能</strong></p>
-<p><img src="/img/vbox_install_ubuntu_tutorial/20150116222056924.jpg" alt><br></p>
+<p><img src="/img/vbox_install_ubuntu_tutorial/20150116222056924.jpg" alt="" /><br /></p>
 <p>点击安装增强功能</p>
-<p><img src="/img/vbox_install_ubuntu_tutorial/20150116222128125.jpg" alt><br></p>
+<p><img src="/img/vbox_install_ubuntu_tutorial/20150116222128125.jpg" alt="" /><br /></p>
 <p>点击“运行”</p>
-<p><img src="/img/vbox_install_ubuntu_tutorial/20150116222246498.jpg" alt><br></p>
+<p><img src="/img/vbox_install_ubuntu_tutorial/20150116222246498.jpg" alt="" /><br /></p>
 <p>输入登录系统的密码，点击授权，就开始自动安装了</p>
-<p><img src="/img/vbox_install_ubuntu_tutorial/20150116222308759.jpg" alt><br></p>
+<p><img src="/img/vbox_install_ubuntu_tutorial/20150116222308759.jpg" alt="" /><br /></p>
 <p>如图，为安装界面，安装完成后按下回车键，就按照成功了。</p>
-<p><img src="/img/vbox_install_ubuntu_tutorial/20150116222336153.jpg" alt><br></p>
+<p><img src="/img/vbox_install_ubuntu_tutorial/20150116222336153.jpg" alt="" /><br /></p>
 <p>安装好后关闭ubuntu再次启动ubuntu的时候，虚拟机就可以在无缝模式和自动显示尺寸下运行了。</p>
 
 
@@ -620,7 +621,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -632,7 +633,10 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -647,7 +651,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -656,7 +660,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -667,7 +671,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -778,10 +782,10 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

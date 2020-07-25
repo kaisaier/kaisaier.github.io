@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="CPP,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="CPP," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,17 +91,16 @@
 
 
 <meta name="description" content="如何绕过 g++ 4.8.1 那个不能在宏里面使用 R”(…)” 的 bug？ 看到形如：R”” 这样的写法，相信学过 Python 的童鞋会感到似曾相识。Python 支持所谓的 “raw string”。Python 文档这样介绍 raw string： Both string and bytes literals may optionally be prefixed with a lette">
-<meta name="keywords" content="CPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++11的Raw String Literals">
 <meta property="og:url" content="https://kaisaier.github.io/2018/06/17/cpp11_raw_string/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="如何绕过 g++ 4.8.1 那个不能在宏里面使用 R”(…)” 的 bug？ 看到形如：R”” 这样的写法，相信学过 Python 的童鞋会感到似曾相识。Python 支持所谓的 “raw string”。Python 文档这样介绍 raw string： Both string and bytes literals may optionally be prefixed with a lette">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="article:published_time" content="2018-06-17T04:29:01.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="CPP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++11的Raw String Literals">
-<meta name="twitter:description" content="如何绕过 g++ 4.8.1 那个不能在宏里面使用 R”(…)” 的 bug？ 看到形如：R”” 这样的写法，相信学过 Python 的童鞋会感到似曾相识。Python 支持所谓的 “raw string”。Python 文档这样介绍 raw string： Both string and bytes literals may optionally be prefixed with a lette">
 
 
 
@@ -152,7 +151,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -170,14 +169,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -195,7 +194,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -230,7 +229,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -240,7 +239,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -250,7 +249,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -260,7 +259,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -307,7 +306,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -332,7 +331,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T12:29:01-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T12:29:01+08:00">
                 2018-06-17
               </time>
             
@@ -343,7 +342,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -407,10 +406,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/02/a_real_time_game_server_and_a_ue4_demo_for_it/" rel="next" title="一个实时的专用游戏服务器">
+              <a href="/2018/04/21/cmake_tutorial/" rel="next" title="跨平台开发之CMake笔记">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
-                  一个实时的专用游戏服务器
+                  跨平台开发之CMake笔记
                 </p> 
               </a>
             
@@ -444,7 +443,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p><strong>. . .</strong><a id="more"></a></p>
 <p>C++ 11 中的 raw string，简化了我们在使用 regex 库时正则表达式的书写。下面是我找到的一些资料：</p>
 <p><a href="http://solarianprogrammer.com/2011/10/16/cpp-11-raw-strings-literals-tutorial/" target="_blank" rel="noopener">C++11 raw strings literals tutorial</a><br><a href="http://en.wikipedia.org/wiki/C%2B%2B11#New_string_literals" target="_blank" rel="noopener">Wikipedia: C++ 11 # New String Literals</a></p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 一个普通的字符串，'\n'被当作是转义字符，表示一个换行符。</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> normal_str = <span class="string">"First line.\nSecond line.\nEnd of message.\n"</span>;</span><br><span class="line">    <span class="comment">// 一个raw string，'\'不会被转义处理。因此，"\n"表示两个字符：字符反斜杠 和 字母n。</span></span><br><span class="line">    <span class="comment">// 注意其语法格式，稍后会介绍C++ 11中为什么会采用这种语法格式来表达一个raw string。</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> raw_str = <span class="string">R"(First line.\nSecond line.\nEnd of message.\n)"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; normal_str &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; raw_str &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">R"foo(Hello, world!)foo"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// raw string可以跨越多行，其中的空白和换行符都属于字符串的一部分。</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt;<span class="string">R"(</span></span><br><span class="line"><span class="string">                   Hello,</span></span><br><span class="line"><span class="string">                   world!</span></span><br><span class="line"><span class="string">                   )"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">				   </span><br><span class="line">    <span class="comment">// 下面两行代码意图说明C++ 11采用一对圆括号以及自定义分割字符串来表示raw string的原因。</span></span><br><span class="line">    <span class="comment">// 1.</span></span><br><span class="line">    <span class="comment">// 如果没有一对圆括号及空的分割字符串做定界处理，R"""将会出现语法错误。Python中，r"""也不会是一个合法的</span></span><br><span class="line">    <span class="comment">// raw string literal。</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">R"("</span>)<span class="string">" &lt;&lt; std::endl; // 输出一个双引号："</span></span><br><span class="line">    <span class="comment">// 2.</span></span><br><span class="line">    <span class="comment">// 自定义分割字符串为：delimiter。分割字符串的长度以及其中包含的字符集，都有明文规定。维基百科：</span></span><br><span class="line">    <span class="comment">// The string delimiter can be any string up to 16 characters in length, including the empty string. </span></span><br><span class="line">    <span class="comment">// This string cannot contain spaces, control characters, '(', ')', or the '\' character. </span></span><br><span class="line">    <span class="comment">// </span></span><br><span class="line">    <span class="comment">// 如果不使用自定义分割字符串，这里：R"()")"编译器无法识别raw string在何处结束。自定义分割字符串的用途</span></span><br><span class="line">    <span class="comment">// 维基百科中也有介绍：</span></span><br><span class="line">    <span class="comment">// The use of this delimiter string allows the user to have ")" characters within raw string literals.</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">R"delimiter()"</span>)delimiter<span class="string">" &lt;&lt; std::endl; // 输出：)"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 一个普通的字符串，'\n'被当作是转义字符，表示一个换行符。</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> normal_str = <span class="string">"First line.\nSecond line.\nEnd of message.\n"</span>;</span><br><span class="line">    <span class="comment">// 一个raw string，'\'不会被转义处理。因此，"\n"表示两个字符：字符反斜杠 和 字母n。</span></span><br><span class="line">    <span class="comment">// 注意其语法格式，稍后会介绍C++ 11中为什么会采用这种语法格式来表达一个raw string。</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> raw_str = <span class="string">R"(First line.\nSecond line.\nEnd of message.\n)"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; normal_str &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; raw_str &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">R"foo(Hello, world!)foo"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// raw string可以跨越多行，其中的空白和换行符都属于字符串的一部分。</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt;R<span class="string">"(</span></span><br><span class="line"><span class="string">                   Hello,</span></span><br><span class="line"><span class="string">                   world!</span></span><br><span class="line"><span class="string">                   )"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">				   </span><br><span class="line">    <span class="comment">// 下面两行代码意图说明C++ 11采用一对圆括号以及自定义分割字符串来表示raw string的原因。</span></span><br><span class="line">    <span class="comment">// 1.</span></span><br><span class="line">    <span class="comment">// 如果没有一对圆括号及空的分割字符串做定界处理，R"""将会出现语法错误。Python中，r"""也不会是一个合法的</span></span><br><span class="line">    <span class="comment">// raw string literal。</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">R"(")"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>; <span class="comment">// 输出一个双引号："</span></span><br><span class="line">    <span class="comment">// 2.</span></span><br><span class="line">    <span class="comment">// 自定义分割字符串为：delimiter。分割字符串的长度以及其中包含的字符集，都有明文规定。维基百科：</span></span><br><span class="line">    <span class="comment">// The string delimiter can be any string up to 16 characters in length, including the empty string. </span></span><br><span class="line">    <span class="comment">// This string cannot contain spaces, control characters, '(', ')', or the '\' character. </span></span><br><span class="line">    <span class="comment">// </span></span><br><span class="line">    <span class="comment">// 如果不使用自定义分割字符串，这里：R"()")"编译器无法识别raw string在何处结束。自定义分割字符串的用途</span></span><br><span class="line">    <span class="comment">// 维基百科中也有介绍：</span></span><br><span class="line">    <span class="comment">// The use of this delimiter string allows the user to have ")" characters within raw string literals.</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">R"delimiter()")delimiter"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>; <span class="comment">// 输出：)"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
 <h1 id="打印结果"><a href="#打印结果" class="headerlink" title="打印结果"></a>打印结果</h1><pre><code>First line.
 Second line.
@@ -485,10 +485,10 @@ Hello, world!
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2018/05/02/a_real_time_game_server_and_a_ue4_demo_for_it/" rel="next" title="一个实时的专用游戏服务器">
+                <a href="/2018/04/21/cmake_tutorial/" rel="next" title="跨平台开发之CMake笔记">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
-                    一个实时的专用游戏服务器
+                    跨平台开发之CMake笔记
                   </p> 
                 </a>
               
@@ -578,7 +578,7 @@ Hello, world!
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -590,7 +590,10 @@ Hello, world!
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -605,7 +608,7 @@ Hello, world!
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -614,7 +617,7 @@ Hello, world!
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -625,7 +628,7 @@ Hello, world!
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -736,10 +739,10 @@ Hello, world!
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

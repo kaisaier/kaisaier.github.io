@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="CPP,DataStructure,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="CPP,DataStructure," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,21 +91,21 @@
 
 
 <meta name="description" content="有了二叉树的基础, 我们继续学习二叉搜索树. 二叉搜索树的定义二叉查找树(Binary Search Tree, 简称”BST”), 又名”二叉搜索树”或”二叉排序树”:它或者是一棵空树，或者是具有下列性质的二叉树： 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值； 它的左、右子树也分别为二叉排序树。   . . .">
-<meta name="keywords" content="CPP,DataStructure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构三之二叉搜索树的增删查">
 <meta property="og:url" content="https://kaisaier.github.io/2014/09/24/binary_search_tree_insert_delete_search/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="有了二叉树的基础, 我们继续学习二叉搜索树. 二叉搜索树的定义二叉查找树(Binary Search Tree, 简称”BST”), 又名”二叉搜索树”或”二叉排序树”:它或者是一棵空树，或者是具有下列性质的二叉树： 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值； 它的左、右子树也分别为二叉排序树。   . . .">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://kaisaier.github.io/2014/09/24/binary_search_tree_insert_delete_search/BinarySearchTree.png">
 <meta property="og:image" content="https://kaisaier.github.io/2014/09/24/binary_search_tree_insert_delete_search/BinarySearchTreeInsert1.png">
 <meta property="og:image" content="https://kaisaier.github.io/2014/09/24/binary_search_tree_insert_delete_search/BinarySearchTreeDelete1.png">
 <meta property="og:image" content="https://kaisaier.github.io/2014/09/24/binary_search_tree_insert_delete_search/BinarySearchTreeDelete2.png">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="article:published_time" content="2014-09-24T11:17:32.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="CPP">
+<meta property="article:tag" content="DataStructure">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据结构三之二叉搜索树的增删查">
-<meta name="twitter:description" content="有了二叉树的基础, 我们继续学习二叉搜索树. 二叉搜索树的定义二叉查找树(Binary Search Tree, 简称”BST”), 又名”二叉搜索树”或”二叉排序树”:它或者是一棵空树，或者是具有下列性质的二叉树： 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值； 它的左、右子树也分别为二叉排序树。   . . .">
 <meta name="twitter:image" content="https://kaisaier.github.io/2014/09/24/binary_search_tree_insert_delete_search/BinarySearchTree.png">
 
 
@@ -157,7 +157,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -175,14 +175,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -200,7 +200,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -235,7 +235,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -245,7 +245,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -255,7 +255,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -265,7 +265,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -312,7 +312,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -337,7 +337,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-09-24T19:17:32-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-09-24T19:17:32+08:00">
                 2014-09-24
               </time>
             
@@ -348,7 +348,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -447,7 +447,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         <p>有了二叉树的基础, 我们继续学习二叉搜索树.</p>
 <h1 id="二叉搜索树的定义"><a href="#二叉搜索树的定义" class="headerlink" title="二叉搜索树的定义"></a>二叉搜索树的定义</h1><p><strong>二叉查找树(Binary Search Tree, 简称”BST”), 又名”二叉搜索树”或”二叉排序树”:</strong><br>它或者是一棵空树，或者是具有下列性质的二叉树： 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值； 它的左、右子树也分别为二叉排序树。</p>
-<img src="/2014/09/24/binary_search_tree_insert_delete_search/BinarySearchTree.png">
+<img src="/2014/09/24/binary_search_tree_insert_delete_search/BinarySearchTree.png" class="">
 
 <p><strong>. . .</strong><a id="more"></a></p>
 <p>*<em>注 : *</em><br>我们本文中二叉树的二叉链式存储方案的代码表示为</p>
@@ -455,13 +455,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 <h1 id="二叉搜索树的查询"><a href="#二叉搜索树的查询" class="headerlink" title="二叉搜索树的查询"></a>二叉搜索树的查询</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BTNP <span class="title">SearchBST</span><span class="params">(BTNP btnp, <span class="keyword">char</span> key_data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (btnp)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> ( key_data &lt; (*(<span class="keyword">char</span> *)(btnp-&gt;data)) )</span><br><span class="line">		&#123;</span><br><span class="line">			btnp = btnp-&gt;LeftNode;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> ( key_data &gt;(*(<span class="keyword">char</span> *)(btnp-&gt;data)) )</span><br><span class="line">		&#123;</span><br><span class="line">			btnp = btnp-&gt;RightNode;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"found"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">return</span> btnp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"not found"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="二叉搜索树的插入"><a href="#二叉搜索树的插入" class="headerlink" title="二叉搜索树的插入"></a>二叉搜索树的插入</h1><img src="/2014/09/24/binary_search_tree_insert_delete_search/BinarySearchTreeInsert1.png">
+<h1 id="二叉搜索树的插入"><a href="#二叉搜索树的插入" class="headerlink" title="二叉搜索树的插入"></a>二叉搜索树的插入</h1><img src="/2014/09/24/binary_search_tree_insert_delete_search/BinarySearchTreeInsert1.png" class="">
 
 
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertBST</span><span class="params">(BTNP &amp;btnp, <span class="keyword">char</span> key_data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">char</span> * temp_key_data = <span class="keyword">new</span> <span class="keyword">char</span>;</span><br><span class="line">	*temp_key_data = key_data;</span><br><span class="line"></span><br><span class="line">	BTNP new_btnp = <span class="keyword">new</span> BTN;</span><br><span class="line">	new_btnp-&gt;data = temp_key_data;</span><br><span class="line">	new_btnp-&gt;LeftNode = <span class="literal">nullptr</span>;</span><br><span class="line">	new_btnp-&gt;RightNode = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!btnp)</span><br><span class="line">	&#123;</span><br><span class="line">		btnp = new_btnp;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	BTNP temp_btnp = btnp;</span><br><span class="line">	BTNP parent_btnp = <span class="literal">nullptr</span>;</span><br><span class="line">	<span class="keyword">bool</span> is_left = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">while</span> (temp_btnp)</span><br><span class="line">	&#123;</span><br><span class="line">		parent_btnp = temp_btnp;</span><br><span class="line">		<span class="keyword">if</span> (key_data &lt; (*(<span class="keyword">char</span> *)(temp_btnp-&gt;data)))</span><br><span class="line">		&#123;</span><br><span class="line">			temp_btnp = temp_btnp-&gt;LeftNode;</span><br><span class="line">			is_left = <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (key_data &gt; (*(<span class="keyword">char</span> *)(temp_btnp-&gt;data)))</span><br><span class="line">		&#123;</span><br><span class="line">			temp_btnp = temp_btnp-&gt;RightNode;</span><br><span class="line">			is_left = <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"already has a same key_data"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (is_left == <span class="literal">true</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		parent_btnp-&gt;LeftNode = new_btnp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		parent_btnp-&gt;RightNode = new_btnp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="二叉搜索树之删除某个结点"><a href="#二叉搜索树之删除某个结点" class="headerlink" title="二叉搜索树之删除某个结点"></a>二叉搜索树之删除某个结点</h1><img src="/2014/09/24/binary_search_tree_insert_delete_search/BinarySearchTreeDelete1.png">
-<img src="/2014/09/24/binary_search_tree_insert_delete_search/BinarySearchTreeDelete2.png">
+<h1 id="二叉搜索树之删除某个结点"><a href="#二叉搜索树之删除某个结点" class="headerlink" title="二叉搜索树之删除某个结点"></a>二叉搜索树之删除某个结点</h1><img src="/2014/09/24/binary_search_tree_insert_delete_search/BinarySearchTreeDelete1.png" class="">
+<img src="/2014/09/24/binary_search_tree_insert_delete_search/BinarySearchTreeDelete2.png" class="">
 
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DeleteBinaraySearchTree</span><span class="params">(BTNP &amp;btnp, <span class="keyword">char</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// 第一步 : 查找是否有这个key</span></span><br><span class="line">	BTNP parentBTNP = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">bool</span> isLeft = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">	BTNP tempBNTP = btnp;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (tempBNTP)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (*(<span class="keyword">char</span>*)tempBNTP-&gt;data &gt; key)</span><br><span class="line">		&#123;</span><br><span class="line">			parentBTNP = tempBNTP;</span><br><span class="line">			tempBNTP = tempBNTP-&gt;LeftNode;</span><br><span class="line">			isLeft = <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (*(<span class="keyword">char</span>*)tempBNTP-&gt;data &lt; key)</span><br><span class="line">		&#123;</span><br><span class="line">			parentBTNP = tempBNTP;</span><br><span class="line">			tempBNTP = tempBNTP-&gt;RightNode;</span><br><span class="line">			isLeft = <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!tempBNTP)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"not found this key!!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"found this key!!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 第二步 : 我们得处里key结点没有父结点的情况</span></span><br><span class="line">	<span class="keyword">if</span> (!parentBTNP)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">delete</span> (<span class="keyword">char</span> *)btnp-&gt;data;</span><br><span class="line">		btnp-&gt;data = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">delete</span> btnp;</span><br><span class="line">		btnp = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"test"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// 第三步 : 我们得处里key结点有父结点的4种情况</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">// 情况1</span></span><br><span class="line">		<span class="keyword">if</span> (tempBNTP-&gt;LeftNode == <span class="literal">NULL</span> &amp;&amp; tempBNTP-&gt;RightNode == <span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (isLeft)</span><br><span class="line">			&#123;</span><br><span class="line">				parentBTNP-&gt;LeftNode = <span class="literal">NULL</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				parentBTNP-&gt;RightNode = <span class="literal">NULL</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 情况2</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (tempBNTP-&gt;LeftNode == <span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (isLeft)</span><br><span class="line">			&#123;</span><br><span class="line">				parentBTNP-&gt;LeftNode = tempBNTP-&gt;RightNode;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				parentBTNP-&gt;RightNode = tempBNTP-&gt;RightNode;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 情况3</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (tempBNTP-&gt;RightNode == <span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (isLeft)</span><br><span class="line">			&#123;</span><br><span class="line">				parentBTNP-&gt;LeftNode = tempBNTP-&gt;LeftNode;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				parentBTNP-&gt;RightNode = tempBNTP-&gt;LeftNode;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 情况4</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (tempBNTP-&gt;LeftNode != <span class="literal">NULL</span> &amp;&amp; tempBNTP-&gt;RightNode != <span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">// 情况4比较复杂, 我们得找到key结点的后继</span></span><br><span class="line">			<span class="comment">// (后继 : 一个结点x的后继是大于x.key的最小关键字的结点)</span></span><br><span class="line">			<span class="comment">// 因为情况4中的key结点左孩子和右孩子都不为空, </span></span><br><span class="line">			<span class="comment">// 所以key结点的后继 successorBTNP 肯定位于key结点的右子树中,</span></span><br><span class="line">			<span class="comment">// 且 successorBTNP 没有左孩子( 不然 successorBTNP 的左孩子就是key结点的后继了嘛)</span></span><br><span class="line">			BTNP tempTempBNTP = tempBNTP-&gt;RightNode;</span><br><span class="line"></span><br><span class="line">			<span class="comment">// key结点的后继</span></span><br><span class="line">			BTNP successorBTNP = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">			<span class="comment">// key结点的后继的父结点</span></span><br><span class="line">			BTNP successorParentBTNP = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">while</span> (tempTempBNTP)</span><br><span class="line">			&#123;</span><br><span class="line">				successorBTNP = tempTempBNTP;</span><br><span class="line">				<span class="keyword">if</span> (tempTempBNTP &amp;&amp; tempTempBNTP-&gt;LeftNode &amp;&amp; tempTempBNTP-&gt;LeftNode-&gt;LeftNode == <span class="literal">NULL</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					successorParentBTNP = tempTempBNTP;</span><br><span class="line">				&#125;</span><br><span class="line">				tempTempBNTP = tempTempBNTP-&gt;LeftNode;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="comment">// 情况4又分两种情况, 如下 : </span></span><br><span class="line">			<span class="comment">// 第一种情况 A 是 successorBTNP 是 key 的右孩子;</span></span><br><span class="line">			<span class="comment">// 第二种情况 B 是 successorBTNP 在 key 的右子树中, 但并不是 successorBTNP 本身并不是 key 的右孩子</span></span><br><span class="line"></span><br><span class="line">			<span class="comment">// 情况 A : </span></span><br><span class="line">			<span class="keyword">if</span> (successorBTNP == tempBNTP-&gt;RightNode)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="comment">// 用 key 结点的后继 successorBTNP 来替代 key 结点</span></span><br><span class="line">				<span class="keyword">if</span> (isLeft)</span><br><span class="line">				&#123;</span><br><span class="line">					parentBTNP-&gt;LeftNode = successorBTNP;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					parentBTNP-&gt;RightNode = successorBTNP;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">// 情况 B :</span></span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="comment">// 如果 successorBTNP 有右子树, 则用 successorBTNP 的右子树 代替 原来 successorBTNP 的位置.</span></span><br><span class="line">				<span class="keyword">if</span> (successorBTNP-&gt;RightNode)</span><br><span class="line">				&#123;</span><br><span class="line">					successorParentBTNP-&gt;LeftNode = successorBTNP-&gt;RightNode;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				<span class="comment">// 用 key 结点的后继 successorBTNP 的data来替换 key 结点的data</span></span><br><span class="line">				<span class="keyword">char</span> * tempChar = <span class="keyword">new</span> <span class="keyword">char</span>;</span><br><span class="line">				*tempChar = *(<span class="keyword">char</span> *)successorBTNP-&gt;data;</span><br><span class="line">				tempBNTP-&gt;data = tempChar;</span><br><span class="line">				tempBNTP = successorBTNP;</span><br><span class="line"></span><br><span class="line">				<span class="comment">// 下面注释的这块代码可以用上面这两4行代替</span></span><br><span class="line">				<span class="comment">// if (isLeft)</span></span><br><span class="line">				<span class="comment">// &#123;</span></span><br><span class="line">				<span class="comment">// 	parentBTNP-&gt;LeftNode = successorBTNP;</span></span><br><span class="line">				<span class="comment">// 	successorBTNP-&gt;RightNode = tempBNTP-&gt;RightNode;</span></span><br><span class="line">				<span class="comment">// 	successorBTNP-&gt;LeftNode = tempBNTP-&gt;LeftNode;</span></span><br><span class="line">				<span class="comment">// &#125;</span></span><br><span class="line">				<span class="comment">// else</span></span><br><span class="line">				<span class="comment">// &#123;</span></span><br><span class="line">				<span class="comment">// 	parentBTNP-&gt;RightNode = successorBTNP;</span></span><br><span class="line">				<span class="comment">// 	successorBTNP-&gt;RightNode = tempBNTP-&gt;RightNode;</span></span><br><span class="line">				<span class="comment">// 	successorBTNP-&gt;LeftNode = tempBNTP-&gt;LeftNode;</span></span><br><span class="line">				<span class="comment">// &#125;</span></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 记得释放 key 结点</span></span><br><span class="line">		<span class="keyword">delete</span> (<span class="keyword">char</span> *)tempBNTP-&gt;data;</span><br><span class="line">		tempBNTP-&gt;data = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">delete</span> tempBNTP;</span><br><span class="line">		tempBNTP = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -600,7 +600,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -612,7 +612,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -627,7 +630,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -636,7 +639,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -647,7 +650,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -758,10 +761,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

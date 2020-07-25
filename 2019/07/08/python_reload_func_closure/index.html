@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Python,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="Python," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,20 +91,19 @@
 
 
 <meta name="description" content="带着问题学习动力是较强的, 直接上例子 . . .">
-<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python的reload对于func_closure的处理">
 <meta property="og:url" content="https://kaisaier.github.io/2019/07/08/python_reload_func_closure/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="带着问题学习动力是较强的, 直接上例子 . . .">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://kaisaier.github.io/img/python_func_closure/python_func_closure_1.png">
 <meta property="og:image" content="https://kaisaier.github.io/img/python_func_closure/python_func_closure_2.png">
 <meta property="og:image" content="https://kaisaier.github.io/img/python_func_closure/python_func_closure_3.png">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="article:published_time" content="2019-07-08T09:55:26.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python的reload对于func_closure的处理">
-<meta name="twitter:description" content="带着问题学习动力是较强的, 直接上例子 . . .">
 <meta name="twitter:image" content="https://kaisaier.github.io/img/python_func_closure/python_func_closure_1.png">
 
 
@@ -156,7 +155,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -174,14 +173,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -199,7 +198,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -234,7 +233,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -244,7 +243,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -254,7 +253,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -264,7 +263,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -311,7 +310,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -336,7 +335,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-08T17:55:26-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-08T17:55:26+08:00">
                 2019-07-08
               </time>
             
@@ -347,7 +346,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -454,7 +453,6 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <p>debug一波, 此时发现func_closure是这样存的<br><img src="/img/python_func_closure/python_func_closure_1.png" alt="python_func_closure_1"></p>
 <p>把 <code>make_actions</code> 改成</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_actions</span><span class="params">()</span>:</span></span><br><span class="line">	acts = []</span><br><span class="line">	xxd = &#123;<span class="number">1</span>: <span class="string">'1'</span>, <span class="number">2</span>: <span class="string">'2'</span>, <span class="number">3</span>: <span class="string">'3'</span>&#125;</span><br><span class="line">	<span class="keyword">for</span> k, v <span class="keyword">in</span> xxd.iteritems():</span><br><span class="line">		acts.append(<span class="keyword">lambda</span> x, key=k, val=v, : (key + int(val)) ** x)</span><br><span class="line">	<span class="keyword">return</span> acts</span><br></pre></td></tr></table></figure>
-
 <p>再debug断点查看一波就完事了, 会发现现在 <code>func_defaults</code> 里现在有东西了<br><img src="/img/python_func_closure/python_func_closure_2.png" alt="python_func_closure_2"></p>
 <h1 id="基于函数替换型reload中的应用"><a href="#基于函数替换型reload中的应用" class="headerlink" title="基于函数替换型reload中的应用"></a>基于函数替换型reload中的应用</h1><p>实现python热更逻辑的时候要记得处理func_closure</p>
 <p>如类似下方的这段代码要怎么reload呢?</p>
@@ -462,7 +460,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 <p>debug断点查看一波, 发现func_closure里还有 function object<br><img src="/img/python_func_closure/python_func_closure_3.png" alt="python_func_closure_3"></p>
 <p>那reload需要对含有闭包的情况进行一些简单处理: </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">replace_func</span><span class="params">(new_func, old_func, is_closure = False)</span>:</span></span><br><span class="line">    <span class="comment"># 简单的closure的处理</span></span><br><span class="line">    re_attrs = (<span class="string">'func_doc'</span>, <span class="string">'func_code'</span>, <span class="string">'func_dict'</span>, <span class="string">'func_defaults'</span>)</span><br><span class="line">    <span class="keyword">for</span> attr_name <span class="keyword">in</span> re_attrs:</span><br><span class="line">        setattr(old_func, attr_name, getattr(new_func, attr_name, <span class="keyword">None</span>))</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> is_closure:</span><br><span class="line">        old_cell_nums = len(old_func.func_closure) <span class="keyword">if</span> old_func.func_closure <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">        new_cell_nums = len(new_func.func_closure) <span class="keyword">if</span> new_func.func_closure <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> new_cell_nums <span class="keyword">and</span> new_cell_nums == old_cell_nums:</span><br><span class="line">            <span class="keyword">for</span> idx, cell <span class="keyword">in</span> enumerate(old_func.func_closure):</span><br><span class="line">                <span class="keyword">if</span> inspect.isfunction(cell.cell_contents):</span><br><span class="line">                    do_replace_func(new_func.func_closure[idx].cell_contents, cell.cell_contents, <span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">replace_func</span><span class="params">(new_func, old_func, is_closure = False)</span>:</span></span><br><span class="line">    <span class="comment"># 简单的closure的处理</span></span><br><span class="line">    re_attrs = (<span class="string">'func_doc'</span>, <span class="string">'func_code'</span>, <span class="string">'func_dict'</span>, <span class="string">'func_defaults'</span>)</span><br><span class="line">    <span class="keyword">for</span> attr_name <span class="keyword">in</span> re_attrs:</span><br><span class="line">        setattr(old_func, attr_name, getattr(new_func, attr_name, <span class="literal">None</span>))</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> is_closure:</span><br><span class="line">        old_cell_nums = len(old_func.func_closure) <span class="keyword">if</span> old_func.func_closure <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">        new_cell_nums = len(new_func.func_closure) <span class="keyword">if</span> new_func.func_closure <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> new_cell_nums <span class="keyword">and</span> new_cell_nums == old_cell_nums:</span><br><span class="line">            <span class="keyword">for</span> idx, cell <span class="keyword">in</span> enumerate(old_func.func_closure):</span><br><span class="line">                <span class="keyword">if</span> inspect.isfunction(cell.cell_contents):</span><br><span class="line">                    do_replace_func(new_func.func_closure[idx].cell_contents, cell.cell_contents, <span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
       
 
 
@@ -579,7 +577,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -591,7 +589,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -606,7 +607,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -615,7 +616,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -626,7 +627,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -737,10 +738,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

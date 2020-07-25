@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Git,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="Git," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -91,17 +91,16 @@
 
 
 <meta name="description" content="介绍目前，网络上可选择的Git远程仓库比较多，其中用的较多的可能就是github和bitbucket（当然，你也可以使用自己搭建的远程仓库）。github和bitbucket的主要区别在于：bitbucket创建私人库是免费的。如果你不介意自己的代码公开，那你就可以使用github。如果，你有些私人的代码的话，又需要版本控制，这时候bitbucket就满足需要了。 但是，在国内的主要问题是：网络不">
-<meta name="keywords" content="Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git设置代理">
 <meta property="og:url" content="https://kaisaier.github.io/2018/03/11/git_shadow_socks_proxy/index.html">
 <meta property="og:site_name" content="凯">
 <meta property="og:description" content="介绍目前，网络上可选择的Git远程仓库比较多，其中用的较多的可能就是github和bitbucket（当然，你也可以使用自己搭建的远程仓库）。github和bitbucket的主要区别在于：bitbucket创建私人库是免费的。如果你不介意自己的代码公开，那你就可以使用github。如果，你有些私人的代码的话，又需要版本控制，这时候bitbucket就满足需要了。 但是，在国内的主要问题是：网络不">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="article:published_time" content="2018-03-11T04:16:56.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git设置代理">
-<meta name="twitter:description" content="介绍目前，网络上可选择的Git远程仓库比较多，其中用的较多的可能就是github和bitbucket（当然，你也可以使用自己搭建的远程仓库）。github和bitbucket的主要区别在于：bitbucket创建私人库是免费的。如果你不介意自己的代码公开，那你就可以使用github。如果，你有些私人的代码的话，又需要版本控制，这时候bitbucket就满足需要了。 但是，在国内的主要问题是：网络不">
 
 
 
@@ -152,7 +151,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -170,14 +169,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -195,7 +194,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -230,7 +229,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -240,7 +239,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -250,7 +249,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -260,7 +259,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -307,7 +306,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -332,7 +331,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-11T12:16:56-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-11T12:16:56+08:00">
                 2018-03-11
               </time>
             
@@ -343,7 +342,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -420,7 +419,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/13/UE4如何让物体不受光照的颜色影响/" rel="prev" title="UE4如何让物体不受光照的颜色影响">
+              <a href="/2018/03/13/UE4%E5%A6%82%E4%BD%95%E8%AE%A9%E7%89%A9%E4%BD%93%E4%B8%8D%E5%8F%97%E5%85%89%E7%85%A7%E7%9A%84%E9%A2%9C%E8%89%B2%E5%BD%B1%E5%93%8D/" rel="prev" title="UE4如何让物体不受光照的颜色影响">
               <p class="post-nav-pre-next-title">
                   UE4如何让物体不受光照的颜色影响
               </p> 
@@ -451,20 +450,20 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># Linux 环境</span><br><span class="line">Host bitbucket.org</span><br><span class="line">Hostname bitbucket.org</span><br><span class="line">User git</span><br><span class="line">Port 22</span><br><span class="line">ProxyCommand nc -x 127.0.0.1:1080 %h %portability</span><br><span class="line"></span><br><span class="line"># Linux 环境</span><br><span class="line">Host github github.com</span><br><span class="line">Hostname github.com</span><br><span class="line">User git</span><br><span class="line">Port 22</span><br><span class="line">ProxyCommand nc -x 127.0.0.1:1080 %h %portability</span><br><span class="line"></span><br><span class="line"># windows 环境</span><br><span class="line">Host bitbucket.org</span><br><span class="line">User git</span><br><span class="line">Port 22</span><br><span class="line">Hostname bitbucket.org</span><br><span class="line">ProxyCommand connect -S 127.0.0.1:1080 %h %portability</span><br><span class="line"></span><br><span class="line"># windows 环境</span><br><span class="line">Host github github.com</span><br><span class="line">Hostname github.com</span><br><span class="line">Port 22</span><br><span class="line">User git</span><br><span class="line">ProxyCommand connect -S 127.0.0.1:1080 %h %p</span><br></pre></td></tr></table></figure>
 
 <h1 id="设置http-https协议代理"><a href="#设置http-https协议代理" class="headerlink" title="设置http/https协议代理"></a>设置http/https协议代理</h1><p>如果你的远程仓库链接拥有如下格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://github.com/archerie/learngit.git</span><br><span class="line">https://github.com/archerie/learngit.git</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;github.com&#x2F;archerie&#x2F;learngit.git</span><br><span class="line">https:&#x2F;&#x2F;github.com&#x2F;archerie&#x2F;learngit.git</span><br></pre></td></tr></table></figure>
 
 <p>说明你使用的是http/https协议，所以可以使用git配套的CMSSW支持的代理协议：SOCKS4、SOCKS5和HTTPS/HTTPS。可通过配置http.proxy配置, 有两种方式分别为：</p>
 <h2 id="直接编辑-gitconfig文件的方式"><a href="#直接编辑-gitconfig文件的方式" class="headerlink" title="直接编辑.gitconfig文件的方式"></a>直接编辑.gitconfig文件的方式</h2><p>可以直接编辑 git 的设置文件，该文件通常位于用户目录下，名为 .gitconfig，如果看不到，需要显示隐藏文件。<br>在 .gitconfig 文件的末尾加上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[https]</span><br><span class="line">	proxy = https://127.0.0.1:1080</span><br><span class="line">[http]</span><br><span class="line">	proxy = http://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[https]</span><br><span class="line">	proxy &#x3D; https:&#x2F;&#x2F;127.0.0.1:1080</span><br><span class="line">[http]</span><br><span class="line">	proxy &#x3D; http:&#x2F;&#x2F;127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+
 
 <h2 id="敲命令的方式"><a href="#敲命令的方式" class="headerlink" title="敲命令的方式"></a>敲命令的方式</h2><p>当然，你也可以敲命令, 命令如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy https://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080</span><br><span class="line">git config --global https.proxy https:&#x2F;&#x2F;127.0.0.1:1080</span><br></pre></td></tr></table></figure>
 <p>经过测试，不需要设置sock5。<br>取消的命令如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
 
 <p>还可以设置只本次用一下代理 : </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 本次设置</span><br><span class="line">git clone https://github.com/example/example.git --config &quot;http.proxy=127.0.0.1:1080&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 本次设置</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;example&#x2F;example.git --config &quot;http.proxy&#x3D;127.0.0.1:1080&quot;</span><br></pre></td></tr></table></figure>
 
 <h1 id="设置Git协议的代理"><a href="#设置Git协议的代理" class="headerlink" title="设置Git协议的代理"></a>设置Git协议的代理</h1><p>Git协议是Git提供的一个守护进程，它监听专门的端口（9418），然后提供类似于ssh协议一样的服务，只是它不需要验证。所以，然后用户通过网络都可以使用git协议连接提供git连接的仓库。如果远程仓库的链接是如下形式：</p>
 <p><code>git://github.com/archerie/learngit.git</code></p>
@@ -509,7 +508,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2018/03/13/UE4如何让物体不受光照的颜色影响/" rel="prev" title="UE4如何让物体不受光照的颜色影响">
+                <a href="/2018/03/13/UE4%E5%A6%82%E4%BD%95%E8%AE%A9%E7%89%A9%E4%BD%93%E4%B8%8D%E5%8F%97%E5%85%89%E7%85%A7%E7%9A%84%E9%A2%9C%E8%89%B2%E5%BD%B1%E5%93%8D/" rel="prev" title="UE4如何让物体不受光照的颜色影响">
                 <p class="post-nav-pre-next-title">
                     UE4如何让物体不受光照的颜色影响
                 </p> 
@@ -589,7 +588,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -601,7 +600,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -616,7 +618,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -625,7 +627,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -636,7 +638,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -729,7 +731,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本文前提"><span class="nav-number">2.</span> <span class="nav-text">本文前提</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置SSH协议的代理"><span class="nav-number">3.</span> <span class="nav-text">设置SSH协议的代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置http-https协议代理"><span class="nav-number">4.</span> <span class="nav-text">设置http/https协议代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接编辑-gitconfig文件的方式"><span class="nav-number">4.1.</span> <span class="nav-text">直接编辑.gitconfig文件的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#敲命令的方式"><span class="nav-number">4.2.</span> <span class="nav-text">敲命令的方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置Git协议的代理"><span class="nav-number">5.</span> <span class="nav-text">设置Git协议的代理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本文前提"><span class="nav-number">2.</span> <span class="nav-text">本文前提</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置SSH协议的代理"><span class="nav-number">3.</span> <span class="nav-text">设置SSH协议的代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置http-https协议代理"><span class="nav-number">4.</span> <span class="nav-text">设置http&#x2F;https协议代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接编辑-gitconfig文件的方式"><span class="nav-number">4.1.</span> <span class="nav-text">直接编辑.gitconfig文件的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#敲命令的方式"><span class="nav-number">4.2.</span> <span class="nav-text">敲命令的方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置Git协议的代理"><span class="nav-number">5.</span> <span class="nav-text">设置Git协议的代理</span></a></li></ol></div>
             
 
           </div>
@@ -747,10 +749,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

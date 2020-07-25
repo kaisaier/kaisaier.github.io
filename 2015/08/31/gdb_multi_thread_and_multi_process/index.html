@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 <script>
@@ -42,8 +42,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -61,7 +61,7 @@
 
   
   
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css" />
 
 
 
@@ -69,39 +69,38 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="GDB,">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="GDB," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
 
 
 
-<meta name="description" content="GDB多进程/多线程调试实战例子在gcc编译的时候，记得附加 -lpthread参数, 否则会出现 undefined reference to ‘pthread_create’ 的错误.(因为在链接的时候，无法找到phread库中哥函数的入口地址，于是链接会失败。) 例程123456789101112131415161718192021222324252627282930313233343536">
-<meta name="keywords" content="GDB">
+<meta name="description" content="GDB多进程&#x2F;多线程调试实战例子在gcc编译的时候，记得附加 -lpthread参数, 否则会出现 undefined reference to ‘pthread_create’ 的错误.(因为在链接的时候，无法找到phread库中哥函数的入口地址，于是链接会失败。) 例程123456789101112131415161718192021222324252627282930313233343536">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GDB多进程多线程调试实战">
 <meta property="og:url" content="https://kaisaier.github.io/2015/08/31/gdb_multi_thread_and_multi_process/index.html">
 <meta property="og:site_name" content="凯">
-<meta property="og:description" content="GDB多进程/多线程调试实战例子在gcc编译的时候，记得附加 -lpthread参数, 否则会出现 undefined reference to ‘pthread_create’ 的错误.(因为在链接的时候，无法找到phread库中哥函数的入口地址，于是链接会失败。) 例程123456789101112131415161718192021222324252627282930313233343536">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-24T07:33:46.000Z">
+<meta property="og:description" content="GDB多进程&#x2F;多线程调试实战例子在gcc编译的时候，记得附加 -lpthread参数, 否则会出现 undefined reference to ‘pthread_create’ 的错误.(因为在链接的时候，无法找到phread库中哥函数的入口地址，于是链接会失败。) 例程123456789101112131415161718192021222324252627282930313233343536">
+<meta property="article:published_time" content="2015-08-31T06:20:23.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:50:03.000Z">
+<meta property="article:author" content="kaisaier">
+<meta property="article:tag" content="GDB">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GDB多进程多线程调试实战">
-<meta name="twitter:description" content="GDB多进程/多线程调试实战例子在gcc编译的时候，记得附加 -lpthread参数, 否则会出现 undefined reference to ‘pthread_create’ 的错误.(因为在链接的时候，无法找到phread库中哥函数的入口地址，于是链接会失败。) 例程123456789101112131415161718192021222324252627282930313233343536">
 
 
 
@@ -152,7 +151,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -170,14 +169,14 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">凯</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">ue4</p>
+        <p class="site-subtitle">工程师</p>
       
   </div>
 
@@ -195,7 +194,7 @@
   <form class="site-search-form">
     <span class="search-icon fa fa-search"></span>
     <input type="text" id="local-search-input" class="st-search-input">
-    <i id="local-search-close">×</i>
+    <i id='local-search-close'>×</i>
   </form>
 
 
@@ -230,7 +229,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -240,7 +239,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -250,7 +249,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -260,7 +259,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -307,7 +306,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kaisaier">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
@@ -332,7 +331,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-31T14:20:23-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-31T14:20:23+08:00">
                 2015-08-31
               </time>
             
@@ -343,7 +342,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -420,7 +419,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/" rel="prev" title="hash索引btree索引聚簇索引非聚簇索引">
+              <a href="/2015/09/12/hash%E7%B4%A2%E5%BC%95btree%E7%B4%A2%E5%BC%95%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95/" rel="prev" title="hash索引btree索引聚簇索引非聚簇索引">
               <p class="post-nav-pre-next-title">
                   hash索引btree索引聚簇索引非聚簇索引
               </p> 
@@ -440,6 +439,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       
         <h1 id="GDB多进程-多线程调试实战例子"><a href="#GDB多进程-多线程调试实战例子" class="headerlink" title="GDB多进程/多线程调试实战例子"></a>GDB多进程/多线程调试实战例子</h1><p>在gcc编译的时候，记得附加 -lpthread参数, 否则会出现 undefined reference to ‘pthread_create’ 的错误.<br>(因为在链接的时候，无法找到phread库中哥函数的入口地址，于是链接会失败。)</p>
 <h2 id="例程"><a href="#例程" class="headerlink" title="例程"></a>例程</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">processA</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">processB</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">processAworker</span><span class="params">(<span class="keyword">void</span> *arg)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> pid;</span><br><span class="line"></span><br><span class="line">		pid = fork();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (pid != <span class="number">0</span>)</span><br><span class="line">				processA();</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">				processB();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">processA</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">		<span class="keyword">pid_t</span> pid = getpid();</span><br><span class="line">		<span class="keyword">char</span> prefix[] = <span class="string">"ProcessA: "</span>;</span><br><span class="line">		<span class="keyword">char</span> tprefix[] = <span class="string">"thread "</span>;</span><br><span class="line">		<span class="keyword">int</span> tstatus;</span><br><span class="line">		<span class="keyword">pthread_t</span> pt;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s%lu %s\n"</span>, prefix, pid, <span class="string">"step1"</span>);</span><br><span class="line"></span><br><span class="line">		tstatus = pthread_create(&amp;pt, <span class="literal">NULL</span>, processAworker, <span class="literal">NULL</span>);</span><br><span class="line">		<span class="keyword">if</span> (tstatus != <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"ProcessA: Can not create new thread."</span>);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		processAworker(<span class="literal">NULL</span>);</span><br><span class="line">		sleep(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">processAworker</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">		<span class="keyword">pid_t</span> pid = getpid();</span><br><span class="line">		<span class="keyword">pthread_t</span> tid = pthread_self();</span><br><span class="line">		<span class="keyword">char</span> prefix[] = <span class="string">"ProcessA: "</span>;</span><br><span class="line">		<span class="keyword">char</span> tprefix[] = <span class="string">"thread "</span>;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s%lu %s%lu %s\n"</span>, prefix, pid, tprefix, tid, <span class="string">"step2"</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s%lu %s%lu %s\n"</span>, prefix, pid, tprefix, tid, <span class="string">"step3"</span>);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">processB</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">		<span class="keyword">pid_t</span> pid = getpid();</span><br><span class="line">		<span class="keyword">char</span> prefix[] = <span class="string">"ProcessB: "</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s%lu %s\n"</span>, prefix, pid, <span class="string">"step1"</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s%lu %s\n"</span>, prefix, pid, <span class="string">"step2"</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s%lu %s\n"</span>, prefix, pid, <span class="string">"step3"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
 <h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><pre><code>[cnwuwil@centos c-lab]$ ./test
 ProcessA: 802 step1
@@ -805,7 +806,7 @@ Program received signal SIGINT, Interrupt.
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2015/09/12/hash索引btree索引聚簇索引非聚簇索引/" rel="prev" title="hash索引btree索引聚簇索引非聚簇索引">
+                <a href="/2015/09/12/hash%E7%B4%A2%E5%BC%95btree%E7%B4%A2%E5%BC%95%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95/" rel="prev" title="hash索引btree索引聚簇索引非聚簇索引">
                 <p class="post-nav-pre-next-title">
                     hash索引btree索引聚簇索引非聚簇索引
                 </p> 
@@ -885,7 +886,7 @@ Program received signal SIGINT, Interrupt.
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -897,7 +898,10 @@ Program received signal SIGINT, Interrupt.
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="kaisaier">
+            <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="kaisaier" 
+            />
           </a>
           <p class="site-author-name" itemprop="name">kaisaier</p>
            
@@ -912,7 +916,7 @@ Program received signal SIGINT, Interrupt.
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -921,7 +925,7 @@ Program received signal SIGINT, Interrupt.
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">169</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -932,7 +936,7 @@ Program received signal SIGINT, Interrupt.
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1025,7 +1029,7 @@ Program received signal SIGINT, Interrupt.
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GDB多进程-多线程调试实战例子"><span class="nav-number">1.</span> <span class="nav-text">GDB多进程/多线程调试实战例子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#例程"><span class="nav-number">1.1.</span> <span class="nav-text">例程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出"><span class="nav-number">1.2.</span> <span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GDB多进程调试命令"><span class="nav-number">2.</span> <span class="nav-text">GDB多进程调试命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GDB多线程调试命令"><span class="nav-number">3.</span> <span class="nav-text">GDB多线程调试命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实战调试1"><span class="nav-number">3.1.</span> <span class="nav-text">实战调试1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实战调试2"><span class="nav-number">3.2.</span> <span class="nav-text">实战调试2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GDB多进程-多线程调试实战例子"><span class="nav-number">1.</span> <span class="nav-text">GDB多进程&#x2F;多线程调试实战例子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#例程"><span class="nav-number">1.1.</span> <span class="nav-text">例程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出"><span class="nav-number">1.2.</span> <span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GDB多进程调试命令"><span class="nav-number">2.</span> <span class="nav-text">GDB多进程调试命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GDB多线程调试命令"><span class="nav-number">3.</span> <span class="nav-text">GDB多线程调试命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实战调试1"><span class="nav-number">3.1.</span> <span class="nav-text">实战调试1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实战调试2"><span class="nav-number">3.2.</span> <span class="nav-text">实战调试2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -1043,10 +1047,10 @@ Program received signal SIGINT, Interrupt.
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
